@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HSK 1 Standard Course • 课程平台</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    body {
+      font-family: "Baloo 2", system-ui, sans-serif;
+      background: #F4F6FB;
+      color: #334155;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .cn { font-family: "Noto Sans SC", sans-serif; }
+    .glass {
+      background: #FFFFFF !important;
+      border: 1px solid #E2E8F0 !important;
+      box-shadow: 0 10px 25px -5px rgba(0,0,0,.05) !important;
+    }
+    .catalog-card {
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    .catalog-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 30px rgba(99,102,241,.12);
+      border-color: #A5B4FC;
+    }
+    /* 嵌入课程页面的全屏 iframe */
+    #lessonIframe {
+      width: 100%;
+      height: calc(100vh - 80px);
+      border: none;
+      display: block;
+    }
+  </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+  <!-- 顶部主导航栏 -->
+  <header class="glass sticky top-0 z-50 px-4 py-2.5 flex items-center justify-between border-b border-slate-200 bg-white/95 backdrop-blur-md">
+    <div class="flex items-center gap-3 min-w-0">
+      <button id="btnHome" class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 text-white grid place-items-center text-lg font-bold shadow-md hover:scale-105 active:scale-95 transition" title="Quay về danh mục (返回目录)">
+        <i class="fa-solid fa-house"></i>
+      </button>
+      <div class="min-w-0">
+        <p class="text-[11px] font-black text-indigo-500 tracking-wider uppercase leading-none" id="headerSubtitle">HSK STANDARD COURSE</p>
+        <h1 class="text-base md:text-lg font-black truncate text-slate-800" id="headerTitle">Danh sách bài học (课程总目录)</h1>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-2">
+      <!-- 快速切换下拉框 -->
+      <select id="lessonSelect" class="rounded-xl px-3 py-1.5 bg-slate-100 border border-slate-200 font-bold text-xs md:text-sm text-slate-700 cursor-pointer outline-none focus:ring-2 focus:ring-indigo-400">
+        <option value="catalog">📚 Danh sách bài học (目录)</option>
+        <!-- 下拉选项由 JS 动态生成 -->
+      </select>
+    </div>
+  </header>
+
+  <!-- 内容切换区域 -->
+  <main class="flex-1">
+    <!-- 1. 课程目录视图 (Dashboard) -->
+    <div id="catalogPage" class="max-w-7xl mx-auto p-4 md:p-6">
+      <div class="mb-6 text-center md:text-left">
+        <h2 class="text-2xl font-black text-slate-800">Khóa học HSK 1</h2>
+        <p class="text-sm font-bold text-slate-500 mt-1">Chọn một bài học để bắt đầu (选择课程开始学习)</p>
+      </div>
+      <div id="catalogGrid" class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <!-- 卡片将由 JS 动态注入 -->
+      </div>
+    </div>
+
+    <!-- 2. 课程嵌入视图 (Iframe Container) -->
+    <div id="lessonContainer" class="hidden w-full h-full">
+      <iframe id="lessonIframe" src="about:blank" title="Lesson Content"></iframe>
+    </div>
+  </main>
+
+  <script src="lessons-index.js"></script>
+  <script>
+    // 渲染目录与卡片
+    function initApp() {
+      const gridEl = document.getElementById("catalogGrid");
+      const selectEl = document.getElementById("lessonSelect");
+
+      let gridHTML = "";
+      LESSONS_INDEX.forEach(item => {
+        // 填充 Select
+        const opt = document.createElement("option");
+        opt.value = item.id;
+        opt.textContent = `Bài ${item.id} • ${item.title}`;
+        selectEl.appendChild(opt);
+
+        // 构造 Catalog 卡片
+        gridHTML += `
+          <div onclick="switchLesson(${item.id})" class="catalog-card glass cursor-pointer rounded-2xl p-5 border border-slate-200 bg-white flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-black bg-indigo-50 text-indigo-600">${item.level}</span>
+                <span class="text-xs font-black text-slate-400">Bài ${item.id}</span>
+              </div>
+              <h3 class="text-2xl font-black text-slate-800 cn mb-1">${item.title}</h3>
+              <p class="text-sm font-bold text-slate-400">${item.pinyin}</p>
+            </div>
+            <div class="mt-6 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-black text-indigo-600">
+              <span>Học ngay</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </div>`;
+      });
+
+      gridEl.innerHTML = gridHTML;
+    }
+
+    // 切换到指定课程
+    function switchLesson(lessonId) {
+      const item = LESSONS_INDEX.find(l => l.id === lessonId);
+      if (!item) return;
+
+      // 更新顶部标题
+      document.getElementById("headerSubtitle").textContent = `HSK 1 • BÀI ${item.id}`;
+      document.getElementById("headerTitle").innerHTML = `Bài ${item.id}: <span class="cn">${item.title}</span>`;
+      document.getElementById("lessonSelect").value = item.id;
+
+      // 加载对应的 HTML 文件到 iframe
+      const iframe = document.getElementById("lessonIframe");
+      iframe.src = item.file;
+
+      // 显示 iframe，隐藏目录
+      document.getElementById("catalogPage").classList.add("hidden");
+      document.getElementById("lessonContainer").classList.remove("hidden");
+      window.scrollTo(0, 0);
+    }
+
+    // 返回总目录
+    function showCatalog() {
+      document.getElementById("headerSubtitle").textContent = "HSK STANDARD COURSE";
+      document.getElementById("headerTitle").textContent = "Danh sách bài học (课程总目录)";
+      document.getElementById("lessonSelect").value = "catalog";
+
+      // 隐藏 iframe，显示目录
+      document.getElementById("catalogPage").classList.remove("hidden");
+      document.getElementById("lessonContainer").classList.add("hidden");
+      
+      // 清空 iframe 释放内存
+      document.getElementById("lessonIframe").src = "about:blank";
+      window.scrollTo(0, 0);
+    }
+
+    // 绑定事件
+    document.getElementById("btnHome").onclick = showCatalog;
+    document.getElementById("lessonSelect").onchange = (e) => {
+      if (e.target.value === "catalog") showCatalog();
+      else switchLesson(Number(e.target.value));
+    };
+
+    // 初始化
+    window.addEventListener("DOMContentLoaded", initApp);
+  </script>
+</body>
+</html>
