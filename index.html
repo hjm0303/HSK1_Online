@@ -94,23 +94,25 @@
         // 填充 Select
         const opt = document.createElement("option");
         opt.value = item.id;
-        opt.textContent = `Bài ${item.id} • ${item.title}`;
+        opt.textContent = `Bài ${item.id} • ${item.title}${item.locked ? ' 🔒' : ''}`;
         selectEl.appendChild(opt);
 
-        // 构造 Catalog 卡片
+        // 构造 Catalog 卡片 (增加锁图标提示)
+        const lockBadge = item.locked ? `<i class="fa-solid fa-lock text-amber-500 ml-1.5" title="Cần mật khẩu"></i>` : '';
+
         gridHTML += `
           <div onclick="switchLesson(${item.id})" class="catalog-card glass cursor-pointer rounded-2xl p-5 border border-slate-200 bg-white flex flex-col justify-between">
             <div>
               <div class="flex items-center justify-between mb-3">
                 <span class="px-2.5 py-0.5 rounded-full text-xs font-black bg-indigo-50 text-indigo-600">${item.level}</span>
-                <span class="text-xs font-black text-slate-400">Bài ${item.id}</span>
+                <span class="text-xs font-black text-slate-400">Bài ${item.id} ${lockBadge}</span>
               </div>
               <h3 class="text-2xl font-black text-slate-800 cn mb-1">${item.title}</h3>
               <p class="text-sm font-bold text-slate-400">${item.pinyin}</p>
             </div>
             <div class="mt-6 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-black text-indigo-600">
-              <span>Học ngay</span>
-              <i class="fa-solid fa-arrow-right"></i>
+              <span>${item.locked ? 'Nhập mật khẩu (解锁访问)' : 'Học ngay'}</span>
+              <i class="fa-solid ${item.locked ? 'fa-key' : 'fa-arrow-right'}"></i>
             </div>
           </div>`;
       });
@@ -118,21 +120,37 @@
       gridEl.innerHTML = gridHTML;
     }
 
-    // 切换到指定课程
+    // 切换到指定课程 (加入密码判断)
     function switchLesson(lessonId) {
       const item = LESSONS_INDEX.find(l => l.id === lessonId);
       if (!item) return;
 
-      // 更新顶部标题
+      // 🔒 1. 检查是否加锁
+      if (item.locked) {
+        const userInput = prompt(`Mời nhập mật khẩu để học Bài ${item.id} (请输入访问密码):`);
+        
+        // 如果取消输入或密码不匹配
+        if (userInput !== item.password) {
+          if (userInput !== null) { // 非取消行为，提示错误
+            alert("Mật khẩu không đúng! (密码错误，无法访问)");
+          }
+          // 重置下拉框选项回到当前视图
+          const isContainerHidden = document.getElementById("lessonContainer").classList.contains("hidden");
+          if (isContainerHidden) {
+            document.getElementById("lessonSelect").value = "catalog";
+          }
+          return; // 阻止跳转
+        }
+      }
+
+      // 2. 验证通过，正常加载课程
       document.getElementById("headerSubtitle").textContent = `HSK 1 • BÀI ${item.id}`;
       document.getElementById("headerTitle").innerHTML = `Bài ${item.id}: <span class="cn">${item.title}</span>`;
       document.getElementById("lessonSelect").value = item.id;
 
-      // 加载对应的 HTML 文件到 iframe
       const iframe = document.getElementById("lessonIframe");
       iframe.src = item.file;
 
-      // 显示 iframe，隐藏目录
       document.getElementById("catalogPage").classList.add("hidden");
       document.getElementById("lessonContainer").classList.remove("hidden");
       window.scrollTo(0, 0);
