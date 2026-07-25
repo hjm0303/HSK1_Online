@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title id="documentTitle">HSK 1 • Bài 1 你好</title>
+  <title id="documentTitle">HSK 1 • Bài 3 你叫什么名字</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -6036,6 +6036,914 @@
       /* ===== Two-lesson single-page switcher ===== */
     #lessonSwitcher{min-width:150px!important}
     #lessonSwitcher option{font-family:var(--font-ui,"Be Vietnam Pro",sans-serif)}
+  
+
+/* ===== CLEAN SLATE ROLEPLAY ===== */
+    #roleplay .crp-shell{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      width:100%;
+      min-height:0;
+      box-sizing:border-box;
+    }
+
+    #roleplay .crp-toolbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      padding:12px;
+      background:#ffffff;
+      border:1px solid #E2E8F0;
+      border-radius:20px;
+      box-shadow:0 6px 18px rgba(15,23,42,.05);
+    }
+
+    #roleplay .crp-mode-tabs,
+    #roleplay .crp-role-picker{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+
+    #roleplay .crp-role-label{
+      color:#64748B;
+      font-size:.78rem;
+      font-weight:700;
+    }
+
+    #roleplay .crp-mode-btn,
+    #roleplay .crp-role-btn{
+      min-height:42px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:0 14px;
+      border:1px solid #CBD5E1;
+      border-radius:13px;
+      background:#F8FAFC;
+      color:#475569;
+      font-weight:700;
+      cursor:pointer;
+      transition:.18s ease;
+    }
+
+    #roleplay .crp-mode-btn.active,
+    #roleplay .crp-role-btn.active{
+      border-color:transparent;
+      background:linear-gradient(135deg,#6366F1,#4F46E5);
+      color:#ffffff;
+      box-shadow:0 8px 20px rgba(79,70,229,.22);
+    }
+
+    #roleplay .crp-stage{
+      min-height:0;
+      width:100%;
+    }
+
+    #roleplay .crp-card{
+      display:flex;
+      flex-direction:column;
+      width:100%;
+      height:580px;
+      max-height:75vh;
+      min-height:420px;
+      overflow:hidden;
+      background:#ffffff;
+      border:1px solid #E2E8F0;
+      border-radius:20px;
+      box-shadow:0 8px 24px rgba(15,23,42,.06);
+      box-sizing:border-box;
+    }
+
+    #roleplay .crp-card-head{
+      flex:0 0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:13px 16px;
+      border-bottom:1px solid #E2E8F0;
+      background:#ffffff;
+    }
+
+    #roleplay .crp-card-head h3{
+      margin:2px 0 0;
+      color:#1E293B;
+      font-size:1rem;
+      line-height:1.35;
+    }
+
+    #roleplay .crp-eyebrow{
+      margin:0;
+      color:#6366F1;
+      font-size:.68rem;
+      font-weight:800;
+      letter-spacing:.08em;
+    }
+
+    #roleplay .crp-progress{
+      padding:6px 10px;
+      border-radius:999px;
+      background:#EEF2FF;
+      color:#4F46E5;
+      font-size:.75rem;
+      font-weight:800;
+      white-space:nowrap;
+    }
+
+    #roleplay .crp-scroll-list,
+    #roleplay .crp-chat-scroll{
+      flex:1 1 auto;
+      min-height:0;
+      overflow-y:auto;
+      overflow-x:hidden;
+      padding:12px 14px;
+      scroll-behavior:smooth;
+      overscroll-behavior:contain;
+      scrollbar-gutter:stable;
+    }
+
+    #roleplay .crp-scroll-list{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+
+    #roleplay .crp-demo-message{
+      display:grid;
+      grid-template-columns:44px minmax(0,1fr) 24px;
+      align-items:flex-start;
+      gap:11px;
+      width:100%;
+      padding:12px 16px;
+      border:1px solid #E2E8F0;
+      border-radius:16px;
+      background:#ffffff;
+      box-shadow:0 4px 12px rgba(0,0,0,.03);
+      text-align:left;
+      cursor:pointer;
+      box-sizing:border-box;
+    }
+
+    #roleplay .crp-demo-message.from-b{
+      border-color:#C7D2FE;
+      background:#F8FAFF;
+    }
+
+    #roleplay .crp-message-body{
+      min-width:0;
+    }
+
+    #roleplay .crp-avatar{
+      width:42px;
+      height:42px;
+      display:grid;
+      place-items:center;
+      flex:0 0 42px;
+      border-radius:14px;
+      background:#F8FAFC;
+      border:1px solid #E2E8F0;
+      font-size:1.25rem;
+    }
+
+    #roleplay .crp-speaker{
+      margin-bottom:2px;
+      color:#64748B;
+      font-size:.72rem;
+      font-weight:800;
+    }
+
+    #roleplay .crp-hanzi{
+      color:#1E1B4B;
+      font-size:1.35rem;
+      line-height:1.45;
+      font-weight:750;
+      overflow-wrap:anywhere;
+    }
+
+    #roleplay .crp-pinyin{
+      margin-top:3px;
+      color:#4F46E5;
+      font-size:.9rem;
+      line-height:1.4;
+      font-weight:650;
+      overflow-wrap:anywhere;
+    }
+
+    #roleplay .crp-vietnamese{
+      margin-top:3px;
+      color:#6B7280;
+      font-size:.85rem;
+      line-height:1.4;
+      overflow-wrap:anywhere;
+    }
+
+    #roleplay .crp-speaker-icon{
+      margin-top:10px;
+      color:#6366F1;
+    }
+
+    #roleplay .crp-chat-scroll{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+
+    #roleplay .crp-chat-row{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      max-width:82%;
+    }
+
+    #roleplay .crp-chat-row.user,
+    #roleplay .crp-chat-row.user-result{
+      margin-left:auto;
+      flex-direction:row-reverse;
+    }
+
+    #roleplay .crp-chat-bubble,
+    #roleplay .crp-result-bubble{
+      min-width:0;
+      max-width:560px;
+      padding:12px 16px;
+      border:1px solid #E2E8F0;
+      border-radius:16px;
+      background:#ffffff;
+      box-shadow:0 4px 12px rgba(0,0,0,.03);
+      text-align:left;
+      box-sizing:border-box;
+    }
+
+    #roleplay .crp-chat-row.user .crp-chat-bubble{
+      border-color:#C7D2FE;
+      background:#F8FAFF;
+    }
+
+    #roleplay .crp-hidden-answer{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      width:min(560px,82%);
+      margin-left:auto;
+      padding:12px 16px;
+      border:1px dashed #A5B4FC;
+      border-radius:16px;
+      background:#F8FAFF;
+      box-sizing:border-box;
+    }
+
+    #roleplay .crp-hidden-icon{
+      width:42px;
+      height:42px;
+      display:grid;
+      place-items:center;
+      flex:0 0 42px;
+      border-radius:14px;
+      background:#E0E7FF;
+      color:#4F46E5;
+    }
+
+    #roleplay .crp-hidden-answer strong{
+      color:#1E293B;
+      font-size:.9rem;
+    }
+
+    #roleplay .crp-hidden-answer p{
+      margin:3px 0 0;
+      color:#64748B;
+      font-size:.78rem;
+      line-height:1.4;
+    }
+
+    #roleplay .crp-result-bubble{
+      border-color:#A5B4FC;
+      background:#F8FAFF;
+    }
+
+    #roleplay .crp-result-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:8px;
+      color:#475569;
+      font-size:.78rem;
+      font-weight:700;
+    }
+
+    #roleplay .crp-result-head strong{
+      padding:5px 9px;
+      border-radius:999px;
+      background:#E0E7FF;
+      color:#4338CA;
+      font-size:.84rem;
+    }
+
+    #roleplay .crp-result-marked{
+      display:flex;
+      flex-wrap:wrap;
+      gap:4px;
+      padding:9px 10px;
+      border:1px solid #E2E8F0;
+      border-radius:12px;
+      background:#ffffff;
+      font-size:1.25rem;
+      line-height:1.4;
+      font-weight:750;
+    }
+
+    #roleplay .crp-char-ok,
+    #roleplay .crp-char-bad{
+      display:inline-grid;
+      place-items:center;
+      min-width:1.2em;
+      padding:1px 3px;
+      border-radius:7px;
+    }
+
+    #roleplay .crp-char-ok{
+      color:#047857;
+      background:#D1FAE5;
+      border-bottom:2px solid #10B981;
+    }
+
+    #roleplay .crp-char-bad{
+      color:#B91C1C;
+      background:#FEE2E2;
+      text-decoration:underline;
+      text-decoration-thickness:2px;
+      text-decoration-color:#EF4444;
+    }
+
+    #roleplay .crp-result-raw{
+      margin-top:7px;
+      color:#64748B;
+      font-size:.78rem;
+      overflow-wrap:anywhere;
+    }
+
+    #roleplay .crp-controls{
+      flex:0 0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      flex-wrap:wrap;
+      padding:11px 14px;
+      border-top:1px solid #E2E8F0;
+      background:#F8FAFC;
+    }
+
+    #roleplay .crp-primary-btn,
+    #roleplay .crp-secondary-btn,
+    #roleplay .crp-next-btn,
+    #roleplay .crp-record-btn{
+      min-height:46px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:0 16px;
+      border-radius:14px;
+      font-weight:800;
+      cursor:pointer;
+      white-space:nowrap;
+      transition:.18s ease;
+    }
+
+    #roleplay .crp-primary-btn{
+      border:0;
+      background:linear-gradient(135deg,#6366F1,#4F46E5);
+      color:#ffffff;
+      box-shadow:0 8px 18px rgba(79,70,229,.2);
+    }
+
+    #roleplay .crp-secondary-btn{
+      border:1px solid #C7D2FE;
+      background:#ffffff;
+      color:#4F46E5;
+    }
+
+    #roleplay .crp-next-btn{
+      border:0;
+      background:linear-gradient(135deg,#10B981,#059669);
+      color:#ffffff;
+      box-shadow:0 8px 18px rgba(16,185,129,.2);
+    }
+
+    #roleplay .crp-record-btn{
+      min-width:190px;
+      position:relative;
+      overflow:hidden;
+      border:1px solid #CBD5E1;
+      background:#ffffff;
+      color:#334155;
+    }
+
+    #roleplay .crp-record-btn.recording{
+      border-color:transparent;
+      background:linear-gradient(135deg,#EF4444,#DC2626);
+      color:#ffffff;
+      box-shadow:0 0 0 6px rgba(239,68,68,.12);
+    }
+
+    #roleplay .crp-record-btn.processing{
+      border-color:transparent;
+      background:linear-gradient(135deg,#FBBF24,#F59E0B);
+      color:#78350F;
+    }
+
+    #roleplay .crp-wave{
+      display:none;
+      align-items:center;
+      gap:3px;
+      height:24px;
+    }
+
+    #roleplay .crp-record-btn.recording .crp-wave{
+      display:flex;
+    }
+
+    #roleplay .crp-wave i{
+      width:4px;
+      height:9px;
+      border-radius:999px;
+      background:currentColor;
+      animation:crpWave .72s ease-in-out infinite;
+    }
+
+    #roleplay .crp-wave i:nth-child(2){animation-delay:.12s}
+    #roleplay .crp-wave i:nth-child(3){animation-delay:.24s}
+    #roleplay .crp-wave i:nth-child(4){animation-delay:.36s}
+
+    @keyframes crpWave{
+      0%,100%{height:8px}
+      50%{height:24px}
+    }
+
+    #roleplay button:disabled{
+      opacity:.42;
+      cursor:not-allowed;
+      box-shadow:none;
+    }
+
+    #roleplay .crp-status{
+      flex:0 0 auto;
+      min-height:32px;
+      padding:7px 12px;
+      border-top:1px solid #E2E8F0;
+      background:#ffffff;
+      color:#64748B;
+      font-size:.78rem;
+      text-align:center;
+    }
+
+    #roleplay .crp-live-dot{
+      width:9px;
+      height:9px;
+      display:inline-block;
+      margin-right:7px;
+      border-radius:50%;
+      background:#EF4444;
+      animation:crpPulse 1s ease-in-out infinite;
+    }
+
+    @keyframes crpPulse{
+      0%,100%{transform:scale(.85);opacity:.55}
+      50%{transform:scale(1.2);opacity:1}
+    }
+
+    @media(max-width:760px){
+      #roleplay .crp-toolbar{
+        align-items:stretch;
+      }
+
+      #roleplay .crp-mode-tabs,
+      #roleplay .crp-role-picker{
+        width:100%;
+      }
+
+      #roleplay .crp-mode-btn,
+      #roleplay .crp-role-btn{
+        flex:1 1 auto;
+      }
+
+      #roleplay .crp-card{
+        height:560px;
+        max-height:78vh;
+      }
+
+      #roleplay .crp-chat-row{
+        max-width:94%;
+      }
+
+      #roleplay .crp-hidden-answer{
+        width:94%;
+      }
+    }
+
+    @media(max-width:520px){
+      #roleplay .crp-card{
+        height:540px;
+        max-height:80vh;
+      }
+
+      #roleplay .crp-demo-message{
+        grid-template-columns:38px minmax(0,1fr);
+        padding:10px 12px;
+      }
+
+      #roleplay .crp-speaker-icon{
+        display:none;
+      }
+
+      #roleplay .crp-avatar{
+        width:38px;
+        height:38px;
+        flex-basis:38px;
+      }
+
+      #roleplay .crp-hanzi{
+        font-size:1.25rem;
+      }
+
+      #roleplay .crp-controls{
+        display:grid;
+        grid-template-columns:1fr;
+      }
+
+      #roleplay .crp-primary-btn,
+      #roleplay .crp-secondary-btn,
+      #roleplay .crp-next-btn,
+      #roleplay .crp-record-btn{
+        width:100%;
+      }
+    }
+
+    /* ===== Roleplay viewport containment only ===== */
+    #roleplay .crp-shell{
+      display:flex!important;
+      flex-direction:column!important;
+      height:calc(100vh - 160px)!important;
+      max-height:650px!important;
+      min-height:0!important;
+      overflow:hidden!important;
+      box-sizing:border-box!important;
+    }
+
+    #roleplay .crp-toolbar{
+      flex:0 0 auto!important;
+      flex-shrink:0!important;
+      min-height:0!important;
+    }
+
+    #roleplay .crp-stage{
+      flex:1 1 auto!important;
+      min-height:0!important;
+      overflow:hidden!important;
+      display:flex!important;
+      flex-direction:column!important;
+    }
+
+    #roleplay .crp-card{
+      flex:1 1 auto!important;
+      min-height:0!important;
+      height:100%!important;
+      max-height:100%!important;
+      overflow:hidden!important;
+      display:flex!important;
+      flex-direction:column!important;
+      box-sizing:border-box!important;
+    }
+
+    #roleplay .crp-card-head{
+      flex:0 0 auto!important;
+      flex-shrink:0!important;
+      min-height:0!important;
+    }
+
+    #roleplay .crp-scroll-list,
+    #roleplay .crp-chat-scroll{
+      flex:1 1 auto!important;
+      min-height:0!important;
+      overflow-y:auto!important;
+      overflow-x:hidden!important;
+      padding-right:8px!important;
+      scroll-behavior:smooth!important;
+      overscroll-behavior:contain!important;
+      scrollbar-gutter:stable!important;
+    }
+
+    #roleplay .crp-controls,
+    #roleplay .crp-status{
+      flex:0 0 auto!important;
+      flex-shrink:0!important;
+      min-height:0!important;
+    }
+
+    @media(max-width:760px){
+      #roleplay .crp-shell{
+        height:calc(100vh - 140px)!important;
+        max-height:650px!important;
+      }
+    }
+
+    @media(max-height:700px){
+      #roleplay .crp-shell{
+        height:calc(100vh - 120px)!important;
+        max-height:650px!important;
+      }
+    }
+
+  
+    /* ===== Roleplay fixed viewport containment 620px ===== */
+    #roleplay,
+    #roleplay .crp-shell{
+      display:flex!important;
+      flex-direction:column!important;
+      height:calc(100vh - 150px)!important;
+      max-height:620px!important;
+      min-height:0!important;
+      overflow:hidden!important;
+      box-sizing:border-box!important;
+      margin-bottom:0!important;
+    }
+
+    #roleplay .crp-toolbar{
+      flex:0 0 auto!important;
+      flex-shrink:0!important;
+      min-height:0!important;
+    }
+
+    #roleplay .crp-stage{
+      flex:1 1 auto!important;
+      min-height:0!important;
+      overflow:hidden!important;
+      display:flex!important;
+      flex-direction:column!important;
+    }
+
+    #roleplay .crp-card{
+      flex:1 1 auto!important;
+      min-height:0!important;
+      height:100%!important;
+      max-height:100%!important;
+      overflow:hidden!important;
+      display:flex!important;
+      flex-direction:column!important;
+      box-sizing:border-box!important;
+      margin-bottom:0!important;
+    }
+
+    #roleplay .crp-card-head{
+      flex:0 0 auto!important;
+      flex-shrink:0!important;
+      min-height:0!important;
+    }
+
+    #roleplay .crp-scroll-list,
+    #roleplay .crp-chat-scroll{
+      flex:1 1 auto!important;
+      min-height:0!important;
+      overflow-y:auto!important;
+      overflow-x:hidden!important;
+      padding-right:4px!important;
+      scroll-behavior:smooth!important;
+      overscroll-behavior:contain!important;
+      scrollbar-gutter:stable!important;
+    }
+
+    #roleplay .crp-controls,
+    #roleplay .crp-status{
+      flex:0 0 auto!important;
+      flex-shrink:0!important;
+      min-height:0!important;
+    }
+
+    @media(max-width:760px){
+      #roleplay,
+      #roleplay .crp-shell{
+        height:calc(100vh - 132px)!important;
+        max-height:620px!important;
+      }
+    }
+
+    @media(max-height:700px){
+      #roleplay,
+      #roleplay .crp-shell{
+        height:calc(100vh - 110px)!important;
+        max-height:620px!important;
+      }
+    }
+
+  
+    /* ===== Roleplay flexbox bottom-overflow fix 520px ===== */
+    #roleplay,
+    #roleplay .crp-shell,
+    #roleplay .crp-card{
+      display:flex!important;
+      flex-direction:column!important;
+      height:520px!important;
+      max-height:70vh!important;
+      min-height:0!important;
+      overflow:hidden!important;
+      box-sizing:border-box!important;
+      margin-bottom:0!important;
+    }
+
+    #roleplay .crp-toolbar,
+    #roleplay .crp-card-head,
+    #roleplay .crp-controls,
+    #roleplay .crp-status{
+      flex:0 0 auto!important;
+      flex-shrink:0!important;
+      min-height:0!important;
+      box-sizing:border-box!important;
+    }
+
+    #roleplay .crp-stage{
+      flex:1 1 auto!important;
+      min-height:0!important;
+      overflow:hidden!important;
+      display:flex!important;
+      flex-direction:column!important;
+      box-sizing:border-box!important;
+    }
+
+    #roleplay .crp-scroll-list,
+    #roleplay .crp-chat-scroll{
+      flex:1 1 auto!important;
+      min-height:0!important;
+      max-height:none!important;
+      overflow-y:auto!important;
+      overflow-x:hidden!important;
+      box-sizing:border-box!important;
+      scroll-behavior:smooth!important;
+      overscroll-behavior:contain!important;
+      scrollbar-gutter:stable!important;
+    }
+
+    #roleplay .crp-scroll-list > *,
+    #roleplay .crp-chat-scroll > *{
+      flex-shrink:0!important;
+    }
+
+    @media(max-width:760px){
+      #roleplay,
+      #roleplay .crp-shell,
+      #roleplay .crp-card{
+        height:500px!important;
+        max-height:72vh!important;
+      }
+    }
+
+    @media(max-height:700px){
+      #roleplay,
+      #roleplay .crp-shell,
+      #roleplay .crp-card{
+        height:470px!important;
+        max-height:68vh!important;
+      }
+    }
+
+  
+    /* ===== Global cleanup and containment guard ===== */
+    html,
+    body{
+      width:100%!important;
+      max-width:100%!important;
+      min-height:100%!important;
+      margin:0!important;
+      overflow-x:hidden!important;
+      box-sizing:border-box!important;
+    }
+
+    body{
+      position:relative!important;
+      overflow-y:auto!important;
+    }
+
+    body > .max-w-7xl{
+      width:100%!important;
+      max-width:80rem!important;
+      min-height:100vh!important;
+      margin-left:auto!important;
+      margin-right:auto!important;
+      box-sizing:border-box!important;
+      overflow-x:hidden!important;
+      position:relative!important;
+      isolation:isolate!important;
+    }
+
+    /* Never allow Roleplay controls to render outside the Roleplay panel. */
+    body > .crp-shell,
+    body > .crp-card,
+    body > .crp-toolbar,
+    body > .crp-controls,
+    body > .crp-status,
+    body > .crp-record-btn,
+    body > .crp-primary-btn,
+    body > .crp-secondary-btn,
+    body > .crp-next-btn,
+    body > .crp-chat-row,
+    body > .crp-demo-message{
+      display:none!important;
+    }
+
+    #roleplay{
+      position:relative!important;
+      isolation:isolate!important;
+      overflow:hidden!important;
+    }
+
+    #roleplay .crp-shell,
+    #roleplay .crp-card,
+    #roleplay .crp-toolbar,
+    #roleplay .crp-controls,
+    #roleplay .crp-status{
+      max-width:100%!important;
+      box-sizing:border-box!important;
+    }
+
+  
+    /* ===== Final inactive-tab containment: remove hidden panels from document flow ===== */
+    #app > .tab-panel:not(.active){
+      display:none!important;
+      visibility:hidden!important;
+      position:static!important;
+      width:0!important;
+      height:0!important;
+      min-height:0!important;
+      max-height:0!important;
+      margin:0!important;
+      padding:0!important;
+      border:0!important;
+      overflow:hidden!important;
+      pointer-events:none!important;
+    }
+
+    #app > .tab-panel.active{
+      display:block!important;
+      visibility:visible!important;
+      width:auto!important;
+      height:auto!important;
+      min-height:0!important;
+      max-height:none!important;
+      overflow:visible!important;
+      pointer-events:auto!important;
+    }
+
+    /* Roleplay keeps its fixed Flex layout only while its top-level tab is active. */
+    #app > #roleplay.tab-panel.active{
+      display:flex!important;
+      flex-direction:column!important;
+      height:520px!important;
+      max-height:70vh!important;
+      min-height:0!important;
+      overflow:hidden!important;
+      box-sizing:border-box!important;
+    }
+
+    /* No controls or media icons may exist visually outside an active panel. */
+    #app > .tab-panel:not(.active) button,
+    #app > .tab-panel:not(.active) i,
+    #app > .tab-panel:not(.active) svg,
+    #app > .tab-panel:not(.active) [class*="icon"],
+    #app > .tab-panel:not(.active) [class*="mic"],
+    #app > .tab-panel:not(.active) [class*="play"],
+    #app > .tab-panel:not(.active) [class*="volume"],
+    #app > .tab-panel:not(.active) [class*="headphone"]{
+      display:none!important;
+    }
+
+    html,
+    body{
+      overflow-x:hidden!important;
+    }
+
+    body > .max-w-7xl{
+      min-height:100vh!important;
+      display:flex!important;
+      flex-direction:column!important;
+    }
+
+    body > .max-w-7xl > main{
+      flex:0 0 auto!important;
+      min-height:0!important;
+      overflow:visible!important;
+    }
+
+    body > .max-w-7xl > footer{
+      margin-top:auto!important;
+      flex:0 0 auto!important;
+    }
+
   </style>
 <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script>
 </head>
@@ -6045,14 +6953,14 @@
       <div class="flex items-center gap-3 min-w-0">
         <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-pink-300 to-violet-400 text-white grid place-items-center text-2xl soft">你</div>
         <div class="min-w-0">
-          <p id="lessonSubtitle" class="text-xs font-bold text-violet-500">HSK 1 • STANDARD COURSE • BÀI 1</p>
-          <h1 id="lessonTitle" class="text-lg md:text-2xl font-black truncate">HSK 1 - Bài 1: <span class="cn">你好</span></h1>
+          <p id="lessonSubtitle" class="text-xs font-bold text-violet-500">HSK 1 • STANDARD COURSE • BÀI 3</p>
+          <h1 id="lessonTitle" class="text-lg md:text-2xl font-black truncate">HSK 1 - Bài 3: <span class="cn">你叫什么名字</span></h1>
         </div>
       </div>
       <div class="flex flex-wrap items-center gap-2 ml-auto">
         <select id="lessonSwitcher" class="rounded-xl border border-white/70 bg-white/80 px-3 py-2 font-bold outline-none">
-          <option value="1" selected>Bài 1 · 你好</option>
-          <option disabled>Bài tiếp theo · Sắp ra mắt</option>
+          <option value="3" selected>Bài 3 · 你叫什么名字</option>
+          <option disabled>Bài 4 · Sắp ra mắt</option>
         </select>
         <button id="soundToggle" aria-label="Bật tắt âm thanh" class="btn3d rounded-xl px-3 py-2 bg-amber-200 font-bold"><i class="fa-solid fa-volume-high"></i></button>
         <div class="rounded-xl px-3 py-2 bg-white/90 shadow-md font-black text-sm">⭐ <span id="globalScore">0</span></div>
@@ -6065,21 +6973,21 @@
 
     <main id="app"></main>
 
-    <footer class="text-center text-sm text-slate-500 py-8"><span id="footerLesson">HSK 1 • Bài 1 你好</span> • Single-file Learning App</footer>
+    <footer class="text-center text-sm text-slate-500 py-8"><span id="footerLesson">HSK 1 • Bài 3 你叫什么名字</span> • Single-file Learning App</footer>
   </div>
 
 <script>
 const LESSONS_DATA = {
-  1: {
-    title:"你好",
+  3: {
+    title:"你叫什么名字",
     objectives:{
-      sentencePatterns:["你好！","您好！","你们好！","对不起！","没关系！"],
-      phonetics:["14 thanh mẫu","18 vận mẫu","4 thanh điệu","Biến điệu liên tiếp của hai thanh 3"],
-      characters:["Nhận biết các nét: 一,丨,丿,丶,㇏","Viết chữ độc thể: 一、二、三、十、八、六"],
-      functions:["Chào hỏi","Xin lỗi","Bày tỏ sự thông cảm"]
+      sentencePatterns:["你叫什么名字？","我叫李月。","我是老师。","你是学生吗？","我是中国人。"],
+      phonetics:["Luyện phân biệt j / q / x và zh / ch / sh","Vận mẫu iao, en, ing, uo, eng","Thanh nhẹ trong 什么 và 名字","Biến điệu của 不 trước thanh 4"],
+      characters:["Chữ trọng tâm: 叫、什、么、名、字、我、是、人","Nhận biết bộ khẩu 口, nhân 亻, nữ 女, nhật 日"],
+      functions:["Hỏi và giới thiệu tên","Nói nghề nghiệp / thân phận","Hỏi câu Yes/No với 吗","Giới thiệu quốc tịch"]
     },
-    initials:["b","p","m","f","d","t","n","l","g","k","h","j","q","x"],
-    finals:["a","o","e","ai","ei","ao","i","ia","ie","iao","u","ua","uo","uai","uei (ui)","ü","üe","er"],
+    initials:["j","q","x","sh","m","n","w","l","r","zh"],
+    finals:["iao","en","ing","i","ao","ue","uo","eng","an","ong","ei","uo"],
     tones:[
       {name:"Thanh 1",mark:"mā",value:"55",desc:"Cao và đều"},
       {name:"Thanh 2",mark:"má",value:"35",desc:"Từ trung lên cao"},
@@ -6087,195 +6995,175 @@ const LESSONS_DATA = {
       {name:"Thanh 4",mark:"mà",value:"51",desc:"Từ cao xuống thấp"}
     ],
     pinyinNotes:[
-      "b-p, d-t, g-k, j-q là các cặp cần phân biệt âm bật hơi và không bật hơi.",
-      "j, q, x là nhóm âm mặt lưỡi; khi phát âm đầu lưỡi hạ, mặt lưỡi trước nâng gần ngạc cứng.",
-      "a, o, e và i có nhiều cách đọc tùy tổ hợp vận mẫu."
+      "什么 thường đọc shénme, âm tiết me là thanh nhẹ.",
+      "名字 thường đọc míngzi, âm tiết zi là thanh nhẹ.",
+      "不 đọc bú khi đứng trước âm tiết thanh 4: 不是 → bú shì."
     ],
     coreVocabulary:[
-      {han:"你",py:"nǐ",vi:"bạn"},
-      {han:"好",py:"hǎo",vi:"tốt, khỏe"},
-      {han:"你好",py:"nǐ hǎo",vi:"xin chào"},
-      {han:"您",py:"nín",vi:"ngài / ông / bà (kính ngữ)"},
-      {han:"您好",py:"nín hǎo",vi:"xin chào (kính trọng)"},
-      {han:"你们",py:"nǐmen",vi:"các bạn"},
-      {han:"你们好",py:"nǐmen hǎo",vi:"chào các bạn"},
-      {han:"对不起",py:"duìbuqǐ",vi:"xin lỗi"},
-      {han:"没关系",py:"méi guānxi",vi:"không sao"}
+      {han:"叫",py:"jiào",vi:"gọi là, tên là"},
+      {han:"什么",py:"shénme",vi:"gì, cái gì"},
+      {han:"名字",py:"míngzì",vi:"tên"},
+      {han:"我",py:"wǒ",vi:"tôi"},
+      {han:"是",py:"shì",vi:"là"},
+      {han:"老师",py:"lǎoshī",vi:"giáo viên"},
+      {han:"吗",py:"ma",vi:"trợ từ nghi vấn"},
+      {han:"学生",py:"xuéshēng",vi:"học sinh"},
+      {han:"人",py:"rén",vi:"người"},
+      {han:"李月",py:"Lǐ Yuè",vi:"Lý Nguyệt (tên người)"},
+      {han:"中国",py:"Zhōngguó",vi:"Trung Quốc"},
+      {han:"美国",py:"Měiguó",vi:"Mỹ, Hoa Kỳ"}
     ],
     classroom:[
-      {han:"上课",py:"shàngkè",vi:"vào học"},
-      {han:"下课",py:"xiàkè",vi:"tan học"},
-      {han:"现在休息",py:"xiànzài xiūxi",vi:"bây giờ nghỉ"},
-      {han:"看黑板",py:"kàn hēibǎn",vi:"nhìn bảng"},
-      {han:"跟我读",py:"gēn wǒ dú",vi:"đọc theo tôi"}
+      {han:"你叫什么名字？",py:"Nǐ jiào shénme míngzi?",vi:"Bạn tên là gì?"},
+      {han:"请介绍一下。",py:"Qǐng jièshào yíxià.",vi:"Hãy giới thiệu một chút."},
+      {han:"你是学生吗？",py:"Nǐ shì xuésheng ma?",vi:"Bạn là học sinh phải không?"},
+      {han:"我是老师。",py:"Wǒ shì lǎoshī.",vi:"Tôi là giáo viên."},
+      {han:"你是哪国人？",py:"Nǐ shì nǎ guó rén?",vi:"Bạn là người nước nào?"}
     ],
     loanwords:[
-      {han:"贝克汉姆",py:"Bèikèhànmǔ",vi:"Beckham"},
-      {han:"哈利·波特",py:"Hālì Bōtè",vi:"Harry Potter"},
-      {han:"汉堡包",py:"hànbǎobāo",vi:"hamburger"},
-      {han:"麦当劳",py:"Màidāngláo",vi:"McDonald's"},
-      {han:"阿迪达斯",py:"Ādídásī",vi:"Adidas"},
-      {han:"耐克",py:"Nàikè",vi:"Nike"}
+      {han:"美国",py:"Měiguó",vi:"Mỹ"},
+      {han:"中国",py:"Zhōngguó",vi:"Trung Quốc"},
+      {han:"学生",py:"xuéshēng",vi:"học sinh"},
+      {han:"老师",py:"lǎoshī",vi:"giáo viên"},
+      {han:"名字",py:"míngzi",vi:"tên"}
     ],
     strokes:[
-      {han:"一",name:"横",vi:"Ngang",hint:"kéo từ trái sang phải"},
-      {han:"丨",name:"竖",vi:"Sổ",hint:"kéo từ trên xuống"},
-      {han:"丿",name:"撇",vi:"Phẩy",hint:"xiên xuống trái"},
-      {han:"丶",name:"点",vi:"Chấm",hint:"chấm nghiêng"},
-      {han:"㇏",name:"捺",vi:"Mác",hint:"xiên xuống phải"}
+      {han:"亅",name:"竖钩",vi:"Sổ móc",hint:"sổ thẳng xuống rồi móc"},
+      {han:"亻",name:"单人旁",vi:"Bộ nhân đứng",hint:"phẩy rồi sổ"},
+      {han:"乚",name:"竖弯钩",vi:"Sổ cong móc",hint:"sổ xuống, cong sang phải rồi móc"}
     ],
     simpleChars:[
-      {han:"一",py:"yī",vi:"một",number:1},
-      {han:"二",py:"èr",vi:"hai",number:2},
-      {han:"三",py:"sān",vi:"ba",number:3},
-      {han:"十",py:"shí",vi:"mười",number:10},
-      {han:"八",py:"bā",vi:"tám",number:8},
-      {han:"六",py:"liù",vi:"sáu",number:6}
+      {han:"叫",py:"jiào",vi:"gọi là"},
+      {han:"名",py:"míng",vi:"tên"},
+      {han:"字",py:"zì",vi:"chữ; tên"},
+      {han:"我",py:"wǒ",vi:"tôi"},
+      {han:"是",py:"shì",vi:"là"},
+      {han:"人",py:"rén",vi:"người"}
     ],
     numbers:[
-      {han:"一",n:1},{han:"二",n:2},{han:"三",n:3},{han:"四",n:4},{han:"五",n:5},
-      {han:"六",n:6},{han:"七",n:7},{han:"八",n:8},{han:"九",n:9},{han:"十",n:10}
+      {han:"叫",n:"gọi là"},
+      {han:"名字",n:"tên"},
+      {han:"老师",n:"giáo viên"},
+      {han:"学生",n:"học sinh"},
+      {han:"中国",n:"Trung Quốc"}
     ],
     grammar:[
-      {title:"Biến điệu thanh 3",body:"Khi hai âm tiết thanh 3 đứng liền nhau, âm tiết thứ nhất thường đọc thành thanh 2: 3 + 3 → 2 + 3. Ví dụ: 你好 viết nǐ hǎo nhưng đọc gần như ní hǎo."},
-      {title:"Phân biệt 你 / 您",body:"你 dùng với bạn bè, người ngang hàng hoặc người quen. 您 là cách xưng hô kính trọng với người lớn tuổi, thầy cô hoặc khách."},
-      {title:"Chữ độc thể",body:"一、二、三、十、八、六 là các chữ độc thể cơ bản. Người học luyện đúng hướng đi của nét và thứ tự nét."},
-      {title:"Âm tiết tiếng Hán",body:"Một âm tiết thường gồm thanh mẫu, vận mẫu và thanh điệu. Không phải âm tiết nào cũng có thanh mẫu; ví dụ: 二 èr."}
+      {title:"Đại từ nghi vấn 什么",body:"Dùng 什么 để hỏi về sự vật hoặc thông tin chưa biết: 你叫什么名字？"},
+      {title:"Câu chữ 是",body:"A 是 B dùng để xác định thân phận hoặc quốc tịch: 我是老师。"},
+      {title:"Câu hỏi với 吗",body:"Thêm 吗 cuối câu trần thuật để tạo câu hỏi Yes/No: 你是学生吗？"},
+      {title:"Biến điệu của 不",body:"不 đọc bú trước thanh 4: 不是 bú shì; các trường hợp khác thường đọc bù."}
     ],
     dialogues:[
-      {title:"Chào hỏi cơ bản",a:{name:"Tiểu Minh",line:"你好！",py:"Nǐ hǎo!"},b:{name:"Môi Môi",line:"你好！",py:"Nǐ hǎo!"}},
-      {title:"Chào kính trọng",a:{name:"Học sinh",line:"您好！",py:"Nín hǎo!"},b:{name:"Cô giáo",line:"你们好！",py:"Nǐmen hǎo!"}},
-      {title:"Xin lỗi & thông cảm",a:{name:"Tiểu Minh",line:"对不起！",py:"Duìbuqǐ!"},b:{name:"Môi Môi",line:"没关系！",py:"Méi guānxi!"}}
+      {
+        title:"Cuộc gặp đầu tiên · Chào hỏi, làm quen và quốc tịch",
+        steps:[
+          {speaker:"A",name:"Tiểu Minh",text:"你好！",py:"Nǐ hǎo!",vi:"Xin chào!"},
+          {speaker:"B",name:"Anna",text:"你好！",py:"Nǐ hǎo!",vi:"Xin chào!"},
+          {speaker:"A",name:"Tiểu Minh",text:"你叫什么名字？",py:"Nǐ jiào shénme míngzi?",vi:"Bạn tên là gì?"},
+          {speaker:"B",name:"Anna",text:"我叫安娜。你呢？",py:"Wǒ jiào Ānnà. Nǐ ne?",vi:"Tôi tên là Anna. Còn bạn?"},
+          {speaker:"A",name:"Tiểu Minh",text:"我叫小明。认识你很高兴！",py:"Wǒ jiào Xiǎomíng. Rènshi nǐ hěn gāoxìng!",vi:"Tôi tên là Tiểu Minh. Rất vui được biết bạn!"},
+          {speaker:"B",name:"Anna",text:"我也很高兴。你是学生吗？",py:"Wǒ yě hěn gāoxìng. Nǐ shì xuésheng ma?",vi:"Tôi cũng rất vui. Bạn là học sinh phải không?"},
+          {speaker:"A",name:"Tiểu Minh",text:"是，我是学生。你呢？",py:"Shì, wǒ shì xuésheng. Nǐ ne?",vi:"Đúng, tôi là học sinh. Còn bạn?"},
+          {speaker:"B",name:"Anna",text:"我也是学生。",py:"Wǒ yě shì xuésheng.",vi:"Tôi cũng là học sinh."},
+          {speaker:"A",name:"Tiểu Minh",text:"你是美国人吗？",py:"Nǐ shì Měiguó rén ma?",vi:"Bạn là người Mỹ phải không?"},
+          {speaker:"B",name:"Anna",text:"是，我是美国人。你是中国人吗？",py:"Shì, wǒ shì Měiguó rén. Nǐ shì Zhōngguó rén ma?",vi:"Đúng, tôi là người Mỹ. Bạn là người Trung Quốc phải không?"},
+          {speaker:"A",name:"Tiểu Minh",text:"是，我是中国人。",py:"Shì, wǒ shì Zhōngguó rén.",vi:"Đúng, tôi là người Trung Quốc."},
+          {speaker:"B",name:"Anna",text:"谢谢你！",py:"Xièxie nǐ!",vi:"Cảm ơn bạn!"},
+          {speaker:"A",name:"Tiểu Minh",text:"不客气！再见！",py:"Bú kèqi! Zàijiàn!",vi:"Không có gì! Tạm biệt!"},
+          {speaker:"B",name:"Anna",text:"再见！",py:"Zàijiàn!",vi:"Tạm biệt!"}
+        ]
+      }
     ],
     fillExercises:[
-      {q:"A: ___！ B: 你好！",options:["你好","对不起","没关系"],answer:"你好"},
-      {q:"A: 对不起！ B: ___！",options:["你们好","没关系","您好"],answer:"没关系"},
-      {q:"Em chào cô giáo: ___！",options:["您好","你好","你们好"],answer:"您好"},
-      {q:"Cô giáo chào cả lớp: ___！",options:["你们好","您好","对不起"],answer:"你们好"}
+      {q:"A: 你叫___名字？ B: 我叫李月。",options:["什么","吗","是"],answer:"什么"},
+      {q:"A: 你___学生吗？ B: 是。",options:["叫","是","什么"],answer:"是"},
+      {q:"A: 你是老师___？ B: 不是。",options:["人","吗","名字"],answer:"吗"},
+      {q:"A: 你叫什么名字？ B: 我___李月。",options:["叫","是","吗"],answer:"叫"}
     ],
     arrange:[
-      {pieces:["你","好"],answer:"你好"},
-      {pieces:["您","好"],answer:"您好"},
-      {pieces:["你们","好"],answer:"你们好"},
-      {pieces:["没","关系"],answer:"没关系"},
-      {pieces:["对","不起"],answer:"对不起"}
+      {pieces:["你","叫","什么","名字"],answer:"你叫什么名字"},
+      {pieces:["我","叫","李月"],answer:"我叫李月"},
+      {pieces:["我","是","老师"],answer:"我是老师"},
+      {pieces:["你","是","学生","吗"],answer:"你是学生吗"},
+      {pieces:["我","是","中国人"],answer:"我是中国人"}
     ],
     quiz:[
-      {q:"“您好” dùng trong trường hợp nào?",opts:["Chào thân mật","Chào kính trọng","Xin lỗi","Cảm ơn"],a:1},
-      {q:"Hai thanh 3 đứng liền nhau biến đổi thế nào?",opts:["3+3→3+3","3+3→4+3","3+3→2+3","3+3→1+3"],a:2},
-      {q:"“没关系” nghĩa là gì?",opts:["Xin chào","Không sao","Tạm biệt","Cảm ơn"],a:1},
-      {q:"Thanh mẫu nào thuộc nhóm âm mặt lưỡi?",opts:["b p m","j q x","d t n","g k h"],a:1},
-      {q:"Chữ nào có nghĩa là số 8?",opts:["六","十","八","三"],a:2}
+      {q:"“你叫什么名字？” nghĩa là gì?",opts:["Bạn là người nước nào?","Bạn tên là gì?","Bạn là học sinh phải không?","Bạn làm nghề gì?"],a:1},
+      {q:"Từ nào có nghĩa là “học sinh”?",opts:["老师","学生","名字","中国"],a:1},
+      {q:"Câu nào đúng để nói “Tôi là giáo viên”?",opts:["我叫老师。","我是老师。","我老师吗？","老师是我吗？"],a:1},
+      {q:"Trợ từ nào dùng để tạo câu hỏi Yes/No?",opts:["什么","是","吗","叫"],a:2},
+      {q:"Trong “不是”, 不 thường đọc như thế nào?",opts:["bù","bú","ba","bei"],a:1}
     ]
   }
 };
 
 const LESSON_ASSETS = {
-  1: {
-    INITIAL_PRONUNCIATION: {
-  b:"bō", p:"pō", m:"mō", f:"fō",
-  d:"dē", t:"tē", n:"nē", l:"lē",
-  g:"gē", k:"kē", h:"hē",
-  j:"jī", q:"qī", x:"xī"
-},
-    FINAL_PRONUNCIATION: {
-  a:"ā", o:"ō", e:"ē", i:"ī", u:"ū", "ü":"ǖ",
-  ai:"āi", ei:"ēi", ao:"āo",
-  ia:"yā", ie:"yē", iao:"yāo",
-  ua:"wā", uo:"wō", uai:"wāi",
-  "uei (ui)":"wēi", ui:"wēi",
-  "üe":"yuē", er:"ēr"
-},
-    INITIAL_AUDIO_MAP: {
-  b:"bo1", p:"po1", m:"mo1", f:"fo1",
-  d:"de1", t:"te1", n:"ne1", l:"le1",
-  g:"ge1", k:"ke1", h:"he1",
-  j:"ji1", q:"qi1", x:"xi1"
-},
-    FINAL_AUDIO_MAP: {
-  a:"a1", o:"o1", e:"e1",
-  i:"yi1", u:"wu1", "ü":"yu1",
-  ai:"ai1", ei:"ei1", ao:"ao1",
-  ia:"ya1", ie:"ye1", iao:"yao1",
-  ua:"wa1", uo:"wo1", uai:"wai1",
-  "uei (ui)":"wei1", ui:"wei1",
-  "üe":"yue1", er:"er1"
-},
-    TONE_AUDIO_MAP: {
-  "mā":"ma1", "má":"ma2", "mǎ":"ma3", "mà":"ma4"
-},
-    WORKBOOK_CHINESE_AUDIO_MAP: {
-  // Monosyllabic groups
-  "mā":"妈","má":"麻","mǎ":"马","mà":"骂",
-  "bā":"八","bá":"拔","bǎ":"把","bà":"爸",
-  "fēi":"飞","féi":"肥","fěi":"匪","fèi":"费",
-  "qiē":"切","qié":"茄","qiě":"且","qiè":"妾",
-  "xuē":"靴","xué":"学","xuě":"雪","xuè":"血",
-  "tiāo":"挑","tiáo":"条","tiǎo":"窕","tiào":"跳",
-  "huō":"豁","huó":"活","huǒ":"火","huò":"货",
-  "māo":"猫","máo":"毛","mǎo":"卯","mào":"帽",
-
-  // Disyllabic words
-  "xià yǔ":"下雨",
-  "xiàwǔ":"下午",
-  "tèbié":"特别",
-  "dì yī":"第一",
-  "yěxǔ":"也许",
-  "pǎo bù":"跑步",
-  "huídá":"回答",
-  "tiào wǔ":"跳舞",
-  "yìqǐ":"一起",
-  "kuàilè":"快乐",
-  "qítā":"其他",
-  "biǎodá":"表达",
-  "lǐwù":"礼物",
-  "jīhuì":"机会",
-  "líkāi":"离开",
-  "fùxí":"复习",
-  "dìtú":"地图",
-  "dìtiě":"地铁",
-  "àihào":"爱好",
-  "jiēdào":"街道",
-
-  // Picture matching game
-  "kāfēi":"咖啡",
-  "kělè":"可乐",
-  "bālěi":"芭蕾",
-  "pài":"派",
-  "jítā":"吉他"
-},
-    STROKE_WRITING_DATA: [
-  {han:"你",py:"nǐ",hanViet:"nhĩ",meaning:"bạn",strokes:7,radical:"亻 · nhân đứng"},
-  {han:"好",py:"hǎo",hanViet:"hảo",meaning:"tốt, khỏe",strokes:6,radical:"女 · nữ"},
-  {han:"您",py:"nín",hanViet:"nẫm",meaning:"ngài, ông/bà (kính ngữ)",strokes:11,radical:"心 · tâm"},
-  {han:"们",py:"men",hanViet:"môn",meaning:"hậu tố số nhiều",strokes:5,radical:"亻 · nhân đứng"},
-  {han:"对",py:"duì",hanViet:"đối",meaning:"đúng; đối với",strokes:5,radical:"寸 · thốn"},
-  {han:"不",py:"bù",hanViet:"bất",meaning:"không",strokes:4,radical:"一 · nhất"},
-  {han:"起",py:"qǐ",hanViet:"khởi",meaning:"đứng dậy; bắt đầu",strokes:10,radical:"走 · tẩu"},
-  {han:"没",py:"méi",hanViet:"một",meaning:"không có",strokes:7,radical:"氵 · thủy"},
-  {han:"关",py:"guān",hanViet:"quan",meaning:"liên quan; đóng",strokes:6,radical:"丷 · bát"},
-  {han:"系",py:"xì",hanViet:"hệ",meaning:"quan hệ; hệ thống",strokes:7,radical:"糸 · mịch"}
-],
-    VOCAB_LEARNING_DATA: [
-  {han:"你",py:"nǐ",vi:"bạn",pos:"ĐẠI TỪ",example:"你好！"},
-  {han:"好",py:"hǎo",vi:"tốt, khỏe",pos:"TÍNH TỪ",example:"我很好。"},
-  {han:"您好",py:"nín hǎo",vi:"xin chào (kính trọng)",pos:"CỤM CHÀO",example:"老师，您好！"},
-  {han:"你们",py:"nǐmen",vi:"các bạn",pos:"ĐẠI TỪ",example:"你们好！"},
-  {han:"对不起",py:"duìbuqǐ",vi:"xin lỗi",pos:"CỤM TỪ",example:"对不起！"},
-  {han:"没关系",py:"méi guānxi",vi:"không sao",pos:"CỤM TỪ",example:"没关系！"}
-],
-    PINYIN_DRILL_QUESTIONS: [
-  {audio:"不",answer:"bù",options:["bū","bú","bǔ","bù"]},
-  {audio:"好",answer:"hǎo",options:["hāo","háo","hǎo","hào"]},
-  {audio:"课",answer:"kè",options:["kē","ké","kě","kè"]},
-  {audio:"七",answer:"qī",options:["qī","qí","qǐ","qì"]},
-  {audio:"没",answer:"méi",options:["mēi","méi","měi","mèi"]},
-  {audio:"有",answer:"yǒu",options:["yōu","yóu","yǒu","yòu"]},
-  {audio:"马",answer:"mǎ",options:["mā","má","mǎ","mà"]},
-  {audio:"姐",answer:"jiě",options:["jiē","jié","jiě","jiè"]},
-  {audio:"哥",answer:"gē",options:["gē","gé","gě","gè"]},
-  {audio:"跳",answer:"tiào",options:["tiāo","tiáo","tiǎo","tiào"]}
-],
+  3: {
+    INITIAL_PRONUNCIATION:{
+      j:"jī",q:"qī",x:"xī",sh:"shī",m:"mō",n:"nē",w:"wū",l:"lē",r:"rī",zh:"zhī"
+    },
+    FINAL_PRONUNCIATION:{
+      iao:"yāo",en:"ēn",ing:"yīng",i:"yī",ao:"āo",ue:"yuē",uo:"wō",eng:"ēng",an:"ān",ong:"ōng",ei:"ēi"
+    },
+    INITIAL_AUDIO_MAP:{
+      j:"ji1",q:"qi1",x:"xi1",sh:"shi1",m:"mo1",n:"ne1",w:"wu1",l:"le1",r:"ri1",zh:"zhi1"
+    },
+    FINAL_AUDIO_MAP:{
+      iao:"yao1",en:"en1",ing:"ying1",i:"yi1",ao:"ao1",ue:"yue1",uo:"wo1",eng:"eng1",an:"an1",ong:"ong1",ei:"ei1"
+    },
+    TONE_AUDIO_MAP:{"mā":"ma1","má":"ma2","mǎ":"ma3","mà":"ma4"},
+    WORKBOOK_CHINESE_AUDIO_MAP:{
+      "jiào":"叫","shénme":"什么","míngzi":"名字","wǒ":"我","shì":"是","lǎoshī":"老师",
+      "ma":"吗","xuéshēng":"学生","rén":"人","Lǐ Yuè":"李月","lǐ yuè":"李月",
+      "Zhōngguó":"中国","zhōngguó":"中国","Měiguó":"美国","měiguó":"美国",
+      "nǐ jiào shénme míngzi":"你叫什么名字","wǒ jiào lǐ yuè":"我叫李月",
+      "wǒ shì lǎoshī":"我是老师","nǐ shì xuésheng ma":"你是学生吗",
+      "wǒ shì zhōngguó rén":"我是中国人","bú shì":"不是",
+      "jiāo":"教","jiáo":"嚼","jiǎo":"脚","jiào":"叫",
+      "míng":"明","mǐng":"酩","mìng":"命","shēng":"生"
+    },
+    STROKE_WRITING_DATA:[
+      {han:"叫",py:"jiào",hanViet:"khiếu",meaning:"gọi là",strokes:5,radical:"口 · khẩu"},
+      {han:"什",py:"shén",hanViet:"thập",meaning:"gì (trong 什么)",strokes:4,radical:"亻 · nhân"},
+      {han:"么",py:"me",hanViet:"ma",meaning:"thành tố trong 什么",strokes:3,radical:"丿 · phiệt"},
+      {han:"名",py:"míng",hanViet:"danh",meaning:"tên",strokes:6,radical:"口 · khẩu"},
+      {han:"字",py:"zì",hanViet:"tự",meaning:"chữ; tên",strokes:6,radical:"子 · tử"},
+      {han:"我",py:"wǒ",hanViet:"ngã",meaning:"tôi",strokes:7,radical:"戈 · qua"},
+      {han:"是",py:"shì",hanViet:"thị",meaning:"là",strokes:9,radical:"日 · nhật"},
+      {han:"老",py:"lǎo",hanViet:"lão",meaning:"già; tiền tố trong 老师",strokes:6,radical:"老 · lão"},
+      {han:"师",py:"shī",hanViet:"sư",meaning:"thầy; giáo viên",strokes:6,radical:"巾 · cân"},
+      {han:"学",py:"xué",hanViet:"học",meaning:"học",strokes:8,radical:"子 · tử"},
+      {han:"生",py:"shēng",hanViet:"sinh",meaning:"sinh; học sinh",strokes:5,radical:"生 · sinh"},
+      {han:"人",py:"rén",hanViet:"nhân",meaning:"người",strokes:2,radical:"人 · nhân"},
+      {han:"中",py:"zhōng",hanViet:"trung",meaning:"giữa; Trung Quốc",strokes:4,radical:"丨 · cổn"},
+      {han:"国",py:"guó",hanViet:"quốc",meaning:"nước, quốc gia",strokes:8,radical:"囗 · vi"}
+    ],
+    VOCAB_LEARNING_DATA:[
+      {han:"叫",py:"jiào",vi:"gọi là, tên là",pos:"ĐỘNG TỪ",example:"我叫李月。"},
+      {han:"什么",py:"shénme",vi:"gì, cái gì",pos:"ĐẠI TỪ NGHI VẤN",example:"你叫什么名字？"},
+      {han:"名字",py:"míngzì",vi:"tên",pos:"DANH TỪ",example:"你的名字是什么？"},
+      {han:"我",py:"wǒ",vi:"tôi",pos:"ĐẠI TỪ",example:"我是学生。"},
+      {han:"是",py:"shì",vi:"là",pos:"ĐỘNG TỪ",example:"我是老师。"},
+      {han:"老师",py:"lǎoshī",vi:"giáo viên",pos:"DANH TỪ",example:"她是老师。"},
+      {han:"吗",py:"ma",vi:"trợ từ nghi vấn",pos:"TRỢ TỪ",example:"你是学生吗？"},
+      {han:"学生",py:"xuéshēng",vi:"học sinh",pos:"DANH TỪ",example:"我是学生。"},
+      {han:"人",py:"rén",vi:"người",pos:"DANH TỪ",example:"我是中国人。"},
+      {han:"李月",py:"Lǐ Yuè",vi:"Lý Nguyệt",pos:"TÊN RIÊNG",example:"我叫李月。"},
+      {han:"中国",py:"Zhōngguó",vi:"Trung Quốc",pos:"DANH TỪ RIÊNG",example:"我是中国人。"},
+      {han:"美国",py:"Měiguó",vi:"Mỹ, Hoa Kỳ",pos:"DANH TỪ RIÊNG",example:"他是美国人。"}
+    ],
+    PINYIN_DRILL_QUESTIONS:[
+      {audio:"叫",answer:"jiào",options:["jiào","jiāo","jiǎo","jiáo"]},
+      {audio:"什么",answer:"shénme",options:["shénme","shénma","shíme","shēnme"]},
+      {audio:"名字",answer:"míngzì",options:["míngzì","míngzi","mǐngzì","mìngzì"]},
+      {audio:"老师",answer:"lǎoshī",options:["lǎoshī","làoshī","lǎosī","láoshī"]},
+      {audio:"学生",answer:"xuéshēng",options:["xuéshēng","xuěshēng","xuésheng","xuéshěng"]},
+      {audio:"中国",answer:"Zhōngguó",options:["Zhōngguó","Zhǒngguó","Zhōnggǔo","Zhòngguó"]},
+      {audio:"美国",answer:"Měiguó",options:["Měiguó","Mèiguó","Měigǔo","Méiguó"]},
+      {audio:"我叫李月",answer:"wǒ jiào Lǐ Yuè",options:["wǒ jiào Lǐ Yuè","wǒ shì Lǐ Yuè","nǐ jiào Lǐ Yuè","wǒ jiào Lǐ Yǔ"]},
+      {audio:"你是学生吗",answer:"nǐ shì xuésheng ma",options:["nǐ shì xuésheng ma","nǐ jiào xuésheng ma","nǐ shì lǎoshī ma","wǒ shì xuésheng ma"]},
+      {audio:"不是",answer:"bú shì",options:["bú shì","bù shì","bǔ shì","bu shì"]}
+    ]
   }
 };
 
@@ -6292,19 +7180,19 @@ const tabs=[
   ["quiz","fa-solid fa-circle-question icon-quiz","Trắc nghiệm"],
   ["roleplay","fa-solid fa-masks-theater icon-roleplay","Roleplay"]
 ];
-let score=0,soundOn=true,currentLessonId=1,currentLesson=LESSONS_DATA[1],selectedMatch=null,quizTimer=null;
+let score=0,soundOn=true,currentLessonId=3,currentLesson=LESSONS_DATA[3],selectedMatch=null,quizTimer=null;
 const app=document.getElementById("app");
 
-let INITIAL_PRONUNCIATION = LESSON_ASSETS[1].INITIAL_PRONUNCIATION;
+let INITIAL_PRONUNCIATION = LESSON_ASSETS[3].INITIAL_PRONUNCIATION;
 
-let FINAL_PRONUNCIATION = LESSON_ASSETS[1].FINAL_PRONUNCIATION;
+let FINAL_PRONUNCIATION = LESSON_ASSETS[3].FINAL_PRONUNCIATION;
 
 // Tên file âm tiết có thanh điệu trong kho MP3 người thật đọc.
-let INITIAL_AUDIO_MAP = LESSON_ASSETS[1].INITIAL_AUDIO_MAP;
+let INITIAL_AUDIO_MAP = LESSON_ASSETS[3].INITIAL_AUDIO_MAP;
 
-let FINAL_AUDIO_MAP = LESSON_ASSETS[1].FINAL_AUDIO_MAP;
+let FINAL_AUDIO_MAP = LESSON_ASSETS[3].FINAL_AUDIO_MAP;
 
-let TONE_AUDIO_MAP = LESSON_ASSETS[1].TONE_AUDIO_MAP;
+let TONE_AUDIO_MAP = LESSON_ASSETS[3].TONE_AUDIO_MAP;
 
 let currentPinyinAudio = null;
 
@@ -6757,13 +7645,10 @@ function warmupHTMLLesson1(){
 }
 
 function warmupHTMLLesson2(){
-  const d=currentLesson;
   return `
   <div class="glass rounded-[24px] p-3 md:p-4 mb-4 border-2 border-white/70">
     <div class="flex flex-wrap gap-2" id="warmupSubnav">
       <button class="subtab-btn active" data-warmup-subtab="goals"><span class="subtab-icon-badge"><i class="fa-solid fa-bullseye icon-goals"></i></span><span>Mục tiêu & Ghi chú</span></button>
-      <button class="subtab-btn" data-warmup-subtab="sounds"><span class="subtab-icon-badge"><i class="fa-solid fa-language icon-sounds"></i></span><span>Thanh mẫu & Vận mẫu</span></button>
-      <button class="subtab-btn" data-warmup-subtab="tones"><span class="subtab-icon-badge"><i class="fa-solid fa-wave-square icon-tones"></i></span><span>Thanh điệu</span></button>
       <button class="subtab-btn" data-warmup-subtab="game"><span class="subtab-icon-badge"><i class="fa-solid fa-gamepad icon-game"></i></span><span>Mini-game</span></button>
       <button class="subtab-btn" data-warmup-subtab="practice"><span class="subtab-icon-badge"><i class="fa-solid fa-microphone-lines icon-practice"></i></span><span>Luyện phát âm & Game</span></button>
     </div>
@@ -6773,209 +7658,38 @@ function warmupHTMLLesson2(){
     <div class="warmup-subpage active" data-warmup-page="goals">
       <div class="warmup-goals-grid">
         <section class="star-mission-card">
-          <div class="warmup-card-title">
-            <span>🎯 Nhiệm Vụ Săn Sao Bài 2</span>
-            <span class="title-mascot">🐼⭐</span>
-          </div>
+          <div class="warmup-card-title"><span>🎯 Nhiệm Vụ Săn Sao Bài 3</span><span class="title-mascot">🐼⭐</span></div>
           <div class="mission-grid">
-            <div class="mission-mini">
-              <h3>💬 Mẫu câu trọng tâm</h3>
-              <div class="mission-chips">
-                ${["谢谢","不谢","不客气","再见"].map(text=>`<button class="mission-chip cn hanzi-pronounce" data-hanzi-pronounce="${text}" aria-label="Nghe ${text}">${text}</button>`).join("")}
-              </div>
-            </div>
-            <div class="mission-mini">
-              <h3>🎵 Hệ thống Ngữ âm</h3>
-              <p>7 thanh mẫu: zh, ch, sh, r, z, c, s · 18 vận mẫu trọng tâm.</p>
-            </div>
-            <div class="mission-mini">
-              <h3>✍️ Chữ Hán & Nét chữ</h3>
-              <p>乛 Ngang gập · 乚 Sổ cong móc · 亅 Sổ móc.</p>
-              <div class="mission-char-grid">
-                ${["口","见","山","小","不"].map(text=>`<button class="mission-char cn hanzi-pronounce" data-hanzi-pronounce="${text}" aria-label="Nghe chữ ${text}">${text}</button>`).join("")}
-              </div>
-            </div>
-            <div class="mission-mini">
-              <h3>🌟 Kỹ năng đạt được</h3>
-              <p>Bày tỏ sự cảm ơn (表达感谢) và chào tạm biệt (告别).</p>
-            </div>
+            <div class="mission-mini"><h3>💬 Mẫu câu trọng tâm</h3><div class="mission-chips">${["你叫什么名字","我叫李月","我是老师","你是学生吗"].map(text=>`<button class="mission-chip cn hanzi-pronounce" data-hanzi-pronounce="${text}">${text}</button>`).join("")}</div></div>
+            <div class="mission-mini"><h3>🎵 Ngữ âm</h3><p>j / q / x · zh / sh · iao / ing / eng · thanh nhẹ trong 什么、名字.</p></div>
+            <div class="mission-mini"><h3>✍️ Chữ Hán trọng tâm</h3><div class="mission-char-grid">${["叫","名","字","我","是","人"].map(text=>`<button class="mission-char cn hanzi-pronounce" data-hanzi-pronounce="${text}">${text}</button>`).join("")}</div></div>
+            <div class="mission-mini"><h3>🌟 Kỹ năng</h3><p>Hỏi tên, giới thiệu thân phận, nghề nghiệp và quốc tịch.</p></div>
           </div>
         </section>
 
         <section class="mascot-tip-card">
-          <div class="warmup-card-title">
-            <span>💡 Bí Kíp Luyện Âm Từ Mascot</span>
-            <span class="title-mascot">🦊🐰🐵</span>
-          </div>
+          <div class="warmup-card-title"><span>💡 Bí Kíp Bài 3</span><span class="title-mascot">🦊🐰🐵</span></div>
           <div class="mascot-bubbles">
-            <div class="mascot-bubble">
-              <span class="mascot-face">🐵</span>
-              <div><strong>Khỉ Tinh Tinh</strong><p>“Phân biệt phát âm: <b>z, c, s</b> là âm đầu lưỡi trước; <b>zh, ch, sh, r</b> là âm uốn lưỡi nhé! 👄”</p></div>
-            </div>
-            <div class="mascot-bubble">
-              <span class="mascot-face">🦊</span>
-              <div><strong>Cáo Cáo</strong><p>“Chú ý Thanh nhẹ (轻声): Chữ <b>谢</b> thứ 2 trong <b>谢谢</b> đọc nhẹ và ngắn thôi nha! 🍃”</p></div>
-            </div>
-            <div class="mascot-bubble">
-              <span class="mascot-face">🐰</span>
-              <div><strong>Thỏ Ngọc</strong><p>“Quy tắc viết tắt pinyin: <b>iou ➔ iu</b>, <b>uei ➔ ui</b>, <b>uen ➔ un</b> (VD: niú, guǐ, lùn)!”</p></div>
-            </div>
+            <div class="mascot-bubble"><span class="mascot-face">🐵</span><div><strong>Khỉ Tinh Tinh</strong><p>“什么 dùng để hỏi thông tin chưa biết: 你叫什么名字？”</p></div></div>
+            <div class="mascot-bubble"><span class="mascot-face">🦊</span><div><strong>Cáo Cáo</strong><p>“Thêm 吗 cuối câu trần thuật để tạo câu hỏi Có/Không.”</p></div></div>
+            <div class="mascot-bubble"><span class="mascot-face">🐰</span><div><strong>Thỏ Ngọc</strong><p>“不 đứng trước thanh 4 sẽ đọc thành bú: 不是 bú shì.”</p></div></div>
           </div>
         </section>
       </div>
     </div>
 
-    <div class="warmup-subpage" data-warmup-page="sounds">
-      <div class="grid xl:grid-cols-2 gap-5">
-        ${card("🔤 14 Thanh mẫu",`
-          <span class="mascot-corner">🐱</span>
-          <div class="grid grid-cols-4 sm:grid-cols-7 gap-3">${d.initials.map(x=>`<button class="pinyin-audio btn3d rounded-2xl bg-gradient-to-br from-pink-100 to-orange-100 py-4 text-2xl font-black border-2 border-pink-200/60"
-            data-audio="${INITIAL_AUDIO_MAP[x]}" aria-label="Phát MP3 thanh mẫu ${x}">
-            ${x}<span class="block text-xs text-slate-500 mt-1">${INITIAL_PRONUNCIATION[x]}</span>
-          </button>`).join("")}</div>
-        `,"pastel-card bg-gradient-to-br from-pink-50 to-white")}
-        ${card("🎵 18 Vận mẫu",`
-          <span class="mascot-corner">🐰</span>
-          <div class="grid grid-cols-3 sm:grid-cols-6 gap-3">${d.finals.map(x=>`<button class="pinyin-audio btn3d rounded-2xl bg-gradient-to-br from-cyan-100 to-emerald-100 py-3 font-black border-2 border-cyan-200/60"
-            data-audio="${FINAL_AUDIO_MAP[x]}" aria-label="Phát MP3 vận mẫu ${x}">
-            ${x}<span class="block text-xs text-slate-500 mt-1">${FINAL_PRONUNCIATION[x] || x}</span>
-          </button>`).join("")}</div>
-        `,"pastel-card bg-gradient-to-br from-cyan-50 to-white")}
-        <div id="pinyinAudioStatus" class="xl:col-span-2 min-h-8 text-center font-bold text-violet-600" aria-live="polite"></div>
-      </div>
-    </div>
-
-    <div class="warmup-subpage" data-warmup-page="tones">
-      ${card("📈 4 Thanh điệu + sơ đồ cao độ",`
-        <span class="mascot-corner">🦁</span>
-        <div class="grid sm:grid-cols-2 gap-4">
-          ${d.tones.map((t,i)=>`<button class="pinyin-audio text-left rounded-3xl p-4 bg-gradient-to-br from-white to-violet-50 soft hover:-translate-y-1 transition border-2 border-violet-200/50"
-            data-audio="${TONE_AUDIO_MAP[t.mark]}" aria-label="Phát MP3 ${t.mark}">
-            <div class="flex items-start justify-between gap-3 mb-2">
-              <div><b class="text-lg">${t.name}</b><div class="text-violet-500 font-black">Giá trị ${t.value}</div></div>
-              <span class="cn text-5xl leading-none font-black">${t.mark}</span>
-            </div>
-            <p class="font-semibold mb-3">${t.desc}</p>
-            ${toneChartSVG(i)}
-          </button>`).join("")}
-        </div>
-      `,"pastel-card bg-gradient-to-br from-violet-50 to-sky-50")}
-    </div>
-
     <div class="warmup-subpage" data-warmup-page="game">
       <section class="sound-game-shell">
-        <div class="sound-game-inline-head">
-          <div class="sound-game-title">🎮 Mini-game: Nghe chọn âm đúng</div>
-          <div class="sound-game-stats">
-            <div class="sound-stat score">⭐ Điểm: <span id="soundGameScore">0</span></div>
-            <div class="sound-stat streak">🔥 Chuỗi đúng: <span id="soundGameStreak">0</span></div>
-          </div>
-        </div>
-
-        <div class="sound-game-audio-cluster">
-          <button id="playSoundGame" class="btn3d bg-gradient-to-br from-sky-400 to-violet-400 text-white">
-            <i class="fa-solid fa-headphones"></i> Nghe lại
-          </button>
-          <div id="soundGameResult" aria-live="polite">🔊 Đang chuẩn bị âm mẫu...</div>
-        </div>
-
-        <div id="soundGameOptions"></div>
-
-        <div class="sound-game-mascot">
-          <span id="gameMascot">🐼</span>
-          <span id="gameMascotText">Nghe kỹ rồi chọn đáp án đúng nhé!</span>
-        </div>
+        <div class="sound-game-inline-head"><div class="sound-game-title">🎮 Mini-game: Nghe chọn âm đúng</div><div class="sound-game-stats"><div class="sound-stat score">⭐ Điểm: <span id="soundGameScore">0</span></div><div class="sound-stat streak">🔥 Chuỗi đúng: <span id="soundGameStreak">0</span></div></div></div>
+        <div class="sound-game-audio-cluster"><button id="playSoundGame" class="btn3d"><i class="fa-solid fa-headphones"></i> Nghe lại</button><div id="soundGameResult">Bấm “Nghe lại” để nghe âm mẫu.</div></div>
+        <div id="soundGameOptions"></div><div class="sound-game-mascot"><span id="gameMascot">🐼</span><span id="gameMascotText">Nghe kỹ rồi chọn nhé!</span></div>
       </section>
     </div>
 
     <div class="warmup-subpage" data-warmup-page="practice">
       <div class="space-y-5">
-        ${card("🗣️ Phần 1: Bảng luyện đọc âm tiết Bài 2",`
-          <span class="mascot-corner">🐼</span>
-          <div class="grid xl:grid-cols-2 gap-4">
-            <div class="pastel-card p-4">
-              <h3 class="text-[1.15rem] font-black text-indigo-600 mb-3">Đơn âm tiết</h3>
-              <div class="space-y-3">
-                ${[
-                  ["Nhóm zh",["zhī","zhí","zhǐ","zhì"]],
-                  ["Nhóm zan",["zān","zán","zǎn","zàn"]],
-                  ["Nhóm chuang",["chuāng","chuáng","chuǎng","chuàng"]],
-                  ["Nhóm xuan",["xuān","xuán","xuǎn","xuàn"]],
-                  ["Nhóm xiang",["xiāng","xiáng","xiǎng","xiàng"]],
-                  ["Nhóm ying",["yīng","yíng","yǐng","yìng"]],
-                  ["Nhóm shen",["shēn","shén","shěn","shèn"]],
-                  ["Nhóm rang",["rāng","ráng","rǎng","ràng"]]
-                ].map(group=>`<div><p class="font-black text-slate-500 mb-2 text-[.9rem]">${group[0]}</p><div class="flex flex-wrap gap-2">${group[1].map(word=>`<button class="practice-speak practice-chip" data-text="${word}"><i class="fa-solid fa-volume-high mr-1"></i>${word}</button>`).join("")}</div></div>`).join("")}
-              </div>
-            </div>
-
-            <div class="pastel-card p-4">
-              <h3 class="text-[1.15rem] font-black text-cyan-600 mb-3">Song âm tiết</h3>
-              <div class="grid sm:grid-cols-2 gap-2">
-                ${[
-                  "rènzhēn","rúguǒ","xǐzǎo","zhàopiàn","cídiǎn",
-                  "yǐqián","yǐhòu","yǐnliào","zháojí","huǒchē",
-                  "zìjǐ","yǎnjīng","tóngxué","tóngshì","tóngyì",
-                  "tūrán","yìsi","zhàngfu","tóufa","shìqing"
-                ].map(word=>`<button class="practice-speak practice-chip text-left" data-text="${word}"><i class="fa-solid fa-volume-high mr-2 text-cyan-500"></i>${word}</button>`).join("")}
-              </div>
-            </div>
-          </div>
-        `,"pastel-card")}
-
-        ${card("🖼️ Phần 2: Nối từ với hình ảnh Bài 2",`
-          <span class="mascot-corner">🦊</span>
-          <p class="text-slate-500 mb-3">Chọn một hình ảnh, sau đó chọn từ Pinyin tương ứng.</p>
-          <div id="pictureMatchGame">
-            <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-4">
-              ${[
-                ["chocolate","🍫","Sô-cô-la"],
-                ["sofa","🛋️","Ghế sô-pha"],
-                ["champagne","🥂","Sâm-panh"],
-                ["microphone","🎤","Micrô"],
-                ["hamburger","🍔","Bánh hamburger"]
-              ].map(item=>`<button class="picture-choice rounded-2xl border-2 border-slate-200 bg-white p-3 font-black transition hover:scale-[1.02] hover:border-violet-400" data-picture="${item[0]}"><span class="block text-5xl mb-2">${item[1]}</span>${item[2]}</button>`).join("")}
-            </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
-              ${[
-                ["chocolate","A. qiǎokè lì","qiǎokè lì"],
-                ["sofa","B. shāfā","shāfā"],
-                ["champagne","C. xiāngbīng","xiāngbīng"],
-                ["microphone","D. màikèfēng","màikèfēng"],
-                ["hamburger","E. hànbǎo","hànbǎo"]
-              ].map(item=>`<button class="word-choice practice-chip" data-answer="${item[0]}" data-text="${item[2]}"><i class="fa-solid fa-volume-high mr-1"></i>${item[1]}</button>`).join("")}
-            </div>
-            <p id="pictureMatchStatus" class="mt-3 font-black text-center min-h-7"></p>
-          </div>
-        `,"pastel-card")}
-
-        ${card("🎧 Phần 3: Pinyin Drill",`
-          <span class="mascot-corner">🐰</span>
-          <div id="pinyinDrill" class="drill-shell">
-            <div class="p-4 md:p-5 border-b border-slate-200">
-              <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
-                <div><p class="text-xs font-black tracking-[.16em] text-emerald-600">CHẾ ĐỘ</p><h3 class="text-lg md:text-xl font-black">Luyện nghe Pinyin Bài 2</h3></div>
-                <div class="rounded-xl bg-slate-100 px-4 py-2 font-black">Câu hỏi hiện tại: <span id="drillCurrent">1</span> / <span id="drillTotal">10</span></div>
-              </div>
-              <div class="drill-progress-track"><div id="drillProgress" class="drill-progress-bar" style="width:10%"></div></div>
-            </div>
-            <div class="grid lg:grid-cols-[.9fr_1.1fr] gap-5 p-4 md:p-6">
-              <div class="drill-audio-card p-6 flex flex-col items-center justify-center text-center">
-                <div class="self-start rounded-full bg-white/15 border border-white/25 px-3 py-1 text-xs font-black tracking-[.18em]">PINYIN DRILL</div>
-                <div class="drill-headphone my-7"><i class="fa-solid fa-headphones text-6xl"></i></div>
-                <p class="font-bold text-blue-50 mb-5">Nhấp loa phía dưới nếu muốn nghe lại</p>
-                <button id="drillPlay" class="drill-play text-3xl" aria-label="Nghe lại câu hỏi"><i class="fa-solid fa-volume-high"></i></button>
-              </div>
-              <div class="rounded-[20px] bg-slate-50 border border-slate-200 p-5 md:p-6">
-                <h3 class="text-lg font-black text-slate-800">CHỌN PHIÊN ÂM PINYIN ĐÚNG:</h3>
-                <p class="text-sm text-slate-500 mt-1 mb-5">Mẹo: Click chọn trực tiếp hoặc bấm phím 1–4 trên bàn phím để trả lời.</p>
-                <div id="drillOptions" class="grid sm:grid-cols-2 gap-3"></div>
-                <div id="drillFeedback" class="min-h-14 mt-4 rounded-2xl border border-slate-200 bg-white p-3 font-black" aria-live="polite"></div>
-              </div>
-            </div>
-          </div>
-        `,"pastel-card")}
+        ${card("🗣️ Luyện đọc từ và câu Bài 3",`<div class="grid md:grid-cols-2 gap-4"><div class="pastel-card p-4"><h3 class="font-black mb-3">Từ trọng tâm</h3><div class="flex flex-wrap gap-2">${["jiào","shénme","míngzi","wǒ","shì","lǎoshī","xuéshēng","rén","Zhōngguó","Měiguó"].map(word=>`<button class="practice-speak practice-chip" data-text="${word}">${word}</button>`).join("")}</div></div><div class="pastel-card p-4"><h3 class="font-black mb-3">Câu giao tiếp</h3><div class="grid gap-2">${["nǐ jiào shénme míngzi","wǒ jiào lǐ yuè","wǒ shì lǎoshī","nǐ shì xuésheng ma","wǒ shì zhōngguó rén"].map(word=>`<button class="practice-speak practice-chip text-left" data-text="${word}">${word}</button>`).join("")}</div></div></div>`,"pastel-card")}
+        ${card("🎧 Pinyin Drill Bài 3",`<div id="pinyinDrill" class="drill-shell"><div class="p-4 border-b"><div class="flex justify-between"><h3 class="font-black">Luyện nghe Pinyin</h3><div>Câu <span id="drillCurrent">1</span>/<span id="drillTotal">10</span></div></div><div class="drill-progress-track mt-3"><div id="drillProgress" class="drill-progress-bar" style="width:10%"></div></div></div><div class="grid lg:grid-cols-2 gap-5 p-5"><div class="drill-audio-card p-6 flex flex-col items-center justify-center"><div class="drill-headphone"><i class="fa-solid fa-headphones text-6xl"></i></div><button id="drillPlay" class="drill-play mt-6" aria-label="Nghe lại"><i class="fa-solid fa-volume-high"></i></button></div><div class="rounded-[20px] bg-slate-50 border p-5"><h3 class="font-black">CHỌN PINYIN ĐÚNG</h3><div id="drillOptions" class="grid sm:grid-cols-2 gap-3 mt-4"></div><div id="drillFeedback" class="min-h-14 mt-4 rounded-2xl border p-3 font-black"></div></div></div></div>`,"pastel-card")}
       </div>
     </div>
   </div>`;
@@ -7134,45 +7848,15 @@ function grammarHTMLLesson1(){
 }
 
 function grammarHTMLLesson2(){
-  return `
-  <div class="grammar-hub grammar-lesson2">
-    <section class="grammar-panel tone-rule-card">
-      <div class="grammar-title">🎼 Quy tắc đánh dấu thanh điệu (标调法)</div>
-      <div class="tone-thinking-grid">
-        <div class="tone-step"><span class="tone-step-no">1</span><div><strong>Thấy <b>a</b> → đặt dấu ngay trên a</strong><p>Ví dụ: <b>hǎo</b>, <b>xiǎng</b>, <b>zài</b>.</p></div></div>
-        <div class="tone-step"><span class="tone-step-no">2</span><div><strong>Không có a → tìm <b>o</b> hoặc <b>e</b></strong><p>Ví dụ: <b>kǒu</b>, <b>hē</b>, <b>xiè</b>.</p></div></div>
-        <div class="tone-step"><span class="tone-step-no">3</span><div><strong><b>i</b> và <b>u</b> đứng cạnh nhau → đặt dấu ở chữ đứng sau</strong><p>Ví dụ: <b>liú</b>, <b>guǐ</b>.</p></div></div>
-      </div>
-      <div class="tone-memory-line"><span>🧠 Mẹo nhớ:</span> <b>a trước tiên → o/e tiếp theo → i/u đứng đôi thì chọn chữ phía sau.</b></div>
-      <details class="tone-poem"><summary>📜 Xem câu thơ ghi nhớ 《标调歌》</summary><p>看见 a 母别放过，没有 a 母找 o、e，i、u 并列标在后。</p></details>
-    </section>
-
-    <section class="grammar-panel abbreviation-card">
-      <div class="grammar-title">✂️ Quy tắc viết gọn (省写)</div>
-      <div class="abbreviation-grid">
-        <div class="abbreviation-item"><div class="abbreviation-formula"><span>iou</span><b>➔</b><span>iu</span></div><p>Khi ghép với thanh mẫu, bỏ chữ <b>o</b>.</p><div class="abbreviation-example"><span>niú</span><small>牛 · con bò</small></div></div>
-        <div class="abbreviation-item"><div class="abbreviation-formula"><span>uei</span><b>➔</b><span>ui</span></div><p>Khi ghép với thanh mẫu, bỏ chữ <b>e</b>.</p><div class="abbreviation-example"><span>guǐ</span><small>鬼 · ma, quỷ</small></div></div>
-        <div class="abbreviation-item"><div class="abbreviation-formula"><span>uen</span><b>➔</b><span>un</span></div><p>Khi ghép với thanh mẫu, bỏ chữ <b>e</b>.</p><div class="abbreviation-example"><span>lùn</span><small>论 · bàn luận</small></div></div>
-      </div>
-      <div class="abbreviation-tip">🌟 Nhìn dạng đầy đủ để hiểu cấu tạo âm, nhưng khi viết pinyin phải dùng dạng rút gọn.</div>
-    </section>
-
-    <section class="grammar-panel classroom-language-card">
-      <div class="grammar-title">🏫 Khẩu ngữ lớp học (课堂用语)</div>
-      <div class="classroom-command-grid">
-        ${currentLesson.classroom.map((item,index)=>`
-          <button class="classroom-command hanzi-pronounce" data-hanzi-pronounce="${item.han}" aria-label="Nghe câu ${item.han}">
-            <span class="classroom-command-icon">${["📖","📣","🔁","👥","❓"][index]||"💬"}</span>
-            <span class="classroom-command-text">
-              <strong class="cn">${item.han}</strong>
-              <span class="classroom-pinyin">${item.py}</span>
-              <span class="classroom-meaning">${item.vi}</span>
-            </span>
-            
-          </button>`).join("")}
-      </div>
-      <div class="classroom-listen-tip">Bấm vào từng thẻ để nghe giọng đọc tiếng Trung chuẩn <b>zh-CN</b>.</div>
-    </section>
+  const items=[
+    {icon:"❓",title:"Đại từ nghi vấn 什么",han:"你叫什么名字？",py:"Nǐ jiào shénme míngzi?",vi:"Bạn tên là gì?",note:"什么 đứng ở vị trí thông tin cần hỏi."},
+    {icon:"🔗",title:"Câu chữ 是",han:"我是老师。",py:"Wǒ shì lǎoshī.",vi:"Tôi là giáo viên.",note:"A 是 B dùng để xác định thân phận, nghề nghiệp hoặc quốc tịch."},
+    {icon:"💬",title:"Câu hỏi với 吗",han:"你是学生吗？",py:"Nǐ shì xuésheng ma?",vi:"Bạn là học sinh phải không?",note:"Thêm 吗 cuối câu trần thuật, trật tự từ không đổi."},
+    {icon:"🎵",title:"Biến điệu của 不",han:"不是",py:"bú shì",vi:"không phải",note:"不 đọc bú trước âm tiết thanh 4; các trường hợp khác thường đọc bù."}
+  ];
+  return `<div class="grammar-hub grammar-lesson2">
+    ${items.map(item=>`<section class="grammar-panel"><div class="grammar-title"><span>${item.icon}</span>${item.title}</div><button class="grammar-example hanzi-pronounce" data-hanzi-pronounce="${item.han}"><span class="cn">${item.han}</span><span class="formula-note">${item.py}</span><span class="formula-note">${item.vi}</span></button><div class="grammar-tip">${item.note}</div></section>`).join("")}
+    <section class="grammar-panel classroom-language-card"><div class="grammar-title">🗣️ Mẫu câu giao tiếp Bài 3</div><div class="classroom-command-grid">${currentLesson.classroom.map(item=>`<button class="classroom-command hanzi-pronounce" data-hanzi-pronounce="${item.han}"><span class="classroom-command-icon">🔊</span><span class="classroom-command-text"><span class="cn">${item.han}</span><span class="classroom-pinyin">${item.py}</span><span class="classroom-meaning">${item.vi}</span></span></button>`).join("")}</div></section>
   </div>`;
 }
 
@@ -7280,20 +7964,29 @@ function quizHTML(){
     </section>`;
 }
 function roleHTML(){
-  return card("💬 Roleplay Chat Simulator",`
-    <div class="roleplay-layout">
-      <aside class="roleplay-sidebar">
-        <div>
-          <h3>🎬 Chọn kịch bản</h3>
-          <div class="scenario-list">${currentLesson.dialogues.map((d,i)=>`<button class="scenario ${i===0?'bg-violet-200':'bg-white'}" data-scenario="${i}">${i+1}. ${d.title}</button>`).join("")}</div>
+  return card("💬 Roleplay · Hội thoại thực tế",`
+    <section class="crp-shell" aria-label="Roleplay Bài 3">
+      <header class="crp-toolbar">
+        <div class="crp-mode-tabs" role="tablist" aria-label="Chọn chế độ Roleplay">
+          <button type="button" class="crp-mode-btn active" data-crp-mode="demo">
+            <i class="fa-solid fa-headphones"></i>
+            <span>Xem mẫu</span>
+          </button>
+          <button type="button" class="crp-mode-btn" data-crp-mode="challenge">
+            <i class="fa-solid fa-microphone-lines"></i>
+            <span>Đóng vai thực tế</span>
+          </button>
         </div>
-        <div>
-          <h3 class="role-subtitle">🎭 Chọn vai của em</h3>
-          <div class="role-choice-grid"><button class="role-choice btn3d bg-pink-200" data-role="a">Vai A</button><button class="role-choice btn3d bg-cyan-200" data-role="b">Vai B</button></div>
+
+        <div class="crp-role-picker" aria-label="Chọn vai">
+          <span class="crp-role-label">Vai của em</span>
+          <button type="button" class="crp-role-btn active" data-crp-role="A">Vai A · Tiểu Minh</button>
+          <button type="button" class="crp-role-btn" data-crp-role="B">Vai B · Anna</button>
         </div>
-      </aside>
-      <div id="roleStage"></div>
-    </div>`);
+      </header>
+
+      <div id="crpStage" class="crp-stage"></div>
+    </section>`);
 }
 
 function bind(){
@@ -7307,16 +8000,6 @@ function bind(){
       button.classList.add("active");
       const page=document.querySelector(`[data-warmup-page="${target}"]`);
       if(page) page.classList.add("active");
-    };
-  });
-
-  const audioStatus = document.getElementById("pinyinAudioStatus");
-  document.querySelectorAll(".pinyin-audio").forEach(button=>{
-    button.onclick=()=>{
-      document.querySelectorAll(".pinyin-audio").forEach(x=>x.classList.remove("ring-4","ring-violet-200"));
-      button.classList.add("ring-4","ring-violet-200");
-      playPinyinAudio(button.dataset.audio,audioStatus)
-        .finally(()=>setTimeout(()=>button.classList.remove("ring-4","ring-violet-200"),350));
     };
   });
 
@@ -7339,7 +8022,7 @@ function bindGrammarHub(){
   });
 }
 
-let STROKE_WRITING_DATA = LESSON_ASSETS[1].STROKE_WRITING_DATA;
+let STROKE_WRITING_DATA = LESSON_ASSETS[3].STROKE_WRITING_DATA;
 
 function bindStrokeWriting(){
   const root=document.getElementById("flash");
@@ -7539,7 +8222,7 @@ function bindStrokeWriting(){
   createWriter();
 }
 
-let VOCAB_LEARNING_DATA = LESSON_ASSETS[1].VOCAB_LEARNING_DATA;
+let VOCAB_LEARNING_DATA = LESSON_ASSETS[3].VOCAB_LEARNING_DATA;
 
 function bindVocabLearning(){
   const root=document.getElementById("vocab");
@@ -7870,7 +8553,7 @@ function bindVocabLearning(){
 }
 
 
-let WORKBOOK_CHINESE_AUDIO_MAP = LESSON_ASSETS[1].WORKBOOK_CHINESE_AUDIO_MAP;
+let WORKBOOK_CHINESE_AUDIO_MAP = LESSON_ASSETS[3].WORKBOOK_CHINESE_AUDIO_MAP;
 
 function playWorkbookChineseAudio(pinyinText){
   if(!("speechSynthesis" in window)) return;
@@ -7893,7 +8576,7 @@ function playWorkbookChineseAudio(pinyinText){
 }
 
 
-let PINYIN_DRILL_QUESTIONS = LESSON_ASSETS[1].PINYIN_DRILL_QUESTIONS;
+let PINYIN_DRILL_QUESTIONS = LESSON_ASSETS[3].PINYIN_DRILL_QUESTIONS;
 
 function bindPinyinDrill(){
   const root=document.getElementById("pinyinDrill");
@@ -8125,7 +8808,7 @@ function bindSoundGame(){
     if(mascot){mascot.textContent="🐼";mascot.classList.remove("mascot-bounce");}
     if(mascotText) mascotText.textContent="";
 
-    const pool=currentLessonId===1?[...currentLesson.initials,...currentLesson.finals]:["zh","ch","sh","r","z","c","s","ou","an","en","ang"];
+    const pool=[...new Set([...currentLesson.initials,...currentLesson.finals])];
 
     // Chọn ngẫu nhiên một âm mục tiêu mới.
     target=pool[Math.floor(Math.random()*pool.length)];
@@ -8229,16 +8912,11 @@ function bindFill(){
   const petText=document.getElementById("fillPetText");
   const progress=document.getElementById("fillProgressBar");
   const counter=document.getElementById("fillCounter");
-  const meta=currentLessonId===1?[
-    {translation:"A: Xin chào! B: Xin chào!",pinyin:"nǐ hǎo",meaning:"xin chào / chào bạn"},
-    {translation:"A: Xin lỗi! B: Không sao!",pinyin:"méi guānxi",meaning:"không sao / không có gì"},
-    {translation:"Em chào cô giáo: Xin chào cô ạ!",pinyin:"nín hǎo",meaning:"xin chào kính trọng / chào cô"},
-    {translation:"Cô giáo chào cả lớp: Chào các em!",pinyin:"nǐmen hǎo",meaning:"chào các bạn / chào mọi người / chào các em"}
-  ]:[
-    {translation:"A: Cảm ơn bạn! B: Không có gì!",pinyin:"xièxie nǐ",meaning:"cảm ơn bạn"},
-    {translation:"A: Cảm ơn! B: Không có gì!",pinyin:"bú kèqi",meaning:"không có gì / đừng khách khí"},
-    {translation:"A: Tạm biệt! B: Tạm biệt!",pinyin:"zàijiàn",meaning:"tạm biệt"},
-    {translation:"Từ mang nghĩa 'không'.",pinyin:"bù",meaning:"không"}
+  const meta=[
+    {translation:"A: Bạn tên là gì? B: Tôi tên là Lý Nguyệt.",pinyin:"nǐ jiào shénme míngzi",meaning:"gì / tên"},
+    {translation:"A: Bạn là học sinh phải không? B: Đúng.",pinyin:"nǐ shì xuésheng ma",meaning:"là"},
+    {translation:"A: Bạn là giáo viên phải không? B: Không phải.",pinyin:"ma",meaning:"trợ từ nghi vấn"},
+    {translation:"A: Bạn tên là gì? B: Tôi tên là Lý Nguyệt.",pinyin:"wǒ jiào Lǐ Yuè",meaning:"gọi là"}
   ];  let index=0,isSubmitted=false,streak=0;
 
   function playGameSFX(correct,streak=0){
@@ -8334,10 +9012,10 @@ function bindTyping(){
   const petBox=document.getElementById("typingPet"),petIcon=document.getElementById("typingPetIcon"),petText=document.getElementById("typingPetText");
   const progress=document.getElementById("typingProgressBar"),counter=document.getElementById("typingCounter");
   const meta=[
-    {translation:"A: Cảm ơn bạn! B: Không có gì!",pinyin:"xièxie nǐ",meaning:"cảm ơn bạn"},
-    {translation:"A: Cảm ơn! B: Không có gì!",pinyin:"bú kèqi",meaning:"không có gì / đừng khách khí"},
-    {translation:"A: Tạm biệt! B: Tạm biệt!",pinyin:"zàijiàn",meaning:"tạm biệt"},
-    {translation:"Từ mang nghĩa 'không'.",pinyin:"bù",meaning:"không"}
+    {translation:"A: Bạn tên là gì? B: Tôi tên là Lý Nguyệt.",pinyin:"nǐ jiào shénme míngzi",meaning:"gì / tên"},
+    {translation:"A: Bạn là học sinh phải không? B: Đúng.",pinyin:"nǐ shì xuésheng ma",meaning:"là"},
+    {translation:"A: Bạn là giáo viên phải không? B: Không phải.",pinyin:"ma",meaning:"trợ từ nghi vấn"},
+    {translation:"A: Bạn tên là gì? B: Tôi tên là Lý Nguyệt.",pinyin:"wǒ jiào Lǐ Yuè",meaning:"gọi là"}
   ];  let index=0,isSubmitted=false,streak=0;
   const inputRef={current:null},composingRef={current:false};
 
@@ -8485,18 +9163,12 @@ function bindArrange(){
   const progress=document.getElementById("arrangeProgressBar");
   const counter=document.getElementById("arrangeCounter");
 
-  const arrangeMeta=currentLessonId===1?[
-    {translation:"Xin chào!",pinyin:"nǐ hǎo"},
-    {translation:"Xin chào ạ! (kính trọng)",pinyin:"nín hǎo"},
-    {translation:"Chào các bạn!",pinyin:"nǐmen hǎo"},
-    {translation:"Không sao / Không có gì.",pinyin:"méi guānxi"},
-    {translation:"Xin lỗi.",pinyin:"duìbuqǐ"}
-  ]:[
-    {translation:"Cảm ơn!",pinyin:"xièxie"},
-    {translation:"Không có gì / Đừng khách khí!",pinyin:"bú kèqi"},
-    {translation:"Tạm biệt!",pinyin:"zàijiàn"},
-    {translation:"Cảm ơn bạn!",pinyin:"xièxie nǐ"},
-    {translation:"Không có gì.",pinyin:"bú xiè"}
+  const arrangeMeta=[
+    {translation:"Bạn tên là gì?",pinyin:"nǐ jiào shénme míngzi"},
+    {translation:"Tôi tên là Lý Nguyệt.",pinyin:"wǒ jiào Lǐ Yuè"},
+    {translation:"Tôi là giáo viên.",pinyin:"wǒ shì lǎoshī"},
+    {translation:"Bạn là học sinh phải không?",pinyin:"nǐ shì xuésheng ma"},
+    {translation:"Tôi là người Trung Quốc.",pinyin:"wǒ shì Zhōngguó rén"}
   ];
   let index=0;
   let isSubmitted=false;
@@ -8687,33 +9359,20 @@ function bindMatch(){
   const progress=document.getElementById("matchProgress");
   const footer=document.getElementById("matchFooter");
 
-  const games=currentLessonId===1?{
-    numbers:currentLesson.numbers.slice(0,5).map((item,index)=>({
-      key:String(index),
-      left:item.han,
-      right:String(item.n)
-    })),
-    greetings:[
-      {key:"0",left:"你好",right:"Xin chào"},
-      {key:"1",left:"您好",right:"Xin chào kính trọng"},
-      {key:"2",left:"你们好",right:"Chào các bạn"},
-      {key:"3",left:"对不起",right:"Xin lỗi"},
-      {key:"4",left:"没关系",right:"Không sao"}
-    ]
-  }:{
+  const games={
     numbers:[
-      {key:"0",left:"口",right:"Cái miệng"},
-      {key:"1",left:"见",right:"Thấy / gặp"},
-      {key:"2",left:"山",right:"Ngọn núi"},
-      {key:"3",left:"小",right:"Nhỏ / bé"},
-      {key:"4",left:"不",right:"Không"}
+      {key:"0",left:"叫",right:"gọi là"},
+      {key:"1",left:"名字",right:"tên"},
+      {key:"2",left:"老师",right:"giáo viên"},
+      {key:"3",left:"学生",right:"học sinh"},
+      {key:"4",left:"人",right:"người"}
     ],
     greetings:[
-      {key:"0",left:"谢谢",right:"Cảm ơn"},
-      {key:"1",left:"不客气",right:"Không có gì"},
-      {key:"2",left:"再见",right:"Tạm biệt"},
-      {key:"3",left:"口",right:"Cái miệng"},
-      {key:"4",left:"山",right:"Ngọn núi"}
+      {key:"0",left:"什么",right:"gì / cái gì"},
+      {key:"1",left:"吗",right:"trợ từ nghi vấn"},
+      {key:"2",left:"中国",right:"Trung Quốc"},
+      {key:"3",left:"美国",right:"Mỹ"},
+      {key:"4",left:"李月",right:"Lý Nguyệt"}
     ]
   };
 
@@ -8900,58 +9559,494 @@ function bindQuiz(){
     show();
   }
 }
-function bindRole(){
-  let scenario=0,role="a",turn="a";
-  const stage=document.getElementById("roleStage");
-  function draw(){
-    const d=currentLesson.dialogues[scenario],speaker=d[turn],isStudent=turn===role;
-    stage.innerHTML=`<div class="chat-simulator">
-      <div class="chat-topbar">
-        <div class="chat-title">💬 ${d.title}</div>
-        <div class="chat-turn-badge">${speaker.name} • ${isStudent?"Lượt của em":"Máy đang nói"}</div>
-      </div>
-      <div class="chat-thread">
-        <div class="chat-row ${isStudent?"me":"ai"}">
-          <div class="chat-avatar-wrap">
-            <div class="chat-avatar active">${turn==="a"?"👦":"👧"}</div>
-            <div class="chat-name">${speaker.name}</div>
-          </div>
-          <div class="chat-bubble">
-            <div class="chat-hanzi cn">${speaker.line}</div>
-            <div class="chat-pinyin">${speaker.py}</div>
-            <details class="chat-translation">
-              <summary>👁 Hiện nghĩa tiếng Việt</summary>
-              <div>${({"你好！":"Xin chào!","您好！":"Xin chào (lịch sự)!","你们好！":"Chào các bạn!","对不起！":"Xin lỗi!","没关系！":"Không sao!","谢谢你！":"Cảm ơn bạn!","不客气！":"Không có gì!","再见！":"Tạm biệt!"}[speaker.line]||"")}</div>
-            </details>
-          </div>
-        </div>
-      </div>
-      <div class="role-action-bar">
-        ${speakerBtn(speaker.line,"🎧 Nghe mẫu")}
-        ${isStudent?`<button id="micBtn" class="btn3d pulse-ring"><i class="fa-solid fa-microphone"></i></button>`:`<button id="machineSpeak" class="btn3d">🎧 Máy đọc</button>`}
-        <button id="nextTurn" class="btn3d">➔ Lượt tiếp</button>
-      </div>
-      <p id="speechResult" class="role-status">${isStudent?"Bấm Micro và đọc to câu thoại của bạn":"Nghe mẫu rồi chuyển sang lượt tiếp theo"}</p>
-    </div>`;
-    stage.querySelectorAll(".speak").forEach(b=>b.onclick=()=>speak(b.dataset.speak));
-    const ms=document.getElementById("machineSpeak");if(ms){ms.onclick=()=>speak(speaker.line)}
-    const mic=document.getElementById("micBtn");if(mic)mic.onclick=()=>startRecognition(speaker.line);
-    document.getElementById("nextTurn").onclick=()=>{turn=turn==="a"?"b":"a";draw()}
-  }
-  function startRecognition(expected){
-    const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
-    const out=document.getElementById("speechResult");
-    if(!SR){out.textContent="Trình duyệt chưa hỗ trợ nhận dạng giọng nói. Hãy dùng Chrome/Edge.";return}
-    const r=new SR();r.lang="zh-CN";r.interimResults=false;r.maxAlternatives=1;out.textContent="🎙️ Đang nghe...";
-    r.onresult=e=>{const heard=e.results[0][0].transcript;out.textContent=`Bạn nói: ${heard}`;const clean=s=>s.replace(/[！!，。？?\s]/g,"");if(clean(heard).includes(clean(expected))||clean(expected).includes(clean(heard))){audioTone("ok");addScore(20);out.textContent+= " ✅ Rất tốt!"}else{audioTone("bad");out.textContent+=" 🔁 Hãy nghe mẫu và thử lại."}};
-    r.onerror=()=>out.textContent="Không nhận được giọng nói. Hãy thử lại.";r.start();
-  }
-  document.querySelectorAll(".scenario").forEach(b=>b.onclick=()=>{scenario=+b.dataset.scenario;turn="a";document.querySelectorAll(".scenario").forEach(x=>x.classList.remove("bg-violet-200"));b.classList.add("bg-violet-200");draw()});
-  document.querySelectorAll(".role-choice").forEach(b=>b.onclick=()=>{role=b.dataset.role;turn="a";draw()});
-  draw();
+
+
+
+/* ===== Global SpeechRecognition singleton for Roleplay ===== */
+const GLOBAL_SPEECH_RECOGNITION_CTOR =
+  window.SpeechRecognition || window.webkitSpeechRecognition;
+
+const GLOBAL_ROLE_RECOGNITION =
+  GLOBAL_SPEECH_RECOGNITION_CTOR
+    ? new GLOBAL_SPEECH_RECOGNITION_CTOR()
+    : null;
+
+if(GLOBAL_ROLE_RECOGNITION){
+  GLOBAL_ROLE_RECOGNITION.lang = "zh-CN";
+  GLOBAL_ROLE_RECOGNITION.interimResults = true;
+  GLOBAL_ROLE_RECOGNITION.continuous = false;
+  GLOBAL_ROLE_RECOGNITION.maxAlternatives = 3;
 }
 
-document.getElementById("tabs").addEventListener("click",e=>{const b=e.target.closest("[data-tab]");if(!b)return;document.querySelectorAll(".tab-btn").forEach(x=>x.classList.remove("active"));b.classList.add("active");document.querySelectorAll(".tab-panel").forEach(x=>x.classList.remove("active"));document.getElementById(b.dataset.tab).classList.add("active");window.scrollTo({top:0,behavior:"auto"})});
+let GLOBAL_ROLE_MIC_PERMISSION_PROMISE = null;
+let GLOBAL_ROLE_MIC_PERMISSION_GRANTED = false;
+
+async function ensureGlobalRoleMicrophonePermission(){
+  if(GLOBAL_ROLE_MIC_PERMISSION_GRANTED) return true;
+  if(GLOBAL_ROLE_MIC_PERMISSION_PROMISE) return GLOBAL_ROLE_MIC_PERMISSION_PROMISE;
+  if(!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) return false;
+
+  GLOBAL_ROLE_MIC_PERMISSION_PROMISE = navigator.mediaDevices
+    .getUserMedia({audio:true})
+    .then(stream=>{
+      stream.getTracks().forEach(track=>track.stop());
+      GLOBAL_ROLE_MIC_PERMISSION_GRANTED = true;
+      return true;
+    })
+    .catch(error=>{
+      GLOBAL_ROLE_MIC_PERMISSION_PROMISE = null;
+      throw error;
+    });
+
+  return GLOBAL_ROLE_MIC_PERMISSION_PROMISE;
+}
+
+function bindRole(){
+  const stage = document.getElementById("crpStage");
+  if(!stage) return;
+
+  const conversation = currentLesson.dialogues[0];
+  const steps = conversation?.steps || [];
+  const recognition = GLOBAL_ROLE_RECOGNITION;
+
+  let mode = "demo";
+  let selectedRole = "A";
+  let stepIndex = 0;
+  let listening = false;
+  let currentTarget = "";
+  let finalHandled = false;
+  let activeMicButton = null;
+  let lastResult = null;
+  let canAdvance = false;
+
+  const normalize = text => String(text || "")
+    .replace(/[！!，,。．？?、；;：:“”"'（）()\s]/g, "")
+    .toLowerCase();
+
+  function alignText(target, heard){
+    const a = [...normalize(target)];
+    const b = [...normalize(heard)];
+    const dp = Array.from({length:a.length+1},()=>Array(b.length+1).fill(0));
+
+    for(let i=1;i<=a.length;i++){
+      for(let j=1;j<=b.length;j++){
+        dp[i][j] = a[i-1] === b[j-1]
+          ? dp[i-1][j-1] + 1
+          : Math.max(dp[i-1][j], dp[i][j-1]);
+      }
+    }
+
+    const matched = new Set();
+    let i=a.length, j=b.length;
+    while(i>0 && j>0){
+      if(a[i-1] === b[j-1]){
+        matched.add(i-1);
+        i--; j--;
+      }else if(dp[i-1][j] >= dp[i][j-1]){
+        i--;
+      }else{
+        j--;
+      }
+    }
+
+    const score = a.length ? Math.round((dp[a.length][b.length] / a.length) * 100) : 0;
+    const marked = a.map((char,index)=>
+      `<span class="${matched.has(index) ? "crp-char-ok" : "crp-char-bad"}">${char}</span>`
+    ).join("");
+
+    return {score, marked};
+  }
+
+  function isUserStep(step){
+    return step.speaker === selectedRole;
+  }
+
+  function speakLine(text){
+    if(!text) return;
+    speak(text);
+  }
+
+  function renderDemo(){
+    mode = "demo";
+    stage.innerHTML = `
+      <article class="crp-card crp-demo-card">
+        <div class="crp-card-head">
+          <div>
+            <p class="crp-eyebrow">HỘI THOẠI MẪU</p>
+            <h3>${conversation.title}</h3>
+          </div>
+          <button type="button" id="crpPlayAll" class="crp-primary-btn">
+            <i class="fa-solid fa-play"></i>
+            <span>Phát toàn bộ</span>
+          </button>
+        </div>
+
+        <div class="crp-scroll-list">
+          ${steps.map(step=>`
+            <button type="button" class="crp-demo-message ${step.speaker==="A"?"from-a":"from-b"}" data-crp-speak="${step.text}">
+              <div class="crp-avatar">${step.speaker==="A"?"👦":"👧"}</div>
+              <div class="crp-message-body">
+                <div class="crp-speaker">${step.name}</div>
+                <div class="crp-hanzi cn">${step.text}</div>
+                <div class="crp-pinyin">${step.py}</div>
+                <div class="crp-vietnamese">${step.vi}</div>
+              </div>
+              <i class="fa-solid fa-volume-high crp-speaker-icon"></i>
+            </button>
+          `).join("")}
+        </div>
+      </article>
+    `;
+
+    stage.querySelectorAll("[data-crp-speak]").forEach(button=>{
+      button.onclick = ()=>speakLine(button.dataset.crpSpeak);
+    });
+
+    const playAll = document.getElementById("crpPlayAll");
+    if(playAll){
+      playAll.onclick = ()=>{
+        if(!("speechSynthesis" in window)) return;
+        speechSynthesis.cancel();
+        let index = 0;
+
+        const playNext = ()=>{
+          if(index >= steps.length) return;
+          const utterance = new SpeechSynthesisUtterance(steps[index].text);
+          utterance.lang = "zh-CN";
+          utterance.rate = .82;
+          const voice = getZhVoice();
+          if(voice) utterance.voice = voice;
+          utterance.onend = ()=>{
+            index++;
+            setTimeout(playNext, 160);
+          };
+          speechSynthesis.speak(utterance);
+        };
+
+        playNext();
+      };
+    }
+  }
+
+  function resultBubble(){
+    if(!lastResult) return "";
+
+    return `
+      <div class="crp-chat-row user-result">
+        <div class="crp-avatar">🎙️</div>
+        <div class="crp-result-bubble">
+          <div class="crp-result-head">
+            <span>Kết quả phát âm</span>
+            <strong>${lastResult.score}%</strong>
+          </div>
+          <div class="crp-result-marked cn">${lastResult.marked}</div>
+          <div class="crp-result-raw">Nhận diện: <b>${lastResult.heard || "—"}</b></div>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderChallenge(autoSpeakNpc=false){
+    mode = "challenge";
+    if(!steps.length) return;
+
+    stepIndex = Math.max(0, Math.min(stepIndex, steps.length-1));
+    const current = steps[stepIndex];
+    const userTurn = isUserStep(current);
+
+    const visibleHistory = steps.slice(0,stepIndex).map(step=>`
+      <div class="crp-chat-row ${isUserStep(step)?"user":"npc"}">
+        <div class="crp-avatar">${step.speaker==="A"?"👦":"👧"}</div>
+        <button type="button" class="crp-chat-bubble" data-crp-speak="${step.text}">
+          <div class="crp-speaker">${step.name}</div>
+          <div class="crp-hanzi cn">${step.text}</div>
+          <div class="crp-pinyin">${step.py}</div>
+          <div class="crp-vietnamese">${step.vi}</div>
+        </button>
+      </div>
+    `).join("");
+
+    const currentNpc = !userTurn ? `
+      <div class="crp-chat-row npc current">
+        <div class="crp-avatar">${current.speaker==="A"?"👦":"👧"}</div>
+        <button type="button" class="crp-chat-bubble" data-crp-speak="${current.text}">
+          <div class="crp-speaker">${current.name}</div>
+          <div class="crp-hanzi cn">${current.text}</div>
+          <div class="crp-pinyin">${current.py}</div>
+          <div class="crp-vietnamese">${current.vi}</div>
+        </button>
+      </div>
+    ` : "";
+
+    const hiddenAnswer = userTurn && !lastResult ? `
+      <div class="crp-hidden-answer">
+        <div class="crp-hidden-icon"><i class="fa-solid fa-lock"></i></div>
+        <div>
+          <strong>Đến lượt của em</strong>
+          <p>Dựa vào ngữ cảnh để trả lời. Đáp án không được hiển thị trước.</p>
+        </div>
+      </div>
+    ` : "";
+
+    stage.innerHTML = `
+      <article class="crp-card crp-challenge-card">
+        <div class="crp-card-head">
+          <div>
+            <p class="crp-eyebrow">ĐÓNG VAI THỰC TẾ</p>
+            <h3>${conversation.title}</h3>
+          </div>
+          <div class="crp-progress">Bước ${stepIndex+1}/${steps.length}</div>
+        </div>
+
+        <div class="crp-chat-scroll">
+          ${visibleHistory}
+          ${currentNpc}
+          ${hiddenAnswer}
+          ${userTurn ? resultBubble() : ""}
+        </div>
+
+        <footer class="crp-controls">
+          ${userTurn ? `
+            <button type="button" id="crpMicBtn" class="crp-record-btn idle">
+              <i class="fa-solid fa-microphone"></i>
+              <span>🎙️ Ghi âm</span>
+              <span class="crp-wave"><i></i><i></i><i></i><i></i></span>
+            </button>
+
+            <button type="button" id="crpRetryBtn" class="crp-secondary-btn" ${lastResult?"":"disabled"}>
+              <i class="fa-solid fa-rotate-left"></i>
+              <span>🔄 Thử lại</span>
+            </button>
+
+            <button type="button" id="crpNextBtn" class="crp-next-btn" ${canAdvance?"":"disabled"}>
+              <i class="fa-solid fa-arrow-right"></i>
+              <span>Lượt tiếp</span>
+            </button>
+          ` : `
+            <button type="button" id="crpListenBtn" class="crp-primary-btn">
+              <i class="fa-solid fa-volume-high"></i>
+              <span>Nghe lại</span>
+            </button>
+
+            <button type="button" id="crpNextBtn" class="crp-next-btn ready">
+              <i class="fa-solid fa-arrow-right"></i>
+              <span>Lượt tiếp</span>
+            </button>
+          `}
+        </footer>
+
+        <div id="crpStatus" class="crp-status">
+          ${userTurn
+            ? (lastResult
+              ? `Độ chính xác ${lastResult.score}%. ${canAdvance?"Có thể chuyển lượt.":"Hãy thử lại để đạt từ 60%."}`
+              : "Bấm Ghi âm và nói câu trả lời của em.")
+            : "Nhân vật ảo đang nói. Em có thể nghe lại trước khi chuyển lượt."}
+        </div>
+      </article>
+    `;
+
+    stage.querySelectorAll("[data-crp-speak]").forEach(button=>{
+      button.onclick = ()=>speakLine(button.dataset.crpSpeak);
+    });
+
+    const listenBtn = document.getElementById("crpListenBtn");
+    if(listenBtn) listenBtn.onclick = ()=>speakLine(current.text);
+
+    const micBtn = document.getElementById("crpMicBtn");
+    if(micBtn) micBtn.onclick = ()=>toggleRecognition(current.text, micBtn);
+
+    const retryBtn = document.getElementById("crpRetryBtn");
+    if(retryBtn) retryBtn.onclick = ()=>{
+      lastResult = null;
+      canAdvance = false;
+      renderChallenge(false);
+    };
+
+    const nextBtn = document.getElementById("crpNextBtn");
+    if(nextBtn) nextBtn.onclick = ()=>{
+      if(userTurn && !canAdvance) return;
+      if(recognition && listening) recognition.stop();
+      stepIndex = stepIndex === steps.length-1 ? 0 : stepIndex+1;
+      lastResult = null;
+      canAdvance = false;
+      renderChallenge(true);
+    };
+
+    if(autoSpeakNpc && !userTurn){
+      setTimeout(()=>speakLine(current.text), 100);
+    }
+
+    const scroll = stage.querySelector(".crp-chat-scroll");
+    if(scroll) scroll.scrollTop = scroll.scrollHeight;
+  }
+
+  function setMicState(button,state){
+    if(!button) return;
+    button.classList.remove("idle","recording","processing");
+    button.classList.add(state);
+
+    const label = button.querySelector("span:not(.crp-wave)");
+    const icon = button.querySelector("i");
+
+    if(state === "recording"){
+      label.textContent = "🔴 Đang ghi âm...";
+      icon.className = "fa-solid fa-stop";
+    }else if(state === "processing"){
+      label.textContent = "🟡 Đang xử lý...";
+      icon.className = "fa-solid fa-spinner fa-spin";
+    }else{
+      label.textContent = "🎙️ Ghi âm";
+      icon.className = "fa-solid fa-microphone";
+    }
+  }
+
+  async function toggleRecognition(target,micButton){
+    if(!recognition){
+      const status = document.getElementById("crpStatus");
+      if(status) status.textContent = "Trình duyệt chưa hỗ trợ nhận dạng giọng nói. Hãy dùng Chrome hoặc Edge.";
+      return;
+    }
+
+    if(listening){
+      setMicState(micButton,"processing");
+      recognition.stop();
+      return;
+    }
+
+    const status = document.getElementById("crpStatus");
+    if(status) status.textContent = "Đang kiểm tra quyền Micro…";
+
+    try{
+      const granted = await ensureGlobalRoleMicrophonePermission();
+      if(!granted){
+        if(status) status.textContent = "Trình duyệt không hỗ trợ cấp quyền Micro.";
+        return;
+      }
+    }catch(error){
+      if(status){
+        status.textContent = error && error.name === "NotAllowedError"
+          ? "Bạn chưa cấp quyền Micro. Hãy cho phép Micro trong trình duyệt rồi bấm Ghi âm lại."
+          : "Không thể truy cập Micro. Hãy kiểm tra thiết bị và quyền trình duyệt.";
+      }
+      return;
+    }
+
+    currentTarget = target;
+    activeMicButton = micButton;
+    finalHandled = false;
+    listening = true;
+    setMicState(micButton,"recording");
+
+    if(status) status.innerHTML = '<span class="crp-live-dot"></span> Đang nghe… hãy nói rõ câu trả lời.';
+
+    try{
+      recognition.start();
+    }catch(error){
+      listening = false;
+      setMicState(micButton,"idle");
+      if(status) status.textContent = "Micro đang bận. Hãy chờ một chút rồi thử lại.";
+    }
+  }
+
+  if(recognition){
+    recognition.onresult = event=>{
+      const status = document.getElementById("crpStatus");
+      let interim = "";
+      let finalResult = null;
+
+      for(let i=event.resultIndex;i<event.results.length;i++){
+        const result = event.results[i];
+        if(result.isFinal) finalResult = result[0];
+        else interim += result[0].transcript;
+      }
+
+      if(interim && !finalResult && status){
+        status.innerHTML = `<span class="crp-live-dot"></span> Đang nghe: <b>${interim}</b>`;
+      }
+
+      if(finalResult && !finalHandled){
+        finalHandled = true;
+        setMicState(activeMicButton,"processing");
+
+        const comparison = alignText(currentTarget, finalResult.transcript);
+        lastResult = {
+          score: comparison.score,
+          marked: comparison.marked,
+          heard: finalResult.transcript
+        };
+        canAdvance = comparison.score >= 60;
+
+        if(comparison.score >= 75){
+          audioTone("ok");
+          addScore(Math.max(5,Math.round(comparison.score/5)));
+          lightConfetti();
+        }else{
+          audioTone("bad");
+        }
+
+        setTimeout(()=>renderChallenge(false), 220);
+      }
+    };
+
+    recognition.onerror = event=>{
+      listening = false;
+      setMicState(activeMicButton,"idle");
+      const status = document.getElementById("crpStatus");
+      if(status){
+        status.textContent = event.error === "no-speech"
+          ? "Không nghe thấy giọng nói. Hãy bấm Ghi âm và thử lại."
+          : "Không nhận dạng được giọng nói. Hãy kiểm tra quyền Micro.";
+      }
+    };
+
+    recognition.onend = ()=>{
+      listening = false;
+      if(!finalHandled && activeMicButton && document.body.contains(activeMicButton)){
+        setMicState(activeMicButton,"idle");
+      }
+    };
+  }
+
+  document.querySelectorAll("[data-crp-mode]").forEach(button=>{
+    button.onclick = ()=>{
+      mode = button.dataset.crpMode;
+      stepIndex = 0;
+      lastResult = null;
+      canAdvance = false;
+      if(recognition && listening) recognition.stop();
+      if("speechSynthesis" in window) speechSynthesis.cancel();
+
+      document.querySelectorAll("[data-crp-mode]").forEach(item=>{
+        item.classList.toggle("active", item === button);
+      });
+
+      if(mode === "demo") renderDemo();
+      else renderChallenge(true);
+    };
+  });
+
+  document.querySelectorAll("[data-crp-role]").forEach(button=>{
+    button.onclick = ()=>{
+      selectedRole = button.dataset.crpRole;
+      stepIndex = 0;
+      lastResult = null;
+      canAdvance = false;
+      if(recognition && listening) recognition.stop();
+      if("speechSynthesis" in window) speechSynthesis.cancel();
+
+      document.querySelectorAll("[data-crp-role]").forEach(item=>{
+        item.classList.toggle("active", item === button);
+      });
+
+      if(mode === "challenge") renderChallenge(true);
+      else renderDemo();
+    };
+  });
+
+  renderDemo();
+}
+
+document.getElementById("tabs").addEventListener("click",e=>{const b=e.target.closest("[data-tab]");if(!b)return;if(b.dataset.tab==="roleplay")ensureGlobalRoleMicrophonePermission().catch(()=>{});document.querySelectorAll(".tab-btn").forEach(x=>x.classList.remove("active"));b.classList.add("active");document.querySelectorAll(".tab-panel").forEach(x=>x.classList.remove("active"));document.getElementById(b.dataset.tab).classList.add("active");cleanupOrphanedRoleplayElements();window.scrollTo({top:0,behavior:"auto"})});
 
 function applyLessonAssets(id){
   const assets=LESSON_ASSETS[id];
@@ -8981,12 +10076,40 @@ function switchLesson(id){
   document.getElementById("footerLesson").textContent=`HSK 1 • Bài ${lessonId} ${title}`;
   document.querySelectorAll(".tab-btn").forEach(button=>button.classList.toggle("active",button.dataset.tab==="warmup"));
   render();
+  cleanupOrphanedRoleplayElements();
   window.scrollTo({top:0,behavior:"auto"});
 }
-document.getElementById("lessonSwitcher").addEventListener("change",()=>switchLesson(1));
+document.getElementById("lessonSwitcher").addEventListener("change",()=>switchLesson(3));
 
 document.getElementById("soundToggle").onclick=()=>{soundOn=!soundOn;document.getElementById("soundToggle").innerHTML=soundOn?'<i class="fa-solid fa-volume-high"></i>':'<i class="fa-solid fa-volume-xmark"></i>'};
-renderTabs();render();
+
+/* Remove only detached Roleplay UI accidentally rendered outside #roleplay. */
+function cleanupOrphanedRoleplayElements(){
+  const roleplayPanel = document.getElementById("roleplay");
+  if(!roleplayPanel) return;
+
+  const selectors = [
+    ".crp-shell",
+    ".crp-card",
+    ".crp-toolbar",
+    ".crp-controls",
+    ".crp-status",
+    ".crp-record-btn",
+    ".crp-primary-btn",
+    ".crp-secondary-btn",
+    ".crp-next-btn",
+    ".crp-chat-row",
+    ".crp-demo-message"
+  ].join(",");
+
+  document.querySelectorAll(selectors).forEach(element=>{
+    if(!roleplayPanel.contains(element)){
+      element.remove();
+    }
+  });
+}
+
+renderTabs();render();cleanupOrphanedRoleplayElements();
 </script>
 </body>
 </html>
