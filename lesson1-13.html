@@ -7007,10 +7007,7 @@
         </div>
       </div>
       <div class="flex flex-wrap items-center gap-2 ml-auto">
-        <select id="lessonSwitcher" class="rounded-xl border border-white/70 bg-white/80 px-3 py-2 font-bold outline-none">
-          <option value="13" selected>Bài 13 · 他在学做中国菜呢</option>
-          <option disabled>Bài 13 · Sắp ra mắt</option>
-        </select>
+
         <button id="soundToggle" aria-label="Bật tắt âm thanh" class="btn3d rounded-xl px-3 py-2 bg-amber-200 font-bold"><i class="fa-solid fa-volume-high"></i></button>
         <div class="rounded-xl px-3 py-2 bg-white/90 shadow-md font-black text-sm">⭐ <span id="globalScore">0</span></div>
       </div>
@@ -10687,7 +10684,7 @@ function switchLesson(id){
   cleanupOrphanedRoleplayElements();
   window.scrollTo({top:0,behavior:"auto"});
 }
-document.getElementById("lessonSwitcher").addEventListener("change",event=>switchLesson(event.target.value));
+
 
 document.getElementById("soundToggle").onclick=()=>{soundOn=!soundOn;document.getElementById("soundToggle").innerHTML=soundOn?'<i class="fa-solid fa-volume-high"></i>':'<i class="fa-solid fa-volume-xmark"></i>'};
 
