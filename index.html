@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HSK 1 Standard Course • 课程平台</title>
+  <title>HSK Standard Course • 课程平台</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,21 +17,32 @@
       min-height: 100vh;
       margin: 0;
     }
+
     .cn { font-family: "Noto Sans SC", sans-serif; }
+
     .glass {
       background: #FFFFFF !important;
       border: 1px solid #E2E8F0 !important;
       box-shadow: 0 10px 25px -5px rgba(0,0,0,.05) !important;
     }
-    .catalog-card {
+
+    .catalog-card,
+    .level-card {
       transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
     }
-    .catalog-card:hover {
+
+    .catalog-card:hover,
+    .level-card.available:hover {
       transform: translateY(-4px);
       box-shadow: 0 14px 30px rgba(99,102,241,.12);
       border-color: #A5B4FC;
     }
-    /* 嵌入课程页面的全屏 iframe */
+
+    .level-card.unavailable {
+      cursor: not-allowed;
+      opacity: .7;
+    }
+
     #lessonIframe {
       width: 100%;
       height: calc(100vh - 80px);
@@ -42,143 +53,299 @@
 </head>
 <body class="flex flex-col min-h-screen">
 
-  <!-- 顶部主导航栏 -->
   <header class="glass sticky top-0 z-50 px-4 py-2.5 flex items-center justify-between border-b border-slate-200 bg-white/95 backdrop-blur-md">
     <div class="flex items-center gap-3 min-w-0">
-      <button id="btnHome" class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 text-white grid place-items-center text-lg font-bold shadow-md hover:scale-105 active:scale-95 transition" title="Quay về danh mục (返回目录)">
-        <i class="fa-solid fa-house"></i>
+      <button id="btnHome" class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 text-white grid place-items-center text-lg font-bold shadow-md hover:scale-105 active:scale-95 transition" title="返回上一级">
+        <i id="homeIcon" class="fa-solid fa-house"></i>
       </button>
       <div class="min-w-0">
         <p class="text-[11px] font-black text-indigo-500 tracking-wider uppercase leading-none" id="headerSubtitle">HSK STANDARD COURSE</p>
-        <h1 class="text-base md:text-lg font-black truncate text-slate-800" id="headerTitle">Danh sách bài học (课程总目录)</h1>
+        <h1 class="text-base md:text-lg font-black truncate text-slate-800" id="headerTitle">Chọn cấp độ (选择HSK等级)</h1>
       </div>
     </div>
 
     <div class="flex items-center gap-2">
-      <!-- 快速切换下拉框 -->
-      <select id="lessonSelect" class="rounded-xl px-3 py-1.5 bg-slate-100 border border-slate-200 font-bold text-xs md:text-sm text-slate-700 cursor-pointer outline-none focus:ring-2 focus:ring-indigo-400">
-        <option value="catalog">📚 Danh sách bài học (目录)</option>
-        <!-- 下拉选项由 JS 动态生成 -->
+      <select id="lessonSelect" class="max-w-[190px] md:max-w-none rounded-xl px-3 py-1.5 bg-slate-100 border border-slate-200 font-bold text-xs md:text-sm text-slate-700 cursor-pointer outline-none focus:ring-2 focus:ring-indigo-400">
+        <option value="levels">🎓 Chọn cấp độ (选择等级)</option>
       </select>
     </div>
   </header>
 
-  <!-- 内容切换区域 -->
   <main class="flex-1">
-    <!-- 1. 课程目录视图 (Dashboard) -->
-    <div id="catalogPage" class="max-w-7xl mx-auto p-4 md:p-6">
+    <!-- 第一级：HSK 等级目录 -->
+    <section id="levelPage" class="max-w-7xl mx-auto p-4 md:p-6">
       <div class="mb-6 text-center md:text-left">
-        <h2 class="text-2xl font-black text-slate-800">Khóa học HSK 1</h2>
-        <p class="text-sm font-bold text-slate-500 mt-1">Chọn một bài học để bắt đầu (选择课程开始学习)</p>
+        <h2 class="text-2xl md:text-3xl font-black text-slate-800">HSK Standard Course</h2>
+        <p class="text-sm font-bold text-slate-500 mt-1">Chọn cấp độ để xem danh sách bài học (选择等级后查看课程)</p>
       </div>
-      <div id="catalogGrid" class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        <!-- 卡片将由 JS 动态注入 -->
-      </div>
-    </div>
+      <div id="levelGrid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4"></div>
+    </section>
 
-    <!-- 2. 课程嵌入视图 (Iframe Container) -->
-    <div id="lessonContainer" class="hidden w-full h-full">
+    <!-- 第二级：所选等级的课程目录 -->
+    <section id="catalogPage" class="hidden max-w-7xl mx-auto p-4 md:p-6">
+      <div class="mb-6 flex flex-col md:flex-row md:items-end md:justify-between gap-3">
+        <div>
+          <button id="btnBackLevels" class="mb-3 inline-flex items-center gap-2 text-sm font-black text-indigo-600 hover:text-indigo-800">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span>Chọn cấp độ khác (返回等级)</span>
+          </button>
+          <h2 id="catalogTitle" class="text-2xl font-black text-slate-800">Khóa học HSK 1</h2>
+          <p id="catalogDescription" class="text-sm font-bold text-slate-500 mt-1">Chọn một bài học để bắt đầu (选择课程开始学习)</p>
+        </div>
+        <span id="lessonCount" class="self-start md:self-auto px-3 py-1 rounded-full bg-indigo-50 text-indigo-600 text-xs font-black"></span>
+      </div>
+      <div id="catalogGrid" class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
+    </section>
+
+    <!-- 课程页面 -->
+    <section id="lessonContainer" class="hidden w-full h-full">
       <iframe id="lessonIframe" src="about:blank" title="Lesson Content"></iframe>
-    </div>
+    </section>
   </main>
 
   <script src="lessons-index.js"></script>
   <script>
-    // 渲染目录与卡片
-    function initApp() {
-      const gridEl = document.getElementById("catalogGrid");
-      const selectEl = document.getElementById("lessonSelect");
+    const state = {
+      view: "levels",
+      courseId: null,
+      lessonId: null
+    };
 
-      let gridHTML = "";
-      LESSONS_INDEX.forEach(item => {
-        // 填充 Select
-        const opt = document.createElement("option");
-        opt.value = item.id;
-        opt.textContent = `Bài ${item.id} • ${item.title}${item.locked ? ' 🔒' : ''}`;
-        selectEl.appendChild(opt);
+    const elements = {
+      levelPage: document.getElementById("levelPage"),
+      catalogPage: document.getElementById("catalogPage"),
+      lessonContainer: document.getElementById("lessonContainer"),
+      levelGrid: document.getElementById("levelGrid"),
+      catalogGrid: document.getElementById("catalogGrid"),
+      catalogTitle: document.getElementById("catalogTitle"),
+      catalogDescription: document.getElementById("catalogDescription"),
+      lessonCount: document.getElementById("lessonCount"),
+      lessonIframe: document.getElementById("lessonIframe"),
+      lessonSelect: document.getElementById("lessonSelect"),
+      headerSubtitle: document.getElementById("headerSubtitle"),
+      headerTitle: document.getElementById("headerTitle"),
+      homeIcon: document.getElementById("homeIcon")
+    };
 
-        // 构造 Catalog 卡片 (增加锁图标提示)
-        const lockBadge = item.locked ? `<i class="fa-solid fa-lock text-amber-500 ml-1.5" title="Cần mật khẩu"></i>` : '';
-
-        gridHTML += `
-          <div onclick="switchLesson(${item.id})" class="catalog-card glass cursor-pointer rounded-2xl p-5 border border-slate-200 bg-white flex flex-col justify-between">
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <span class="px-2.5 py-0.5 rounded-full text-xs font-black bg-indigo-50 text-indigo-600">${item.level}</span>
-                <span class="text-xs font-black text-slate-400">Bài ${item.id} ${lockBadge}</span>
-              </div>
-              <h3 class="text-2xl font-black text-slate-800 cn mb-1">${item.title}</h3>
-              <p class="text-sm font-bold text-slate-400">${item.pinyin}</p>
-            </div>
-            <div class="mt-6 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-black text-indigo-600">
-              <span>${item.locked ? 'Nhập mật khẩu (解锁访问)' : 'Học ngay'}</span>
-              <i class="fa-solid ${item.locked ? 'fa-key' : 'fa-arrow-right'}"></i>
-            </div>
-          </div>`;
-      });
-
-      gridEl.innerHTML = gridHTML;
+    function hideAllViews() {
+      elements.levelPage.classList.add("hidden");
+      elements.catalogPage.classList.add("hidden");
+      elements.lessonContainer.classList.add("hidden");
     }
 
-    // 切换到指定课程 (加入密码判断)
-    function switchLesson(lessonId) {
-      const item = LESSONS_INDEX.find(l => l.id === lessonId);
-      if (!item) return;
+    function findCourse(courseId) {
+      return HSK_COURSES.find(course => course.id === courseId);
+    }
 
-      // 🔒 1. 检查是否加锁
-      if (item.locked) {
-        const userInput = prompt(`Mời nhập mật khẩu để học Bài ${item.id} (请输入访问密码):`);
-        
-        // 如果取消输入或密码不匹配
-        if (userInput !== item.password) {
-          if (userInput !== null) { // 非取消行为，提示错误
+    function findLesson(courseId, lessonId) {
+      const course = findCourse(courseId);
+      if (!course) return null;
+      return course.lessons.find(lesson => lesson.id === Number(lessonId)) || null;
+    }
+
+    function lessonValue(courseId, lessonId) {
+      return `lesson:${courseId}:${lessonId}`;
+    }
+
+    function renderLevelCards() {
+      elements.levelGrid.innerHTML = HSK_COURSES.map(course => {
+        const isAvailable = course.available && course.lessons.length > 0;
+        const statusText = isAvailable
+          ? `${course.lessons.length} bài học · ${course.lessons.length}课`
+          : "Sắp ra mắt · 即将开放";
+        const actionText = isAvailable
+          ? "Xem bài học (查看课程)"
+          : "Đang chuẩn bị (准备中)";
+        const icon = isAvailable ? "fa-arrow-right" : "fa-clock";
+
+        return `
+          <article
+            class="level-card ${isAvailable ? "available cursor-pointer" : "unavailable"} glass rounded-3xl p-5 border border-slate-200 bg-white overflow-hidden relative"
+            ${isAvailable ? `onclick="showCourse('${course.id}')"` : ""}
+            aria-disabled="${!isAvailable}"
+          >
+            <div class="absolute -right-5 -top-8 text-[110px] font-black text-indigo-50 select-none">${course.level}</div>
+            <div class="relative z-10">
+              <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 text-white grid place-items-center font-black text-xl shadow-md mb-5">
+                ${course.level}
+              </div>
+              <p class="text-xs font-black tracking-widest text-indigo-500 uppercase">HSK Level</p>
+              <h3 class="text-3xl font-black text-slate-800 mt-1">${course.label}</h3>
+              <p class="text-sm font-bold text-slate-500 mt-2 min-h-[42px]">${course.description}</p>
+              <div class="mt-5 flex items-center justify-between text-xs font-black ${isAvailable ? "text-indigo-600" : "text-slate-400"}">
+                <span>${statusText}</span>
+                <i class="fa-solid ${icon}"></i>
+              </div>
+              <div class="mt-3 pt-3 border-t border-slate-100 text-xs font-black ${isAvailable ? "text-indigo-600" : "text-slate-400"}">
+                ${actionText}
+              </div>
+            </div>
+          </article>`;
+      }).join("");
+    }
+
+    function renderQuickSelect() {
+      elements.lessonSelect.innerHTML = '<option value="levels">🎓 Chọn cấp độ (选择等级)</option>';
+
+      HSK_COURSES.forEach(course => {
+        const group = document.createElement("optgroup");
+        group.label = `${course.label}${course.available ? "" : " · 即将开放"}`;
+
+        if (course.available && course.lessons.length > 0) {
+          const catalogOption = document.createElement("option");
+          catalogOption.value = `course:${course.id}`;
+          catalogOption.textContent = `📚 ${course.label} · Danh sách bài học`;
+          group.appendChild(catalogOption);
+
+          course.lessons.forEach(lesson => {
+            const option = document.createElement("option");
+            option.value = lessonValue(course.id, lesson.id);
+            option.textContent = `Bài ${lesson.id} • ${lesson.title}${lesson.locked ? " 🔒" : ""}`;
+            group.appendChild(option);
+          });
+        } else {
+          const option = document.createElement("option");
+          option.disabled = true;
+          option.textContent = `${course.label} · Sắp ra mắt`;
+          group.appendChild(option);
+        }
+
+        elements.lessonSelect.appendChild(group);
+      });
+    }
+
+    function renderLessons(course) {
+      elements.catalogTitle.textContent = `Khóa học ${course.label}`;
+      elements.catalogDescription.textContent = `${course.title} · Chọn một bài học để bắt đầu (选择课程开始学习)`;
+      elements.lessonCount.textContent = `${course.lessons.length} bài học · ${course.lessons.length}课`;
+
+      elements.catalogGrid.innerHTML = course.lessons.map(lesson => {
+        const lockBadge = lesson.locked
+          ? '<i class="fa-solid fa-lock text-amber-500 ml-1.5" title="Cần mật khẩu"></i>'
+          : "";
+
+        return `
+          <article onclick="switchLesson('${course.id}', ${lesson.id})" class="catalog-card glass cursor-pointer rounded-2xl p-5 border border-slate-200 bg-white flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-black bg-indigo-50 text-indigo-600">${course.label}</span>
+                <span class="text-xs font-black text-slate-400">Bài ${lesson.id} ${lockBadge}</span>
+              </div>
+              <h3 class="text-2xl font-black text-slate-800 cn mb-1">${lesson.title}</h3>
+              <p class="text-sm font-bold text-slate-400">${lesson.pinyin}</p>
+            </div>
+            <div class="mt-6 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-black text-indigo-600">
+              <span>${lesson.locked ? "Nhập mật khẩu (解锁访问)" : "Học ngay (开始学习)"}</span>
+              <i class="fa-solid ${lesson.locked ? "fa-key" : "fa-arrow-right"}"></i>
+            </div>
+          </article>`;
+      }).join("");
+    }
+
+    function showLevels() {
+      state.view = "levels";
+      state.courseId = null;
+      state.lessonId = null;
+
+      hideAllViews();
+      elements.levelPage.classList.remove("hidden");
+      elements.lessonIframe.src = "about:blank";
+      elements.headerSubtitle.textContent = "HSK STANDARD COURSE";
+      elements.headerTitle.textContent = "Chọn cấp độ (选择HSK等级)";
+      elements.lessonSelect.value = "levels";
+      elements.homeIcon.className = "fa-solid fa-house";
+      window.scrollTo(0, 0);
+    }
+
+    function showCourse(courseId) {
+      const course = findCourse(courseId);
+      if (!course || !course.available || course.lessons.length === 0) return;
+
+      state.view = "catalog";
+      state.courseId = course.id;
+      state.lessonId = null;
+
+      renderLessons(course);
+      hideAllViews();
+      elements.catalogPage.classList.remove("hidden");
+      elements.lessonIframe.src = "about:blank";
+      elements.headerSubtitle.textContent = `${course.label} STANDARD COURSE`;
+      elements.headerTitle.textContent = `Danh sách bài học ${course.label} (${course.label}课程目录)`;
+      elements.lessonSelect.value = `course:${course.id}`;
+      elements.homeIcon.className = "fa-solid fa-arrow-left";
+      window.scrollTo(0, 0);
+    }
+
+    function switchLesson(courseId, lessonId) {
+      const course = findCourse(courseId);
+      const lesson = findLesson(courseId, lessonId);
+      if (!course || !lesson) return;
+
+      if (lesson.locked) {
+        const userInput = prompt(`Mời nhập mật khẩu để học ${course.label} - Bài ${lesson.id} (请输入访问密码):`);
+        if (userInput !== lesson.password) {
+          if (userInput !== null) {
             alert("Mật khẩu không đúng! (密码错误，无法访问)");
           }
-          // 重置下拉框选项回到当前视图
-          const isContainerHidden = document.getElementById("lessonContainer").classList.contains("hidden");
-          if (isContainerHidden) {
-            document.getElementById("lessonSelect").value = "catalog";
-          }
-          return; // 阻止跳转
+          elements.lessonSelect.value = state.view === "lesson"
+            ? lessonValue(state.courseId, state.lessonId)
+            : `course:${course.id}`;
+          return;
         }
       }
 
-      // 2. 验证通过，正常加载课程
-      document.getElementById("headerSubtitle").textContent = `HSK 1 • BÀI ${item.id}`;
-      document.getElementById("headerTitle").innerHTML = `Bài ${item.id}: <span class="cn">${item.title}</span>`;
-      document.getElementById("lessonSelect").value = item.id;
+      state.view = "lesson";
+      state.courseId = course.id;
+      state.lessonId = lesson.id;
 
-      const iframe = document.getElementById("lessonIframe");
-      iframe.src = item.file;
-
-      document.getElementById("catalogPage").classList.add("hidden");
-      document.getElementById("lessonContainer").classList.remove("hidden");
+      hideAllViews();
+      elements.lessonContainer.classList.remove("hidden");
+      elements.headerSubtitle.textContent = `${course.label} • BÀI ${lesson.id}`;
+      elements.headerTitle.innerHTML = `${course.label} · Bài ${lesson.id}: <span class="cn">${lesson.title}</span>`;
+      elements.lessonSelect.value = lessonValue(course.id, lesson.id);
+      elements.homeIcon.className = "fa-solid fa-arrow-left";
+      elements.lessonIframe.src = lesson.file;
       window.scrollTo(0, 0);
     }
 
-    // 返回总目录
-    function showCatalog() {
-      document.getElementById("headerSubtitle").textContent = "HSK STANDARD COURSE";
-      document.getElementById("headerTitle").textContent = "Danh sách bài học (课程总目录)";
-      document.getElementById("lessonSelect").value = "catalog";
-
-      // 隐藏 iframe，显示目录
-      document.getElementById("catalogPage").classList.remove("hidden");
-      document.getElementById("lessonContainer").classList.add("hidden");
-      
-      // 清空 iframe 释放内存
-      document.getElementById("lessonIframe").src = "about:blank";
-      window.scrollTo(0, 0);
+    function goBack() {
+      if (state.view === "lesson" && state.courseId) {
+        showCourse(state.courseId);
+      } else if (state.view === "catalog") {
+        showLevels();
+      } else {
+        showLevels();
+      }
     }
 
-    // 绑定事件
-    document.getElementById("btnHome").onclick = showCatalog;
-    document.getElementById("lessonSelect").onchange = (e) => {
-      if (e.target.value === "catalog") showCatalog();
-      else switchLesson(Number(e.target.value));
-    };
+    function handleQuickSelect(event) {
+      const value = event.target.value;
 
-    // 初始化
+      if (value === "levels") {
+        showLevels();
+        return;
+      }
+
+      if (value.startsWith("course:")) {
+        showCourse(value.split(":")[1]);
+        return;
+      }
+
+      if (value.startsWith("lesson:")) {
+        const [, courseId, lessonId] = value.split(":");
+        switchLesson(courseId, Number(lessonId));
+      }
+    }
+
+    function initApp() {
+      renderLevelCards();
+      renderQuickSelect();
+      showLevels();
+    }
+
+    document.getElementById("btnHome").addEventListener("click", goBack);
+    document.getElementById("btnBackLevels").addEventListener("click", showLevels);
+    elements.lessonSelect.addEventListener("change", handleQuickSelect);
     window.addEventListener("DOMContentLoaded", initApp);
   </script>
 </body>
