@@ -6036,6 +6036,772 @@
       /* ===== Two-lesson single-page switcher ===== */
     #lessonSwitcher{min-width:150px!important}
     #lessonSwitcher option{font-family:var(--font-ui,"Be Vietnam Pro",sans-serif)}
+  
+
+    /* ===== Single-page "Học phát âm" layout + hover pronunciation ===== */
+    #warmupSubnav{display:none!important}
+
+    #warmup .pronunciation-page-header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:14px;
+      padding:14px 18px!important;
+      border-radius:18px!important;
+    }
+
+    #warmup .pronunciation-page-heading{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+    }
+
+    #warmup .pronunciation-page-icon{
+      width:46px;
+      height:46px;
+      flex:0 0 46px;
+      display:grid;
+      place-items:center;
+      border-radius:15px;
+      background:linear-gradient(135deg,#EEF2FF,#E0E7FF);
+      font-size:1.5rem;
+      box-shadow:0 8px 18px rgba(99,102,241,.12);
+    }
+
+    #warmup .pronunciation-page-kicker{
+      margin:0 0 2px!important;
+      color:#4F46E5!important;
+      font-size:.72rem!important;
+      line-height:1.2!important;
+      font-weight:900!important;
+      letter-spacing:.08em;
+    }
+
+    #warmup .pronunciation-page-heading h2{
+      margin:0!important;
+      font-size:1.25rem!important;
+      line-height:1.25!important;
+    }
+
+    #warmup .pronunciation-page-heading p:last-child{
+      margin:3px 0 0!important;
+      font-size:.86rem!important;
+      line-height:1.35!important;
+    }
+
+    #warmup .pronunciation-hover-note{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      max-width:360px;
+      padding:8px 12px;
+      border:1px solid #C7D2FE;
+      border-radius:13px;
+      background:#EEF2FF;
+      color:#4338CA;
+      font-size:.8rem;
+      line-height:1.35;
+      font-weight:800;
+    }
+
+    #warmupSubpages{
+      display:grid!important;
+      gap:16px!important;
+    }
+
+    #warmup .warmup-subpage{
+      display:block!important;
+      position:static!important;
+      inset:auto!important;
+      opacity:1!important;
+      visibility:visible!important;
+      transform:none!important;
+    }
+
+    #warmup [data-warmup-page="sounds"]{order:1}
+    #warmup [data-warmup-page="tones"]{order:2}
+    #warmup [data-warmup-page="goals"]{order:3}
+    #warmup [data-warmup-page="game"]{order:4}
+    #warmup [data-warmup-page="practice"]{order:5}
+
+    /* Vận mẫu đứng trước Thanh mẫu theo yêu cầu. */
+    #warmup [data-warmup-page="sounds"] > .grid > section:nth-of-type(1){order:2}
+    #warmup [data-warmup-page="sounds"] > .grid > section:nth-of-type(2){order:1}
+    #warmup [data-warmup-page="sounds"] #pinyinAudioStatus{order:3}
+
+    #warmup [data-warmup-page="sounds"] > .grid{
+      gap:14px!important;
+    }
+
+    #warmup [data-warmup-page="sounds"] section,
+    #warmup [data-warmup-page="tones"] section,
+    #warmup .pronunciation-rule-card{
+      padding:16px 18px!important;
+      border-radius:18px!important;
+    }
+
+    #warmup [data-warmup-page="sounds"] h2,
+    #warmup [data-warmup-page="tones"] h2,
+    #warmup .pronunciation-rule-card h2{
+      margin-bottom:12px!important;
+      font-size:1.05rem!important;
+      line-height:1.3!important;
+    }
+
+    #warmup [data-warmup-page="sounds"] .pinyin-audio{
+      min-height:62px!important;
+      padding:8px 7px!important;
+      border-radius:13px!important;
+      font-size:1.18rem!important;
+      line-height:1.15!important;
+    }
+
+    #warmup [data-warmup-page="sounds"] .pinyin-audio span{
+      margin-top:3px!important;
+      font-size:.72rem!important;
+      line-height:1.2!important;
+    }
+
+    #warmup [data-warmup-page="tones"] .pinyin-audio{
+      padding:12px 14px!important;
+      border-radius:16px!important;
+    }
+
+    #warmup [data-warmup-page="tones"] .pinyin-audio .cn{
+      font-size:2.2rem!important;
+    }
+
+    #warmup [data-warmup-page="tones"] .tone-line,
+    #warmup [data-warmup-page="tones"] svg{
+      max-height:90px!important;
+    }
+
+    #warmup .pronunciation-rules-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:14px;
+    }
+
+    #warmup .pronunciation-section-title{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      margin-bottom:12px;
+    }
+
+    #warmup .pronunciation-section-title > span{
+      font-size:1.45rem;
+      line-height:1;
+    }
+
+    #warmup .pronunciation-section-title h2{
+      margin:0!important;
+    }
+
+    #warmup .pronunciation-section-title p{
+      margin:2px 0 0!important;
+      font-size:.8rem!important;
+      line-height:1.35!important;
+    }
+
+    #warmup .pronunciation-rule-list{
+      display:grid;
+      gap:9px;
+    }
+
+    #warmup .pronunciation-rule-item{
+      padding:11px 12px;
+      border:1px solid #E2E8F0;
+      border-radius:14px;
+      background:#F8FAFC;
+    }
+
+    #warmup .pronunciation-rule-item > b{
+      display:block;
+      margin-bottom:3px;
+      color:#1E293B;
+      font-size:.88rem;
+      line-height:1.35;
+    }
+
+    #warmup .pronunciation-rule-item > p{
+      margin:0!important;
+      color:#64748B!important;
+      font-size:.79rem!important;
+      line-height:1.4!important;
+    }
+
+    #warmup .pronunciation-example-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:7px;
+      margin-top:8px;
+    }
+
+    #warmup .pronunciation-rule-item button{
+      min-height:38px;
+      padding:7px 10px!important;
+      border:1px solid #C7D2FE!important;
+      border-radius:11px!important;
+      background:#FFFFFF!important;
+      color:#3730A3!important;
+      font-size:.86rem!important;
+      line-height:1.25!important;
+      font-weight:900!important;
+      text-align:center;
+      box-shadow:0 5px 12px rgba(99,102,241,.07)!important;
+    }
+
+    #warmup .pronunciation-rule-item button small{
+      display:block;
+      margin-top:2px;
+      color:#64748B!important;
+      font-size:.72rem!important;
+      line-height:1.2!important;
+      font-weight:800;
+    }
+
+    #warmup .pronunciation-hanzi-example{
+      width:100%;
+      margin-top:8px;
+    }
+
+    #warmup .pronunciation-hanzi-example .cn,
+    #warmup .pronunciation-rule-item button .cn{
+      font-size:1.3rem!important;
+      line-height:1.2!important;
+    }
+
+    #warmup .pronunciation-hover,
+    #warmup .pinyin-audio,
+    #warmup .practice-speak,
+    #warmup [data-hanzi-pronounce]{
+      position:relative;
+      cursor:help!important;
+    }
+
+    #warmup .pronunciation-hover:hover,
+    #warmup .pinyin-audio:hover,
+    #warmup .practice-speak:hover,
+    #warmup [data-hanzi-pronounce]:hover{
+      transform:translateY(-2px)!important;
+      border-color:#6366F1!important;
+      background:#EEF2FF!important;
+      box-shadow:0 10px 22px rgba(99,102,241,.16)!important;
+    }
+
+    #pronunciationHoverTooltip{
+      position:fixed;
+      z-index:100000;
+      width:max-content;
+      max-width:min(300px,calc(100vw - 24px));
+      padding:9px 11px;
+      border:1px solid #C7D2FE;
+      border-radius:11px;
+      background:#111827;
+      color:#F8FAFC;
+      box-shadow:0 12px 28px rgba(15,23,42,.25);
+      font-family:"Be Vietnam Pro",system-ui,sans-serif;
+      font-size:.78rem;
+      line-height:1.45;
+      font-weight:700;
+      pointer-events:none;
+      opacity:0;
+      visibility:hidden;
+      transform:translateY(4px);
+      transition:opacity .12s ease,transform .12s ease,visibility .12s ease;
+    }
+
+    #pronunciationHoverTooltip.show{
+      opacity:1;
+      visibility:visible;
+      transform:translateY(0);
+    }
+
+    #pronunciationHoverTooltip::after{
+      content:"";
+      position:absolute;
+      left:50%;
+      bottom:-6px;
+      width:12px;
+      height:12px;
+      background:#111827;
+      border-right:1px solid #C7D2FE;
+      border-bottom:1px solid #C7D2FE;
+      transform:translateX(-50%) rotate(45deg);
+    }
+
+    #pronunciationHoverTooltip.below::after{
+      top:-6px;
+      bottom:auto;
+      border:0;
+      border-left:1px solid #C7D2FE;
+      border-top:1px solid #C7D2FE;
+    }
+
+    @media(max-width:900px){
+      #warmup .pronunciation-rules-grid{grid-template-columns:1fr}
+      #warmup .pronunciation-page-header{align-items:flex-start}
+      #warmup .pronunciation-hover-note{max-width:290px}
+    }
+
+    @media(max-width:680px){
+      #warmup .pronunciation-page-header{
+        display:grid;
+        padding:12px 14px!important;
+      }
+      #warmup .pronunciation-hover-note{
+        max-width:none;
+        width:100%;
+      }
+      #warmup [data-warmup-page="sounds"] .pinyin-audio{
+        min-height:56px!important;
+        font-size:1.05rem!important;
+      }
+    }
+
+    @media(hover:none){
+      #pronunciationHoverTooltip{display:none!important}
+    }
+
+  
+
+    /* ===== Full data-driven pronunciation curriculum ===== */
+    #warmup .pronunciation-scope-note{
+      display:flex;
+      align-items:flex-start;
+      gap:9px;
+      margin:-4px 0 14px;
+      padding:10px 13px;
+      border:1px solid #C7D2FE;
+      border-radius:14px;
+      background:#EEF2FF;
+      color:#3730A3;
+      font-size:.8rem;
+      line-height:1.45;
+      font-weight:750;
+    }
+
+    #warmup .pronunciation-knowledge-page{
+      display:grid!important;
+      gap:16px!important;
+    }
+
+    #warmup .pronunciation-data-section{
+      padding:17px 18px!important;
+      border-radius:18px!important;
+    }
+
+    #warmup .pronunciation-data-heading{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:14px;
+      margin-bottom:14px;
+      padding-bottom:11px;
+      border-bottom:1px solid #E2E8F0;
+    }
+
+    #warmup .pronunciation-data-heading h2{
+      margin:1px 0 3px!important;
+      font-size:1.12rem!important;
+      line-height:1.3!important;
+    }
+
+    #warmup .pronunciation-data-heading p{
+      margin:0!important;
+      max-width:820px;
+      font-size:.8rem!important;
+      line-height:1.45!important;
+    }
+
+    #warmup .pronunciation-data-kicker{
+      margin:0!important;
+      color:#4F46E5!important;
+      font-size:.68rem!important;
+      line-height:1.2!important;
+      font-weight:900!important;
+      letter-spacing:.12em;
+    }
+
+    #warmup .pronunciation-count-badge{
+      flex:0 0 auto;
+      padding:6px 10px;
+      border:1px solid #C7D2FE;
+      border-radius:999px;
+      background:#EEF2FF;
+      color:#4338CA;
+      font-size:.75rem;
+      font-weight:900;
+      white-space:nowrap;
+    }
+
+    #warmup .pronunciation-data-grid{
+      display:grid;
+      gap:8px;
+    }
+
+    #warmup .pronunciation-initial-grid{
+      grid-template-columns:repeat(7,minmax(0,1fr));
+    }
+
+    #warmup .pronunciation-semivowel-grid{
+      grid-template-columns:repeat(2,minmax(0,190px));
+    }
+
+    #warmup .pronunciation-final-grid{
+      grid-template-columns:repeat(8,minmax(0,1fr));
+    }
+
+    #warmup .pronunciation-data-card{
+      min-width:0;
+      min-height:84px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:2px;
+      padding:8px 6px!important;
+      border:1px solid #CBD5E1!important;
+      border-radius:13px!important;
+      background:#FFFFFF!important;
+      color:#1E293B!important;
+      box-shadow:0 5px 13px rgba(15,23,42,.05)!important;
+      text-align:center;
+      cursor:pointer!important;
+    }
+
+    #warmup .pronunciation-data-card:hover{
+      transform:translateY(-2px)!important;
+      border-color:#6366F1!important;
+      background:#EEF2FF!important;
+      box-shadow:0 9px 19px rgba(99,102,241,.13)!important;
+    }
+
+    #warmup .pronunciation-card-main{
+      color:#312E81!important;
+      font-family:"Noto Sans SC","Be Vietnam Pro",sans-serif;
+      font-size:1.34rem!important;
+      line-height:1.15!important;
+      font-weight:900!important;
+    }
+
+    #warmup .pronunciation-card-sound{
+      color:#4F46E5!important;
+      font-size:.78rem!important;
+      line-height:1.25!important;
+      font-weight:900!important;
+    }
+
+    #warmup .pronunciation-card-meta,
+    #warmup .pronunciation-card-note{
+      color:#64748B!important;
+      font-size:.61rem!important;
+      line-height:1.2!important;
+      font-weight:750!important;
+    }
+
+    #warmup .pronunciation-semivowel-block,
+    #warmup .pronunciation-final-group{
+      margin-top:13px;
+      padding:12px;
+      border:1px solid #E2E8F0;
+      border-radius:15px;
+      background:#F8FAFC;
+    }
+
+    #warmup .pronunciation-final-group:first-child{
+      margin-top:0;
+    }
+
+    #warmup .pronunciation-final-groups{
+      display:grid;
+      gap:10px;
+    }
+
+    #warmup .pronunciation-subheading{
+      margin-bottom:9px;
+    }
+
+    #warmup .pronunciation-subheading h3{
+      margin:0!important;
+      color:#1E293B!important;
+      font-size:.9rem!important;
+      line-height:1.35!important;
+      font-weight:900!important;
+    }
+
+    #warmup .pronunciation-subheading h3 span{
+      display:inline-grid;
+      place-items:center;
+      min-width:24px;
+      height:22px;
+      margin-left:4px;
+      border-radius:999px;
+      background:#E0E7FF;
+      color:#4338CA;
+      font-size:.7rem;
+    }
+
+    #warmup .pronunciation-subheading p{
+      margin:2px 0 0!important;
+      color:#64748B!important;
+      font-size:.72rem!important;
+      line-height:1.35!important;
+    }
+
+    #warmup .pronunciation-tone-grid{
+      display:grid;
+      grid-template-columns:repeat(5,minmax(0,1fr));
+      gap:9px;
+    }
+
+    #warmup .pronunciation-tone-card{
+      min-width:0;
+      padding:11px!important;
+      border:1px solid #CBD5E1!important;
+      border-radius:14px!important;
+      background:#FFFFFF!important;
+      color:#1E293B!important;
+      text-align:left;
+      box-shadow:0 6px 14px rgba(15,23,42,.05)!important;
+      cursor:pointer!important;
+    }
+
+    #warmup .pronunciation-tone-card:hover{
+      transform:translateY(-2px)!important;
+      border-color:#6366F1!important;
+      background:#F8FAFF!important;
+      box-shadow:0 10px 21px rgba(99,102,241,.13)!important;
+    }
+
+    #warmup .pronunciation-tone-top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:8px;
+      margin-bottom:5px;
+    }
+
+    #warmup .pronunciation-tone-top b{
+      display:block;
+      color:#1E293B;
+      font-size:.8rem;
+      line-height:1.3;
+    }
+
+    #warmup .pronunciation-tone-top span{
+      display:block;
+      margin-top:2px;
+      color:#64748B;
+      font-size:.65rem;
+      font-weight:800;
+    }
+
+    #warmup .pronunciation-tone-top strong{
+      color:#4338CA;
+      font-size:1.65rem;
+      line-height:1;
+    }
+
+    #warmup .pronunciation-tone-chart{
+      width:100%;
+      height:66px;
+      margin:2px 0 6px;
+    }
+
+    #warmup .pronunciation-tone-copy{
+      display:grid;
+      gap:4px;
+    }
+
+    #warmup .pronunciation-tone-copy p{
+      margin:0!important;
+      color:#475569!important;
+      font-size:.68rem!important;
+      line-height:1.36!important;
+    }
+
+    #warmup .pronunciation-tone-copy b{
+      color:#1E293B;
+    }
+
+    #warmup .pronunciation-rule-data-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:10px;
+    }
+
+    #warmup .pronunciation-rule-data-card{
+      position:relative;
+      display:grid;
+      grid-template-columns:31px minmax(0,1fr);
+      gap:10px;
+      padding:12px;
+      border:1px solid #E2E8F0;
+      border-radius:15px;
+      background:#F8FAFC;
+    }
+
+    #warmup .pronunciation-rule-number{
+      width:31px;
+      height:31px;
+      display:grid;
+      place-items:center;
+      border-radius:10px;
+      background:linear-gradient(135deg,#6366F1,#4F46E5);
+      color:#FFFFFF;
+      font-size:.78rem;
+      font-weight:900;
+      box-shadow:0 6px 13px rgba(99,102,241,.19);
+    }
+
+    #warmup .pronunciation-rule-title-row{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:8px;
+    }
+
+    #warmup .pronunciation-rule-title-row h3{
+      margin:0!important;
+      color:#1E293B!important;
+      font-size:.9rem!important;
+      line-height:1.35!important;
+      font-weight:900!important;
+    }
+
+    #warmup .pronunciation-rule-title-row > span{
+      flex:0 0 auto;
+      padding:4px 7px;
+      border-radius:999px;
+      background:#E0E7FF;
+      color:#4338CA;
+      font-size:.65rem;
+      line-height:1.2;
+      font-weight:900;
+    }
+
+    #warmup .pronunciation-rule-summary{
+      margin:4px 0 7px!important;
+      color:#475569!important;
+      font-size:.73rem!important;
+      line-height:1.42!important;
+      font-weight:750!important;
+    }
+
+    #warmup .pronunciation-rule-body ul{
+      display:grid;
+      gap:4px;
+      margin:0;
+      padding-left:17px;
+      color:#475569;
+      font-size:.7rem;
+      line-height:1.42;
+    }
+
+    #warmup .pronunciation-rule-examples{
+      display:flex;
+      flex-wrap:wrap;
+      gap:6px;
+      margin-top:9px;
+    }
+
+    #warmup .pronunciation-rule-example{
+      min-height:42px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:1px;
+      padding:6px 9px!important;
+      border:1px solid #C7D2FE!important;
+      border-radius:10px!important;
+      background:#FFFFFF!important;
+      color:#3730A3!important;
+      box-shadow:0 4px 10px rgba(99,102,241,.06)!important;
+      cursor:pointer!important;
+    }
+
+    #warmup .pronunciation-rule-example:hover{
+      transform:translateY(-2px)!important;
+      border-color:#6366F1!important;
+      background:#EEF2FF!important;
+    }
+
+    #warmup .pronunciation-rule-example > span:not(.cn){
+      font-size:.74rem!important;
+      line-height:1.25!important;
+      font-weight:900!important;
+    }
+
+    #warmup .pronunciation-rule-example .cn{
+      color:#312E81!important;
+      font-size:1.12rem!important;
+      line-height:1.15!important;
+      font-weight:900!important;
+    }
+
+    #warmup .pronunciation-rule-example small{
+      color:#64748B!important;
+      font-size:.62rem!important;
+      line-height:1.25!important;
+      font-weight:800!important;
+    }
+
+    #warmup .pronunciation-audio-status{
+      position:sticky;
+      bottom:8px;
+      z-index:20;
+      min-height:32px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin-top:2px;
+      padding:6px 11px;
+      border:1px solid #C7D2FE;
+      border-radius:12px;
+      background:rgba(238,242,255,.96);
+      color:#4338CA;
+      font-size:.75rem;
+      font-weight:900;
+      pointer-events:none;
+    }
+
+    #warmup .pronunciation-audio-status:empty{
+      min-height:0;
+      margin:0;
+      padding:0;
+      border:0;
+      background:transparent;
+    }
+
+    @media(max-width:1120px){
+      #warmup .pronunciation-initial-grid{grid-template-columns:repeat(5,minmax(0,1fr))}
+      #warmup .pronunciation-final-grid{grid-template-columns:repeat(6,minmax(0,1fr))}
+      #warmup .pronunciation-tone-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+    }
+
+    @media(max-width:820px){
+      #warmup .pronunciation-initial-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+      #warmup .pronunciation-final-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+      #warmup .pronunciation-tone-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      #warmup .pronunciation-rule-data-grid{grid-template-columns:1fr}
+    }
+
+    @media(max-width:560px){
+      #warmup .pronunciation-data-section{padding:13px!important}
+      #warmup .pronunciation-data-heading{display:grid}
+      #warmup .pronunciation-count-badge{justify-self:start}
+      #warmup .pronunciation-initial-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+      #warmup .pronunciation-final-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+      #warmup .pronunciation-tone-grid{grid-template-columns:1fr}
+      #warmup .pronunciation-semivowel-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      #warmup .pronunciation-data-card{min-height:76px}
+    }
+
   </style>
 <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script>
 </head>
@@ -6277,7 +7043,7 @@ const LESSON_ASSETS = {
 
 
 const tabs=[
-  ["warmup","fa-solid fa-rocket icon-warmup","Khởi động"],
+  ["warmup","fa-solid fa-volume-high icon-warmup","Học phát âm"],
   ["vocab","fa-solid fa-book-open icon-vocab","Từ mới"],
   ["flash","fa-solid fa-pen-nib icon-flash","Cách viết"],
   ["grammar","fa-solid fa-ruler-combined icon-grammar","Ngữ pháp"],
@@ -6525,122 +7291,1160 @@ function toneChartSVG(index){
   </svg>`;
 }
 
-function warmupHTMLLesson1(){
-  const d=currentLesson;
-  return `
-  <div class="glass rounded-[24px] p-3 md:p-4 mb-4 border-2 border-white/70">
-    <div class="flex flex-wrap gap-2" id="warmupSubnav">
-      <button class="subtab-btn active" data-warmup-subtab="goals"><span class="subtab-icon-badge"><i class="fa-solid fa-bullseye icon-goals"></i></span><span>Mục tiêu & Ghi chú</span></button>
-      <button class="subtab-btn" data-warmup-subtab="sounds"><span class="subtab-icon-badge"><i class="fa-solid fa-language icon-sounds"></i></span><span>Thanh mẫu & Vận mẫu</span></button>
-      <button class="subtab-btn" data-warmup-subtab="tones"><span class="subtab-icon-badge"><i class="fa-solid fa-wave-square icon-tones"></i></span><span>Thanh điệu</span></button>
-      <button class="subtab-btn" data-warmup-subtab="game"><span class="subtab-icon-badge"><i class="fa-solid fa-gamepad icon-game"></i></span><span>Mini-game</span></button>
-      <button class="subtab-btn" data-warmup-subtab="practice"><span class="subtab-icon-badge"><i class="fa-solid fa-microphone-lines icon-practice"></i></span><span>Luyện phát âm & Game</span></button>
+const pronunciationData = {
+  "meta": {
+    "title": "Học phát âm tiếng Trung",
+    "subtitle": "Hệ thống Pinyin đầy đủ cho người mới bắt đầu",
+    "instruction": "Di chuột để xem mẹo đọc. Nhấp vào từng ô để phát âm thanh.",
+    "scopeNote": "Bộ 36 vận mẫu theo bảng nhập môn gồm 7 vận mẫu đơn/đặc biệt, 13 vận mẫu kép và 16 vận mẫu mũi. Hai âm y, w được trình bày như bán âm/ký hiệu chính tả của âm tiết không thanh mẫu.",
+    "counts": {
+      "initials": 21,
+      "semivowels": 2,
+      "finals": 36,
+      "tones": 5
+    }
+  },
+  "initials": {
+    "title": "21 Thanh mẫu",
+    "items": [
+      {
+        "pinyin": "b",
+        "teachingSound": "bō",
+        "audio": "bo1",
+        "group": "Âm hai môi",
+        "aspiration": "Không bật hơi",
+        "tooltip": "Đọc gần âm p trong tiếng Việt nhưng không bật hơi mạnh. Khép hai môi, giữ cổ họng thư giãn rồi mở môi nhẹ; không đọc thành b hữu thanh tiếng Việt."
+      },
+      {
+        "pinyin": "p",
+        "teachingSound": "pō",
+        "audio": "po1",
+        "group": "Âm hai môi",
+        "aspiration": "Bật hơi",
+        "tooltip": "Đọc gần âm p trong tiếng Việt nhưng bật hơi rõ. Khép hai môi rồi phóng luồng hơi mạnh; đặt mảnh giấy trước miệng, giấy phải rung."
+      },
+      {
+        "pinyin": "m",
+        "teachingSound": "mō",
+        "audio": "mo1",
+        "group": "Âm hai môi",
+        "aspiration": "Âm mũi",
+        "tooltip": "Gần âm m tiếng Việt. Hai môi khép, dây thanh rung và luồng hơi thoát qua mũi."
+      },
+      {
+        "pinyin": "f",
+        "teachingSound": "fō",
+        "audio": "fo1",
+        "group": "Âm môi–răng",
+        "aspiration": "Âm xát",
+        "tooltip": "Gần âm ph/f tiếng Việt. Răng trên chạm nhẹ môi dưới, để hơi ma sát liên tục; không cắn môi quá mạnh."
+      },
+      {
+        "pinyin": "d",
+        "teachingSound": "dē",
+        "audio": "de1",
+        "group": "Đầu lưỡi giữa",
+        "aspiration": "Không bật hơi",
+        "tooltip": "Đọc gần âm t tiếng Việt nhưng không bật hơi. Đầu lưỡi chạm lợi trên rồi nhả nhẹ; không đọc như d tiếng Việt."
+      },
+      {
+        "pinyin": "t",
+        "teachingSound": "tē",
+        "audio": "te1",
+        "group": "Đầu lưỡi giữa",
+        "aspiration": "Bật hơi",
+        "tooltip": "Đọc gần âm th/t bật hơi trong tiếng Việt. Đầu lưỡi chạm lợi trên rồi bật luồng hơi mạnh ra."
+      },
+      {
+        "pinyin": "n",
+        "teachingSound": "nē",
+        "audio": "ne1",
+        "group": "Đầu lưỡi giữa",
+        "aspiration": "Âm mũi",
+        "tooltip": "Gần âm n tiếng Việt. Đầu lưỡi chạm lợi trên, dây thanh rung và hơi thoát qua mũi."
+      },
+      {
+        "pinyin": "l",
+        "teachingSound": "lē",
+        "audio": "le1",
+        "group": "Đầu lưỡi giữa",
+        "aspiration": "Âm bên",
+        "tooltip": "Gần âm l tiếng Việt. Đầu lưỡi chạm lợi trên, hơi thoát qua hai bên lưỡi; tránh đọc lẫn với n."
+      },
+      {
+        "pinyin": "g",
+        "teachingSound": "gē",
+        "audio": "ge1",
+        "group": "Gốc lưỡi",
+        "aspiration": "Không bật hơi",
+        "tooltip": "Đọc gần âm c/k tiếng Việt nhưng không bật hơi mạnh. Phần sau của lưỡi chạm ngạc mềm rồi nhả nhẹ; không đọc như g hữu thanh."
+      },
+      {
+        "pinyin": "k",
+        "teachingSound": "kē",
+        "audio": "ke1",
+        "group": "Gốc lưỡi",
+        "aspiration": "Bật hơi",
+        "tooltip": "Đọc gần âm kh/k bật hơi. Gốc lưỡi chạm ngạc mềm rồi phóng hơi mạnh; mảnh giấy trước miệng phải rung."
+      },
+      {
+        "pinyin": "h",
+        "teachingSound": "hē",
+        "audio": "he1",
+        "group": "Gốc lưỡi",
+        "aspiration": "Âm xát",
+        "tooltip": "Gần âm h/kh nhẹ trong tiếng Việt. Hơi ma sát ở phía sau khoang miệng; không siết cổ họng quá mạnh."
+      },
+      {
+        "pinyin": "j",
+        "teachingSound": "jī",
+        "audio": "ji1",
+        "group": "Mặt lưỡi trước",
+        "aspiration": "Không bật hơi",
+        "tooltip": "Gần âm ch mềm, không bật hơi. Mặt trước lưỡi nâng sát ngạc cứng, đầu lưỡi hạ sau răng dưới; không uốn lưỡi."
+      },
+      {
+        "pinyin": "q",
+        "teachingSound": "qī",
+        "audio": "qi1",
+        "group": "Mặt lưỡi trước",
+        "aspiration": "Bật hơi",
+        "tooltip": "Vị trí lưỡi giống j nhưng bật hơi mạnh. Có thể hình dung âm ch mềm kèm luồng hơi rõ; không đọc thành kh."
+      },
+      {
+        "pinyin": "x",
+        "teachingSound": "xī",
+        "audio": "xi1",
+        "group": "Mặt lưỡi trước",
+        "aspiration": "Âm xát",
+        "tooltip": "Gần âm x rất mềm. Mặt trước lưỡi nâng sát ngạc cứng, đầu lưỡi hạ; để hơi xát mảnh và dài, không uốn lưỡi."
+      },
+      {
+        "pinyin": "zh",
+        "teachingSound": "zhī",
+        "audio": "zhi1",
+        "group": "Đầu lưỡi sau",
+        "aspiration": "Không bật hơi",
+        "tooltip": "Gần âm tr/ch nhưng đầu lưỡi cong nhẹ về sau và không bật hơi. Giữ lưỡi uốn, không đọc giống z."
+      },
+      {
+        "pinyin": "ch",
+        "teachingSound": "chī",
+        "audio": "chi1",
+        "group": "Đầu lưỡi sau",
+        "aspiration": "Bật hơi",
+        "tooltip": "Vị trí giống zh nhưng bật hơi mạnh. Gần âm tr/ch uốn lưỡi có luồng hơi rõ; thử giấy trước miệng."
+      },
+      {
+        "pinyin": "sh",
+        "teachingSound": "shī",
+        "audio": "shi1",
+        "group": "Đầu lưỡi sau",
+        "aspiration": "Âm xát",
+        "tooltip": "Gần âm s nhưng đầu lưỡi cong nhẹ về sau. Hơi xát đi qua khe lưỡi; không đọc như x tiếng Việt."
+      },
+      {
+        "pinyin": "r",
+        "teachingSound": "rī",
+        "audio": "ri1",
+        "group": "Đầu lưỡi sau",
+        "aspiration": "Âm xát hữu thanh",
+        "tooltip": "Gần r miền Bắc nhưng lưỡi cong nhẹ và không rung mạnh. Dây thanh rung, hơi xát mềm; tránh đọc thành gi hoặc r rung."
+      },
+      {
+        "pinyin": "z",
+        "teachingSound": "zī",
+        "audio": "zi1",
+        "group": "Đầu lưỡi trước",
+        "aspiration": "Không bật hơi",
+        "tooltip": "Gần tổ hợp dz/ts rất ngắn và không bật hơi. Đầu lưỡi sát mặt sau răng trên; không uốn lưỡi."
+      },
+      {
+        "pinyin": "c",
+        "teachingSound": "cī",
+        "audio": "ci1",
+        "group": "Đầu lưỡi trước",
+        "aspiration": "Bật hơi",
+        "tooltip": "Vị trí giống z nhưng bật hơi mạnh. Gần âm ts có luồng hơi rõ; không đọc như c trong tiếng Việt."
+      },
+      {
+        "pinyin": "s",
+        "teachingSound": "sī",
+        "audio": "si1",
+        "group": "Đầu lưỡi trước",
+        "aspiration": "Âm xát",
+        "tooltip": "Gần âm x/s mảnh. Đầu lưỡi đặt sát sau răng trên, không uốn; để luồng hơi xát liên tục."
+      }
+    ],
+    "semivowelsTitle": "2 Bán âm / ký hiệu chính tả",
+    "semivowels": [
+      {
+        "pinyin": "y",
+        "teachingSound": "yī",
+        "audio": "yi1",
+        "group": "Bán âm / ký hiệu chính tả",
+        "aspiration": "Không phải thanh mẫu độc lập",
+        "tooltip": "y dùng để viết các âm tiết không có thanh mẫu bắt đầu bằng i hoặc ü. Khi đọc, y gần âm i lướt rất ngắn; ví dụ i → yi, ia → ya, ü → yu."
+      },
+      {
+        "pinyin": "w",
+        "teachingSound": "wū",
+        "audio": "wu1",
+        "group": "Bán âm / ký hiệu chính tả",
+        "aspiration": "Không phải thanh mẫu độc lập",
+        "tooltip": "w dùng để viết các âm tiết không có thanh mẫu bắt đầu bằng u. Khi đọc, w gần âm u lướt rất ngắn; ví dụ u → wu, ua → wa, uo → wo."
+      }
+    ]
+  },
+  "finals": {
+    "title": "36 Vận mẫu",
+    "groups": [
+      {
+        "id": "simple",
+        "title": "Vận mẫu đơn và đặc biệt",
+        "description": "Nguyên âm đơn hoặc vận mẫu cuốn lưỡi er.",
+        "items": [
+          {
+            "pinyin": "a",
+            "teachingSound": "ā",
+            "audio": "a1",
+            "tooltip": "Mở miệng rộng, lưỡi hạ thấp. Gần âm a tiếng Việt nhưng giữ âm thuần, không thêm âm cuối."
+          },
+          {
+            "pinyin": "o",
+            "teachingSound": "ō",
+            "audio": "o1",
+            "tooltip": "Môi tròn, lưỡi lùi và miệng mở vừa. Gần âm ô tiếng Việt, nhưng âm tròn và vang hơn."
+          },
+          {
+            "pinyin": "e",
+            "teachingSound": "ē",
+            "audio": "e1",
+            "tooltip": "Lưỡi lùi về sau, môi không tròn. Gần âm ơ pha ưa nhưng phát ở phía sau miệng; không đọc như ê."
+          },
+          {
+            "pinyin": "i",
+            "teachingSound": "yī",
+            "audio": "yi1",
+            "tooltip": "Môi dẹt, lưỡi nâng cao phía trước. Gần âm i tiếng Việt; khi đứng đầu âm tiết viết thành yi."
+          },
+          {
+            "pinyin": "u",
+            "teachingSound": "wū",
+            "audio": "wu1",
+            "tooltip": "Môi tròn và nhô ra, lưỡi nâng cao phía sau. Gần âm u tiếng Việt; khi đứng đầu âm tiết viết thành wu."
+          },
+          {
+            "pinyin": "ü",
+            "teachingSound": "yū",
+            "audio": "yu1",
+            "tooltip": "Giữ vị trí lưỡi như đọc i nhưng chu môi như đọc u. Tiếng Việt không có âm tương đương hoàn toàn; khi đứng đầu viết yu."
+          },
+          {
+            "pinyin": "er",
+            "teachingSound": "ér",
+            "audio": "er2",
+            "tooltip": "Bắt đầu gần âm ơ rồi cong đầu lưỡi nhẹ về sau. Đây là vận mẫu cuốn lưỡi; không tách thành e + r kiểu tiếng Việt."
+          }
+        ]
+      },
+      {
+        "id": "compound",
+        "title": "Vận mẫu kép",
+        "description": "Hai hoặc ba nguyên âm trượt liền trong một âm tiết.",
+        "items": [
+          {
+            "pinyin": "ai",
+            "teachingSound": "āi",
+            "audio": "ai1",
+            "tooltip": "Bắt đầu bằng a rõ rồi lướt nhanh sang i. Gần âm ai tiếng Việt, phần a dài và nổi bật hơn."
+          },
+          {
+            "pinyin": "ei",
+            "teachingSound": "ēi",
+            "audio": "ei1",
+            "tooltip": "Bắt đầu gần ê rồi lướt sang i. Gần âm ây/êi nhưng miệng khép dần, không tách thành hai tiếng."
+          },
+          {
+            "pinyin": "ao",
+            "teachingSound": "āo",
+            "audio": "ao1",
+            "tooltip": "Bắt đầu bằng a rồi tròn môi chuyển sang o. Gần âm ao tiếng Việt, phần a rõ hơn phần o."
+          },
+          {
+            "pinyin": "ou",
+            "teachingSound": "ōu",
+            "audio": "ou1",
+            "tooltip": "Bắt đầu bằng ô rồi lướt sang u. Gần âm âu/ôu nhưng môi tròn ngay từ đầu và khép dần."
+          },
+          {
+            "pinyin": "ia",
+            "teachingSound": "yā",
+            "audio": "ya1",
+            "tooltip": "i chỉ là âm lướt ngắn, sau đó mở nhanh sang a. Gần âm ia/ya, không đọc tách i-a."
+          },
+          {
+            "pinyin": "ie",
+            "teachingSound": "yē",
+            "audio": "ye1",
+            "tooltip": "Bắt đầu bằng i lướt rồi chuyển sang ê mở. Gần âm iê, nhưng âm ê ở cuối rõ; khi đứng đầu viết ye."
+          },
+          {
+            "pinyin": "ua",
+            "teachingSound": "wā",
+            "audio": "wa1",
+            "tooltip": "Bắt đầu bằng u lướt ngắn rồi mở sang a. Gần âm oa tiếng Việt; khi đứng đầu viết wa."
+          },
+          {
+            "pinyin": "uo",
+            "teachingSound": "wō",
+            "audio": "wo1",
+            "tooltip": "Bắt đầu bằng u lướt rồi chuyển sang o. Gần âm uô/wo, môi luôn tròn; khi đứng đầu viết wo."
+          },
+          {
+            "pinyin": "üe",
+            "teachingSound": "yuē",
+            "audio": "yue1",
+            "tooltip": "Chu môi đọc ü rồi chuyển nhanh sang ê. Gần uyê nhưng phải giữ vị trí lưỡi trước; khi đứng đầu viết yue."
+          },
+          {
+            "pinyin": "iao",
+            "teachingSound": "yāo",
+            "audio": "yao1",
+            "tooltip": "i lướt rất ngắn, a là âm chính rồi tròn môi sang o. Gần âm iao/yao; khi đứng đầu viết yao."
+          },
+          {
+            "pinyin": "iou (iu)",
+            "teachingSound": "yōu",
+            "audio": "you1",
+            "tooltip": "Dạng đầy đủ là iou; sau thanh mẫu viết gọn iu. Đọc i lướt + ou, âm o vẫn nghe được; khi đứng đầu viết you."
+          },
+          {
+            "pinyin": "uai",
+            "teachingSound": "wāi",
+            "audio": "wai1",
+            "tooltip": "u lướt ngắn, a là âm chính rồi chuyển sang i. Gần âm oai; khi đứng đầu viết wai."
+          },
+          {
+            "pinyin": "uei (ui)",
+            "teachingSound": "wēi",
+            "audio": "wei1",
+            "tooltip": "Dạng đầy đủ là uei; sau thanh mẫu viết gọn ui. Đọc u lướt + ei, không đọc đơn giản như uy; khi đứng đầu viết wei."
+          }
+        ]
+      },
+      {
+        "id": "nasal",
+        "title": "Vận mẫu mũi",
+        "description": "Kết thúc bằng -n ở phía trước hoặc -ng ở phía sau khoang miệng.",
+        "items": [
+          {
+            "pinyin": "an",
+            "teachingSound": "ān",
+            "audio": "an1",
+            "nasal": "-n trước",
+            "tooltip": "Đọc a rồi chạm đầu lưỡi vào lợi trên để kết thúc bằng n. Gần âm an tiếng Việt nhưng kết thúc gọn, không kéo thành ang."
+          },
+          {
+            "pinyin": "en",
+            "teachingSound": "ēn",
+            "audio": "en1",
+            "nasal": "-n trước",
+            "tooltip": "Đọc e gần ơ ngắn rồi khép bằng n ở lợi trên. Gần âm ân/ơn, nhưng âm đầu lùi hơn và ngắn."
+          },
+          {
+            "pinyin": "in",
+            "teachingSound": "yīn",
+            "audio": "yin1",
+            "nasal": "-n trước",
+            "tooltip": "Đọc i rồi kết thúc bằng n với đầu lưỡi chạm lợi trên. Gần âm in tiếng Việt; khi đứng đầu viết yin."
+          },
+          {
+            "pinyin": "uen (un)",
+            "teachingSound": "wēn",
+            "audio": "wen1",
+            "nasal": "-n trước",
+            "tooltip": "Dạng đầy đủ uen; sau thanh mẫu viết un. Đọc u lướt + en, gần uân nhưng e rất ngắn; khi đứng đầu viết wen."
+          },
+          {
+            "pinyin": "ün",
+            "teachingSound": "yūn",
+            "audio": "yun1",
+            "nasal": "-n trước",
+            "tooltip": "Đọc ü rồi kết thúc bằng n. Gần uy-n nhưng phải chu môi và giữ lưỡi như i; khi đứng đầu viết yun."
+          },
+          {
+            "pinyin": "ang",
+            "teachingSound": "āng",
+            "audio": "ang1",
+            "nasal": "-ng sau",
+            "tooltip": "Đọc a rồi nâng gốc lưỡi để kết thúc bằng ng. Gần âm ang tiếng Việt; âm vang ở phía sau miệng."
+          },
+          {
+            "pinyin": "eng",
+            "teachingSound": "ēng",
+            "audio": "eng1",
+            "nasal": "-ng sau",
+            "tooltip": "Đọc e gần ơ rồi kết thúc bằng ng ở gốc lưỡi. Gần âm âng/ơng, không đọc thành en."
+          },
+          {
+            "pinyin": "ing",
+            "teachingSound": "yīng",
+            "audio": "ying1",
+            "nasal": "-ng sau",
+            "tooltip": "Đọc i rồi nâng gốc lưỡi kết thúc bằng ng. Gần âm inh nhưng âm cuối là ng phía sau; khi đứng đầu viết ying."
+          },
+          {
+            "pinyin": "ong",
+            "teachingSound": "wēng",
+            "audio": "weng1",
+            "nasal": "-ng sau",
+            "tooltip": "Môi tròn, âm chính gần u/ô rồi kết thúc bằng ng. Gần ung/ông nhưng không có âm tương đương hoàn toàn; ong luôn đi với thanh mẫu."
+          },
+          {
+            "pinyin": "ian",
+            "teachingSound": "yān",
+            "audio": "yan1",
+            "nasal": "-n trước",
+            "tooltip": "i lướt rồi âm chính gần ê mở, kết thúc bằng n. Đọc gần iên/yên, không đọc nguyên xi thành i-an; khi đứng đầu viết yan."
+          },
+          {
+            "pinyin": "uan",
+            "teachingSound": "wān",
+            "audio": "wan1",
+            "nasal": "-n trước",
+            "tooltip": "u lướt rồi a rõ, kết thúc bằng n. Gần âm oan; khi đứng đầu viết wan."
+          },
+          {
+            "pinyin": "üan",
+            "teachingSound": "yuān",
+            "audio": "yuan1",
+            "nasal": "-n trước",
+            "tooltip": "Bắt đầu bằng ü, chuyển sang âm gần ê/a trước rồi kết thúc n. Gần uyên nhưng môi tròn ở đầu; khi đứng đầu viết yuan."
+          },
+          {
+            "pinyin": "iang",
+            "teachingSound": "yāng",
+            "audio": "yang1",
+            "nasal": "-ng sau",
+            "tooltip": "i lướt, a là âm chính rồi kết thúc bằng ng. Gần âm iang/yang; khi đứng đầu viết yang."
+          },
+          {
+            "pinyin": "uang",
+            "teachingSound": "wāng",
+            "audio": "wang1",
+            "nasal": "-ng sau",
+            "tooltip": "u lướt, a là âm chính rồi kết thúc bằng ng. Gần âm oang; khi đứng đầu viết wang."
+          },
+          {
+            "pinyin": "iong",
+            "teachingSound": "yōng",
+            "audio": "yong1",
+            "nasal": "-ng sau",
+            "tooltip": "Bắt đầu bằng i/ü lướt, môi tròn rồi kết thúc ng. Gần âm yung/iong; khi đứng đầu viết yong."
+          },
+          {
+            "pinyin": "ueng",
+            "teachingSound": "wēng",
+            "audio": "weng1",
+            "nasal": "-ng sau",
+            "tooltip": "Đọc u lướt + e gần ơ + ng. Gần uơng; vận mẫu này chủ yếu xuất hiện trong âm tiết không thanh mẫu và viết weng."
+          }
+        ]
+      }
+    ]
+  },
+  "tones": {
+    "title": "4 Thanh điệu và 1 thanh nhẹ",
+    "items": [
+      {
+        "id": "tone1",
+        "name": "Thanh 1 – 阴平",
+        "mark": "mā",
+        "audioType": "pinyin",
+        "audio": "ma1",
+        "value": "55",
+        "contour": [
+          5,
+          5
+        ],
+        "length": "Dài vừa, đều và ổn định.",
+        "description": "Bắt đầu ở cao độ cao và giữ ngang đến hết, không lên cũng không xuống.",
+        "vietnameseComparison": "Không trùng hoàn toàn với thanh ngang tiếng Việt: thanh 1 tiếng Trung thường cao hơn, phẳng hơn; tuyệt đối không đọc thành huyền.",
+        "tooltip": "Giữ giọng cao và ngang như kéo một đường thẳng: mā, cao độ 5–5."
+      },
+      {
+        "id": "tone2",
+        "name": "Thanh 2 – 阳平",
+        "mark": "má",
+        "audioType": "pinyin",
+        "audio": "ma2",
+        "value": "35",
+        "contour": [
+          3,
+          5
+        ],
+        "length": "Dài vừa, đi lên liên tục.",
+        "description": "Bắt đầu ở tầm trung rồi nâng dần lên cao, không gãy giữa chừng.",
+        "vietnameseComparison": "Gần thanh sắc tiếng Việt nhưng thường khởi đầu thấp hơn và lên đều hơn; không bật quá gắt ở cuối.",
+        "tooltip": "Nâng giọng đều từ trung lên cao như đang hỏi lại: má, cao độ 3–5."
+      },
+      {
+        "id": "tone3",
+        "name": "Thanh 3 – 上声",
+        "mark": "mǎ",
+        "audioType": "pinyin",
+        "audio": "ma3",
+        "value": "214",
+        "contour": [
+          2,
+          1,
+          4
+        ],
+        "length": "Dài nhất khi đọc riêng; trong lời nói thường chỉ đọc phần hạ thấp.",
+        "description": "Khi đọc riêng: hạ từ thấp xuống đáy rồi nhấc lên. Trước thanh khác thường chỉ hạ thấp, không cần lên đủ.",
+        "vietnameseComparison": "Hơi gợi thanh hỏi nhưng không giống hoàn toàn; không siết cổ hoặc ngắt như thanh hỏi/ngã tiếng Việt.",
+        "tooltip": "Hạ xuống thật thấp rồi mới nhấc lên: mǎ, cao độ 2–1–4. Trong câu thường chỉ hạ thấp."
+      },
+      {
+        "id": "tone4",
+        "name": "Thanh 4 – 去声",
+        "mark": "mà",
+        "audioType": "pinyin",
+        "audio": "ma4",
+        "value": "51",
+        "contour": [
+          5,
+          1
+        ],
+        "length": "Ngắn, mạnh và dứt khoát.",
+        "description": "Bắt đầu rất cao rồi hạ nhanh xuống thấp, kết thúc gọn.",
+        "vietnameseComparison": "Có nét gần thanh nặng hoặc huyền về hướng đi xuống, nhưng thanh 4 bắt đầu cao hơn, rơi nhanh hơn và không bóp họng.",
+        "tooltip": "Hạ giọng mạnh từ cao xuống thấp, ngắn và dứt: mà, cao độ 5–1."
+      },
+      {
+        "id": "neutral",
+        "name": "Thanh nhẹ – 轻声",
+        "mark": "ma",
+        "audioType": "hanzi",
+        "audio": "吗",
+        "value": "Không cố định",
+        "contour": [
+          3
+        ],
+        "length": "Rất ngắn, nhẹ, không nhấn.",
+        "description": "Mất đường nét thanh điệu gốc; cao độ phụ thuộc thanh đứng trước, cường độ yếu và thời lượng ngắn.",
+        "vietnameseComparison": "Tiếng Việt không có thanh tương đương. Hãy hình dung một âm tiết không nhấn, đọc lướt; không biến nó thành huyền, nặng hay ngang đầy đủ.",
+        "tooltip": "Đọc rất ngắn và nhẹ, không đặt dấu thanh: ma trong 你好吗？"
+      }
+    ]
+  },
+  "spellingRules": {
+    "title": "Quy tắc viết Pinyin",
+    "items": [
+      {
+        "id": "jqxy-u-umlaut",
+        "title": "j, q, x, y đi với ü",
+        "summary": "Sau j, q, x và trong các âm tiết bắt đầu bằng y, hai chấm của ü được lược bỏ khi viết, nhưng âm vẫn là ü.",
+        "details": [
+          "j + ü → ju; q + ü → qu; x + ü → xu. Không được đọc u như trong gū hoặc kū.",
+          "Các tổ hợp mở rộng: jue, que, xue; juan, quan, xuan; jun, qun, xun.",
+          "Khi ü tự đứng đầu âm tiết, thêm y và bỏ hai chấm: ü → yu, üe → yue, üan → yuan, ün → yun.",
+          "Sau n và l, hai chấm phải giữ để phân biệt với u: nü, lü, nüe, lüe."
+        ],
+        "examples": [
+          {
+            "label": "j + ü → ju",
+            "pinyin": "jū",
+            "audioType": "pinyin",
+            "audio": "ju1",
+            "tooltip": "Viết ju nhưng đọc j + ü; chu môi như u, giữ lưỡi như i."
+          },
+          {
+            "label": "q + ü → qu",
+            "pinyin": "qū",
+            "audioType": "pinyin",
+            "audio": "qu1",
+            "tooltip": "Viết qu nhưng vẫn đọc q + ü; q phải bật hơi rõ."
+          },
+          {
+            "label": "x + üe → xue",
+            "pinyin": "xuē",
+            "audioType": "hanzi",
+            "audio": "靴",
+            "tooltip": "xue mang vận mẫu üe; hai chấm bị lược bỏ sau x."
+          },
+          {
+            "label": "üan → yuan",
+            "pinyin": "yuán",
+            "audioType": "hanzi",
+            "audio": "元",
+            "tooltip": "Khi üan đứng đầu âm tiết, thêm y và bỏ hai chấm: yuan."
+          },
+          {
+            "label": "n + ü → nü",
+            "pinyin": "nǚ",
+            "audioType": "hanzi",
+            "audio": "女",
+            "tooltip": "Sau n phải giữ hai chấm để phân biệt nü với nu."
+          },
+          {
+            "label": "l + ü → lü",
+            "pinyin": "lǜ",
+            "audioType": "hanzi",
+            "audio": "绿",
+            "tooltip": "Sau l phải giữ hai chấm để phân biệt lü với lu."
+          }
+        ]
+      },
+      {
+        "id": "zero-initial-i",
+        "title": "Nhóm i đổi sang cách viết với y",
+        "summary": "Khi vận mẫu bắt đầu bằng i không có thanh mẫu đứng trước, dùng y làm ký hiệu đầu âm tiết.",
+        "details": [
+          "i → yi; in → yin; ing → ying.",
+          "Với vận mẫu bắt đầu i + nguyên âm khác, bỏ i và thay bằng y: ia → ya, ie → ye, iao → yao, iou → you, ian → yan, iang → yang, iong → yong.",
+          "y là ký hiệu chính tả giúp nhìn rõ ranh giới âm tiết, không phải một thanh mẫu mới trong phân tích ngữ âm chặt chẽ."
+        ],
+        "examples": [
+          {
+            "label": "i → yi",
+            "pinyin": "yī",
+            "audioType": "hanzi",
+            "audio": "一",
+            "tooltip": "Vận mẫu i đứng đầu âm tiết được viết yi."
+          },
+          {
+            "label": "ia → ya",
+            "pinyin": "yā",
+            "audioType": "hanzi",
+            "audio": "鸭",
+            "tooltip": "Bỏ i và thêm y: ia viết thành ya."
+          },
+          {
+            "label": "ie → ye",
+            "pinyin": "yě",
+            "audioType": "hanzi",
+            "audio": "也",
+            "tooltip": "Bỏ i và thêm y: ie viết thành ye."
+          },
+          {
+            "label": "iou → you",
+            "pinyin": "yǒu",
+            "audioType": "hanzi",
+            "audio": "有",
+            "tooltip": "iou đứng đầu âm tiết viết you; không viết yiou."
+          },
+          {
+            "label": "ian → yan",
+            "pinyin": "yān",
+            "audioType": "hanzi",
+            "audio": "烟",
+            "tooltip": "ian đứng đầu âm tiết viết yan; cách đọc gần iên/yên."
+          },
+          {
+            "label": "iong → yong",
+            "pinyin": "yòng",
+            "audioType": "hanzi",
+            "audio": "用",
+            "tooltip": "iong đứng đầu âm tiết viết yong."
+          }
+        ]
+      },
+      {
+        "id": "zero-initial-u",
+        "title": "Nhóm u đổi sang cách viết với w",
+        "summary": "Khi vận mẫu bắt đầu bằng u không có thanh mẫu đứng trước, dùng w làm ký hiệu đầu âm tiết.",
+        "details": [
+          "u → wu.",
+          "Với vận mẫu bắt đầu u + nguyên âm khác, bỏ u và thay bằng w: ua → wa, uo → wo, uai → wai, uei → wei, uan → wan, uen → wen, uang → wang, ueng → weng.",
+          "w biểu thị âm lướt u ở đầu; không nên đọc thành phụ âm v tiếng Việt."
+        ],
+        "examples": [
+          {
+            "label": "u → wu",
+            "pinyin": "wǔ",
+            "audioType": "hanzi",
+            "audio": "五",
+            "tooltip": "Vận mẫu u đứng đầu âm tiết được viết wu."
+          },
+          {
+            "label": "ua → wa",
+            "pinyin": "wā",
+            "audioType": "hanzi",
+            "audio": "挖",
+            "tooltip": "Bỏ u và thêm w: ua viết thành wa."
+          },
+          {
+            "label": "uo → wo",
+            "pinyin": "wǒ",
+            "audioType": "hanzi",
+            "audio": "我",
+            "tooltip": "Bỏ u và thêm w: uo viết thành wo."
+          },
+          {
+            "label": "uei → wei",
+            "pinyin": "wèi",
+            "audioType": "hanzi",
+            "audio": "为",
+            "tooltip": "uei đứng đầu âm tiết viết wei; không viết wuei."
+          },
+          {
+            "label": "uan → wan",
+            "pinyin": "wǎn",
+            "audioType": "hanzi",
+            "audio": "晚",
+            "tooltip": "uan đứng đầu âm tiết viết wan."
+          },
+          {
+            "label": "ueng → weng",
+            "pinyin": "wēng",
+            "audioType": "hanzi",
+            "audio": "翁",
+            "tooltip": "ueng chủ yếu xuất hiện ở âm tiết không thanh mẫu và được viết weng."
+          }
+        ]
+      },
+      {
+        "id": "tone-mark-placement",
+        "title": "Vị trí đặt dấu thanh",
+        "summary": "Dấu thanh đặt trên nguyên âm chính, theo quy tắc ưu tiên a, o, e; với iu và ui đặt trên chữ cái cuối.",
+        "details": [
+          "Nếu có a, dấu đặt trên a: hǎo, kuài.",
+          "Nếu không có a nhưng có o hoặc e, đặt trên o hoặc e: guó, xué.",
+          "Trong iu và ui, dấu đặt trên chữ cái đứng sau: liú, guǐ.",
+          "Khi i mang dấu thanh, bỏ dấu chấm trên i: nǐ, xī."
+        ],
+        "examples": [
+          {
+            "label": "hao → hǎo",
+            "pinyin": "hǎo",
+            "audioType": "hanzi",
+            "audio": "好",
+            "tooltip": "Có a nên dấu thanh đặt trên a: hǎo."
+          },
+          {
+            "label": "guo → guó",
+            "pinyin": "guó",
+            "audioType": "hanzi",
+            "audio": "国",
+            "tooltip": "Không có a; dấu đặt trên o: guó."
+          },
+          {
+            "label": "xue → xué",
+            "pinyin": "xué",
+            "audioType": "hanzi",
+            "audio": "学",
+            "tooltip": "Dấu đặt trên e trong üe: xué."
+          },
+          {
+            "label": "liu → liú",
+            "pinyin": "liú",
+            "audioType": "hanzi",
+            "audio": "流",
+            "tooltip": "Trong iu, dấu đặt trên nguyên âm cuối u: liú."
+          },
+          {
+            "label": "gui → guǐ",
+            "pinyin": "guǐ",
+            "audioType": "hanzi",
+            "audio": "鬼",
+            "tooltip": "Trong ui, dấu đặt trên nguyên âm cuối i: guǐ."
+          }
+        ]
+      }
+    ]
+  },
+  "sandhiRules": {
+    "title": "Quy tắc biến âm",
+    "items": [
+      {
+        "id": "third-tone-sandhi",
+        "title": "Hai thanh 3 đứng cạnh nhau",
+        "formula": "3 + 3 → 2 + 3",
+        "summary": "Khi hai âm tiết thanh 3 đi liền nhau trong cùng nhịp nói, âm tiết thứ nhất chuyển thành thanh 2; cách viết Pinyin thường vẫn giữ dấu thanh gốc.",
+        "details": [
+          "你好 viết nǐ hǎo nhưng phát âm tự nhiên gần ní hǎo.",
+          "很好 viết hěn hǎo nhưng phát âm gần hén hǎo.",
+          "Thanh 3 đứng trước thanh 1, 2 hoặc 4 thường đọc dạng nửa thanh 3: hạ thấp mà không nhấc lên đầy đủ."
+        ],
+        "examples": [
+          {
+            "hanzi": "你好",
+            "writtenPinyin": "nǐ hǎo",
+            "spokenPinyin": "ní hǎo",
+            "audio": "你好",
+            "tooltip": "Âm nǐ đổi gần thành ní vì đứng trước hǎo, cũng là thanh 3."
+          },
+          {
+            "hanzi": "很好",
+            "writtenPinyin": "hěn hǎo",
+            "spokenPinyin": "hén hǎo",
+            "audio": "很好",
+            "tooltip": "Âm hěn đổi gần thành hén trước hǎo."
+          },
+          {
+            "hanzi": "可以",
+            "writtenPinyin": "kě yǐ",
+            "spokenPinyin": "ké yǐ",
+            "audio": "可以",
+            "tooltip": "Trong cụm hai thanh 3, kě chuyển gần thành ké."
+          }
+        ]
+      },
+      {
+        "id": "yi-sandhi",
+        "title": "Biến điệu của 一 (yī)",
+        "formula": "yī → yí / yì / yi nhẹ",
+        "summary": "一 giữ thanh 1 khi đọc riêng, đếm số, ở cuối cụm hoặc biểu thị thứ tự; khi đứng trước âm tiết khác, thanh thay đổi theo thanh phía sau.",
+        "details": [
+          "Trước thanh 4: 一 đọc thanh 2 yí. Ví dụ: 一个 yí ge, 一样 yíyàng.",
+          "Trước thanh 1, 2 hoặc 3: 一 đọc thanh 4 yì. Ví dụ: 一天 yì tiān, 一年 yì nián, 一起 yìqǐ.",
+          "Khi đọc riêng, đếm số hoặc làm số thứ tự: giữ yī. Ví dụ: 一、二、三; 第一 dì-yī.",
+          "Trong mẫu động từ lặp A一A, 一 thường đọc nhẹ: 看一看 kàn yi kàn."
+        ],
+        "examples": [
+          {
+            "hanzi": "一个",
+            "writtenPinyin": "yī ge",
+            "spokenPinyin": "yí ge",
+            "audio": "一个",
+            "tooltip": "个 gè là thanh 4 nên 一 đổi thành thanh 2: yí ge."
+          },
+          {
+            "hanzi": "一天",
+            "writtenPinyin": "yī tiān",
+            "spokenPinyin": "yì tiān",
+            "audio": "一天",
+            "tooltip": "天 tiān là thanh 1 nên 一 đổi thành thanh 4: yì tiān."
+          },
+          {
+            "hanzi": "一年",
+            "writtenPinyin": "yī nián",
+            "spokenPinyin": "yì nián",
+            "audio": "一年",
+            "tooltip": "年 nián là thanh 2 nên 一 đổi thành thanh 4: yì nián."
+          },
+          {
+            "hanzi": "一起",
+            "writtenPinyin": "yī qǐ",
+            "spokenPinyin": "yìqǐ",
+            "audio": "一起",
+            "tooltip": "起 qǐ là thanh 3 nên 一 đổi thành thanh 4: yìqǐ."
+          },
+          {
+            "hanzi": "第一",
+            "writtenPinyin": "dì-yī",
+            "spokenPinyin": "dì-yī",
+            "audio": "第一",
+            "tooltip": "Khi làm số thứ tự sau 第, 一 giữ thanh 1 yī."
+          },
+          {
+            "hanzi": "看一看",
+            "writtenPinyin": "kàn yī kàn",
+            "spokenPinyin": "kàn yi kàn",
+            "audio": "看一看",
+            "tooltip": "Trong mẫu động từ lặp A一A, 一 thường đọc nhẹ."
+          }
+        ]
+      },
+      {
+        "id": "bu-sandhi",
+        "title": "Biến điệu của 不 (bù)",
+        "formula": "bù + thanh 4 → bú + thanh 4",
+        "summary": "不 giữ thanh 4 trong hầu hết trường hợp, nhưng đổi thành thanh 2 khi đứng ngay trước một âm tiết thanh 4.",
+        "details": [
+          "Trước thanh 4: bù → bú. Ví dụ: 不是 bú shì, 不客气 bú kèqi, 不去 bú qù.",
+          "Trước thanh 1, 2 hoặc 3: giữ bù. Ví dụ: 不高 bù gāo, 不来 bù lái, 不好 bù hǎo.",
+          "Trong mẫu khẳng định–phủ định A不A, 不 có thể đọc nhẹ trong lời nói nhanh: 好不好 hǎo bu hǎo."
+        ],
+        "examples": [
+          {
+            "hanzi": "不是",
+            "writtenPinyin": "bù shì",
+            "spokenPinyin": "bú shì",
+            "audio": "不是",
+            "tooltip": "是 shì là thanh 4 nên 不 đổi thành thanh 2: bú shì."
+          },
+          {
+            "hanzi": "不客气",
+            "writtenPinyin": "bù kèqi",
+            "spokenPinyin": "bú kèqi",
+            "audio": "不客气",
+            "tooltip": "客 kè là thanh 4 nên 不 đổi thành thanh 2: bú kèqi."
+          },
+          {
+            "hanzi": "不去",
+            "writtenPinyin": "bù qù",
+            "spokenPinyin": "bú qù",
+            "audio": "不去",
+            "tooltip": "去 qù là thanh 4 nên 不 đổi thành thanh 2: bú qù."
+          },
+          {
+            "hanzi": "不好",
+            "writtenPinyin": "bù hǎo",
+            "spokenPinyin": "bù hǎo",
+            "audio": "不好",
+            "tooltip": "好 hǎo là thanh 3 nên 不 giữ thanh 4: bù hǎo."
+          },
+          {
+            "hanzi": "不来",
+            "writtenPinyin": "bù lái",
+            "spokenPinyin": "bù lái",
+            "audio": "不来",
+            "tooltip": "来 lái là thanh 2 nên 不 giữ thanh 4: bù lái."
+          },
+          {
+            "hanzi": "好不好",
+            "writtenPinyin": "hǎo bù hǎo",
+            "spokenPinyin": "hǎo bu hǎo",
+            "audio": "好不好",
+            "tooltip": "Trong mẫu A不A, 不 thường được đọc nhẹ khi nói tự nhiên."
+          }
+        ]
+      }
+    ]
+  }
+};
+
+
+function pronunciationEscapeHTML(value){
+  return String(value ?? "")
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+}
+
+function pronunciationToneSVG(contour){
+  const values=Array.isArray(contour)&&contour.length?contour:[3];
+  const width=240;
+  const height=78;
+  const paddingX=18;
+  const paddingY=10;
+  const usableWidth=width-paddingX*2;
+  const usableHeight=height-paddingY*2;
+  const points=values.map((value,index)=>{
+    const x=values.length===1?width/2:paddingX+(usableWidth*index)/(values.length-1);
+    const y=paddingY+((5-Number(value))/4)*usableHeight;
+    return `${x},${y}`;
+  }).join(" ");
+  const guides=[1,2,3,4,5].map(level=>{
+    const y=paddingY+((5-level)/4)*usableHeight;
+    return `<line x1="${paddingX}" y1="${y}" x2="${width-paddingX}" y2="${y}" stroke="#E2E8F0" stroke-width="1"/>`;
+  }).join("");
+  const shape=values.length===1
+    ? `<circle cx="${width/2}" cy="${paddingY+((5-Number(values[0]))/4)*usableHeight}" r="6" fill="#6366F1"/>
+       <line x1="${width/2-30}" y1="${paddingY+((5-Number(values[0]))/4)*usableHeight}" x2="${width/2+30}" y2="${paddingY+((5-Number(values[0]))/4)*usableHeight}" stroke="#6366F1" stroke-width="4" stroke-dasharray="6 5" stroke-linecap="round"/>`
+    : `<polyline points="${points}" fill="none" stroke="#6366F1" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+       ${values.map((value,index)=>{
+         const x=values.length===1?width/2:paddingX+(usableWidth*index)/(values.length-1);
+         const y=paddingY+((5-Number(value))/4)*usableHeight;
+         return `<circle cx="${x}" cy="${y}" r="5" fill="#4F46E5"/>`;
+       }).join("")}`;
+  return `<svg class="pronunciation-tone-chart" viewBox="0 0 ${width} ${height}" role="img" aria-label="Sơ đồ cao độ">
+    ${guides}
+    ${shape}
+  </svg>`;
+}
+
+function pronunciationAudioButton(item,kind){
+  const tooltip=pronunciationEscapeHTML(item.tooltip);
+  const label=pronunciationEscapeHTML(item.pinyin);
+  const teachingSound=pronunciationEscapeHTML(item.teachingSound||item.pinyin);
+  const meta=kind==="initial"
+    ? `<span class="pronunciation-card-meta">${pronunciationEscapeHTML(item.group)}</span><span class="pronunciation-card-note">${pronunciationEscapeHTML(item.aspiration)}</span>`
+    : item.nasal
+      ? `<span class="pronunciation-card-meta">${pronunciationEscapeHTML(item.nasal)}</span>`
+      : "";
+  return `<button type="button"
+    class="pinyin-audio pronunciation-hover pronunciation-data-card pronunciation-data-card-${kind}"
+    data-audio="${pronunciationEscapeHTML(item.audio)}"
+    data-hover-tip="${tooltip}"
+    aria-label="Phát âm ${label}">
+      <span class="pronunciation-card-main">${label}</span>
+      <span class="pronunciation-card-sound">${teachingSound}</span>
+      ${meta}
+    </button>`;
+}
+
+function pronunciationRuleExampleButton(example){
+  const tooltip=pronunciationEscapeHTML(example.tooltip);
+  const label=pronunciationEscapeHTML(example.label||example.hanzi||example.pinyin||"Nghe ví dụ");
+  const pinyin=pronunciationEscapeHTML(example.pinyin||example.spokenPinyin||example.writtenPinyin||"");
+  if(example.audioType==="pinyin"){
+    return `<button type="button"
+      class="pinyin-audio pronunciation-hover pronunciation-rule-example"
+      data-audio="${pronunciationEscapeHTML(example.audio)}"
+      data-hover-tip="${tooltip}">
+        <span>${label}</span>
+        ${pinyin?`<small>${pinyin}</small>`:""}
+      </button>`;
+  }
+  return `<button type="button"
+    class="hanzi-pronounce pronunciation-hover pronunciation-rule-example"
+    data-hanzi-pronounce="${pronunciationEscapeHTML(example.audio||example.hanzi||"")}"
+    data-hover-tip="${tooltip}">
+      ${example.hanzi?`<span class="cn">${pronunciationEscapeHTML(example.hanzi)}</span>`:`<span>${label}</span>`}
+      ${example.writtenPinyin&&example.spokenPinyin
+        ? `<small>${pronunciationEscapeHTML(example.writtenPinyin)} → ${pronunciationEscapeHTML(example.spokenPinyin)}</small>`
+        : pinyin?`<small>${pinyin}</small>`:""}
+    </button>`;
+}
+
+function renderPronunciationInitials(data){
+  return `<section class="glass pronunciation-data-section">
+    <div class="pronunciation-data-heading">
+      <div>
+        <p class="pronunciation-data-kicker">INITIALS</p>
+        <h2>${pronunciationEscapeHTML(data.title)}</h2>
+        <p>Nhấp vào ô để nghe. Di chuột để xem vị trí lưỡi, mức bật hơi và mẹo so sánh với tiếng Việt.</p>
+      </div>
+      <span class="pronunciation-count-badge">${data.items.length} âm</span>
     </div>
-  </div>
-
-  <div id="warmupSubpages">
-    <div class="warmup-subpage active" data-warmup-page="goals">
-      <div class="warmup-goals-grid">
-        <section class="star-mission-card">
-          <div class="warmup-card-title">
-            <span>🎯 Nhiệm Vụ Săn Sao Bài 1</span>
-            <span class="title-mascot">🐼⭐</span>
-          </div>
-          <div class="mission-grid">
-            <div class="mission-mini">
-              <h3>💬 Mẫu câu giao tiếp</h3>
-              <div class="mission-chips">
-                ${["你好","您好","对不起","没关系"].map(text=>`<button class="mission-chip cn hanzi-pronounce" data-hanzi-pronounce="${text}" aria-label="Nghe ${text}">${text} </button>`).join("")}
-              </div>
-            </div>
-            <div class="mission-mini">
-              <h3>🎵 Hệ thống Ngữ âm</h3>
-              <p>14 thanh mẫu · 18 vận mẫu · 4 thanh điệu.</p>
-            </div>
-            <div class="mission-mini">
-              <h3>✍️ Chữ Hán căn bản</h3>
-              <p>Nhận biết 6 nét cơ bản và chữ độc thể.</p>
-              <div class="mission-char-grid">
-                ${["一","二","三","十","八","六"].map(text=>`<button class="mission-char cn hanzi-pronounce" data-hanzi-pronounce="${text}" aria-label="Nghe chữ ${text}">${text}</button>`).join("")}
-              </div>
-            </div>
-            <div class="mission-mini">
-              <h3>🌟 Kỹ năng đạt được</h3>
-              <p>Chào hỏi, xin lỗi và bày tỏ sự thông cảm.</p>
-            </div>
-          </div>
-        </section>
-
-        <section class="mascot-tip-card">
-          <div class="warmup-card-title">
-            <span>💡 Bí Kíp Luyện Âm Từ Mascot</span>
-            <span class="title-mascot">🦊🐰🐵</span>
-          </div>
-          <div class="mascot-bubbles">
-            <div class="mascot-bubble">
-              <span class="mascot-face">🐵</span>
-              <div>
-                <strong>Khỉ Tinh Tinh</strong>
-                <p>“Mẹo <b>b</b> vs <b>p</b>: Âm <b>p</b> bật hơi mạnh như thổi nến sinh nhật nha! 🎂”</p>
-              </div>
-            </div>
-            <div class="mascot-bubble">
-              <span class="mascot-face">🦊</span>
-              <div>
-                <strong>Cáo Cáo</strong>
-                <p>“Nhóm <b>j, q, x</b>: Đặt đầu lưỡi hạ thấp, mặt lưỡi trước nâng gần ngạc cứng nhé! 🐾”</p>
-              </div>
-            </div>
-            <div class="mascot-bubble">
-              <span class="mascot-face">🐰</span>
-              <div>
-                <strong>Thỏ Ngọc</strong>
-                <p>“Âm <b>a, o, e, i</b> biến hóa tùy theo tổ hợp vận mẫu đi kèm nè! ⚡”</p>
-              </div>
-            </div>
-          </div>
-        </section>
+    <div class="pronunciation-data-grid pronunciation-initial-grid">
+      ${data.items.map(item=>pronunciationAudioButton(item,"initial")).join("")}
+    </div>
+    <div class="pronunciation-semivowel-block">
+      <div class="pronunciation-subheading">
+        <h3>${pronunciationEscapeHTML(data.semivowelsTitle)}</h3>
+        <p>Trong phân tích ngữ âm chặt chẽ, y và w chủ yếu là ký hiệu chính tả cho âm tiết không có thanh mẫu.</p>
+      </div>
+      <div class="pronunciation-data-grid pronunciation-semivowel-grid">
+        ${data.semivowels.map(item=>pronunciationAudioButton(item,"initial")).join("")}
       </div>
     </div>
+  </section>`;
+}
 
-    <div class="warmup-subpage" data-warmup-page="sounds">
-      <div class="grid xl:grid-cols-2 gap-5">
-        ${card("🔤 14 Thanh mẫu",`
-          <span class="mascot-corner">🐱</span>
-          <div class="grid grid-cols-4 sm:grid-cols-7 gap-3">${d.initials.map(x=>`<button class="pinyin-audio btn3d rounded-2xl bg-gradient-to-br from-pink-100 to-orange-100 py-4 text-2xl font-black border-2 border-pink-200/60"
-            data-audio="${INITIAL_AUDIO_MAP[x]}" aria-label="Phát MP3 thanh mẫu ${x}">
-            ${x}<span class="block text-xs text-slate-500 mt-1">${INITIAL_PRONUNCIATION[x]}</span>
-          </button>`).join("")}</div>
-        `,"pastel-card bg-gradient-to-br from-pink-50 to-white")}
-        ${card("🎵 18 Vận mẫu",`
-          <span class="mascot-corner">🐰</span>
-          <div class="grid grid-cols-3 sm:grid-cols-6 gap-3">${d.finals.map(x=>`<button class="pinyin-audio btn3d rounded-2xl bg-gradient-to-br from-cyan-100 to-emerald-100 py-3 font-black border-2 border-cyan-200/60"
-            data-audio="${FINAL_AUDIO_MAP[x]}" aria-label="Phát MP3 vận mẫu ${x}">
-            ${x}<span class="block text-xs text-slate-500 mt-1">${FINAL_PRONUNCIATION[x] || x}</span>
-          </button>`).join("")}</div>
-        `,"pastel-card bg-gradient-to-br from-cyan-50 to-white")}
-        <div id="pinyinAudioStatus" class="xl:col-span-2 min-h-8 text-center font-bold text-violet-600" aria-live="polite"></div>
+function renderPronunciationFinals(data){
+  return `<section class="glass pronunciation-data-section">
+    <div class="pronunciation-data-heading">
+      <div>
+        <p class="pronunciation-data-kicker">FINALS</p>
+        <h2>${pronunciationEscapeHTML(data.title)}</h2>
+        <p>Học theo nhóm để nhận biết hướng trượt của nguyên âm và phân biệt âm mũi trước -n với âm mũi sau -ng.</p>
       </div>
+      <span class="pronunciation-count-badge">${data.groups.reduce((sum,group)=>sum+group.items.length,0)} âm</span>
     </div>
-
-    <div class="warmup-subpage" data-warmup-page="tones">
-      ${card("📈 4 Thanh điệu + sơ đồ cao độ",`
-        <span class="mascot-corner">🦁</span>
-        <div class="grid sm:grid-cols-2 gap-4">
-          ${d.tones.map((t,i)=>`<button class="pinyin-audio text-left rounded-3xl p-4 bg-gradient-to-br from-white to-violet-50 soft hover:-translate-y-1 transition border-2 border-violet-200/50"
-            data-audio="${TONE_AUDIO_MAP[t.mark]}" aria-label="Phát MP3 ${t.mark}">
-            <div class="flex items-start justify-between gap-3 mb-2">
-              <div><b class="text-lg">${t.name}</b><div class="text-violet-500 font-black">Giá trị ${t.value}</div></div>
-              <span class="cn text-5xl leading-none font-black">${t.mark}</span>
-            </div>
-            <p class="font-semibold mb-3">${t.desc}</p>
-            ${toneChartSVG(i)}
-          </button>`).join("")}
+    <div class="pronunciation-final-groups">
+      ${data.groups.map(group=>`<div class="pronunciation-final-group">
+        <div class="pronunciation-subheading">
+          <h3>${pronunciationEscapeHTML(group.title)} <span>${group.items.length}</span></h3>
+          <p>${pronunciationEscapeHTML(group.description)}</p>
         </div>
-      `,"pastel-card bg-gradient-to-br from-violet-50 to-sky-50")}
+        <div class="pronunciation-data-grid pronunciation-final-grid">
+          ${group.items.map(item=>pronunciationAudioButton(item,"final")).join("")}
+        </div>
+      </div>`).join("")}
     </div>
+  </section>`;
+}
 
-    <div class="warmup-subpage" data-warmup-page="game">
+function renderPronunciationTones(data){
+  return `<section class="glass pronunciation-data-section">
+    <div class="pronunciation-data-heading">
+      <div>
+        <p class="pronunciation-data-kicker">TONES</p>
+        <h2>${pronunciationEscapeHTML(data.title)}</h2>
+        <p>So sánh với thanh tiếng Việt chỉ là mẹo gần đúng; học sinh cần nghe và bắt chước đường cao độ tiếng Trung.</p>
+      </div>
+      <span class="pronunciation-count-badge">${data.items.length} mục</span>
+    </div>
+    <div class="pronunciation-tone-grid">
+      ${data.items.map(item=>{
+        const common=`data-hover-tip="${pronunciationEscapeHTML(item.tooltip)}"`;
+        const audioAttrs=item.audioType==="pinyin"
+          ? `class="pinyin-audio pronunciation-hover pronunciation-tone-card" data-audio="${pronunciationEscapeHTML(item.audio)}"`
+          : `class="hanzi-pronounce pronunciation-hover pronunciation-tone-card" data-hanzi-pronounce="${pronunciationEscapeHTML(item.audio)}"`;
+        return `<button type="button" ${audioAttrs} ${common}>
+          <div class="pronunciation-tone-top">
+            <div>
+              <b>${pronunciationEscapeHTML(item.name)}</b>
+              <span>Cao độ ${pronunciationEscapeHTML(item.value)}</span>
+            </div>
+            <strong>${pronunciationEscapeHTML(item.mark)}</strong>
+          </div>
+          ${pronunciationToneSVG(item.contour)}
+          <div class="pronunciation-tone-copy">
+            <p><b>Cách đọc:</b> ${pronunciationEscapeHTML(item.description)}</p>
+            <p><b>Độ dài:</b> ${pronunciationEscapeHTML(item.length)}</p>
+            <p><b>So với tiếng Việt:</b> ${pronunciationEscapeHTML(item.vietnameseComparison)}</p>
+          </div>
+        </button>`;
+      }).join("")}
+    </div>
+  </section>`;
+}
+
+function renderPronunciationRuleSection(data,type){
+  const isSandhi=type==="sandhi";
+  return `<section class="glass pronunciation-data-section">
+    <div class="pronunciation-data-heading">
+      <div>
+        <p class="pronunciation-data-kicker">${isSandhi?"SANDHI":"SPELLING"}</p>
+        <h2>${pronunciationEscapeHTML(data.title)}</h2>
+        <p>${isSandhi
+          ?"Nắm cách phát âm thực tế khi các âm tiết đứng cạnh nhau."
+          :"Nắm cách chuyển i, u, ü sang y, w và cách lược hai chấm của ü."}</p>
+      </div>
+      <span class="pronunciation-count-badge">${data.items.length} quy tắc</span>
+    </div>
+    <div class="pronunciation-rule-data-grid">
+      ${data.items.map((rule,index)=>`<article class="pronunciation-rule-data-card">
+        <div class="pronunciation-rule-number">${index+1}</div>
+        <div class="pronunciation-rule-body">
+          <div class="pronunciation-rule-title-row">
+            <h3>${pronunciationEscapeHTML(rule.title)}</h3>
+            ${rule.formula?`<span>${pronunciationEscapeHTML(rule.formula)}</span>`:""}
+          </div>
+          <p class="pronunciation-rule-summary">${pronunciationEscapeHTML(rule.summary)}</p>
+          <ul>
+            ${rule.details.map(detail=>`<li>${pronunciationEscapeHTML(detail)}</li>`).join("")}
+          </ul>
+          <div class="pronunciation-rule-examples">
+            ${rule.examples.map(pronunciationRuleExampleButton).join("")}
+          </div>
+        </div>
+      </article>`).join("")}
+    </div>
+  </section>`;
+}
+
+function renderPronunciationKnowledge(data){
+  return `<section class="pronunciation-page-header glass">
+    <div class="pronunciation-page-heading">
+      <span class="pronunciation-page-icon">🔊</span>
+      <div>
+        <p class="pronunciation-page-kicker">HSK • HỆ THỐNG PINYIN ĐẦY ĐỦ</p>
+        <h2>${pronunciationEscapeHTML(data.meta.title)}</h2>
+        <p>${pronunciationEscapeHTML(data.meta.subtitle)}</p>
+      </div>
+    </div>
+    <div class="pronunciation-hover-note">
+      <i class="fa-solid fa-computer-mouse"></i>
+      <span>${pronunciationEscapeHTML(data.meta.instruction)}</span>
+    </div>
+  </section>
+  <div class="pronunciation-scope-note">
+    <i class="fa-solid fa-circle-info"></i>
+    <span>${pronunciationEscapeHTML(data.meta.scopeNote)}</span>
+  </div>
+  <div id="warmupSubpages">
+    <div class="warmup-subpage active pronunciation-knowledge-page" data-warmup-page="sounds">
+      ${renderPronunciationFinals(data.finals)}
+      ${renderPronunciationInitials(data.initials)}
+      ${renderPronunciationTones(data.tones)}
+      ${renderPronunciationRuleSection(data.spellingRules,"spelling")}
+      ${renderPronunciationRuleSection(data.sandhiRules,"sandhi")}
+      <div id="pinyinAudioStatus" class="pronunciation-audio-status" aria-live="polite"></div>
+    </div>`;
+}
+
+function warmupHTMLLesson1(){
+  return `${renderPronunciationKnowledge(pronunciationData)}
+    <div class="warmup-subpage active" data-warmup-page="game">
       <section class="sound-game-shell">
         <div class="sound-game-inline-head">
           <div class="sound-game-title">🎮 Mini-game: Nghe chọn âm đúng</div>
@@ -6666,7 +8470,7 @@ function warmupHTMLLesson1(){
       </section>
     </div>
 
-    <div class="warmup-subpage" data-warmup-page="practice">
+    <div class="warmup-subpage active" data-warmup-page="practice">
       <div class="space-y-5">
         ${card("🗣️ Phần 1: Bảng luyện đọc âm tiết",`
           <span class="mascot-corner">🐼</span>
@@ -6692,32 +8496,6 @@ function warmupHTMLLesson1(){
                 ${["xià yǔ","xiàwǔ","tèbié","dì yī","yěxǔ","pǎo bù","huídá","tiào wǔ","yìqǐ","kuàilè","qítā","biǎodá","lǐwù","jīhuì","líkāi","fùxí","dìtú","dìtiě","àihào","jiēdào"].map(word=>`<button class="practice-speak practice-chip text-left" data-text="${word}"><i class="fa-solid fa-volume-high mr-2 text-cyan-500"></i>${word}</button>`).join("")}
               </div>
             </div>
-          </div>
-        `,"pastel-card")}
-
-        ${card("🖼️ Phần 2: Đọc & Đoán",`
-          <span class="mascot-corner">🦊</span>
-          <p class="text-slate-500 mb-4">Chọn một hình, sau đó chọn từ Pinyin tương ứng.</p>
-          <div id="pictureMatchGame">
-            <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-5">
-              ${[
-                ["pie","🍰","Bánh pie"],
-                ["ballet","💃","Múa ballet"],
-                ["coffee","☕","Cà phê"],
-                ["guitar","🎸","Đàn guitar"],
-                ["cola","🥤","Nước cola"]
-              ].map(item=>`<button class="picture-choice rounded-2xl border-2 border-slate-200 bg-white p-4 font-black" data-picture="${item[0]}"><span class="block text-5xl mb-2">${item[1]}</span>${item[2]}</button>`).join("")}
-            </div>
-            <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
-              ${[
-                ["coffee","A. kāfēi","kāfēi"],
-                ["cola","B. kělè","kělè"],
-                ["ballet","C. bālěi","bālěi"],
-                ["pie","D. pài","pài"],
-                ["guitar","E. jítā","jítā"]
-              ].map(item=>`<button class="word-choice practice-chip" data-answer="${item[0]}" data-text="${item[2]}"><i class="fa-solid fa-volume-high mr-1"></i>${item[1]}</button>`).join("")}
-            </div>
-            <p id="pictureMatchStatus" class="mt-4 font-black text-center min-h-7"></p>
           </div>
         `,"pastel-card")}
 
@@ -8980,7 +10758,166 @@ function switchLesson(id){
   window.scrollTo({top:0,behavior:"auto"});
 }
 
+
+
+/* ===== Additive hover interaction for the single-page pronunciation area ===== */
+const PRONUNCIATION_HOVER_TIPS = {
+  "b":"Gần âm p tiếng Việt nhưng không bật hơi; môi khép rồi mở nhẹ.",
+  "p":"Gần âm p nhưng bật hơi mạnh; thử đặt mảnh giấy trước miệng.",
+  "m":"Gần âm m tiếng Việt; hai môi khép, hơi đi qua mũi.",
+  "f":"Gần âm ph/f; răng trên chạm nhẹ môi dưới.",
+  "d":"Gần âm t nhưng không bật hơi mạnh.",
+  "t":"Gần âm th/t bật hơi; đầu lưỡi chạm lợi trên rồi bật ra.",
+  "n":"Gần âm n; hơi đi qua mũi.",
+  "l":"Gần âm l; đầu lưỡi chạm lợi trên.",
+  "g":"Gần âm c/k không bật hơi; âm phát ở phía sau khoang miệng.",
+  "k":"Giống k nhưng bật hơi mạnh.",
+  "h":"Gần âm h/kh nhẹ; hơi ma sát ở cuống lưỡi.",
+  "j":"Gần âm ch mềm, không bật hơi; đầu lưỡi hạ thấp.",
+  "q":"Gần âm ch bật hơi mạnh; mặt lưỡi trước nâng lên.",
+  "x":"Gần âm x mềm; khe hơi hẹp và kéo dài.",
+  "a":"Mở miệng rộng, gần âm a trong tiếng Việt.",
+  "o":"Môi tròn, gần âm ô nhưng vang và tròn hơn.",
+  "e":"Âm nằm giữa ơ và ưa; lưỡi hơi lùi về sau.",
+  "i":"Gần âm i; môi dẹt, lưỡi nâng cao phía trước.",
+  "u":"Gần âm u; môi tròn và nhô ra.",
+  "ü":"Chu môi như đọc u nhưng vị trí lưỡi giữ như đọc i.",
+  "ai":"Đọc liền a + i, gần âm ai tiếng Việt.",
+  "ei":"Đọc liền ê + i, gần âm ây nhưng ngắn hơn.",
+  "ao":"Đọc liền a + o, gần âm ao.",
+  "ia":"Đọc nhanh i + a; không tách thành hai tiếng.",
+  "ie":"Đọc nhanh i + ê, gần âm iê.",
+  "iao":"Đọc liền i + ao, âm đầu rất ngắn.",
+  "ua":"Đọc nhanh u + a, gần âm oa.",
+  "uo":"Đọc nhanh u + o, gần âm uô.",
+  "uai":"Đọc liền u + ai, gần âm oai.",
+  "uei (ui)":"Viết gọn là ui; đọc đầy đủ gần uêi.",
+  "ui":"Viết gọn từ uei; dấu thanh đặt trên i.",
+  "üe":"Chu môi đọc ü rồi chuyển nhanh sang ê.",
+  "er":"Âm cuốn lưỡi; đầu lưỡi cong nhẹ về phía sau.",
+  "mā":"Thanh 1: giọng cao, đều và kéo ngang.",
+  "má":"Thanh 2: giọng đi lên như khi hỏi lại.",
+  "mǎ":"Thanh 3: hạ xuống thấp rồi nhấc lên.",
+  "mà":"Thanh 4: hạ mạnh, ngắn và dứt khoát.",
+  "你好":"Viết nǐ hǎo; khi nói tự nhiên, âm đầu đọc gần ní.",
+  "您好":"nín thanh 2, hǎo thanh 3; dùng khi chào kính trọng.",
+  "你们":"nǐ đọc rõ; men là thanh nhẹ, ngắn và không nhấn.",
+  "对不起":"duì đọc rõ; bu ở giữa đọc nhẹ; qǐ là thanh 3.",
+  "没关系":"méi guān đọc rõ; xi cuối từ đọc nhẹ."
+};
+
+function normalizePinyinForTip(value){
+  return String(value||"")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g,"")
+    .replace(/ǖ|ǘ|ǚ|ǜ/g,"ü")
+    .trim();
+}
+
+function pronunciationHoverTip(element){
+  const explicit=element.dataset.hoverTip;
+  if(explicit) return explicit;
+
+  const hanzi=element.dataset.hanziPronounce;
+  if(hanzi && PRONUNCIATION_HOVER_TIPS[hanzi]){
+    return PRONUNCIATION_HOVER_TIPS[hanzi];
+  }
+
+  const raw=String(element.dataset.text || element.textContent || "").trim();
+  if(PRONUNCIATION_HOVER_TIPS[raw]) return PRONUNCIATION_HOVER_TIPS[raw];
+
+  const firstLine=raw.split(/\s+/)[0];
+  if(PRONUNCIATION_HOVER_TIPS[firstLine]) return PRONUNCIATION_HOVER_TIPS[firstLine];
+
+  const normalized=normalizePinyinForTip(firstLine);
+  if(PRONUNCIATION_HOVER_TIPS[normalized]) return PRONUNCIATION_HOVER_TIPS[normalized];
+
+  const initialKeys=["zh","ch","sh","b","p","m","f","d","t","n","l","g","k","h","j","q","x","r","z","c","s"];
+  const matchedInitial=initialKeys.find(key=>normalized.toLowerCase().startsWith(key));
+  if(matchedInitial && PRONUNCIATION_HOVER_TIPS[matchedInitial]){
+    return `${PRONUNCIATION_HOVER_TIPS[matchedInitial]} Đọc liền cả âm “${firstLine}” và giữ đúng thanh điệu.`;
+  }
+
+  if(/[\u3400-\u9FFF]/.test(raw)){
+    return "Nghe âm mẫu, nhìn Pinyin đi kèm và lặp lại chậm 2–3 lần.";
+  }
+
+  return `Đọc liền “${firstLine}”, không tách rời các chữ cái và giữ đúng dấu thanh.`;
+}
+
+function bindPronunciationHoverOnce(){
+  if(document.documentElement.dataset.pronunciationHoverBound==="1") return;
+  document.documentElement.dataset.pronunciationHoverBound="1";
+
+  const tooltip=document.createElement("div");
+  tooltip.id="pronunciationHoverTooltip";
+  tooltip.setAttribute("role","tooltip");
+  document.body.appendChild(tooltip);
+
+  const selector=[
+    "#warmup .pronunciation-hover",
+    "#warmup .pinyin-audio",
+    "#warmup .practice-speak",
+    "#warmup [data-hanzi-pronounce]"
+  ].join(",");
+
+  let activeElement=null;
+
+  function placeTooltip(element){
+    const rect=element.getBoundingClientRect();
+    tooltip.classList.remove("below");
+    tooltip.style.left="0px";
+    tooltip.style.top="0px";
+
+    const width=tooltip.offsetWidth;
+    const height=tooltip.offsetHeight;
+    let left=rect.left+(rect.width-width)/2;
+    left=Math.max(8,Math.min(left,window.innerWidth-width-8));
+
+    let top=rect.top-height-10;
+    if(top<8){
+      top=rect.bottom+10;
+      tooltip.classList.add("below");
+    }
+
+    tooltip.style.left=`${left}px`;
+    tooltip.style.top=`${top}px`;
+  }
+
+  document.addEventListener("mouseover",event=>{
+    const element=event.target.closest(selector);
+    if(!element) return;
+    if(event.relatedTarget && element.contains(event.relatedTarget)) return;
+
+    activeElement=element;
+    tooltip.textContent=pronunciationHoverTip(element);
+    tooltip.classList.add("show");
+    requestAnimationFrame(()=>placeTooltip(element));
+  });
+
+  document.addEventListener("mouseout",event=>{
+    const element=event.target.closest(selector);
+    if(!element || element!==activeElement) return;
+    if(event.relatedTarget && element.contains(event.relatedTarget)) return;
+    activeElement=null;
+    tooltip.classList.remove("show","below");
+  });
+
+  window.addEventListener("scroll",()=>{
+    if(activeElement && tooltip.classList.contains("show")){
+      placeTooltip(activeElement);
+    }
+  },{passive:true});
+
+  window.addEventListener("resize",()=>{
+    if(activeElement && tooltip.classList.contains("show")){
+      placeTooltip(activeElement);
+    }
+  });
+}
+
 document.getElementById("soundToggle").onclick=()=>{soundOn=!soundOn;document.getElementById("soundToggle").innerHTML=soundOn?'<i class="fa-solid fa-volume-high"></i>':'<i class="fa-solid fa-volume-xmark"></i>'};
+bindPronunciationHoverOnce();
 renderTabs();render();
 </script>
 </body>
