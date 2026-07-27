@@ -1576,6 +1576,28 @@
       #flash .stroke-char-btn{min-height:40px;font-size:1.25rem}
     }
 
+  
+    /* ===== Hanzi pronunciation affordance ===== */
+    .hanzi-pronounce{
+      position:relative;
+      cursor:pointer;
+    }
+    button.hanzi-pronounce::after{
+      content:"🔊";
+      position:absolute;
+      top:4px;
+      right:6px;
+      font-size:.68rem;
+      line-height:1;
+      opacity:.72;
+      filter:drop-shadow(0 2px 3px rgba(15,23,42,.12));
+      pointer-events:none;
+    }
+    .hanzi-pronounce:hover::after{opacity:1}
+    #fill .fill-line.hanzi-pronounce,
+    #typing .typing-line.hanzi-pronounce{
+      cursor:pointer;
+    }
 
   
     /* ===== Interactive Grammar Hub ===== */
@@ -6973,23 +6995,23 @@ function vocabHTML(){
       <div class="p-4 md:p-7">
         <div class="vocab-mode-grid">
           <button class="vocab-mode-card" data-vocab-mode="flashcard" style="background:linear-gradient(145deg,#00B57A,#00D69A)">
-            <span class="mode-icon"><i class="fa-solid fa-layer-group"></i></span><span class="absolute top-5 right-5">🐾</span>
+            <span class="mode-icon"><i class="fa-solid fa-layer-group"></i></span>
             <h3 class="text-2xl font-black mt-5">Flashcard →</h3><p class="mt-2 text-white/90">Đọc, nghe và ghi nhớ từ trước khi làm bài</p><span class="vocab-watermark">学</span>
           </button>
           <button class="vocab-mode-card" data-vocab-mode="vi-zh" style="background:linear-gradient(145deg,#FF6B00,#FF9A00)">
-            <span class="mode-icon"><i class="fa-solid fa-language"></i></span><span class="absolute top-5 right-5">🎯</span>
+            <span class="mode-icon"><i class="fa-solid fa-language"></i></span>
             <h3 class="text-2xl font-black mt-5">Việt → Trung</h3><p class="mt-2 text-white/90">Xem tiếng Việt, viết chữ Hán</p><span class="vocab-watermark">越</span>
           </button>
           <button class="vocab-mode-card" data-vocab-mode="zh-vi" style="background:linear-gradient(145deg,#FF004C,#FF4775)">
-            <span class="mode-icon"><i class="fa-solid fa-lightbulb"></i></span><span class="absolute top-5 right-5">💡</span>
+            <span class="mode-icon"><i class="fa-solid fa-lightbulb"></i></span>
             <h3 class="text-2xl font-black mt-5">Trung → Việt</h3><p class="mt-2 text-white/90">Xem chữ Hán, viết nghĩa tiếng Việt</p><span class="vocab-watermark">中</span>
           </button>
           <button class="vocab-mode-card" data-vocab-mode="zh-zh" style="background:linear-gradient(145deg,#2A3447,#46556E)">
-            <span class="mode-icon"><i class="fa-solid fa-pen-nib"></i></span><span class="absolute top-5 right-5">✍️</span>
+            <span class="mode-icon"><i class="fa-solid fa-pen-nib"></i></span>
             <h3 class="text-2xl font-black mt-5">Trung → Trung</h3><p class="mt-2 text-white/90">Luyện viết: xem và viết lại chữ Hán</p><span class="vocab-watermark">书</span>
           </button>
           <button class="vocab-mode-card" data-vocab-mode="listen" style="background:linear-gradient(145deg,#0099FF,#00C6FF)">
-            <span class="mode-icon"><i class="fa-solid fa-headphones"></i></span><span class="absolute top-5 right-5">🎧</span>
+            <span class="mode-icon"><i class="fa-solid fa-headphones"></i></span>
             <h3 class="text-2xl font-black mt-5">Nghe hiểu</h3><p class="mt-2 text-white/90">Nghe tiếng Trung, điền chữ hoặc nghĩa</p><span class="vocab-watermark">言</span>
           </button>
         </div>
