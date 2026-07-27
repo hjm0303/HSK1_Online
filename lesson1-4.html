@@ -9255,13 +9255,28 @@ function bindArrange(){
   const progress=document.getElementById("arrangeProgressBar");
   const counter=document.getElementById("arrangeCounter");
 
-  const arrangeMeta=[
-    {translation:"Cô ấy là giáo viên tiếng Trung của tôi",pinyin:"nǐ jiào shénme míngzi"},
-    {translation:"Tôi tên là Lý Nguyệt.",pinyin:"wǒ jiào Lǐ Yuè"},
-    {translation:"Tôi là giáo viên.",pinyin:"wǒ shì lǎoshī"},
-    {translation:"Bạn là học sinh phải không?",pinyin:"nǐ shì xuésheng ma"},
-    {translation:"Tôi là người Trung Quốc.",pinyin:"wǒ shì Zhōngguó rén"}
-  ];
+const arrangeMeta = [
+  {
+    translation: "Cô ấy là ai?",
+    pinyin: "Tā shì shéi?"
+  },
+  {
+    translation: "Cô ấy là giáo viên tiếng Trung của tôi.",
+    pinyin: "Tā shì wǒ de hànyǔ lǎoshī."
+  },
+  {
+    translation: "Anh ấy là người nước nào?",
+    pinyin: "Tā shì nǎ guó rén?"
+  },
+  {
+    translation: "Còn cô ấy thì sao?",
+    pinyin: "Tā ne?"
+  },
+  {
+    translation: "Cô ấy là bạn của tôi.",
+    pinyin: "Tā shì wǒ péngyou."
+  }
+];
   let index=0;
   let isSubmitted=false;
   let streak=0;
