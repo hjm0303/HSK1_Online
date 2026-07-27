@@ -6993,6 +6993,357 @@
       }
     }
 
+  
+  /* ===== Bài 14: Direct Pronunciation Tab (no sub-tabs) ===== */
+    #warmup .pronunciation-page{
+      display:grid;
+      gap:16px;
+    }
+    #warmup .pronunciation-intro,
+    #warmup .pronunciation-section{
+      background:#FFFFFF;
+      border:1px solid #DCE3EF;
+      border-radius:20px;
+      box-shadow:0 8px 22px rgba(15,23,42,.06);
+    }
+    #warmup .pronunciation-intro{
+      display:grid;
+      grid-template-columns:auto minmax(0,1fr) auto;
+      align-items:center;
+      gap:14px;
+      padding:16px 18px;
+      background:linear-gradient(135deg,#EEF2FF 0%,#FFFFFF 58%,#ECFDF5 100%)!important;
+      border-left:5px solid #6366F1;
+    }
+    #warmup .pronunciation-intro-icon{
+      width:52px;
+      height:52px;
+      display:grid;
+      place-items:center;
+      border-radius:16px;
+      background:linear-gradient(135deg,#6366F1,#2563EB);
+      color:#FFFFFF;
+      font-size:1.6rem;
+      box-shadow:0 10px 20px rgba(37,99,235,.20);
+    }
+    #warmup .pronunciation-kicker,
+    #warmup .pronunciation-section-label{
+      margin:0;
+      color:#4F46E5!important;
+      font-size:.72rem!important;
+      line-height:1.2!important;
+      font-weight:900;
+      letter-spacing:.13em;
+    }
+    #warmup .pronunciation-intro h2{
+      margin:3px 0 2px;
+      color:#0F172A!important;
+      font-size:clamp(1.25rem,2.3vw,1.7rem)!important;
+      line-height:1.25!important;
+    }
+    #warmup .pronunciation-intro p:last-child{
+      margin:0;
+      color:#64748B!important;
+      font-size:.94rem!important;
+      line-height:1.45!important;
+    }
+    #warmup .pronunciation-listen-note{
+      padding:8px 12px;
+      border-radius:999px;
+      background:#FFFFFF;
+      border:1px solid #C7D2FE;
+      color:#4338CA;
+      font-size:.8rem;
+      font-weight:900;
+      white-space:nowrap;
+    }
+    #warmup .pronunciation-top-grid{
+      display:grid;
+      grid-template-columns:minmax(0,1.5fr) minmax(290px,.75fr);
+      gap:16px;
+      align-items:stretch;
+    }
+    #warmup .pronunciation-section{
+      padding:16px 18px;
+      min-width:0;
+    }
+    #warmup .pronunciation-section-head{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:13px;
+    }
+    #warmup .pronunciation-section-head h3{
+      margin:3px 0 0;
+      color:#0F172A!important;
+      font-size:1.12rem!important;
+      line-height:1.3!important;
+      font-weight:900!important;
+    }
+    #warmup .pronunciation-section-head>span{
+      flex:0 0 auto;
+      padding:6px 10px;
+      border-radius:999px;
+      background:#EEF2FF;
+      color:#4338CA;
+      border:1px solid #C7D2FE;
+      font-size:.74rem;
+      font-weight:900;
+    }
+    #warmup .pronunciation-vocab-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:10px;
+    }
+    #warmup .pronunciation-vocab-card{
+      position:relative;
+      display:grid;
+      grid-template-columns:minmax(0,1fr) auto;
+      grid-template-areas:
+        "hanzi hint"
+        "pinyin hint"
+        "meaning hint";
+      align-items:center;
+      gap:2px 10px;
+      min-height:104px;
+      padding:13px 14px!important;
+      text-align:left;
+      border:1px solid #DCE3EF!important;
+      border-radius:16px!important;
+      background:#FFFFFF!important;
+      color:#1E293B!important;
+      box-shadow:0 5px 14px rgba(15,23,42,.045)!important;
+      transition:transform .16s ease,border-color .16s ease,box-shadow .16s ease,background .16s ease!important;
+    }
+    #warmup .pronunciation-vocab-card:hover{
+      transform:translateY(-2px)!important;
+      background:#F8FAFF!important;
+      border-color:#818CF8!important;
+      box-shadow:0 10px 20px rgba(99,102,241,.12)!important;
+    }
+    #warmup .pronunciation-hanzi{
+      grid-area:hanzi;
+      color:#1E293B!important;
+      font-size:clamp(1.55rem,2.4vw,2rem)!important;
+      line-height:1.16!important;
+      font-weight:900!important;
+    }
+    #warmup .pronunciation-pinyin{
+      color:#4F46E5!important;
+      font-size:.91rem!important;
+      line-height:1.35!important;
+      font-weight:900;
+    }
+    #warmup .pronunciation-meaning{
+      color:#64748B!important;
+      font-size:.82rem!important;
+      line-height:1.35!important;
+      font-weight:700;
+    }
+    #warmup .pronunciation-vocab-card .pronunciation-pinyin{grid-area:pinyin;}
+    #warmup .pronunciation-vocab-card .pronunciation-meaning{grid-area:meaning;}
+    #warmup .pronunciation-audio-hint{
+      grid-area:hint;
+      align-self:center;
+      padding:6px 8px;
+      border-radius:10px;
+      background:#EEF2FF;
+      color:#4F46E5;
+      font-size:.69rem;
+      font-weight:900;
+      white-space:nowrap;
+    }
+    #warmup .pronunciation-tip-section{
+      background:linear-gradient(155deg,#FFFFFF,#F8FAFF)!important;
+    }
+    #warmup .pronunciation-tip-list{
+      display:grid;
+      gap:9px;
+    }
+    #warmup .pronunciation-tip-item{
+      display:grid;
+      grid-template-columns:30px minmax(0,1fr);
+      align-items:start;
+      gap:9px;
+      padding:10px;
+      border-radius:14px;
+      background:#F8FAFC;
+      border:1px solid #E2E8F0;
+    }
+    #warmup .pronunciation-tip-item>span{
+      width:30px;
+      height:30px;
+      display:grid;
+      place-items:center;
+      border-radius:10px;
+      background:#6366F1;
+      color:#FFFFFF;
+      font-size:.8rem;
+      font-weight:900;
+    }
+    #warmup .pronunciation-tip-item p{
+      margin:0;
+      color:#475569!important;
+      font-size:.83rem!important;
+      line-height:1.48!important;
+    }
+    #warmup .pronunciation-tip-item b{
+      color:#1E293B;
+    }
+    #warmup .pronunciation-practice-order{
+      margin-top:10px;
+      padding:10px 12px;
+      border-radius:14px;
+      background:#ECFDF5;
+      border:1px solid #A7F3D0;
+      color:#047857;
+      font-size:.82rem;
+      line-height:1.45;
+    }
+    #warmup .pronunciation-sentence-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:10px;
+    }
+    #warmup .pronunciation-sentence-card{
+      display:grid;
+      grid-template-columns:auto minmax(0,1fr);
+      align-items:center;
+      gap:11px;
+      min-height:102px;
+      padding:12px 13px!important;
+      text-align:left;
+      border:1px solid #DCE3EF!important;
+      border-radius:16px!important;
+      background:#FFFFFF!important;
+      color:#1E293B!important;
+      box-shadow:none!important;
+      transition:transform .16s ease,border-color .16s ease,box-shadow .16s ease,background .16s ease!important;
+    }
+    #warmup .pronunciation-sentence-card:hover{
+      transform:translateY(-2px)!important;
+      background:#F8FAFF!important;
+      border-color:#818CF8!important;
+      box-shadow:0 10px 20px rgba(99,102,241,.11)!important;
+    }
+    #warmup .pronunciation-number{
+      width:34px;
+      height:34px;
+      display:grid;
+      place-items:center;
+      border-radius:11px;
+      background:#EEF2FF;
+      color:#4338CA;
+      font-size:.76rem;
+      font-weight:900;
+    }
+    #warmup .pronunciation-sentence-content{
+      display:grid;
+      gap:2px;
+      min-width:0;
+    }
+    #warmup .pronunciation-sentence-hanzi{
+      color:#1E293B!important;
+      font-size:clamp(1.35rem,2.2vw,1.8rem)!important;
+      line-height:1.22!important;
+      font-weight:900!important;
+    }
+    #warmup .pronunciation-dialogue-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:11px;
+    }
+    #warmup .pronunciation-dialogue-card{
+      padding:12px;
+      border-radius:16px;
+      background:#F8FAFC;
+      border:1px solid #E2E8F0;
+    }
+    #warmup .pronunciation-dialogue-card h4{
+      margin:0 0 9px;
+      color:#334155!important;
+      font-size:.88rem!important;
+      line-height:1.35!important;
+      font-weight:900!important;
+    }
+    #warmup .pronunciation-dialogue-lines{
+      display:grid;
+      gap:8px;
+    }
+    #warmup .pronunciation-dialogue-line{
+      display:grid;
+      grid-template-columns:30px minmax(0,1fr);
+      align-items:start;
+      gap:8px;
+      width:100%;
+      padding:9px!important;
+      text-align:left;
+      border-radius:13px!important;
+      border:1px solid #DCE3EF!important;
+      background:#FFFFFF!important;
+      color:#1E293B!important;
+      box-shadow:none!important;
+    }
+    #warmup .pronunciation-dialogue-line:hover{
+      background:#EEF2FF!important;
+      border-color:#818CF8!important;
+    }
+    #warmup .pronunciation-role{
+      width:30px;
+      height:30px;
+      display:grid;
+      place-items:center;
+      border-radius:10px;
+      background:#6366F1;
+      color:#FFFFFF;
+      font-size:.77rem;
+      font-weight:900;
+    }
+    #warmup .pronunciation-dialogue-line b{
+      display:block;
+      color:#1E293B!important;
+      font-size:1.28rem!important;
+      line-height:1.24!important;
+      font-weight:900!important;
+    }
+    #warmup .pronunciation-dialogue-line em{
+      display:block;
+      margin-top:2px;
+      color:#4F46E5;
+      font-size:.82rem;
+      line-height:1.3;
+      font-style:normal;
+      font-weight:900;
+    }
+    #warmup .pronunciation-dialogue-line small{
+      display:block;
+      margin-top:2px;
+      color:#64748B!important;
+      font-size:.76rem!important;
+      line-height:1.35!important;
+      font-weight:700;
+    }
+    @media(max-width:980px){
+      #warmup .pronunciation-top-grid{grid-template-columns:1fr}
+      #warmup .pronunciation-dialogue-grid{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:680px){
+      #warmup .pronunciation-intro{
+        grid-template-columns:auto minmax(0,1fr);
+        padding:14px;
+      }
+      #warmup .pronunciation-listen-note{
+        grid-column:1/-1;
+        justify-self:start;
+      }
+      #warmup .pronunciation-section{padding:14px}
+      #warmup .pronunciation-vocab-grid,
+      #warmup .pronunciation-sentence-grid,
+      #warmup .pronunciation-dialogue-grid{grid-template-columns:1fr}
+      #warmup .pronunciation-vocab-card{min-height:96px}
+    }
+
   </style>
 <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script>
 </head>
@@ -7584,6 +7935,504 @@ const LESSONS_DATA = {
         "meaning": "đều, tất cả"
       }
     ],
+    "typingExercises": [
+          {
+                "direction": "zh-vi",
+                "prompt": "昨天上午你去哪里了？我去商店买东西了。",
+                "answer": "Sáng hôm qua bạn đã đi đâu? Tôi đã đến cửa hàng mua đồ.",
+                "accepted": [
+                      "Sáng qua bạn đã đi đâu? Tôi đã đi cửa hàng mua đồ.",
+                      "Buổi sáng hôm qua bạn đi đâu? Tôi đã đến cửa hàng mua đồ."
+                ],
+                "pinyin": "Zuótiān shàngwǔ nǐ qù nǎlǐ le? Wǒ qù shāngdiàn mǎi dōngxi le."
+          },
+          {
+                "direction": "zh-vi",
+                "prompt": "你买什么了？我买了一点儿苹果和不少衣服。",
+                "answer": "Bạn đã mua gì? Tôi đã mua một ít táo và khá nhiều quần áo.",
+                "accepted": [
+                      "Bạn mua gì rồi? Tôi đã mua một chút táo và không ít quần áo.",
+                      "Bạn đã mua gì? Tôi mua một ít táo cùng khá nhiều quần áo."
+                ],
+                "pinyin": "Nǐ mǎi shénme le? Wǒ mǎi le yìdiǎnr píngguǒ hé bù shǎo yīfu."
+          },
+          {
+                "direction": "zh-vi",
+                "prompt": "她买了不少衣服，这些衣服都很漂亮。",
+                "answer": "Cô ấy đã mua khá nhiều quần áo, những bộ quần áo này đều rất đẹp.",
+                "accepted": [
+                      "Cô ấy mua không ít quần áo, tất cả những bộ quần áo này đều rất đẹp.",
+                      "Cô ấy đã mua nhiều quần áo; những bộ này đều rất đẹp."
+                ],
+                "pinyin": "Tā mǎi le bù shǎo yīfu, zhèxiē yīfu dōu hěn piàoliang."
+          },
+          {
+                "direction": "zh-vi",
+                "prompt": "你看见张先生了吗？看见了，他去学开车了。",
+                "answer": "Bạn đã nhìn thấy ông Trương chưa? Thấy rồi, ông ấy đi học lái xe rồi.",
+                "accepted": [
+                      "Bạn có nhìn thấy ông Trương không? Thấy rồi, ông ấy đã đi học lái xe.",
+                      "Bạn nhìn thấy anh Trương chưa? Thấy rồi, anh ấy đi học lái xe rồi."
+                ],
+                "pinyin": "Nǐ kànjiàn Zhāng xiānsheng le ma? Kànjiàn le, tā qù xué kāi chē le."
+          },
+          {
+                "direction": "zh-vi",
+                "prompt": "张先生什么时候能回来？四十分钟后回来。",
+                "answer": "Khi nào ông Trương có thể trở về? Bốn mươi phút sau sẽ về.",
+                "accepted": [
+                      "Ông Trương khi nào có thể quay lại? Bốn mươi phút sau sẽ quay lại.",
+                      "Khi nào anh Trương có thể về? Sau bốn mươi phút sẽ về."
+                ],
+                "pinyin": "Zhāng xiānsheng shénme shíhou néng huílai? Sìshí fēnzhōng hòu huílai."
+          },
+          {
+                "direction": "zh-vi",
+                "prompt": "我没买东西，这些都是王方的东西。",
+                "answer": "Tôi không mua đồ, những thứ này đều là đồ của Vương Phương.",
+                "accepted": [
+                      "Tôi không mua gì; tất cả những thứ này đều là đồ của Vương Phương.",
+                      "Tôi đã không mua đồ, những món này đều thuộc về Vương Phương."
+                ],
+                "pinyin": "Wǒ méi mǎi dōngxi, zhèxiē dōu shì Wáng Fāng de dōngxi."
+          },
+          {
+                "direction": "zh-vi",
+                "prompt": "昨天下午我去了医院，我妈妈在那儿工作。",
+                "answer": "Chiều hôm qua tôi đã đến bệnh viện, mẹ tôi làm việc ở đó.",
+                "accepted": [
+                      "Chiều qua tôi đã đi bệnh viện, mẹ tôi làm việc tại đó.",
+                      "Buổi chiều hôm qua tôi đến bệnh viện; mẹ tôi làm việc ở đấy."
+                ],
+                "pinyin": "Zuótiān xiàwǔ wǒ qù le yīyuàn, wǒ māma zài nàr gōngzuò."
+          },
+          {
+                "direction": "zh-vi",
+                "prompt": "今天上午老师给我打电话了，下午我们去学校学习汉语。",
+                "answer": "Sáng nay giáo viên đã gọi điện cho tôi, buổi chiều chúng tôi đến trường học tiếng Trung.",
+                "accepted": [
+                      "Sáng hôm nay thầy giáo đã gọi cho tôi, chiều chúng tôi đi đến trường học tiếng Trung.",
+                      "Sáng nay cô giáo gọi điện cho tôi; chiều chúng tôi đến trường học tiếng Hán."
+                ],
+                "pinyin": "Jīntiān shàngwǔ lǎoshī gěi wǒ dǎ diànhuà le, xiàwǔ wǒmen qù xuéxiào xuéxí Hànyǔ."
+          },
+          {
+                "direction": "zh-vi",
+                "prompt": "昨天我没看电视，我在家看书、写汉字。",
+                "answer": "Hôm qua tôi không xem tivi, tôi ở nhà đọc sách và viết chữ Hán.",
+                "accepted": [
+                      "Hôm qua tôi không xem truyền hình; tôi đọc sách và viết chữ Hán ở nhà.",
+                      "Ngày hôm qua tôi không xem tivi, mà ở nhà đọc sách, viết chữ Hán."
+                ],
+                "pinyin": "Zuótiān wǒ méi kàn diànshì, wǒ zài jiā kàn shū, xiě Hànzì."
+          },
+          {
+                "direction": "zh-vi",
+                "prompt": "大卫会开车了，他今天下午开车去商店。",
+                "answer": "David đã biết lái xe rồi, chiều nay cậu ấy lái xe đến cửa hàng.",
+                "accepted": [
+                      "David biết lái xe rồi; chiều nay anh ấy lái xe đi cửa hàng.",
+                      "David đã có thể lái xe, chiều nay cậu ấy lái xe tới cửa hàng."
+                ],
+                "pinyin": "Dàwèi huì kāi chē le, tā jīntiān xiàwǔ kāi chē qù shāngdiàn."
+          },
+          {
+                "direction": "zh-vi",
+                "prompt": "今天天气很冷，我买了不少衣服，也买了一杯热茶。",
+                "answer": "Hôm nay thời tiết rất lạnh, tôi đã mua khá nhiều quần áo và cũng mua một cốc trà nóng.",
+                "accepted": [
+                      "Hôm nay trời rất lạnh, tôi mua không ít quần áo và một cốc trà nóng.",
+                      "Thời tiết hôm nay rất lạnh; tôi đã mua nhiều quần áo, cũng mua một ly trà nóng."
+                ],
+                "pinyin": "Jīntiān tiānqì hěn lěng, wǒ mǎi le bù shǎo yīfu, yě mǎi le yì bēi rè chá."
+          },
+          {
+                "direction": "zh-vi",
+                "prompt": "这些苹果多少钱？我买了三斤苹果，十八块钱。",
+                "answer": "Những quả táo này bao nhiêu tiền? Tôi đã mua ba cân táo, hết mười tám đồng.",
+                "accepted": [
+                      "Số táo này bao nhiêu tiền? Tôi mua ba cân táo với giá mười tám đồng.",
+                      "Những quả táo này giá bao nhiêu? Tôi đã mua ba cân, mười tám đồng."
+                ],
+                "pinyin": "Zhèxiē píngguǒ duōshao qián? Wǒ mǎi le sān jīn píngguǒ, shíbā kuài qián."
+          },
+          {
+                "direction": "zh-vi",
+                "prompt": "你儿子在哪儿工作？他在北京医院工作，是医生。",
+                "answer": "Con trai bạn làm việc ở đâu? Cậu ấy làm việc tại bệnh viện Bắc Kinh và là bác sĩ.",
+                "accepted": [
+                      "Con trai của bạn làm ở đâu? Anh ấy làm việc tại bệnh viện Bắc Kinh, là bác sĩ.",
+                      "Con trai bạn làm việc ở đâu? Cậu ấy là bác sĩ làm tại bệnh viện Bắc Kinh."
+                ],
+                "pinyin": "Nǐ érzi zài nǎr gōngzuò? Tā zài Běijīng yīyuàn gōngzuò, shì yīshēng."
+          },
+          {
+                "direction": "zh-vi",
+                "prompt": "现在十点十分，爸爸没回来，我给他打电话了。",
+                "answer": "Bây giờ là mười giờ mười phút, bố chưa về nên tôi đã gọi điện cho ông ấy.",
+                "accepted": [
+                      "Hiện tại là 10 giờ 10 phút, bố chưa trở về, tôi đã gọi cho bố.",
+                      "Bây giờ mười giờ mười phút, bố không về, tôi đã gọi điện cho ông ấy."
+                ],
+                "pinyin": "Xiànzài shí diǎn shí fēn, bàba méi huílai, wǒ gěi tā dǎ diànhuà le."
+          },
+          {
+                "direction": "zh-vi",
+                "prompt": "你女儿今年多大？她八岁，也喜欢学习汉语。",
+                "answer": "Con gái bạn năm nay bao nhiêu tuổi? Con bé tám tuổi và cũng thích học tiếng Trung.",
+                "accepted": [
+                      "Con gái của bạn năm nay mấy tuổi? Cô bé tám tuổi, cũng thích học tiếng Hán.",
+                      "Năm nay con gái bạn bao nhiêu tuổi? Bé tám tuổi và cũng thích học tiếng Trung."
+                ],
+                "pinyin": "Nǐ nǚ'ér jīnnián duō dà? Tā bā suì, yě xǐhuan xuéxí Hànyǔ."
+          },
+          {
+                "direction": "zh-vi",
+                "prompt": "昨天星期六，我们上午看了电影，下午去商店买了衣服。",
+                "answer": "Hôm qua là thứ Bảy, buổi sáng chúng tôi đã xem phim, buổi chiều đến cửa hàng mua quần áo.",
+                "accepted": [
+                      "Hôm qua thứ Bảy, sáng chúng tôi xem phim, chiều đi cửa hàng mua quần áo.",
+                      "Ngày hôm qua là thứ Bảy; buổi sáng chúng tôi đã xem phim và buổi chiều đi mua quần áo."
+                ],
+                "pinyin": "Zuótiān xīngqī liù, wǒmen shàngwǔ kàn le diànyǐng, xiàwǔ qù shāngdiàn mǎi le yīfu."
+          },
+          {
+                "direction": "zh-vi",
+                "prompt": "我喜欢中国菜，昨天中午吃了米饭，也喝了茶。",
+                "answer": "Tôi thích món Trung Quốc, trưa hôm qua tôi đã ăn cơm và cũng uống trà.",
+                "accepted": [
+                      "Tôi thích đồ ăn Trung Quốc; trưa qua tôi đã ăn cơm, cũng uống trà.",
+                      "Tôi thích món Trung Quốc, buổi trưa hôm qua tôi ăn cơm và uống trà."
+                ],
+                "pinyin": "Wǒ xǐhuan Zhōngguó cài, zuótiān zhōngwǔ chī le mǐfàn, yě hē le chá."
+          },
+          {
+                "direction": "zh-vi",
+                "prompt": "小猫在椅子下面睡觉，小狗在桌子后面吃东西。",
+                "answer": "Mèo con đang ngủ dưới ghế, chó con đang ăn đồ ăn phía sau bàn.",
+                "accepted": [
+                      "Con mèo nhỏ ngủ dưới ghế, con chó nhỏ ăn đồ ở sau bàn.",
+                      "Mèo con đang ngủ bên dưới chiếc ghế, chó con đang ăn ở phía sau bàn."
+                ],
+                "pinyin": "Xiǎomāo zài yǐzi xiàmiàn shuìjiào, xiǎogǒu zài zhuōzi hòumiàn chī dōngxi."
+          },
+          {
+                "direction": "zh-vi",
+                "prompt": "今天太热了，我买了一点儿水果和三杯水。",
+                "answer": "Hôm nay nóng quá, tôi đã mua một ít trái cây và ba cốc nước.",
+                "accepted": [
+                      "Hôm nay trời quá nóng, tôi mua một chút hoa quả và ba ly nước.",
+                      "Hôm nay nóng quá; tôi đã mua ít trái cây cùng ba cốc nước."
+                ],
+                "pinyin": "Jīntiān tài rè le, wǒ mǎi le yìdiǎnr shuǐguǒ hé sān bēi shuǐ."
+          },
+          {
+                "direction": "zh-vi",
+                "prompt": "这是谁的电脑？这是老师的，桌子上的书也是老师的。",
+                "answer": "Đây là máy tính của ai? Đây là của giáo viên, sách trên bàn cũng là của giáo viên.",
+                "accepted": [
+                      "Máy tính này là của ai? Là của thầy giáo; sách trên bàn cũng là của thầy.",
+                      "Đây là máy tính của ai? Nó là của cô giáo, cuốn sách trên bàn cũng là của cô."
+                ],
+                "pinyin": "Zhè shì shéi de diànnǎo? Zhè shì lǎoshī de, zhuōzi shàng de shū yě shì lǎoshī de."
+          },
+          {
+                "direction": "zh-vi",
+                "prompt": "对不起，我没看见你的杯子。没关系，杯子在桌子下面。",
+                "answer": "Xin lỗi, tôi không nhìn thấy cốc của bạn. Không sao, cái cốc ở dưới bàn.",
+                "accepted": [
+                      "Xin lỗi, tôi đã không thấy chiếc cốc của bạn. Không có gì, cốc ở bên dưới bàn.",
+                      "Xin lỗi, tôi không thấy ly của bạn. Không sao, ly ở dưới cái bàn."
+                ],
+                "pinyin": "Duìbuqǐ, wǒ méi kànjiàn nǐ de bēizi. Méiguānxi, bēizi zài zhuōzi xiàmiàn."
+          },
+          {
+                "direction": "zh-vi",
+                "prompt": "明天是九月十号，星期五，我们都去学校。",
+                "answer": "Ngày mai là ngày 10 tháng 9, thứ Sáu; tất cả chúng tôi đều đến trường.",
+                "accepted": [
+                      "Ngày mai là thứ Sáu, ngày 10 tháng 9, chúng tôi đều đi học.",
+                      "Mai là ngày 10 tháng 9, thứ Sáu; chúng ta đều đến trường."
+                ],
+                "pinyin": "Míngtiān shì jiǔ yuè shí hào, xīngqī wǔ, wǒmen dōu qù xuéxiào."
+          },
+          {
+                "direction": "zh-vi",
+                "prompt": "你会说汉语吗？我会说一点儿，也会写一些汉字。",
+                "answer": "Bạn biết nói tiếng Trung không? Tôi biết nói một chút và cũng biết viết một số chữ Hán.",
+                "accepted": [
+                      "Bạn có biết nói tiếng Hán không? Tôi nói được một chút, cũng viết được vài chữ Hán.",
+                      "Bạn biết nói tiếng Trung chứ? Tôi biết nói một ít và cũng biết viết một vài chữ Hán."
+                ],
+                "pinyin": "Nǐ huì shuō Hànyǔ ma? Wǒ huì shuō yìdiǎnr, yě huì xiě yìxiē Hànzì."
+          },
+          {
+                "direction": "zh-vi",
+                "prompt": "他现在在做什么呢？他在家学做中国菜呢。",
+                "answer": "Bây giờ anh ấy đang làm gì? Anh ấy đang học nấu món Trung Quốc ở nhà.",
+                "accepted": [
+                      "Hiện giờ cậu ấy đang làm gì đấy? Cậu ấy đang ở nhà học nấu món Trung Quốc.",
+                      "Anh ấy đang làm gì? Anh ấy đang học làm món Trung Quốc tại nhà."
+                ],
+                "pinyin": "Tā xiànzài zài zuò shénme ne? Tā zài jiā xué zuò Zhōngguó cài ne."
+          },
+          {
+                "direction": "zh-vi",
+                "prompt": "你想喝什么？我想喝茶，我朋友想喝水。",
+                "answer": "Bạn muốn uống gì? Tôi muốn uống trà, bạn tôi muốn uống nước.",
+                "accepted": [
+                      "Bạn muốn uống thứ gì? Tôi muốn uống trà còn bạn của tôi muốn uống nước.",
+                      "Bạn muốn uống gì? Tôi muốn trà, người bạn của tôi muốn uống nước."
+                ],
+                "pinyin": "Nǐ xiǎng hē shénme? Wǒ xiǎng hē chá, wǒ péngyou xiǎng hē shuǐ."
+          },
+          {
+                "direction": "zh-vi",
+                "prompt": "昨天下雨了，我们没去看电影，都在家看电视。",
+                "answer": "Hôm qua trời mưa, chúng tôi không đi xem phim mà đều xem tivi ở nhà.",
+                "accepted": [
+                      "Hôm qua có mưa; chúng tôi không đi xem phim, tất cả đều ở nhà xem tivi.",
+                      "Hôm qua trời mưa rồi, chúng tôi không đi xem phim và đều ở nhà xem truyền hình."
+                ],
+                "pinyin": "Zuótiān xiàyǔ le, wǒmen méi qù kàn diànyǐng, dōu zài jiā kàn diànshì."
+          },
+          {
+                "direction": "vi-zh",
+                "prompt": "Sáng hôm qua tôi đã đến cửa hàng mua đồ.",
+                "answer": "昨天上午我去商店买东西了。",
+                "accepted": [
+                      "昨天上午我去了商店买东西。",
+                      "昨天上午我到商店买东西了。"
+                ],
+                "pinyin": "Zuótiān shàngwǔ wǒ qù shāngdiàn mǎi dōngxi le."
+          },
+          {
+                "direction": "vi-zh",
+                "prompt": "Tôi đã mua một ít táo, không mua quần áo.",
+                "answer": "我买了一点儿苹果，没买衣服。",
+                "accepted": [
+                      "我买了一点苹果，没有买衣服。",
+                      "我买了些苹果，没买衣服。"
+                ],
+                "pinyin": "Wǒ mǎi le yìdiǎnr píngguǒ, méi mǎi yīfu."
+          },
+          {
+                "direction": "vi-zh",
+                "prompt": "Cô ấy đã mua khá nhiều quần áo; những bộ quần áo này đều rất đẹp.",
+                "answer": "她买了不少衣服，这些衣服都很漂亮。",
+                "accepted": [
+                      "她买了很多衣服，这些衣服都很漂亮。"
+                ],
+                "pinyin": "Tā mǎi le bù shǎo yīfu, zhèxiē yīfu dōu hěn piàoliang."
+          },
+          {
+                "direction": "vi-zh",
+                "prompt": "Bạn đã nhìn thấy ông Trương chưa? Thấy rồi, ông ấy đi học lái xe rồi.",
+                "answer": "你看见张先生了吗？看见了，他去学开车了。",
+                "accepted": [
+                      "你看见张先生了没有？看见了，他去学习开车了。"
+                ],
+                "pinyin": "Nǐ kànjiàn Zhāng xiānsheng le ma? Kànjiàn le, tā qù xué kāi chē le."
+          },
+          {
+                "direction": "vi-zh",
+                "prompt": "Khi nào ông Trương có thể trở về? Bốn mươi phút sau sẽ về.",
+                "answer": "张先生什么时候能回来？四十分钟后回来。",
+                "accepted": [
+                      "张先生什么时候可以回来？四十分钟后回来。"
+                ],
+                "pinyin": "Zhāng xiānsheng shénme shíhou néng huílai? Sìshí fēnzhōng hòu huílai."
+          },
+          {
+                "direction": "vi-zh",
+                "prompt": "Tôi không mua; những thứ này đều là đồ của Vương Phương.",
+                "answer": "我没买，这些都是王方的东西。",
+                "accepted": [
+                      "我没有买，这些东西都是王方的。"
+                ],
+                "pinyin": "Wǒ méi mǎi, zhèxiē dōu shì Wáng Fāng de dōngxi."
+          },
+          {
+                "direction": "vi-zh",
+                "prompt": "Chiều hôm qua tôi đã đến bệnh viện; mẹ tôi làm việc ở đó.",
+                "answer": "昨天下午我去了医院，我妈妈在那儿工作。",
+                "accepted": [
+                      "昨天下午我去医院了，我妈妈在那里工作。"
+                ],
+                "pinyin": "Zuótiān xiàwǔ wǒ qù le yīyuàn, wǒ māma zài nàr gōngzuò."
+          },
+          {
+                "direction": "vi-zh",
+                "prompt": "Sáng nay giáo viên đã gọi điện cho tôi; chiều chúng tôi đến trường học tiếng Trung.",
+                "answer": "今天上午老师给我打电话了，下午我们去学校学习汉语。",
+                "accepted": [
+                      "今天早上老师给我打了电话，下午我们去学校学汉语。"
+                ],
+                "pinyin": "Jīntiān shàngwǔ lǎoshī gěi wǒ dǎ diànhuà le, xiàwǔ wǒmen qù xuéxiào xuéxí Hànyǔ."
+          },
+          {
+                "direction": "vi-zh",
+                "prompt": "Hôm qua tôi không xem tivi; tôi đọc sách và viết chữ Hán ở nhà.",
+                "answer": "昨天我没看电视，我在家看书、写汉字。",
+                "accepted": [
+                      "昨天我没有看电视，在家看书和写汉字。"
+                ],
+                "pinyin": "Zuótiān wǒ méi kàn diànshì, wǒ zài jiā kàn shū, xiě Hànzì."
+          },
+          {
+                "direction": "vi-zh",
+                "prompt": "David đã biết lái xe; chiều nay cậu ấy lái xe đến cửa hàng.",
+                "answer": "大卫会开车了，他今天下午开车去商店。",
+                "accepted": [
+                      "大卫已经会开车了，今天下午他开车去商店。"
+                ],
+                "pinyin": "Dàwèi huì kāi chē le, tā jīntiān xiàwǔ kāi chē qù shāngdiàn."
+          },
+          {
+                "direction": "vi-zh",
+                "prompt": "Hôm nay trời rất lạnh; tôi đã mua khá nhiều quần áo và một cốc trà nóng.",
+                "answer": "今天天气很冷，我买了不少衣服和一杯热茶。",
+                "accepted": [
+                      "今天很冷，我买了不少衣服，也买了一杯热茶。"
+                ],
+                "pinyin": "Jīntiān tiānqì hěn lěng, wǒ mǎi le bù shǎo yīfu hé yì bēi rè chá."
+          },
+          {
+                "direction": "vi-zh",
+                "prompt": "Những quả táo này bao nhiêu tiền? Tôi đã mua ba cân táo.",
+                "answer": "这些苹果多少钱？我买了三斤苹果。",
+                "accepted": [
+                      "这些苹果多少钱一斤？我买了三斤。"
+                ],
+                "pinyin": "Zhèxiē píngguǒ duōshao qián? Wǒ mǎi le sān jīn píngguǒ."
+          },
+          {
+                "direction": "vi-zh",
+                "prompt": "Con trai bạn làm việc ở đâu? Cậu ấy là bác sĩ ở bệnh viện Bắc Kinh.",
+                "answer": "你儿子在哪儿工作？他是北京医院的医生。",
+                "accepted": [
+                      "你儿子在哪里工作？他在北京医院工作，是医生。"
+                ],
+                "pinyin": "Nǐ érzi zài nǎr gōngzuò? Tā shì Běijīng yīyuàn de yīshēng."
+          },
+          {
+                "direction": "vi-zh",
+                "prompt": "Bây giờ là mười giờ mười phút; bố chưa về, tôi đã gọi điện cho ông ấy.",
+                "answer": "现在十点十分，爸爸没回来，我给他打电话了。",
+                "accepted": [
+                      "现在十点十分，爸爸还没回来，我给爸爸打了电话。"
+                ],
+                "pinyin": "Xiànzài shí diǎn shí fēn, bàba méi huílai, wǒ gěi tā dǎ diànhuà le."
+          },
+          {
+                "direction": "vi-zh",
+                "prompt": "Con gái bạn năm nay bao nhiêu tuổi? Con bé tám tuổi và cũng thích học tiếng Trung.",
+                "answer": "你女儿今年多大？她八岁，也喜欢学习汉语。",
+                "accepted": [
+                      "你女儿今年几岁？她八岁，也喜欢学汉语。"
+                ],
+                "pinyin": "Nǐ nǚ'ér jīnnián duō dà? Tā bā suì, yě xǐhuan xuéxí Hànyǔ."
+          },
+          {
+                "direction": "vi-zh",
+                "prompt": "Hôm qua là thứ Bảy; buổi sáng chúng tôi đã xem phim, buổi chiều đi mua quần áo.",
+                "answer": "昨天星期六，我们上午看了电影，下午去买了衣服。",
+                "accepted": [
+                      "昨天是星期六，我们上午看电影了，下午去商店买衣服了。"
+                ],
+                "pinyin": "Zuótiān xīngqī liù, wǒmen shàngwǔ kàn le diànyǐng, xiàwǔ qù mǎi le yīfu."
+          },
+          {
+                "direction": "vi-zh",
+                "prompt": "Tôi thích món Trung Quốc; trưa hôm qua tôi đã ăn cơm và uống trà.",
+                "answer": "我喜欢中国菜，昨天中午我吃了米饭，也喝了茶。",
+                "accepted": [
+                      "我喜欢中国菜，昨天中午吃了米饭和喝了茶。"
+                ],
+                "pinyin": "Wǒ xǐhuan Zhōngguó cài, zuótiān zhōngwǔ wǒ chī le mǐfàn, yě hē le chá."
+          },
+          {
+                "direction": "vi-zh",
+                "prompt": "Mèo con đang ngủ dưới ghế, chó con đang ăn đồ phía sau bàn.",
+                "answer": "小猫在椅子下面睡觉，小狗在桌子后面吃东西。",
+                "accepted": [
+                      "小猫在椅子下睡觉，小狗在桌子后边吃东西。"
+                ],
+                "pinyin": "Xiǎomāo zài yǐzi xiàmiàn shuìjiào, xiǎogǒu zài zhuōzi hòumiàn chī dōngxi."
+          },
+          {
+                "direction": "vi-zh",
+                "prompt": "Hôm nay nóng quá; tôi đã mua một ít trái cây và ba cốc nước.",
+                "answer": "今天太热了，我买了一点儿水果和三杯水。",
+                "accepted": [
+                      "今天天气太热了，我买了一些水果和三杯水。"
+                ],
+                "pinyin": "Jīntiān tài rè le, wǒ mǎi le yìdiǎnr shuǐguǒ hé sān bēi shuǐ."
+          },
+          {
+                "direction": "vi-zh",
+                "prompt": "Đây là máy tính của ai? Đây là của giáo viên; sách trên bàn cũng là của giáo viên.",
+                "answer": "这是谁的电脑？这是老师的，桌子上的书也是老师的。",
+                "accepted": [
+                      "这个电脑是谁的？是老师的，桌子上的书也是老师的。"
+                ],
+                "pinyin": "Zhè shì shéi de diànnǎo? Zhè shì lǎoshī de, zhuōzi shàng de shū yě shì lǎoshī de."
+          },
+          {
+                "direction": "vi-zh",
+                "prompt": "Xin lỗi, tôi không nhìn thấy cốc của bạn. Không sao, cái cốc ở dưới bàn.",
+                "answer": "对不起，我没看见你的杯子。没关系，杯子在桌子下面。",
+                "accepted": [
+                      "对不起，我没有看见你的杯子。没关系，杯子在桌子下边。"
+                ],
+                "pinyin": "Duìbuqǐ, wǒ méi kànjiàn nǐ de bēizi. Méiguānxi, bēizi zài zhuōzi xiàmiàn."
+          },
+          {
+                "direction": "vi-zh",
+                "prompt": "Ngày mai là ngày 10 tháng 9, thứ Sáu; tất cả chúng tôi đều đến trường.",
+                "answer": "明天是九月十号，星期五，我们都去学校。",
+                "accepted": [
+                      "明天九月十号，星期五，我们都去学校。"
+                ],
+                "pinyin": "Míngtiān shì jiǔ yuè shí hào, xīngqī wǔ, wǒmen dōu qù xuéxiào."
+          },
+          {
+                "direction": "vi-zh",
+                "prompt": "Bạn biết nói tiếng Trung không? Tôi biết nói một chút và cũng biết viết một số chữ Hán.",
+                "answer": "你会说汉语吗？我会说一点儿，也会写一些汉字。",
+                "accepted": [
+                      "你会不会说汉语？我会说一点，也会写几个汉字。"
+                ],
+                "pinyin": "Nǐ huì shuō Hànyǔ ma? Wǒ huì shuō yìdiǎnr, yě huì xiě yìxiē Hànzì."
+          },
+          {
+                "direction": "vi-zh",
+                "prompt": "Bây giờ anh ấy đang làm gì? Anh ấy đang học nấu món Trung Quốc ở nhà.",
+                "answer": "他现在在做什么呢？他在家学做中国菜呢。",
+                "accepted": [
+                      "现在他在做什么？他正在家学习做中国菜。"
+                ],
+                "pinyin": "Tā xiànzài zài zuò shénme ne? Tā zài jiā xué zuò Zhōngguó cài ne."
+          },
+          {
+                "direction": "vi-zh",
+                "prompt": "Bạn muốn uống gì? Tôi muốn uống trà, bạn tôi muốn uống nước.",
+                "answer": "你想喝什么？我想喝茶，我朋友想喝水。",
+                "accepted": [
+                      "你想喝什么？我要喝茶，我的朋友要喝水。"
+                ],
+                "pinyin": "Nǐ xiǎng hē shénme? Wǒ xiǎng hē chá, wǒ péngyou xiǎng hē shuǐ."
+          },
+          {
+                "direction": "vi-zh",
+                "prompt": "Hôm qua trời mưa; chúng tôi không đi xem phim, tất cả đều xem tivi ở nhà.",
+                "answer": "昨天下雨了，我们没去看电影，都在家看电视。",
+                "accepted": [
+                      "昨天下雨，我们没有去看电影，我们都在家看电视。"
+                ],
+                "pinyin": "Zuótiān xiàyǔ le, wǒmen méi qù kàn diànyǐng, dōu zài jiā kàn diànshì."
+          }
+    ],
     "arrange": [
       {
         "pieces": [
@@ -8105,7 +8954,7 @@ const LESSON_ASSETS = {
 
 
 const tabs=[
-  ["warmup","fa-solid fa-rocket icon-warmup","Khởi động"],
+  ["warmup","fa-solid fa-microphone-lines icon-warmup","Luyện phát âm"],
   ["vocab","fa-solid fa-book-open icon-vocab","Từ mới"],
   ["flash","fa-solid fa-pen-nib icon-flash","Cách viết"],
   ["grammar","fa-solid fa-ruler-combined icon-grammar","Ngữ pháp"],
@@ -8583,67 +9432,385 @@ function warmupHTMLLesson1(){
 function warmupHTMLLesson2(){ return warmupHTML(); }
 
 function warmupHTML(){
-  const vocab=currentLesson.coreVocabulary||[];
-  const sentences=(currentLesson.objectives&&currentLesson.objectives.sentencePatterns)||[];
-  const chars=currentLesson.simpleChars||[];
-  const notes=currentLesson.pinyinNotes||[];
-  const characterNotes=(currentLesson.objectives&&currentLesson.objectives.characters)||[];
-  const grammarPoints=(currentLesson.grammar||[]).map(item=>item.title||item.body).filter(Boolean);
-  const practiceWords=vocab.map(v=>v.py||v.han);
-  const practiceSentences=sentences.length>0?sentences:(currentLesson.dialogues?currentLesson.dialogues.flatMap(d=>(d.steps||d.lines||[]).map(l=>l.text||l.hz)):[]);
+  const vocabulary=[
+  {
+    "han": "东西",
+    "py": "dōngxi",
+    "vi": "đồ, đồ đạc",
+    "speak": "东西"
+  },
+  {
+    "han": "一点儿",
+    "py": "yìdiǎnr",
+    "vi": "một chút, một ít",
+    "speak": "一点儿"
+  },
+  {
+    "han": "苹果",
+    "py": "píngguǒ",
+    "vi": "quả táo",
+    "speak": "苹果"
+  },
+  {
+    "han": "看见",
+    "py": "kànjiàn",
+    "vi": "nhìn thấy",
+    "speak": "看见"
+  },
+  {
+    "han": "先生",
+    "py": "xiānsheng",
+    "vi": "ông, ngài, anh",
+    "speak": "先生"
+  },
+  {
+    "han": "开",
+    "py": "kāi",
+    "vi": "lái, mở",
+    "speak": "开"
+  },
+  {
+    "han": "车",
+    "py": "chē",
+    "vi": "xe, ô tô",
+    "speak": "车"
+  },
+  {
+    "han": "回来",
+    "py": "huílai",
+    "vi": "trở về",
+    "speak": "回来"
+  },
+  {
+    "han": "分钟",
+    "py": "fēnzhōng",
+    "vi": "phút (khoảng thời gian)",
+    "speak": "分钟"
+  },
+  {
+    "han": "后",
+    "py": "hòu",
+    "vi": "sau, sau khi",
+    "speak": "后"
+  },
+  {
+    "han": "张",
+    "py": "Zhāng",
+    "vi": "Trương (họ Trương)",
+    "speak": "张"
+  },
+  {
+    "han": "衣服",
+    "py": "yīfu",
+    "vi": "quần áo",
+    "speak": "衣服"
+  },
+  {
+    "han": "漂亮",
+    "py": "piàoliang",
+    "vi": "đẹp",
+    "speak": "漂亮"
+  },
+  {
+    "han": "啊",
+    "py": "a",
+    "vi": "chà, ồ (trợ từ cảm thán)",
+    "speak": "啊"
+  },
+  {
+    "han": "少",
+    "py": "shǎo",
+    "vi": "ít",
+    "speak": "少"
+  },
+  {
+    "han": "不少",
+    "py": "bùshǎo",
+    "vi": "khá nhiều",
+    "speak": "不少"
+  },
+  {
+    "han": "这些",
+    "py": "zhèxiē",
+    "vi": "những cái này",
+    "speak": "这些"
+  },
+  {
+    "han": "都",
+    "py": "dōu",
+    "vi": "đều, tất cả",
+    "speak": "都"
+  }
+];
+
+  const sentences=[
+  {
+    "han": "昨天上午你去哪里了？",
+    "py": "Zuótiān shàngwǔ nǐ qù nǎlǐ le?",
+    "vi": "Sáng hôm qua bạn đã đi đâu?"
+  },
+  {
+    "han": "我去商店买东西了。",
+    "py": "Wǒ qù shāngdiàn mǎi dōngxi le.",
+    "vi": "Tôi đã đi cửa hàng mua đồ."
+  },
+  {
+    "han": "你买什么了？",
+    "py": "Nǐ mǎi shénme le?",
+    "vi": "Bạn đã mua gì?"
+  },
+  {
+    "han": "我买了一点儿苹果。",
+    "py": "Wǒ mǎi le yìdiǎnr píngguǒ.",
+    "vi": "Tôi đã mua một ít táo."
+  },
+  {
+    "han": "你看见张先生了吗？",
+    "py": "Nǐ kànjiàn Zhāng xiānsheng le ma?",
+    "vi": "Bạn có nhìn thấy ông Trương không?"
+  },
+  {
+    "han": "看见了，他去学开车了。",
+    "py": "Kànjiàn le, tā qù xué kāi chē le.",
+    "vi": "Thấy rồi, ông ấy đi học lái xe rồi."
+  },
+  {
+    "han": "他什么时候能回来？",
+    "py": "Tā shénme shíhou néng huílai?",
+    "vi": "Khi nào ông ấy có thể trở về?"
+  },
+  {
+    "han": "四十分钟后回来。",
+    "py": "Sìshí fēnzhōng hòu huílai.",
+    "vi": "Bốn mươi phút sau sẽ về."
+  },
+  {
+    "han": "王方的衣服真漂亮啊！",
+    "py": "Wáng Fāng de yīfu zhēn piàoliang a!",
+    "vi": "Quần áo của Vương Phương đẹp thật đấy!"
+  },
+  {
+    "han": "是啊，她买了不少衣服。",
+    "py": "Shì a, tā mǎi le bùshǎo yīfu.",
+    "vi": "Đúng thế, cô ấy đã mua khá nhiều quần áo."
+  },
+  {
+    "han": "你买什么了？",
+    "py": "Nǐ mǎi shénme le?",
+    "vi": "Bạn đã mua gì?"
+  },
+  {
+    "han": "我没买，这些都是王方的东西。",
+    "py": "Wǒ méi mǎi, zhèxiē dōu shì Wáng Fāng de dōngxi.",
+    "vi": "Tôi không mua; những thứ này đều là đồ của Vương Phương."
+  }
+];
+
+  const dialogues=[
+  {
+    "title": "Đi cửa hàng mua đồ",
+    "lines": [
+      {
+        "role": "A",
+        "han": "昨天上午你去哪里了？",
+        "py": "Zuótiān shàngwǔ nǐ qù nǎlǐ le?",
+        "vi": "Sáng hôm qua bạn đã đi đâu?"
+      },
+      {
+        "role": "B",
+        "han": "我去商店买东西了。",
+        "py": "Wǒ qù shāngdiàn mǎi dōngxi le.",
+        "vi": "Tôi đã đi cửa hàng mua đồ."
+      },
+      {
+        "role": "A",
+        "han": "你买什么了？",
+        "py": "Nǐ mǎi shénme le?",
+        "vi": "Bạn đã mua gì?"
+      },
+      {
+        "role": "B",
+        "han": "我买了一点儿苹果。",
+        "py": "Wǒ mǎi le yìdiǎnr píngguǒ.",
+        "vi": "Tôi đã mua một ít táo."
+      }
+    ]
+  },
+  {
+    "title": "Hỏi về ông Trương",
+    "lines": [
+      {
+        "role": "A",
+        "han": "你看见张先生了吗？",
+        "py": "Nǐ kànjiàn Zhāng xiānsheng le ma?",
+        "vi": "Bạn có nhìn thấy ông Trương không?"
+      },
+      {
+        "role": "B",
+        "han": "看见了，他去学开车了。",
+        "py": "Kànjiàn le, tā qù xué kāi chē le.",
+        "vi": "Thấy rồi, ông ấy đi học lái xe rồi."
+      },
+      {
+        "role": "A",
+        "han": "他什么时候能回来？",
+        "py": "Tā shénme shíhou néng huílai?",
+        "vi": "Khi nào ông ấy có thể trở về?"
+      },
+      {
+        "role": "B",
+        "han": "四十分钟后回来。",
+        "py": "Sìshí fēnzhōng hòu huílai.",
+        "vi": "Bốn mươi phút sau sẽ về."
+      }
+    ]
+  },
+  {
+    "title": "Nói về quần áo của Vương Phương",
+    "lines": [
+      {
+        "role": "A",
+        "han": "王方的衣服真漂亮啊！",
+        "py": "Wáng Fāng de yīfu zhēn piàoliang a!",
+        "vi": "Quần áo của Vương Phương đẹp thật đấy!"
+      },
+      {
+        "role": "B",
+        "han": "是啊，她买了不少衣服。",
+        "py": "Shì a, tā mǎi le bùshǎo yīfu.",
+        "vi": "Đúng thế, cô ấy đã mua khá nhiều quần áo."
+      },
+      {
+        "role": "A",
+        "han": "你买什么了？",
+        "py": "Nǐ mǎi shénme le?",
+        "vi": "Bạn đã mua gì?"
+      },
+      {
+        "role": "B",
+        "han": "我没买，这些都是王方的东西。",
+        "py": "Wǒ méi mǎi, zhèxiē dōu shì Wáng Fāng de dōngxi.",
+        "vi": "Tôi không mua; những thứ này đều là đồ của Vương Phương."
+      }
+    ]
+  }
+];
+
   return `
-  <div class="space-y-4">
-    <div class="flex flex-wrap gap-2" id="warmupSubtabs">
-      <button class="subtab-btn active" data-warmup-target="goals"><span class="subtab-icon-badge"><i class="fa-solid fa-bullseye icon-goals"></i></span>Mục tiêu</button>
-      <button class="subtab-btn" data-warmup-target="practice"><span class="subtab-icon-badge"><i class="fa-solid fa-microphone-lines icon-practice"></i></span>Luyện phát âm</button>
-    </div>
-
-    <div id="warmupSubpages">
-      <div class="warmup-subpage active" data-warmup-page="goals">
-        <div class="warmup-goals-grid">
-          <section class="star-mission-card">
-            <div class="warmup-card-title"><span>🎯 Nhiệm Vụ Săn Sao Bài ${currentLessonId}</span><span class="title-mascot">🐼⭐</span></div>
-            <div class="mission-grid">
-              <div class="mission-mini">
-                <h3>💬 Mẫu câu trọng tâm</h3>
-                <div class="mission-chips">${sentences.slice(0,6).map(text=>`<button class="mission-chip cn hanzi-pronounce" data-hanzi-pronounce="${text}">${text}</button>`).join("")}</div>
-              </div>
-              <div class="mission-mini">
-                <h3>📚 Từ vựng</h3>
-                <div class="mission-chips">${vocab.map(item=>`<button class="mission-chip cn hanzi-pronounce" data-hanzi-pronounce="${item.han}">${item.han}</button>`).join("")}</div>
-              </div>
-              <div class="mission-mini">
-                <h3>🧩 Ngữ pháp</h3>
-                <p>${grammarPoints.slice(0,4).join(" · ")}</p>
-              </div>
-              <div class="mission-mini">
-                <h3>✍️ Hán tự</h3>
-                <div class="mission-char-grid">${chars.map(item=>`<button class="mission-char cn hanzi-pronounce" data-hanzi-pronounce="${item.han}">${item.han}</button>`).join("")}</div>
-                <p class="mt-2">${characterNotes.join(" · ")}</p>
-              </div>
-            </div>
-          </section>
-
-          <section class="mascot-tip-card">
-            <div class="warmup-card-title"><span>💡 Bí Kíp Bài ${currentLessonId}</span><span class="title-mascot">🦊🐰🐵</span></div>
-            <div class="mascot-bubbles">
-              <div class="mascot-bubble"><span class="mascot-face">🐵</span><div><strong>Khỉ Tinh Tinh</strong><p>“${notes[0]||"Luyện đọc chậm, rõ từng âm tiết."}”</p></div></div>
-              <div class="mascot-bubble"><span class="mascot-face">🦊</span><div><strong>Cáo Cáo</strong><p>“${notes[2]||notes[1]||"Quan sát kỹ mẫu câu trước khi trả lời."}”</p></div></div>
-              <div class="mascot-bubble"><span class="mascot-face">🐰</span><div><strong>Thỏ Bông</strong><p>“${notes[4]||notes[3]||"Nghe lại nhiều lần để ghi nhớ thanh điệu."}”</p></div></div>
-            </div>
-          </section>
+    <div class="pronunciation-page">
+      <section class="pronunciation-intro">
+        <div class="pronunciation-intro-icon">🎙️</div>
+        <div class="min-w-0">
+          <p class="pronunciation-kicker">HSK 1 • BÀI 14 • 她买了不少衣服</p>
+          <h2>Luyện đọc từ và câu Bài 14</h2>
+          <p>Nghe mẫu, đọc theo và luyện phản xạ với đúng từ vựng, câu giao tiếp của bài.</p>
         </div>
+        <div class="pronunciation-listen-note">🔊 Bấm vào từng thẻ để nghe</div>
+      </section>
+
+      <div class="pronunciation-top-grid">
+        <section class="pronunciation-section pronunciation-vocab-section">
+          <div class="pronunciation-section-head">
+            <div>
+              <p class="pronunciation-section-label">VOCABULARY</p>
+              <h3>📚 Từ vựng trọng tâm</h3>
+            </div>
+            <span>${vocabulary.length} từ</span>
+          </div>
+          <div class="pronunciation-vocab-grid">
+            ${vocabulary.map(item=>`
+              <button type="button" class="pronunciation-vocab-card speak" data-speak="${item.speak}" aria-label="Nghe phát âm ${item.han}">
+                <span class="pronunciation-hanzi cn">${item.han}</span>
+                <span class="pronunciation-pinyin">${item.py}</span>
+                <span class="pronunciation-meaning">${item.vi}</span>
+                <span class="pronunciation-audio-hint">Nghe mẫu</span>
+              </button>
+            `).join("")}
+          </div>
+        </section>
+
+        <aside class="pronunciation-section pronunciation-tip-section">
+          <div class="pronunciation-section-head">
+            <div>
+              <p class="pronunciation-section-label">QUICK TIPS</p>
+              <h3>💡 Bí kíp phát âm nhanh</h3>
+            </div>
+          </div>
+          <div class="pronunciation-tip-list">
+            <div class="pronunciation-tip-item">
+              <span>1</span>
+              <p><b>东西 · dōngxi:</b> giữ rõ thanh 1 ở <b>dōng</b>; âm <b>xi</b> đọc nhẹ, ngắn vì là thanh nhẹ.</p>
+            </div>
+            <div class="pronunciation-tip-item">
+              <span>2</span>
+              <p><b>一点儿 · yìdiǎnr:</b> <b>一</b> đọc thành thanh 4 trước âm thanh 3 <b>diǎn</b>; âm <b>儿</b> nhập vào cuối từ, không tách thành một tiếng riêng.</p>
+            </div>
+            <div class="pronunciation-tip-item">
+              <span>3</span>
+              <p><b>先生 / 衣服 · xiānsheng / yīfu:</b> âm tiết thứ hai <b>sheng / fu</b> đọc nhẹ và nhanh, tránh nhấn thành thanh đầy đủ.</p>
+            </div>
+            <div class="pronunciation-tip-item">
+              <span>4</span>
+              <p><b>看见 / 不少 / 了:</b> đọc rõ hai thanh 4 trong <b>kànjiàn</b>; <b>不</b> vẫn là thanh 4 trước <b>shǎo</b>; <b>了</b> cuối động từ đọc nhẹ.</p>
+            </div>
+          </div>
+          <div class="pronunciation-practice-order">
+            <b>Cách luyện:</b> Nghe 1 lần → đọc chậm 2 lần → thay từ trong mẫu <b>我买了…… / 我没买……</b>; sau đó đổi vai hỏi <b>你买什么了？</b> và trả lời bằng đồ vật khác.
+          </div>
+        </aside>
       </div>
 
-      <div class="warmup-subpage" data-warmup-page="practice">
-        <div class="space-y-4">
-          ${card(`🗣️ Luyện đọc từ Bài ${currentLessonId}`,`<div class="flex flex-wrap gap-2">${practiceWords.map(word=>`<button class="practice-speak practice-chip" data-text="${word}">${word}</button>`).join("")}</div>`)}
-          ${card(`💬 Luyện đọc câu Bài ${currentLessonId}`,`<div class="grid md:grid-cols-2 gap-3">${practiceSentences.map(sentence=>`<button class="practice-speak practice-chip cn text-left" data-text="${sentence}">${sentence}</button>`).join("")}</div>`)}
-          ${card(`🎧 Pinyin Drill Bài ${currentLessonId}`,`<div id="pinyinDrill" class="drill-shell"><div class="p-4 border-b"><div class="flex justify-between"><h3 class="font-black">Luyện nghe Pinyin</h3><div>Câu <span id="drillCurrent">1</span>/<span id="drillTotal">10</span></div></div><div class="drill-progress-track mt-3"><div id="drillProgress" class="drill-progress-bar" style="width:10%"></div></div></div><div id="drillContent" class="p-4"><div class="grid lg:grid-cols-2 gap-5"><div class="drill-audio-card p-6 flex flex-col items-center justify-center"><div class="drill-headphone"><i class="fa-solid fa-headphones text-6xl"></i></div><button id="drillPlay" class="drill-play mt-6" aria-label="Nghe lại"><i class="fa-solid fa-volume-high"></i></button></div><div class="rounded-[20px] bg-slate-50 border p-5"><h3 class="font-black">CHỌN PINYIN ĐÚNG</h3><div id="drillOptions" class="grid sm:grid-cols-2 gap-3 mt-4"></div><div id="drillFeedback" class="min-h-14 mt-4 rounded-2xl border p-3 font-black"></div></div></div></div></div>`)}
+      <section class="pronunciation-section">
+        <div class="pronunciation-section-head">
+          <div>
+            <p class="pronunciation-section-label">REAL COMMUNICATION</p>
+            <h3>💬 Câu giao tiếp thực tế</h3>
+          </div>
+          <span>${sentences.length} câu</span>
         </div>
-      </div>
-    </div>
-  </div>`;
+        <div class="pronunciation-sentence-grid">
+          ${sentences.map((item,index)=>`
+            <button type="button" class="pronunciation-sentence-card speak" data-speak="${item.speak||item.han}" aria-label="Nghe câu ${item.han}">
+              <span class="pronunciation-number">${String(index+1).padStart(2,"0")}</span>
+              <span class="pronunciation-sentence-content">
+                <span class="pronunciation-sentence-hanzi cn">${item.han}</span>
+                <span class="pronunciation-pinyin">${item.py}</span>
+                <span class="pronunciation-meaning">${item.vi}</span>
+              </span>
+            </button>
+          `).join("")}
+        </div>
+      </section>
+
+      <section class="pronunciation-section pronunciation-dialogue-section">
+        <div class="pronunciation-section-head">
+          <div>
+            <p class="pronunciation-section-label">SPEAKING PRACTICE</p>
+            <h3>🗣️ Luyện hội thoại ngắn</h3>
+          </div>
+          <span>Đổi vai A ↔ B</span>
+        </div>
+        <div class="pronunciation-dialogue-grid">
+          ${dialogues.map(dialogue=>`
+            <article class="pronunciation-dialogue-card">
+              <h4>${dialogue.title}</h4>
+              <div class="pronunciation-dialogue-lines">
+                ${dialogue.lines.map(line=>`
+                  <button type="button" class="pronunciation-dialogue-line speak" data-speak="${line.speak||line.han}" aria-label="Nghe câu ${line.han}">
+                    <span class="pronunciation-role">${line.role}</span>
+                    <span>
+                      <b class="cn">${line.han}</b>
+                      <em>${line.py}</em>
+                      <small>${line.vi}</small>
+                    </span>
+                  </button>
+                `).join("")}
+              </div>
+            </article>
+          `).join("")}
+        </div>
+      </section>
+    </div>`;
 }
 
 function vocabHTML(){
@@ -8890,15 +10057,16 @@ function fillHTML(){
 }
 
 function typingHTML(){
+  const total=(currentLesson.typingExercises||[]).length||1;
   return `
   <div class="typing-shell">
     <div class="typing-head">
       <div id="typingPet" class="typing-pet">
         <span id="typingPetIcon" class="typing-pet-icon">🐼</span>
-        <div id="typingPetText" class="typing-pet-text">Gõ chữ Hán, Pinyin hoặc nghĩa Tiếng Việt đều được nhé! ⌨️</div>
+        <div id="typingPetText" class="typing-pet-text">Dịch trọn câu hai chiều Việt ↔ Trung nhé! ⌨️</div>
       </div>
-      <div class="typing-progress"><div id="typingProgressBar" style="width:25%"></div></div>
-      <div id="typingCounter" class="typing-counter">Câu 1/4</div>
+      <div class="typing-progress"><div id="typingProgressBar" style="width:${100/total}%"></div></div>
+      <div id="typingCounter" class="typing-counter">Câu 1/${total}</div>
     </div>
     <div class="typing-stage"><div id="typingQuestionStage"></div></div>
   </div>`;
@@ -9895,13 +11063,11 @@ function bindFill(){
 function bindTyping(){
   const stage=document.getElementById("typingQuestionStage");
   if(!stage)return;
+
+  const exercises=currentLesson.typingExercises||[];
   const petBox=document.getElementById("typingPet"),petIcon=document.getElementById("typingPetIcon"),petText=document.getElementById("typingPetText");
   const progress=document.getElementById("typingProgressBar"),counter=document.getElementById("typingCounter");
-  const meta=currentLesson.fillExercises.map(item=>({
-    translation:item.translation||"",
-    pinyin:item.pinyin||"",
-    meaning:item.meaning||item.answer||""
-  }));  let index=0,isSubmitted=false,streak=0;
+  let index=0,isSubmitted=false,streak=0;
   const inputRef={current:null},composingRef={current:false};
 
   function playGameSFX(correct,streak=0){
@@ -9930,13 +11096,18 @@ function bindTyping(){
     setTimeout(()=>{if(ctx.state!=="closed")ctx.close().catch(()=>{})},1100);
   }
 
-  const norm=v=>String(v||"").trim().toLowerCase().normalize("NFC").replace(/\s+/g,"");
-  const pinyin=v=>String(v||"").trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/ü/g,"u").replace(/\s+/g,"");
-  const meanings=v=>String(v||"").split(/[,;/]|hoặc/gi).map(x=>x.trim().toLowerCase().normalize("NFC")).filter(Boolean);
-  function splitDialogue(text){
-    const m=String(text).match(/^A:\s*(.*?)\s*B:\s*(.*)$/);
-    return m?[{role:"A",text:m[1],cls:"typing-line-a"},{role:"B",text:m[2],cls:"typing-line-b"}]:[{role:"",text:String(text),cls:"typing-line-a"}];
+  function normalizeAnswer(value){
+    return String(value||"")
+      .trim()
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g,"")
+      .replace(/đ/g,"d")
+      .replace(/ü/g,"u")
+      .replace(/[’'`]/g,"")
+      .replace(/[，。！？、,.!?;:：；\-–—()（）\s]/g,"");
   }
+
   function setPet(state,text){
     petBox.classList.remove("correct","wrong");
     if(state==="ok"){petBox.classList.add("correct");petIcon.textContent="😻💖"}
@@ -9944,19 +11115,35 @@ function bindTyping(){
     else petIcon.textContent="🐼";
     petText.textContent=text;
   }
+
   function renderQuestion(){
     isSubmitted=false;composingRef.current=false;
-    const q=currentLesson.fillExercises[index],m=meta[index],lines=splitDialogue(q.q);
-    counter.textContent=`Câu ${index+1}/${currentLesson.fillExercises.length}`;
-    progress.style.width=`${((index+1)/currentLesson.fillExercises.length)*100}%`;
-    setPet("idle","Gõ chữ Hán, Pinyin hoặc nghĩa Tiếng Việt đều được nhé! ⌨️");
+    const q=exercises[index];
+    if(!q){
+      stage.innerHTML='<div class="typing-card"><div class="typing-result bad">Chưa có dữ liệu bài dịch.</div></div>';
+      return;
+    }
+
+    const zhToVi=q.direction==="zh-vi";
+    const directionText=zhToVi?"中文 → Tiếng Việt":"Tiếng Việt → 中文";
+    const instruction=zhToVi?"Dịch toàn bộ câu sang tiếng Việt":"Dịch toàn bộ câu sang tiếng Trung";
+    const placeholder=zhToVi?"Nhập bản dịch tiếng Việt đầy đủ...":"Nhập câu chữ Hán hoặc Pinyin đầy đủ...";
+    const inputTag=zhToVi?"VN":"字/PY";
+
+    counter.textContent=`Câu ${index+1}/${exercises.length}`;
+    progress.style.width=`${((index+1)/exercises.length)*100}%`;
+    setPet("idle",`${instruction}. Hãy dịch đủ cả câu nhé! ⌨️`);
+
     stage.innerHTML=`<div class="typing-card">
-      ${lines.map(x=>`<div class="typing-line ${x.cls} hanzi-pronounce" data-hanzi-pronounce="${x.text}">${x.role?`<span class="mr-2">${x.role}:</span>`:""}<span class="cn">${x.text}</span></div>`).join("")}
-      <div class="typing-translation">${m.translation}</div>
-      <div class="typing-input-row"><span class="input-tag">字/VN</span><input id="typingInput" class="typing-input" type="text" autocomplete="off" placeholder="Gõ chữ Hán, Pinyin hoặc nghĩa Tiếng Việt..."><button id="typingSubmit" class="typing-submit"><i class="fa-solid fa-paper-plane"></i></button></div>
+      <div class="typing-translation" style="font-style:normal;font-weight:900;color:#4F46E5">${directionText} · ${instruction}</div>
+      <div class="typing-line typing-line-a ${zhToVi?'hanzi-pronounce':''}" ${zhToVi?`data-hanzi-pronounce="${q.prompt}"`:''}>
+        <span class="${zhToVi?'cn':''}">${q.prompt}</span>
+      </div>
+      <div class="typing-input-row"><span class="input-tag">${inputTag}</span><input id="typingInput" class="typing-input" type="text" autocomplete="off" placeholder="${placeholder}"><button id="typingSubmit" class="typing-submit"><i class="fa-solid fa-paper-plane"></i></button></div>
       <div id="typingResult" class="typing-result"></div>
-      <div class="typing-help">Enter lần 1 để kiểm tra · Enter lần 2 để sang câu mới.</div>
+      <div class="typing-help">Phải dịch trọn câu · Enter lần 1 để kiểm tra · Enter lần 2 để sang câu mới.</div>
     </div>`;
+
     inputRef.current=document.getElementById("typingInput");
     const submit=document.getElementById("typingSubmit");
     inputRef.current.value="";inputRef.current.focus();
@@ -9965,75 +11152,69 @@ function bindTyping(){
     inputRef.current.addEventListener("keydown",e=>{
       if(e.key!=="Enter")return;
       if(e.isComposing||composingRef.current||e.keyCode===229)return;
-
-      e.preventDefault();
-      e.stopPropagation();
-
-      if(isSubmitted){
-        nextQuestion();
-      }else{
-        submitAnswer();
-      }
+      e.preventDefault();e.stopPropagation();
+      if(isSubmitted)nextQuestion();else submitAnswer();
     });
     submit.onclick=()=>{if(!composingRef.current&&!isSubmitted)submitAnswer()};
   }
+
   function validate(value){
-    const q=currentLesson.fillExercises[index],m=meta[index];
-    const vn=String(value||"").trim().toLowerCase().normalize("NFC"),validVN=meanings(m.meaning);
-    return norm(value)!==""&&(norm(value)===norm(q.answer)||pinyin(value)===pinyin(m.pinyin)||validVN.includes(vn)||validVN.some(x=>x.includes(vn)));
+    const q=exercises[index];
+    const candidates=[q.answer,...(q.accepted||[])];
+    if(q.direction==="vi-zh"&&q.pinyin)candidates.push(q.pinyin);
+    const normalized=normalizeAnswer(value);
+    return normalized!==""&&candidates.some(candidate=>normalizeAnswer(candidate)===normalized);
   }
+
+  function answerHTML(q){
+    if(q.direction==="vi-zh"){
+      return `<span class="cn">${q.answer}</span><div style="margin-top:4px;font-weight:700">${q.pinyin}</div>`;
+    }
+    return `${q.answer}<div style="margin-top:4px;font-weight:700">Pinyin câu gốc: ${q.pinyin}</div>`;
+  }
+
   function submitAnswer(){
     if(isSubmitted||composingRef.current||!inputRef.current)return;
+    const value=inputRef.current.value.trim();
+    if(!value){
+      const result=document.getElementById("typingResult");
+      result.className="typing-result bad";
+      result.textContent="Hãy nhập bản dịch đầy đủ trước khi kiểm tra.";
+      return;
+    }
+
     isSubmitted=true;
-    const q=currentLesson.fillExercises[index],m=meta[index],correct=validate(inputRef.current.value);
+    const q=exercises[index],correct=validate(value);
     const row=stage.querySelector(".typing-input-row"),result=document.getElementById("typingResult");
     inputRef.current.disabled=true;document.getElementById("typingSubmit").disabled=true;
+
     if(correct){
       streak++;playGameSFX(true,streak);addScore(10);row.classList.add("ok");
-      setPet("ok",streak>=2?`🔥 COMBO ${streak} CÂU ĐÚNG LIÊN TIẾP! 🔥`:"Chính xác rồi! Quá đỉnh luôn! 😻✨");
-      result.className="typing-result ok";result.innerHTML=`✅ <span class="cn">${q.answer}</span> · ${m.pinyin} · ${m.meaning}`;lightConfetti();
+      setPet("ok",streak>=2?`🔥 COMBO ${streak} CÂU ĐÚNG LIÊN TIẾP! 🔥`:"Bạn đã dịch đúng toàn bộ câu! 😻✨");
+      result.className="typing-result ok";
+      result.innerHTML=`✅ Chính xác! ${answerHTML(q)}`;
+      lightConfetti();
     }else{
       streak=0;playGameSFX(false);row.classList.add("bad");
-      setPet("bad","Hơi suýt soát tí, xem đáp án chuẩn bên dưới nhé! 😿");
-      result.className="typing-result bad";result.innerHTML=`❌ Đáp án chuẩn: <span class="cn">${q.answer}</span> · ${m.pinyin} · ${m.meaning}`;
+      setPet("bad","Chưa khớp toàn bộ câu. Hãy đối chiếu đáp án chuẩn bên dưới nhé! 😿");
+      result.className="typing-result bad";
+      result.innerHTML=`❌ Đáp án chuẩn: ${answerHTML(q)}`;
     }
   }
+
   function nextQuestion(){
     if(!isSubmitted)return;
-
-    if(inputRef.current){
-      inputRef.current.value="";
-    }
-
-    index=(index+1)%currentLesson.fillExercises.length;
+    index=(index+1)%exercises.length;
     renderQuestion();
-
-    if(inputRef.current){
-      inputRef.current.value="";
-      inputRef.current.focus();
-      requestAnimationFrame(()=>{
-        if(inputRef.current) inputRef.current.focus();
-      });
-    }
+    requestAnimationFrame(()=>inputRef.current?.focus());
   }
 
   document.addEventListener("keydown",event=>{
     if(!document.getElementById("typing")?.classList.contains("active"))return;
     if(event.key!=="Enter")return;
-
-    // Không can thiệp phím Enter đang được Unikey/IME dùng để hoàn tất dấu.
     if(event.isComposing||composingRef.current||event.keyCode===229)return;
-
-    // Khi đã hiện kết quả, Enter ở bất kỳ vị trí nào đều chuyển câu.
-    if(isSubmitted){
-      event.preventDefault();
-      handleTypingNextQuestion();
-    }
+    if(isSubmitted){event.preventDefault();nextQuestion()}
   });
-
-  function handleTypingNextQuestion(){
-    nextQuestion();
-  }
 
   renderQuestion();
 }

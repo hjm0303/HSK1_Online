@@ -6944,357 +6944,7 @@
       flex:0 0 auto!important;
     }
 
-      /* ===== Bài 3: Direct Pronunciation Tab (no sub-tabs) ===== */
-    #warmup .pronunciation-page{
-      display:grid;
-      gap:16px;
-    }
-    #warmup .pronunciation-intro,
-    #warmup .pronunciation-section{
-      background:#FFFFFF;
-      border:1px solid #DCE3EF;
-      border-radius:20px;
-      box-shadow:0 8px 22px rgba(15,23,42,.06);
-    }
-    #warmup .pronunciation-intro{
-      display:grid;
-      grid-template-columns:auto minmax(0,1fr) auto;
-      align-items:center;
-      gap:14px;
-      padding:16px 18px;
-      background:linear-gradient(135deg,#EEF2FF 0%,#FFFFFF 58%,#ECFDF5 100%)!important;
-      border-left:5px solid #6366F1;
-    }
-    #warmup .pronunciation-intro-icon{
-      width:52px;
-      height:52px;
-      display:grid;
-      place-items:center;
-      border-radius:16px;
-      background:linear-gradient(135deg,#6366F1,#2563EB);
-      color:#FFFFFF;
-      font-size:1.6rem;
-      box-shadow:0 10px 20px rgba(37,99,235,.20);
-    }
-    #warmup .pronunciation-kicker,
-    #warmup .pronunciation-section-label{
-      margin:0;
-      color:#4F46E5!important;
-      font-size:.72rem!important;
-      line-height:1.2!important;
-      font-weight:900;
-      letter-spacing:.13em;
-    }
-    #warmup .pronunciation-intro h2{
-      margin:3px 0 2px;
-      color:#0F172A!important;
-      font-size:clamp(1.25rem,2.3vw,1.7rem)!important;
-      line-height:1.25!important;
-    }
-    #warmup .pronunciation-intro p:last-child{
-      margin:0;
-      color:#64748B!important;
-      font-size:.94rem!important;
-      line-height:1.45!important;
-    }
-    #warmup .pronunciation-listen-note{
-      padding:8px 12px;
-      border-radius:999px;
-      background:#FFFFFF;
-      border:1px solid #C7D2FE;
-      color:#4338CA;
-      font-size:.8rem;
-      font-weight:900;
-      white-space:nowrap;
-    }
-    #warmup .pronunciation-top-grid{
-      display:grid;
-      grid-template-columns:minmax(0,1.5fr) minmax(290px,.75fr);
-      gap:16px;
-      align-items:stretch;
-    }
-    #warmup .pronunciation-section{
-      padding:16px 18px;
-      min-width:0;
-    }
-    #warmup .pronunciation-section-head{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:12px;
-      margin-bottom:13px;
-    }
-    #warmup .pronunciation-section-head h3{
-      margin:3px 0 0;
-      color:#0F172A!important;
-      font-size:1.12rem!important;
-      line-height:1.3!important;
-      font-weight:900!important;
-    }
-    #warmup .pronunciation-section-head>span{
-      flex:0 0 auto;
-      padding:6px 10px;
-      border-radius:999px;
-      background:#EEF2FF;
-      color:#4338CA;
-      border:1px solid #C7D2FE;
-      font-size:.74rem;
-      font-weight:900;
-    }
-    #warmup .pronunciation-vocab-grid{
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:10px;
-    }
-    #warmup .pronunciation-vocab-card{
-      position:relative;
-      display:grid;
-      grid-template-columns:minmax(0,1fr) auto;
-      grid-template-areas:
-        "hanzi hint"
-        "pinyin hint"
-        "meaning hint";
-      align-items:center;
-      gap:2px 10px;
-      min-height:104px;
-      padding:13px 14px!important;
-      text-align:left;
-      border:1px solid #DCE3EF!important;
-      border-radius:16px!important;
-      background:#FFFFFF!important;
-      color:#1E293B!important;
-      box-shadow:0 5px 14px rgba(15,23,42,.045)!important;
-      transition:transform .16s ease,border-color .16s ease,box-shadow .16s ease,background .16s ease!important;
-    }
-    #warmup .pronunciation-vocab-card:hover{
-      transform:translateY(-2px)!important;
-      background:#F8FAFF!important;
-      border-color:#818CF8!important;
-      box-shadow:0 10px 20px rgba(99,102,241,.12)!important;
-    }
-    #warmup .pronunciation-hanzi{
-      grid-area:hanzi;
-      color:#1E293B!important;
-      font-size:clamp(1.55rem,2.4vw,2rem)!important;
-      line-height:1.16!important;
-      font-weight:900!important;
-    }
-    #warmup .pronunciation-pinyin{
-      color:#4F46E5!important;
-      font-size:.91rem!important;
-      line-height:1.35!important;
-      font-weight:900;
-    }
-    #warmup .pronunciation-meaning{
-      color:#64748B!important;
-      font-size:.82rem!important;
-      line-height:1.35!important;
-      font-weight:700;
-    }
-    #warmup .pronunciation-vocab-card .pronunciation-pinyin{grid-area:pinyin;}
-    #warmup .pronunciation-vocab-card .pronunciation-meaning{grid-area:meaning;}
-    #warmup .pronunciation-audio-hint{
-      grid-area:hint;
-      align-self:center;
-      padding:6px 8px;
-      border-radius:10px;
-      background:#EEF2FF;
-      color:#4F46E5;
-      font-size:.69rem;
-      font-weight:900;
-      white-space:nowrap;
-    }
-    #warmup .pronunciation-tip-section{
-      background:linear-gradient(155deg,#FFFFFF,#F8FAFF)!important;
-    }
-    #warmup .pronunciation-tip-list{
-      display:grid;
-      gap:9px;
-    }
-    #warmup .pronunciation-tip-item{
-      display:grid;
-      grid-template-columns:30px minmax(0,1fr);
-      align-items:start;
-      gap:9px;
-      padding:10px;
-      border-radius:14px;
-      background:#F8FAFC;
-      border:1px solid #E2E8F0;
-    }
-    #warmup .pronunciation-tip-item>span{
-      width:30px;
-      height:30px;
-      display:grid;
-      place-items:center;
-      border-radius:10px;
-      background:#6366F1;
-      color:#FFFFFF;
-      font-size:.8rem;
-      font-weight:900;
-    }
-    #warmup .pronunciation-tip-item p{
-      margin:0;
-      color:#475569!important;
-      font-size:.83rem!important;
-      line-height:1.48!important;
-    }
-    #warmup .pronunciation-tip-item b{
-      color:#1E293B;
-    }
-    #warmup .pronunciation-practice-order{
-      margin-top:10px;
-      padding:10px 12px;
-      border-radius:14px;
-      background:#ECFDF5;
-      border:1px solid #A7F3D0;
-      color:#047857;
-      font-size:.82rem;
-      line-height:1.45;
-    }
-    #warmup .pronunciation-sentence-grid{
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:10px;
-    }
-    #warmup .pronunciation-sentence-card{
-      display:grid;
-      grid-template-columns:auto minmax(0,1fr);
-      align-items:center;
-      gap:11px;
-      min-height:102px;
-      padding:12px 13px!important;
-      text-align:left;
-      border:1px solid #DCE3EF!important;
-      border-radius:16px!important;
-      background:#FFFFFF!important;
-      color:#1E293B!important;
-      box-shadow:none!important;
-      transition:transform .16s ease,border-color .16s ease,box-shadow .16s ease,background .16s ease!important;
-    }
-    #warmup .pronunciation-sentence-card:hover{
-      transform:translateY(-2px)!important;
-      background:#F8FAFF!important;
-      border-color:#818CF8!important;
-      box-shadow:0 10px 20px rgba(99,102,241,.11)!important;
-    }
-    #warmup .pronunciation-number{
-      width:34px;
-      height:34px;
-      display:grid;
-      place-items:center;
-      border-radius:11px;
-      background:#EEF2FF;
-      color:#4338CA;
-      font-size:.76rem;
-      font-weight:900;
-    }
-    #warmup .pronunciation-sentence-content{
-      display:grid;
-      gap:2px;
-      min-width:0;
-    }
-    #warmup .pronunciation-sentence-hanzi{
-      color:#1E293B!important;
-      font-size:clamp(1.35rem,2.2vw,1.8rem)!important;
-      line-height:1.22!important;
-      font-weight:900!important;
-    }
-    #warmup .pronunciation-dialogue-grid{
-      display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:11px;
-    }
-    #warmup .pronunciation-dialogue-card{
-      padding:12px;
-      border-radius:16px;
-      background:#F8FAFC;
-      border:1px solid #E2E8F0;
-    }
-    #warmup .pronunciation-dialogue-card h4{
-      margin:0 0 9px;
-      color:#334155!important;
-      font-size:.88rem!important;
-      line-height:1.35!important;
-      font-weight:900!important;
-    }
-    #warmup .pronunciation-dialogue-lines{
-      display:grid;
-      gap:8px;
-    }
-    #warmup .pronunciation-dialogue-line{
-      display:grid;
-      grid-template-columns:30px minmax(0,1fr);
-      align-items:start;
-      gap:8px;
-      width:100%;
-      padding:9px!important;
-      text-align:left;
-      border-radius:13px!important;
-      border:1px solid #DCE3EF!important;
-      background:#FFFFFF!important;
-      color:#1E293B!important;
-      box-shadow:none!important;
-    }
-    #warmup .pronunciation-dialogue-line:hover{
-      background:#EEF2FF!important;
-      border-color:#818CF8!important;
-    }
-    #warmup .pronunciation-role{
-      width:30px;
-      height:30px;
-      display:grid;
-      place-items:center;
-      border-radius:10px;
-      background:#6366F1;
-      color:#FFFFFF;
-      font-size:.77rem;
-      font-weight:900;
-    }
-    #warmup .pronunciation-dialogue-line b{
-      display:block;
-      color:#1E293B!important;
-      font-size:1.28rem!important;
-      line-height:1.24!important;
-      font-weight:900!important;
-    }
-    #warmup .pronunciation-dialogue-line em{
-      display:block;
-      margin-top:2px;
-      color:#4F46E5;
-      font-size:.82rem;
-      line-height:1.3;
-      font-style:normal;
-      font-weight:900;
-    }
-    #warmup .pronunciation-dialogue-line small{
-      display:block;
-      margin-top:2px;
-      color:#64748B!important;
-      font-size:.76rem!important;
-      line-height:1.35!important;
-      font-weight:700;
-    }
-    @media(max-width:980px){
-      #warmup .pronunciation-top-grid{grid-template-columns:1fr}
-      #warmup .pronunciation-dialogue-grid{grid-template-columns:1fr 1fr}
-    }
-    @media(max-width:680px){
-      #warmup .pronunciation-intro{
-        grid-template-columns:auto minmax(0,1fr);
-        padding:14px;
-      }
-      #warmup .pronunciation-listen-note{
-        grid-column:1/-1;
-        justify-self:start;
-      }
-      #warmup .pronunciation-section{padding:14px}
-      #warmup .pronunciation-vocab-grid,
-      #warmup .pronunciation-sentence-grid,
-      #warmup .pronunciation-dialogue-grid{grid-template-columns:1fr}
-      #warmup .pronunciation-vocab-card{min-height:96px}
-    }
-
-</style>
+  </style>
 <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script>
 </head>
 <body>
@@ -7515,7 +7165,7 @@ const LESSON_ASSETS = {
 
 
 const tabs=[
-  ["warmup","fa-solid fa-microphone-lines icon-warmup","Luyện phát âm"],
+  ["warmup","fa-solid fa-rocket icon-warmup","Khởi động"],
   ["vocab","fa-solid fa-book-open icon-vocab","Từ mới"],
   ["flash","fa-solid fa-pen-nib icon-flash","Cách viết"],
   ["grammar","fa-solid fa-ruler-combined icon-grammar","Ngữ pháp"],
@@ -7991,173 +7641,54 @@ function warmupHTMLLesson1(){
 }
 
 function warmupHTMLLesson2(){
-  const vocabulary=[
-    {han:"叫",py:"jiào",vi:"gọi là, tên là",speak:"叫"},
-    {han:"什么",py:"shénme",vi:"gì, cái gì",speak:"什么"},
-    {han:"名字",py:"míngzi",vi:"tên",speak:"名字"},
-    {han:"我",py:"wǒ",vi:"tôi",speak:"我"},
-    {han:"是",py:"shì",vi:"là",speak:"是"},
-    {han:"老师",py:"lǎoshī",vi:"giáo viên",speak:"老师"},
-    {han:"吗",py:"ma",vi:"trợ từ nghi vấn",speak:"吗"},
-    {han:"学生",py:"xuéshēng",vi:"học sinh",speak:"学生"},
-    {han:"人",py:"rén",vi:"người",speak:"人"},
-    {han:"李月",py:"Lǐ Yuè",vi:"Lý Nguyệt (tên người)",speak:"李月"},
-    {han:"中国",py:"Zhōngguó",vi:"Trung Quốc",speak:"中国"},
-    {han:"美国",py:"Měiguó",vi:"Mỹ, Hoa Kỳ",speak:"美国"}
-  ];
-
-  const sentences=[
-    {han:"你叫什么名字？",py:"Nǐ jiào shénme míngzi?",vi:"Bạn tên là gì?"},
-    {han:"我叫李月。",py:"Wǒ jiào Lǐ Yuè.",vi:"Tôi tên là Lý Nguyệt."},
-    {han:"我叫安娜。",py:"Wǒ jiào Ānnà.",vi:"Tôi tên là Anna."},
-    {han:"我是老师。",py:"Wǒ shì lǎoshī.",vi:"Tôi là giáo viên."},
-    {han:"我是学生。",py:"Wǒ shì xuéshēng.",vi:"Tôi là học sinh."},
-    {han:"你是学生吗？",py:"Nǐ shì xuéshēng ma?",vi:"Bạn là học sinh phải không?"},
-    {han:"你是老师吗？",py:"Nǐ shì lǎoshī ma?",vi:"Bạn là giáo viên phải không?"},
-    {han:"我是中国人。",py:"Wǒ shì Zhōngguó rén.",vi:"Tôi là người Trung Quốc."},
-    {han:"你是美国人吗？",py:"Nǐ shì Měiguó rén ma?",vi:"Bạn là người Mỹ phải không?"},
-    {han:"我不是老师。",py:"Wǒ bú shì lǎoshī.",vi:"Tôi không phải là giáo viên."}
-  ];
-
-  const dialogues=[
-    {
-      title:"Hỏi và giới thiệu tên",
-      lines:[
-        {role:"A",han:"你叫什么名字？",py:"Nǐ jiào shénme míngzi?",vi:"Bạn tên là gì?"},
-        {role:"B",han:"我叫李月。",py:"Wǒ jiào Lǐ Yuè.",vi:"Tôi tên là Lý Nguyệt."}
-      ]
-    },
-    {
-      title:"Hỏi về thân phận",
-      lines:[
-        {role:"A",han:"你是老师吗？",py:"Nǐ shì lǎoshī ma?",vi:"Bạn là giáo viên phải không?"},
-        {role:"B",han:"不是，我是学生。",py:"Bú shì, wǒ shì xuéshēng.",vi:"Không, tôi là học sinh."}
-      ]
-    },
-    {
-      title:"Hỏi về quốc tịch",
-      lines:[
-        {role:"A",han:"你是美国人吗？",py:"Nǐ shì Měiguó rén ma?",vi:"Bạn là người Mỹ phải không?"},
-        {role:"B",han:"不是，我是中国人。",py:"Bú shì, wǒ shì Zhōngguó rén.",vi:"Không, tôi là người Trung Quốc."}
-      ]
-    }
-  ];
-
   return `
-    <div class="pronunciation-page">
-      <section class="pronunciation-intro">
-        <div class="pronunciation-intro-icon">🎙️</div>
-        <div class="min-w-0">
-          <p class="pronunciation-kicker">HSK 1 • BÀI 3 • 你叫什么名字</p>
-          <h2>Luyện đọc từ và câu Bài 3</h2>
-          <p>Nghe mẫu, đọc theo và luyện phản xạ với đúng từ vựng, câu giao tiếp của bài.</p>
-        </div>
-        <div class="pronunciation-listen-note">🔊 Bấm vào từng thẻ để nghe</div>
-      </section>
+  <div class="glass rounded-[24px] p-3 md:p-4 mb-4 border-2 border-white/70">
+    <div class="flex flex-wrap gap-2" id="warmupSubnav">
+      <button class="subtab-btn active" data-warmup-subtab="goals"><span class="subtab-icon-badge"><i class="fa-solid fa-bullseye icon-goals"></i></span><span>Mục tiêu & Ghi chú</span></button>
+      <button class="subtab-btn" data-warmup-subtab="game"><span class="subtab-icon-badge"><i class="fa-solid fa-gamepad icon-game"></i></span><span>Mini-game</span></button>
+      <button class="subtab-btn" data-warmup-subtab="practice"><span class="subtab-icon-badge"><i class="fa-solid fa-microphone-lines icon-practice"></i></span><span>Luyện phát âm & Game</span></button>
+    </div>
+  </div>
 
-      <div class="pronunciation-top-grid">
-        <section class="pronunciation-section pronunciation-vocab-section">
-          <div class="pronunciation-section-head">
-            <div>
-              <p class="pronunciation-section-label">VOCABULARY</p>
-              <h3>📚 Từ vựng trọng tâm</h3>
-            </div>
-            <span>${vocabulary.length} từ</span>
-          </div>
-          <div class="pronunciation-vocab-grid">
-            ${vocabulary.map(item=>`
-              <button type="button" class="pronunciation-vocab-card speak" data-speak="${item.speak}" aria-label="Nghe phát âm ${item.han}">
-                <span class="pronunciation-hanzi cn">${item.han}</span>
-                <span class="pronunciation-pinyin">${item.py}</span>
-                <span class="pronunciation-meaning">${item.vi}</span>
-                <span class="pronunciation-audio-hint">Nghe mẫu</span>
-              </button>
-            `).join("")}
+  <div id="warmupSubpages">
+    <div class="warmup-subpage active" data-warmup-page="goals">
+      <div class="warmup-goals-grid">
+        <section class="star-mission-card">
+          <div class="warmup-card-title"><span>🎯 Nhiệm Vụ Săn Sao Bài 3</span><span class="title-mascot">🐼⭐</span></div>
+          <div class="mission-grid">
+            <div class="mission-mini"><h3>💬 Mẫu câu trọng tâm</h3><div class="mission-chips">${["你叫什么名字","我叫李月","我是老师","你是学生吗"].map(text=>`<button class="mission-chip cn hanzi-pronounce" data-hanzi-pronounce="${text}">${text}</button>`).join("")}</div></div>
+            <div class="mission-mini"><h3>🎵 Ngữ âm</h3><p>j / q / x · zh / sh · iao / ing / eng · thanh nhẹ trong 什么、名字.</p></div>
+            <div class="mission-mini"><h3>✍️ Chữ Hán trọng tâm</h3><div class="mission-char-grid">${["叫","名","字","我","是","人"].map(text=>`<button class="mission-char cn hanzi-pronounce" data-hanzi-pronounce="${text}">${text}</button>`).join("")}</div></div>
+            <div class="mission-mini"><h3>🌟 Kỹ năng</h3><p>Hỏi tên, giới thiệu thân phận, nghề nghiệp và quốc tịch.</p></div>
           </div>
         </section>
 
-        <aside class="pronunciation-section pronunciation-tip-section">
-          <div class="pronunciation-section-head">
-            <div>
-              <p class="pronunciation-section-label">QUICK TIPS</p>
-              <h3>💡 Bí kíp phát âm nhanh</h3>
-            </div>
+        <section class="mascot-tip-card">
+          <div class="warmup-card-title"><span>💡 Bí Kíp Bài 3</span><span class="title-mascot">🦊🐰🐵</span></div>
+          <div class="mascot-bubbles">
+            <div class="mascot-bubble"><span class="mascot-face">🐵</span><div><strong>Khỉ Tinh Tinh</strong><p>“什么 dùng để hỏi thông tin chưa biết: 你叫什么名字？”</p></div></div>
+            <div class="mascot-bubble"><span class="mascot-face">🦊</span><div><strong>Cáo Cáo</strong><p>“Thêm 吗 cuối câu trần thuật để tạo câu hỏi Có/Không.”</p></div></div>
+            <div class="mascot-bubble"><span class="mascot-face">🐰</span><div><strong>Thỏ Ngọc</strong><p>“不 đứng trước thanh 4 sẽ đọc thành bú: 不是 bú shì.”</p></div></div>
           </div>
-          <div class="pronunciation-tip-list">
-            <div class="pronunciation-tip-item">
-              <span>1</span>
-              <p><b>什么 · shénme:</b> âm <b>me</b> cuối đọc nhẹ và ngắn, không nhấn thành thanh 4.</p>
-            </div>
-            <div class="pronunciation-tip-item">
-              <span>2</span>
-              <p><b>名字 · míngzi:</b> âm <b>zi</b> cuối là thanh nhẹ; đọc liền với <b>míng</b>.</p>
-            </div>
-            <div class="pronunciation-tip-item">
-              <span>3</span>
-              <p><b>叫什么名字:</b> đọc liền cả cụm, chỉ ngắt nhẹ ở cuối câu hỏi.</p>
-            </div>
-            <div class="pronunciation-tip-item">
-              <span>4</span>
-              <p><b>不是 · bú shì:</b> trước âm tiết thanh 4 <b>shì</b>, chữ <b>不</b> đọc thành <b>bú</b>.</p>
-            </div>
-          </div>
-          <div class="pronunciation-practice-order">
-            <b>Cách luyện:</b> Nghe 1 lần → đọc chậm 2 lần → tự thay tên, nghề nghiệp hoặc quốc tịch.
-          </div>
-        </aside>
+        </section>
       </div>
+    </div>
 
-      <section class="pronunciation-section">
-        <div class="pronunciation-section-head">
-          <div>
-            <p class="pronunciation-section-label">REAL COMMUNICATION</p>
-            <h3>💬 Câu giao tiếp thực tế</h3>
-          </div>
-          <span>${sentences.length} câu</span>
-        </div>
-        <div class="pronunciation-sentence-grid">
-          ${sentences.map((item,index)=>`
-            <button type="button" class="pronunciation-sentence-card speak" data-speak="${item.han}" aria-label="Nghe câu ${item.han}">
-              <span class="pronunciation-number">${String(index+1).padStart(2,"0")}</span>
-              <span class="pronunciation-sentence-content">
-                <span class="pronunciation-sentence-hanzi cn">${item.han}</span>
-                <span class="pronunciation-pinyin">${item.py}</span>
-                <span class="pronunciation-meaning">${item.vi}</span>
-              </span>
-            </button>
-          `).join("")}
-        </div>
+    <div class="warmup-subpage" data-warmup-page="game">
+      <section class="sound-game-shell">
+        <div class="sound-game-inline-head"><div class="sound-game-title">🎮 Mini-game: Nghe chọn âm đúng</div><div class="sound-game-stats"><div class="sound-stat score">⭐ Điểm: <span id="soundGameScore">0</span></div><div class="sound-stat streak">🔥 Chuỗi đúng: <span id="soundGameStreak">0</span></div></div></div>
+        <div class="sound-game-audio-cluster"><button id="playSoundGame" class="btn3d"><i class="fa-solid fa-headphones"></i> Nghe lại</button><div id="soundGameResult">Bấm “Nghe lại” để nghe âm mẫu.</div></div>
+        <div id="soundGameOptions"></div><div class="sound-game-mascot"><span id="gameMascot">🐼</span><span id="gameMascotText">Nghe kỹ rồi chọn nhé!</span></div>
       </section>
+    </div>
 
-      <section class="pronunciation-section pronunciation-dialogue-section">
-        <div class="pronunciation-section-head">
-          <div>
-            <p class="pronunciation-section-label">SPEAKING PRACTICE</p>
-            <h3>🗣️ Luyện hội thoại ngắn</h3>
-          </div>
-          <span>Đổi vai A ↔ B</span>
-        </div>
-        <div class="pronunciation-dialogue-grid">
-          ${dialogues.map(dialogue=>`
-            <article class="pronunciation-dialogue-card">
-              <h4>${dialogue.title}</h4>
-              <div class="pronunciation-dialogue-lines">
-                ${dialogue.lines.map(line=>`
-                  <button type="button" class="pronunciation-dialogue-line speak" data-speak="${line.han}" aria-label="Nghe câu ${line.han}">
-                    <span class="pronunciation-role">${line.role}</span>
-                    <span>
-                      <b class="cn">${line.han}</b>
-                      <em>${line.py}</em>
-                      <small>${line.vi}</small>
-                    </span>
-                  </button>
-                `).join("")}
-              </div>
-            </article>
-          `).join("")}
-        </div>
-      </section>
-    </div>`;
+    <div class="warmup-subpage" data-warmup-page="practice">
+      <div class="space-y-5">
+        ${card("🗣️ Luyện đọc từ và câu Bài 3",`<div class="grid md:grid-cols-2 gap-4"><div class="pastel-card p-4"><h3 class="font-black mb-3">Từ trọng tâm</h3><div class="flex flex-wrap gap-2">${["jiào","shénme","míngzi","wǒ","shì","lǎoshī","xuéshēng","rén","Zhōngguó","Měiguó"].map(word=>`<button class="practice-speak practice-chip" data-text="${word}">${word}</button>`).join("")}</div></div><div class="pastel-card p-4"><h3 class="font-black mb-3">Câu giao tiếp</h3><div class="grid gap-2">${["nǐ jiào shénme míngzi","wǒ jiào lǐ yuè","wǒ shì lǎoshī","nǐ shì xuésheng ma","wǒ shì zhōngguó rén"].map(word=>`<button class="practice-speak practice-chip text-left" data-text="${word}">${word}</button>`).join("")}</div></div></div>`,"pastel-card")}
+        ${card("🎧 Pinyin Drill Bài 3",`<div id="pinyinDrill" class="drill-shell"><div class="p-4 border-b"><div class="flex justify-between"><h3 class="font-black">Luyện nghe Pinyin</h3><div>Câu <span id="drillCurrent">1</span>/<span id="drillTotal">10</span></div></div><div class="drill-progress-track mt-3"><div id="drillProgress" class="drill-progress-bar" style="width:10%"></div></div></div><div class="grid lg:grid-cols-2 gap-5 p-5"><div class="drill-audio-card p-6 flex flex-col items-center justify-center"><div class="drill-headphone"><i class="fa-solid fa-headphones text-6xl"></i></div><button id="drillPlay" class="drill-play mt-6" aria-label="Nghe lại"><i class="fa-solid fa-volume-high"></i></button></div><div class="rounded-[20px] bg-slate-50 border p-5"><h3 class="font-black">CHỌN PINYIN ĐÚNG</h3><div id="drillOptions" class="grid sm:grid-cols-2 gap-3 mt-4"></div><div id="drillFeedback" class="min-h-14 mt-4 rounded-2xl border p-3 font-black"></div></div></div></div>`,"pastel-card")}
+      </div>
+    </div>
+  </div>`;
 }
 
 function warmupHTML(){ return currentLessonId===1 ? warmupHTMLLesson1() : warmupHTMLLesson2(); }
@@ -9232,8 +8763,6 @@ function bindSoundGame(){
   const playBtn=document.getElementById("playSoundGame");
   const mascot=document.getElementById("gameMascot");
   const mascotText=document.getElementById("gameMascotText");
-
-  if(!opts || !status || !playBtn) return;
 
   const pronunciationOf = symbol =>
     INITIAL_PRONUNCIATION[symbol]
