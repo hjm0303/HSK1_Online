@@ -12,13 +12,19 @@
 
   <style>
     :root {
-      --brand: #6d5dfc;
-      --brand-2: #8b5cf6;
-      --ink: #172033;
-      --muted: #73819b;
-      --line: #e5eaf3;
-      --surface: rgba(255, 255, 255, .90);
-      --shadow: 0 18px 50px rgba(39, 48, 84, .10);
+      --brand: #47b89f;
+      --brand-2: #79d4bd;
+      --ink: #2d4052;
+      --muted: #718494;
+      --line: #dfece7;
+      --surface: rgba(255, 255, 255, .91);
+      --shadow: 0 20px 55px rgba(74, 119, 106, .12);
+      --mint-50: #f1fcf7;
+      --mint-100: #dcf7ec;
+      --peach-50: #fff4ef;
+      --peach-100: #ffe3d9;
+      --yellow-50: #fffbe7;
+      --lavender-50: #f6f2ff;
     }
 
     * { box-sizing: border-box; }
@@ -32,9 +38,10 @@
       margin: 0;
       overflow-x: hidden;
       background:
-        radial-gradient(circle at 10% 8%, rgba(109,93,252,.13), transparent 30%),
-        radial-gradient(circle at 90% 18%, rgba(34,211,238,.11), transparent 29%),
-        linear-gradient(180deg, #f9fbff 0%, #f3f6fc 100%);
+        radial-gradient(circle at 8% 9%, rgba(126, 218, 190, .24), transparent 25%),
+        radial-gradient(circle at 92% 12%, rgba(255, 190, 169, .25), transparent 24%),
+        radial-gradient(circle at 78% 84%, rgba(255, 226, 119, .19), transparent 28%),
+        linear-gradient(180deg, #fffdf7 0%, #f4fbf8 52%, #fffaf6 100%);
     }
 
     body::before {
@@ -42,10 +49,30 @@
       position: fixed;
       inset: 0;
       pointer-events: none;
-      opacity: .36;
-      background-image: radial-gradient(rgba(109,93,252,.16) 1px, transparent 1px);
-      background-size: 24px 24px;
-      mask-image: linear-gradient(to bottom, #000 0%, transparent 76%);
+      opacity: .48;
+      background-image:
+        radial-gradient(circle at center, rgba(86, 174, 148, .22) 1.25px, transparent 1.4px),
+        radial-gradient(circle at center, rgba(244, 164, 140, .18) 1px, transparent 1.2px);
+      background-position: 0 0, 18px 18px;
+      background-size: 36px 36px;
+      mask-image: linear-gradient(to bottom, #000 0%, rgba(0,0,0,.6) 48%, transparent 100%);
+      z-index: -2;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      left: -90px;
+      bottom: -95px;
+      width: 290px;
+      height: 290px;
+      border-radius: 50%;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse at 62% 20%, rgba(102, 185, 131, .20) 0 18%, transparent 19%),
+        radial-gradient(ellipse at 42% 43%, rgba(102, 185, 131, .15) 0 17%, transparent 18%),
+        radial-gradient(ellipse at 72% 60%, rgba(102, 185, 131, .12) 0 16%, transparent 17%);
+      transform: rotate(-24deg);
       z-index: -1;
     }
 
@@ -62,9 +89,9 @@
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      background: rgba(255,255,255,.82);
-      border-bottom: 1px solid rgba(226,232,240,.86);
-      box-shadow: 0 8px 28px rgba(39,48,84,.055);
+      background: rgba(255, 255, 250, .86);
+      border-bottom: 1px solid rgba(209, 232, 222, .88);
+      box-shadow: 0 8px 28px rgba(73, 117, 103, .07);
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
     }
@@ -74,23 +101,27 @@
       height: 46px;
       flex: 0 0 auto;
       border: 0;
-      border-radius: 16px;
+      border-radius: 17px;
       color: #fff;
       cursor: pointer;
       display: grid;
       place-items: center;
       font-size: 18px;
-      background: linear-gradient(145deg, #6959f7, #904cf0);
-      box-shadow: 0 10px 22px rgba(109,93,252,.28), inset 0 1px 0 rgba(255,255,255,.24);
+      background: linear-gradient(145deg, #55c3a8, #7ed5bd);
+      box-shadow: 0 10px 22px rgba(71, 184, 159, .25), inset 0 1px 0 rgba(255,255,255,.35);
       transition: transform .2s ease, box-shadow .2s ease;
     }
 
-    .brand-button:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 14px 28px rgba(109,93,252,.34); }
+    .brand-button:hover {
+      transform: translateY(-2px) rotate(-2deg) scale(1.02);
+      box-shadow: 0 14px 28px rgba(71, 184, 159, .31);
+    }
+
     .brand-button:active { transform: scale(.96); }
 
     .header-eyebrow {
       margin: 0 0 3px;
-      color: var(--brand);
+      color: #3da78f;
       font-size: 11px;
       font-weight: 900;
       letter-spacing: .13em;
@@ -100,7 +131,7 @@
 
     .header-title {
       margin: 0;
-      color: #1e293b;
+      color: #304658;
       font-size: clamp(16px, 1.35vw, 21px);
       font-weight: 900;
       line-height: 1.15;
@@ -120,18 +151,18 @@
       top: 50%;
       transform: translateY(-50%);
       pointer-events: none;
-      color: #64748b;
+      color: #679385;
       font-size: 12px;
     }
 
     #lessonSelect {
       width: 100%;
       appearance: none;
-      border: 1px solid #dfe5ef;
-      border-radius: 16px;
+      border: 1px solid #d8ebe3;
+      border-radius: 17px;
       padding: 11px 42px 11px 16px;
-      color: #334155;
-      background: rgba(247,249,253,.94);
+      color: #3c5a62;
+      background: rgba(246, 253, 249, .95);
       outline: none;
       cursor: pointer;
       font-size: 14px;
@@ -139,343 +170,578 @@
       transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
     }
 
-    #lessonSelect:hover { background: #fff; border-color: #cfd7e6; }
-    #lessonSelect:focus { border-color: #9b8cff; box-shadow: 0 0 0 4px rgba(109,93,252,.12); }
+    #lessonSelect:hover { background: #fff; border-color: #bfe2d4; }
+    #lessonSelect:focus { border-color: #79cfb8; box-shadow: 0 0 0 4px rgba(71,184,159,.13); }
 
     .page-wrap {
       width: min(1500px, 100%);
       margin: 0 auto;
-      padding: clamp(18px, 2.4vw, 36px);
+      padding: clamp(14px, 1.8vw, 26px);
     }
 
-    .hero-panel {
+    .level-page {
       position: relative;
-      overflow: hidden;
-      min-height: 245px;
-      padding: clamp(26px, 4vw, 56px);
-      border: 1px solid rgba(255,255,255,.78);
-      border-radius: 34px;
-      background:
-        linear-gradient(115deg, rgba(255,255,255,.96) 0%, rgba(249,247,255,.94) 52%, rgba(237,252,255,.90) 100%);
-      box-shadow: var(--shadow);
       isolation: isolate;
+      padding-top: clamp(12px, 1.25vw, 18px);
     }
 
-    .hero-panel::before,
-    .hero-panel::after {
-      content: "";
+    .nature-decor {
       position: absolute;
-      border-radius: 999px;
       z-index: -1;
-      filter: blur(.2px);
+      pointer-events: none;
+      user-select: none;
+      filter: drop-shadow(0 8px 12px rgba(76, 132, 111, .10));
+      animation: floatNature 5s ease-in-out infinite;
     }
 
-    .hero-panel::before {
-      width: 330px;
-      height: 330px;
-      right: -90px;
-      top: -120px;
-      background: linear-gradient(145deg, rgba(109,93,252,.20), rgba(139,92,246,.06));
+    .nature-decor.leaf-left {
+      left: clamp(5px, 1.3vw, 22px);
+      top: 105px;
+      font-size: clamp(38px, 5vw, 70px);
+      transform: rotate(-24deg);
+      opacity: .62;
     }
 
-    .hero-panel::after {
-      width: 220px;
-      height: 220px;
-      right: 150px;
-      bottom: -145px;
-      background: rgba(34,211,238,.13);
+    .nature-decor.flower-right {
+      right: clamp(4px, 1vw, 18px);
+      top: 80px;
+      font-size: clamp(30px, 4vw, 54px);
+      animation-delay: -1.8s;
+      opacity: .68;
     }
 
-    .hero-kicker {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 7px 12px;
-      border-radius: 999px;
-      color: #5b4ee8;
-      background: rgba(109,93,252,.10);
-      border: 1px solid rgba(109,93,252,.12);
-      font-size: 12px;
-      font-weight: 900;
-      letter-spacing: .06em;
-      text-transform: uppercase;
+    .nature-decor.sprout-bottom {
+      right: 4%;
+      bottom: 5px;
+      font-size: clamp(34px, 4vw, 58px);
+      animation-delay: -3s;
+      opacity: .46;
     }
 
-    .hero-title {
-      max-width: 760px;
-      margin: 18px 0 8px;
-      color: #172033;
-      font-size: clamp(34px, 4vw, 62px);
-      font-weight: 900;
-      line-height: .98;
-      letter-spacing: -.035em;
+    @keyframes floatNature {
+      0%, 100% { translate: 0 0; rotate: -2deg; }
+      50% { translate: 0 -9px; rotate: 3deg; }
     }
 
-    .hero-subtitle {
-      max-width: 710px;
-      margin: 0;
-      color: #66758e;
-      font-size: clamp(15px, 1.45vw, 19px);
-      font-weight: 700;
-      line-height: 1.55;
+    .level-heading-shell {
+      position: relative;
+      width: 100%;
+      margin: 0 auto 16px;
     }
 
-    .hero-stats {
+    .compact-level-header {
+      min-height: 82px;
       display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 24px;
-    }
-
-    .stat-pill {
-      display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 9px 13px;
-      border-radius: 14px;
-      color: #44516a;
-      background: rgba(255,255,255,.76);
-      border: 1px solid rgba(220,226,239,.9);
-      box-shadow: 0 7px 18px rgba(39,48,84,.05);
-      font-size: 13px;
-      font-weight: 800;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 11px 13px 11px 15px;
+      border: 2px solid #bfe7d8;
+      border-radius: 25px;
+      background: rgba(255, 255, 255, .89);
+      box-shadow: 5px 5px 0 rgba(57, 139, 115, .22);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
 
-    .hero-orbit {
-      position: absolute;
-      right: clamp(25px, 7vw, 110px);
-      top: 50%;
-      width: clamp(130px, 14vw, 205px);
-      aspect-ratio: 1;
-      transform: translateY(-50%);
+    .compact-title-block {
+      min-width: 0;
+      flex: 0 1 auto;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .compact-title-icon {
+      width: 52px;
+      height: 52px;
+      flex: 0 0 auto;
       display: grid;
       place-items: center;
-      border-radius: 50%;
-      color: rgba(255,255,255,.98);
-      background: linear-gradient(145deg, #6d5dfc, #9258ef 62%, #4fd8db);
-      box-shadow: 0 24px 55px rgba(109,93,252,.28), inset 0 1px 0 rgba(255,255,255,.28);
+      border: 2px solid #12896b;
+      border-radius: 18px;
+      color: #fff;
+      background: linear-gradient(145deg, #18ad86, #66d6b4);
+      box-shadow: 4px 4px 0 #08664f;
+      font-size: 21px;
     }
 
-    .hero-orbit::before,
-    .hero-orbit::after {
-      content: "";
-      position: absolute;
-      border: 1px solid rgba(109,93,252,.19);
-      border-radius: 50%;
-    }
-
-    .hero-orbit::before { inset: -18px; }
-    .hero-orbit::after { inset: -36px; opacity: .55; }
-
-    .hero-orbit span {
-      font-family: "Noto Sans SC", sans-serif;
-      font-size: clamp(58px, 7vw, 102px);
+    .compact-eyebrow {
+      display: block;
+      margin-bottom: 2px;
+      color: #3f9f89;
+      font-size: 10px;
       font-weight: 900;
-      text-shadow: 0 12px 24px rgba(55,38,140,.24);
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      line-height: 1;
     }
 
-    .section-head {
+    .section-title {
+      margin: 0;
+      color: #2c4652;
+      font-size: clamp(27px, 2.6vw, 39px);
+      font-weight: 900;
+      line-height: 1.02;
+      letter-spacing: -.035em;
+      white-space: nowrap;
+    }
+
+    .section-title .cn {
+      color: #50b89f;
+      font-size: .65em;
+      letter-spacing: 0;
+      white-space: nowrap;
+    }
+
+    .motivation-card {
+      position: relative;
+      overflow: hidden;
+      min-width: 390px;
+      max-width: 660px;
+      min-height: 58px;
+      flex: 1 1 560px;
       display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 18px;
-      margin: 34px 2px 18px;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 48px 8px 10px;
+      border: 2px solid #efb5a1;
+      border-radius: 20px;
+      background:
+        radial-gradient(circle at 89% 16%, rgba(255, 222, 132, .34), transparent 24%),
+        linear-gradient(110deg, rgba(255,249,240,.98), rgba(255,237,232,.94) 52%, rgba(237,250,244,.96));
+      box-shadow: 4px 4px 0 #c57862;
     }
 
-    .section-title { margin: 0; font-size: clamp(24px, 2vw, 32px); font-weight: 900; color: #172033; }
-    .section-desc { margin: 3px 0 0; color: #78869d; font-size: 14px; font-weight: 700; }
+    .motivation-card::after {
+      content: "❀";
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      translate: 0 -50%;
+      color: rgba(214, 108, 82, .46);
+      font-size: 26px;
+      animation: flowerSpin 8s linear infinite;
+    }
+
+    @keyframes flowerSpin { to { transform: rotate(360deg); } }
+
+    .motivation-mascot {
+      width: 48px;
+      height: 48px;
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      border: 2px solid #6fbda4;
+      border-radius: 17px 17px 17px 8px;
+      background: linear-gradient(145deg, #ffffff, #dff6ec);
+      box-shadow: 3px 3px 0 #3e8f77;
+      transform: rotate(1.5deg);
+    }
+
+    .motivation-mascot span {
+      font-size: 25px;
+      line-height: .92;
+      animation: pandaHello 2.6s ease-in-out infinite;
+      transform-origin: bottom center;
+    }
+
+    .motivation-mascot small {
+      margin-top: 2px;
+      color: #4d9985;
+      font-size: 8px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    @keyframes pandaHello {
+      0%, 100% { transform: rotate(0) translateY(0); }
+      45% { transform: rotate(-5deg) translateY(-2px); }
+      65% { transform: rotate(5deg) translateY(-2px); }
+    }
+
+    .motivation-copy {
+      min-width: 0;
+    }
+
+    .motivation-copy span {
+      display: block;
+      margin-bottom: 1px;
+      color: #ad6755;
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+
+    #motivationText {
+      margin: 0;
+      color: #48636c;
+      font-size: clamp(13px, 1.2vw, 16px);
+      font-weight: 900;
+      line-height: 1.25;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
 
     .grid-levels {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0,1fr));
-      gap: 18px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: clamp(16px, 1.6vw, 24px);
     }
 
     .surface-card {
       position: relative;
       overflow: hidden;
-      border: 1px solid rgba(222,228,239,.94);
-      background: rgba(255,255,255,.89);
-      box-shadow: 0 14px 34px rgba(39,48,84,.075);
+      border: 1px solid rgba(218, 235, 227, .93);
+      background: rgba(255,255,255,.90);
+      box-shadow: 0 16px 38px rgba(60, 97, 86, .09);
       backdrop-filter: blur(10px);
     }
 
     .level-card {
-      min-height: 315px;
-      padding: 23px;
-      border-radius: 28px;
-      transition: transform .24s ease, box-shadow .24s ease, border-color .24s ease;
+      min-height: 326px;
+      padding: 19px;
+      border-radius: 31px;
+      background:
+        radial-gradient(circle at 89% 11%, rgba(255,255,255,.68), transparent 23%),
+        linear-gradient(155deg, rgba(255,255,255,.95), var(--card-bg));
+      transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
       isolation: isolate;
+      outline: none;
+      animation: levelCardIn .52s both;
+      animation-delay: var(--card-delay, 0ms);
+    }
+
+    @keyframes levelCardIn {
+      from { opacity: 0; transform: translateY(16px) scale(.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
     }
 
     .level-card::before {
       content: "";
       position: absolute;
-      left: 0;
-      right: 0;
+      left: 19px;
+      right: 19px;
       top: 0;
       height: 5px;
+      border-radius: 0 0 999px 999px;
       background: var(--accent-gradient);
+      opacity: .82;
     }
 
     .level-card::after {
       content: "";
       position: absolute;
-      width: 160px;
-      height: 160px;
-      right: -60px;
-      top: -55px;
+      width: 165px;
+      height: 165px;
+      right: -72px;
+      top: -68px;
       border-radius: 50%;
       background: var(--accent-soft);
       z-index: -1;
+      transition: transform .35s ease;
     }
 
     .level-card.available { cursor: pointer; }
-    .level-card.available:hover {
-      transform: translateY(-7px);
-      border-color: color-mix(in srgb, var(--accent), white 55%);
-      box-shadow: 0 24px 48px rgba(39,48,84,.14);
+
+    .level-card.available:hover,
+    .level-card.available:focus-visible {
+      transform: translateY(-9px) rotate(-.35deg);
+      border-color: color-mix(in srgb, var(--accent), white 60%);
+      box-shadow: 0 27px 55px rgba(65, 106, 94, .16);
     }
 
-    .level-card.unavailable { cursor: not-allowed; filter: saturate(.72); }
+    .level-card.available:hover::after,
+    .level-card.available:focus-visible::after { transform: scale(1.13); }
+
+    .level-card.unavailable {
+      cursor: not-allowed;
+      filter: saturate(.76);
+    }
+
+    .level-card.unavailable::before { opacity: .43; }
+
+    .level-card.unavailable .level-mascot { filter: grayscale(.18); }
+
     .level-watermark {
       position: absolute;
-      right: 15px;
-      bottom: -26px;
+      right: 17px;
+      bottom: -17px;
       color: var(--accent-soft);
-      font-size: 136px;
+      font-size: 110px;
       font-weight: 900;
       line-height: 1;
       user-select: none;
       z-index: -1;
+      transform: rotate(-8deg);
     }
 
-    .level-top { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+    .card-flower {
+      position: absolute;
+      right: 28px;
+      bottom: 72px;
+      color: color-mix(in srgb, var(--accent), transparent 67%);
+      font-size: 22px;
+      z-index: -1;
+      transform: rotate(12deg);
+    }
+
+    .level-top {
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .mascot-wrap {
+      position: relative;
+      width: 88px;
+      height: 88px;
+      flex: 0 0 auto;
+    }
+
+    .level-mascot {
+      width: 80px;
+      height: 80px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,.78);
+      border-radius: 31px 31px 31px 13px;
+      background: var(--mascot-bg);
+      box-shadow: 0 14px 26px color-mix(in srgb, var(--accent), transparent 82%), inset 0 1px 0 rgba(255,255,255,.8);
+      font-size: 44px;
+      line-height: 1;
+      transition: transform .28s ease;
+    }
+
+    .level-card.available:hover .level-mascot,
+    .level-card.available:focus-visible .level-mascot { transform: translateY(-4px) rotate(-5deg) scale(1.04); }
 
     .level-icon {
-      width: 58px;
-      height: 58px;
-      display:grid;
-      place-items:center;
-      border-radius: 19px;
-      color:#fff;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border: 3px solid rgba(255,255,255,.92);
+      border-radius: 13px;
+      color: #fff;
       background: var(--accent-gradient);
-      box-shadow: 0 12px 25px color-mix(in srgb, var(--accent), transparent 68%);
-      font-size: 23px;
-      font-weight:900;
+      box-shadow: 0 8px 16px color-mix(in srgb, var(--accent), transparent 74%);
+      font-size: 14px;
+      font-weight: 900;
     }
 
     .status-badge {
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      padding:6px 9px;
-      border-radius:999px;
-      color: var(--accent);
-      background: var(--accent-soft);
-      font-size:11px;
-      font-weight:900;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 10px;
+      border: 1px solid color-mix(in srgb, var(--accent), white 73%);
+      border-radius: 999px;
+      color: color-mix(in srgb, var(--accent), #345 18%);
+      background: rgba(255,255,255,.66);
+      font-size: 10px;
+      font-weight: 900;
+      white-space: nowrap;
     }
 
-    .level-label { margin: 24px 0 0; color: var(--accent); font-size:11px; font-weight:900; letter-spacing:.15em; text-transform:uppercase; }
-    .level-name { margin: 3px 0 0; color:#182238; font-size:36px; font-weight:900; letter-spacing:-.025em; }
-    .level-desc { min-height:45px; margin: 7px 0 0; color:#7a879c; font-size:14px; font-weight:700; line-height:1.45; }
+    .level-label {
+      margin: 14px 0 0;
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .level-name {
+      margin: 2px 0 0;
+      color: #304856;
+      font-size: 33px;
+      font-weight: 900;
+      letter-spacing: -.025em;
+      line-height: 1.08;
+    }
+
+    .level-desc {
+      min-height: 43px;
+      margin: 6px 0 0;
+      color: #71858e;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.48;
+    }
+
+    .mascot-name {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 6px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      color: color-mix(in srgb, var(--accent), #3f5360 25%);
+      background: rgba(255,255,255,.66);
+      font-size: 11px;
+      font-weight: 800;
+    }
 
     .level-footer {
-      position:absolute;
-      left:23px;
-      right:23px;
-      bottom:21px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      padding-top:15px;
-      border-top:1px solid #edf0f6;
-      color:var(--accent);
-      font-size:13px;
-      font-weight:900;
+      position: absolute;
+      left: 19px;
+      right: 19px;
+      bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding-top: 12px;
+      border-top: 1px dashed color-mix(in srgb, var(--accent), white 75%);
+      color: color-mix(in srgb, var(--accent), #40545e 14%);
+      font-size: 13px;
+      font-weight: 900;
     }
 
-    .level-footer i { transition: transform .22s ease; }
-    .level-card.available:hover .level-footer i { transform: translateX(5px); }
-
-    .catalog-hero {
-      position:relative;
-      overflow:hidden;
-      padding: clamp(24px, 3vw, 42px);
-      border-radius:32px;
-      background: linear-gradient(120deg, #6354f5 0%, #8257ed 54%, #3dc8d1 135%);
-      color:#fff;
-      box-shadow: 0 22px 52px rgba(88,76,222,.24);
+    .level-footer i {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border-radius: 12px;
+      background: rgba(255,255,255,.68);
+      transition: transform .22s ease, background .22s ease;
     }
 
-    .catalog-hero::before {
-      content:"课";
-      position:absolute;
-      right:clamp(18px,5vw,78px);
-      top:50%;
-      transform:translateY(-50%) rotate(-7deg);
-      color:rgba(255,255,255,.10);
-      font-family:"Noto Sans SC",sans-serif;
-      font-size:clamp(120px,16vw,230px);
-      font-weight:900;
-      line-height:1;
+    .level-card.available:hover .level-footer i,
+    .level-card.available:focus-visible .level-footer i {
+      transform: translateX(5px);
+      background: #fff;
     }
 
-    .back-link {
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      border:0;
-      padding:0;
-      color:rgba(255,255,255,.84);
-      background:transparent;
-      cursor:pointer;
-      font-size:13px;
-      font-weight:900;
-      transition: color .2s ease, transform .2s ease;
-    }
-
-    .back-link:hover { color:#fff; transform:translateX(-3px); }
-
-    .catalog-title { position:relative; z-index:1; margin:18px 0 4px; font-size:clamp(32px,4vw,54px); font-weight:900; line-height:1.02; letter-spacing:-.03em; }
-    .catalog-description { position:relative; z-index:1; max-width:720px; margin:0; color:rgba(255,255,255,.78); font-size:15px; font-weight:700; }
-
-    .catalog-meta {
-      position:relative;
-      z-index:1;
-      display:flex;
-      flex-wrap:wrap;
-      align-items:center;
-      gap:9px;
-      margin-top:20px;
-    }
-
-    .catalog-meta span {
-      display:inline-flex;
-      align-items:center;
-      gap:7px;
-      padding:8px 11px;
-      border:1px solid rgba(255,255,255,.18);
-      border-radius:12px;
-      background:rgba(255,255,255,.11);
-      color:#fff;
-      font-size:12px;
-      font-weight:900;
-      backdrop-filter:blur(8px);
+    #catalogPage {
+      padding-top: clamp(12px, 1.25vw, 18px);
     }
 
     .catalog-tools {
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      margin:26px 2px 17px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin: 0 0 16px;
+      padding: 13px 15px;
+      border: 2px solid #bedfd5;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, .91);
+      box-shadow: 5px 5px 0 rgba(57, 139, 115, .20);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
 
-    .catalog-heading { margin:0; color:#172033; font-size:26px; font-weight:900; }
-    .catalog-summary { margin:2px 0 0; color:#7c899f; font-size:13px; font-weight:700; }
+    .catalog-title-wrap {
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .back-link {
+      width: 43px;
+      height: 43px;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      border: 2px solid #12896b;
+      border-radius: 15px;
+      color: #fff;
+      background: linear-gradient(145deg, #18ad86, #66d6b4);
+      box-shadow: 3px 3px 0 #08664f;
+      cursor: pointer;
+      font-size: 15px;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .back-link:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 5px 5px 0 #08664f;
+    }
+
+    .back-link:active {
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0 #08664f;
+    }
+
+    .catalog-copy {
+      min-width: 0;
+    }
+
+    .catalog-kicker {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 2px;
+    }
+
+    .catalog-title {
+      margin: 0;
+      color: #3f9f89;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+
+    .catalog-description {
+      display: none;
+    }
+
+    .lesson-count-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 8px;
+      border: 1px solid #c5e8dc;
+      border-radius: 999px;
+      color: #397e6c;
+      background: #eaf9f3;
+      font-size: 10px;
+      font-weight: 900;
+      line-height: 1.25;
+      white-space: nowrap;
+    }
+
+    .catalog-heading {
+      margin: 0;
+      color: #304856;
+      font-size: clamp(24px, 2.15vw, 31px);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -.025em;
+      white-space: nowrap;
+    }
+
+    .catalog-heading .cn {
+      color: #50b89f;
+      font-size: .72em;
+    }
+
+    .catalog-summary {
+      margin: 3px 0 0;
+      color: #7c9298;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
 
     .search-box {
       position:relative;
@@ -487,26 +753,26 @@
       left:15px;
       top:50%;
       transform:translateY(-50%);
-      color:#9aa5b7;
+      color:#8ca49c;
       font-size:14px;
       pointer-events:none;
     }
 
     #lessonSearch {
       width:100%;
-      border:1px solid #dde4ef;
-      border-radius:16px;
+      border:1px solid #d8e9e2;
+      border-radius:17px;
       padding:12px 15px 12px 42px;
       outline:none;
-      color:#334155;
-      background:rgba(255,255,255,.88);
-      box-shadow:0 9px 24px rgba(39,48,84,.06);
+      color:#39555e;
+      background:rgba(255,255,255,.90);
+      box-shadow:0 9px 24px rgba(70, 108, 96, .07);
       font-size:14px;
       font-weight:700;
       transition:border-color .2s ease, box-shadow .2s ease, background .2s ease;
     }
 
-    #lessonSearch:focus { background:#fff; border-color:#9b8cff; box-shadow:0 0 0 4px rgba(109,93,252,.11), 0 12px 28px rgba(39,48,84,.07); }
+    #lessonSearch:focus { background:#fff; border-color:#7acdb7; box-shadow:0 0 0 4px rgba(71,184,159,.12), 0 12px 28px rgba(68,108,95,.08); }
 
     .lesson-grid {
       display:grid;
@@ -515,10 +781,10 @@
     }
 
     .catalog-card {
-      --lesson-accent:#6d5dfc;
+      --lesson-accent:#55bfa5;
       min-height:250px;
       padding:20px;
-      border-radius:24px;
+      border-radius:26px;
       cursor:pointer;
       display:flex;
       flex-direction:column;
@@ -559,7 +825,7 @@
     .catalog-card:focus-visible {
       transform:translateY(-7px);
       border-color:color-mix(in srgb,var(--lesson-accent),white 58%);
-      box-shadow:0 23px 48px rgba(39,48,84,.13);
+      box-shadow:0 23px 48px rgba(61, 99, 87, .13);
     }
 
     .catalog-card:hover::after { transform:scale(1.18); }
@@ -591,14 +857,14 @@
 
     .lesson-title {
       margin:23px 0 3px;
-      color:#172033;
+      color:#304856;
       font-size:clamp(24px,1.9vw,31px);
       font-weight:900;
       line-height:1.18;
       letter-spacing:-.025em;
     }
 
-    .lesson-pinyin { margin:0; color:#8a96aa; font-size:14px; font-weight:800; line-height:1.45; }
+    .lesson-pinyin { margin:0; color:#84999f; font-size:14px; font-weight:800; line-height:1.45; }
 
     .lesson-footer {
       display:flex;
@@ -607,7 +873,7 @@
       gap:12px;
       margin-top:28px;
       padding-top:14px;
-      border-top:1px solid #edf0f6;
+      border-top:1px solid #e8f0ed;
       color:var(--lesson-accent);
       font-size:13px;
       font-weight:900;
@@ -629,10 +895,10 @@
       grid-column:1/-1;
       padding:55px 20px;
       text-align:center;
-      border:1px dashed #cfd7e6;
+      border:1px dashed #c8ded5;
       border-radius:24px;
-      color:#718096;
-      background:rgba(255,255,255,.6);
+      color:#718b87;
+      background:rgba(255,255,255,.65);
       font-weight:800;
     }
 
@@ -644,30 +910,241 @@
       background:#fff;
     }
 
+
+    /* =========================================================
+       HSK LEVEL CARDS — SHARP, VIVID & HARD-SHADOW OVERRIDE
+       Chỉ tác động đến 4 thẻ cấp độ trong #levelGrid.
+       Không ảnh hưởng thẻ bài học .catalog-card hoặc JavaScript.
+    ========================================================== */
+
+    #levelGrid .level-card:nth-child(1) {
+      --sharp-border: #078b69;
+      --sharp-shadow: #055f49;
+      --sharp-card-bg: #d9fff2;
+      --sharp-mascot-start: #04b98c;
+      --sharp-mascot-end: #55e0b9;
+      --sharp-badge-bg: #caffeb;
+      --sharp-text: #056f57;
+    }
+
+    #levelGrid .level-card:nth-child(2) {
+      --sharp-border: #e66736;
+      --sharp-shadow: #a63d1d;
+      --sharp-card-bg: #ffe8dc;
+      --sharp-mascot-start: #ff6c3b;
+      --sharp-mascot-end: #ffad61;
+      --sharp-badge-bg: #ffe0d1;
+      --sharp-text: #b94720;
+    }
+
+    #levelGrid .level-card:nth-child(3) {
+      --sharp-border: #d29a00;
+      --sharp-shadow: #956800;
+      --sharp-card-bg: #fff3b8;
+      --sharp-mascot-start: #f5b900;
+      --sharp-mascot-end: #ffda4f;
+      --sharp-badge-bg: #ffed9c;
+      --sharp-text: #8b6200;
+    }
+
+    #levelGrid .level-card:nth-child(4) {
+      --sharp-border: #7354cf;
+      --sharp-shadow: #493494;
+      --sharp-card-bg: #eae3ff;
+      --sharp-mascot-start: #8061e8;
+      --sharp-mascot-end: #b59aff;
+      --sharp-badge-bg: #dfd4ff;
+      --sharp-text: #563aa8;
+    }
+
+    #levelGrid .level-card {
+      border: 2px solid var(--sharp-border);
+      background:
+        radial-gradient(circle at 88% 10%, rgba(255,255,255,.58), transparent 22%),
+        linear-gradient(155deg, #ffffff 0%, #ffffff 38%, var(--sharp-card-bg) 100%);
+      box-shadow: 7px 7px 0 var(--sharp-shadow);
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      transition:
+        transform .20s ease,
+        box-shadow .20s ease,
+        border-color .20s ease;
+    }
+
+    #levelGrid .level-card::before {
+      left: 20px;
+      right: 20px;
+      height: 8px;
+      opacity: 1;
+      background: linear-gradient(
+        90deg,
+        var(--sharp-border),
+        var(--sharp-mascot-start),
+        var(--sharp-mascot-end)
+      );
+      border: 1px solid rgba(255,255,255,.65);
+      border-top: 0;
+      box-shadow: 0 3px 0 color-mix(in srgb, var(--sharp-border), black 10%);
+    }
+
+    #levelGrid .level-card::after {
+      background: color-mix(in srgb, var(--sharp-mascot-end), transparent 62%);
+      border: 2px solid color-mix(in srgb, var(--sharp-border), transparent 48%);
+    }
+
+    #levelGrid .level-card.available:hover,
+    #levelGrid .level-card.available:focus-visible {
+      transform: translate(-3px, -3px);
+      border-color: var(--sharp-border);
+      box-shadow:
+        10px 10px 0 var(--sharp-shadow),
+        0 0 0 3px #ffffff,
+        0 0 0 5px var(--sharp-border);
+    }
+
+    #levelGrid .level-card.available:active {
+      transform: translate(4px, 4px);
+      box-shadow: 3px 3px 0 var(--sharp-shadow);
+    }
+
+    #levelGrid .level-card.unavailable {
+      filter: none;
+      opacity: .94;
+      box-shadow: 6px 6px 0 color-mix(in srgb, var(--sharp-shadow), #7b8790 26%);
+    }
+
+    #levelGrid .level-card.unavailable::before {
+      opacity: .82;
+    }
+
+    #levelGrid .level-card.unavailable .level-mascot {
+      filter: saturate(.88);
+    }
+
+    #levelGrid .level-mascot {
+      border: 2px solid var(--sharp-border);
+      background: linear-gradient(
+        145deg,
+        var(--sharp-mascot-start),
+        var(--sharp-mascot-end)
+      );
+      box-shadow: 4px 4px 0 var(--sharp-shadow);
+      filter: saturate(1.18) contrast(1.03);
+    }
+
+    #levelGrid .level-icon {
+      border: 2px solid #ffffff;
+      background: var(--sharp-border);
+      box-shadow: 3px 3px 0 var(--sharp-shadow);
+    }
+
+    #levelGrid .status-badge {
+      border: 2px solid var(--sharp-border);
+      color: var(--sharp-text);
+      background: var(--sharp-badge-bg);
+      box-shadow: 3px 3px 0 var(--sharp-shadow);
+    }
+
+    #levelGrid .level-label,
+    #levelGrid .level-footer {
+      color: var(--sharp-text);
+    }
+
+    #levelGrid .level-name {
+      color: color-mix(in srgb, var(--sharp-text), #243746 48%);
+    }
+
+    #levelGrid .level-desc {
+      color: #4f6871;
+    }
+
+    #levelGrid .mascot-name {
+      border: 1px solid var(--sharp-border);
+      color: var(--sharp-text);
+      background: var(--sharp-badge-bg);
+      box-shadow: 2px 2px 0 var(--sharp-shadow);
+    }
+
+    #levelGrid .level-footer {
+      border-top: 2px dashed color-mix(in srgb, var(--sharp-border), white 24%);
+    }
+
+    #levelGrid .level-footer i {
+      border: 2px solid var(--sharp-border);
+      color: var(--sharp-text);
+      background: var(--sharp-badge-bg);
+      box-shadow: 3px 3px 0 var(--sharp-shadow);
+    }
+
+    #levelGrid .level-card.available:hover .level-footer i,
+    #levelGrid .level-card.available:focus-visible .level-footer i {
+      color: #ffffff;
+      background: var(--sharp-border);
+      transform: translateX(4px);
+    }
+
+    #levelGrid .level-watermark {
+      color: color-mix(in srgb, var(--sharp-border), transparent 78%);
+    }
+
+    #levelGrid .card-flower {
+      color: color-mix(in srgb, var(--sharp-border), transparent 35%);
+    }
+
+
     @media (max-width: 1120px) {
-      .grid-levels, .lesson-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
-      .hero-orbit { opacity:.72; right:35px; }
-      .hero-panel { padding-right:220px; }
+      .compact-level-header { gap: 12px; }
+      .motivation-card { min-width: 340px; }
+      .section-title { font-size: 31px; }
+    }
+
+    @media (max-width: 980px) {
+      .grid-levels, .lesson-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .compact-level-header { align-items: stretch; }
+      .motivation-card { min-width: 0; }
+      .catalog-tools { align-items: stretch; flex-direction: column; }
+      .search-box { width: 100%; }
     }
 
     @media (max-width: 760px) {
-      .app-header { align-items:flex-start; flex-wrap:wrap; }
-      .select-shell { width:100%; min-width:0; }
-      .header-title { max-width:calc(100vw - 92px); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-      .page-wrap { padding:14px; }
-      .hero-panel { min-height:auto; padding:28px 22px; border-radius:25px; }
-      .hero-orbit { display:none; }
-      .hero-title { font-size:38px; }
-      .section-head, .catalog-tools { align-items:flex-start; flex-direction:column; }
-      .search-box { width:100%; }
-      .catalog-hero { border-radius:24px; }
-      .grid-levels, .lesson-grid { grid-template-columns:1fr; }
-      .level-card { min-height:292px; }
-      #lessonIframe { height:calc(100vh - 125px); }
+      .app-header { align-items: flex-start; flex-wrap: wrap; }
+      .select-shell { width: 100%; min-width: 0; }
+      .header-title { max-width: calc(100vw - 92px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+      .page-wrap { padding: 12px; }
+      .level-page, #catalogPage { padding-top: 12px; }
+      .compact-level-header { flex-direction: column; gap: 10px; padding: 11px; }
+      .compact-title-block { width: 100%; }
+      .section-title { font-size: 30px; }
+      .motivation-card { width: 100%; max-width: none; min-height: 56px; }
+      .catalog-heading { white-space: normal; }
+      .grid-levels, .lesson-grid { grid-template-columns: 1fr; }
+      .level-card { min-height: 330px; }
+      .nature-decor.leaf-left { display: none; }
+      .nature-decor.flower-right { right: 1px; top: 67px; font-size: 30px; }
+      .nature-decor.sprout-bottom { display: none; }
+      #lessonIframe { height: calc(100vh - 125px); }
+    }
+
+    @media (max-width: 430px) {
+      .compact-title-icon { width: 46px; height: 46px; border-radius: 15px; }
+      .section-title { font-size: 27px; }
+      .section-title .cn { display: block; margin-top: 3px; font-size: .60em; }
+      #motivationText { white-space: normal; }
+      .motivation-card { padding-right: 41px; }
+      .motivation-card::after { right: 11px; font-size: 22px; }
+      .status-badge { padding: 6px 8px; font-size: 9px; }
+      .level-card { padding: 18px; border-radius: 29px; }
+      .level-footer { left: 18px; right: 18px; }
+      .catalog-title-wrap { align-items: flex-start; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { scroll-behavior:auto !important; animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; }
+      *, *::before, *::after {
+        scroll-behavior:auto !important;
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+        transition-duration:.01ms !important;
+      }
     }
   </style>
 </head>
@@ -693,49 +1170,58 @@
 
   <main class="flex-1">
     <!-- 第一级：HSK 等级目录 -->
-    <section id="levelPage" class="page-wrap">
-      <div class="hero-panel">
-        <div class="hero-kicker"><i class="fa-solid fa-graduation-cap"></i> HSK Standard Course</div>
-        <h2 class="hero-title">Học tiếng Trung<br><span class="cn">从这里开始</span></h2>
-        <p class="hero-subtitle">Chọn cấp độ phù hợp để bắt đầu lộ trình học có cấu trúc. 选择适合你的等级，开启清晰、轻松的汉语学习旅程。</p>
-        <div class="hero-stats">
-          <span class="stat-pill"><i class="fa-solid fa-layer-group text-violet-500"></i> 4 cấp độ · 4个等级</span>
-          <span class="stat-pill"><i class="fa-solid fa-book-open text-cyan-500"></i> 15 bài HSK 1 · 15课</span>
-          <span class="stat-pill"><i class="fa-solid fa-language text-pink-500"></i> Việt · 中文 · Pinyin</span>
+    <section id="levelPage" class="page-wrap level-page">
+      <span class="nature-decor leaf-left" aria-hidden="true">🌿</span>
+      <span class="nature-decor flower-right" aria-hidden="true">🌸</span>
+      <span class="nature-decor sprout-bottom" aria-hidden="true">🌱</span>
+
+      <div class="level-heading-shell">
+        <div class="compact-level-header">
+          <div class="compact-title-block">
+            <div class="compact-title-icon" aria-hidden="true">
+              <i class="fa-solid fa-seedling"></i>
+            </div>
+            <div>
+              <span class="compact-eyebrow">HSK Learning Garden</span>
+              <h2 class="section-title">Chọn cấp độ <span class="cn">选择等级</span></h2>
+            </div>
+          </div>
+
+          <div class="motivation-card" aria-live="polite">
+            <div class="motivation-mascot" aria-hidden="true">
+              <span>🐼</span>
+              <small class="cn">你好!</small>
+            </div>
+            <div class="motivation-copy">
+              <span>Lời nhắn hôm nay · 今日鼓励</span>
+              <p id="motivationText">Mỗi ngày một chút, tiếng Trung không hề khó! 🐾</p>
+            </div>
+          </div>
         </div>
-        <div class="hero-orbit" aria-hidden="true"><span>学</span></div>
       </div>
 
-      <div class="section-head">
-        <div>
-          <h2 class="section-title">Chọn cấp độ <span class="cn">选择等级</span></h2>
-          <p class="section-desc">Mỗi cấp độ được thiết kế thành một lộ trình riêng, rõ ràng và dễ theo dõi.</p>
-        </div>
-      </div>
       <div id="levelGrid" class="grid-levels"></div>
     </section>
 
     <!-- 第二级：所选等级的课程目录 -->
     <section id="catalogPage" class="hidden page-wrap">
-      <div class="catalog-hero">
-        <button id="btnBackLevels" class="back-link">
-          <i class="fa-solid fa-arrow-left"></i>
-          <span>Chọn cấp độ khác · 返回等级</span>
-        </button>
-        <h2 id="catalogTitle" class="catalog-title">Khóa học HSK 1</h2>
-        <p id="catalogDescription" class="catalog-description">Chọn một bài học để bắt đầu (选择课程开始学习)</p>
-        <div class="catalog-meta">
-          <span id="lessonCount"><i class="fa-solid fa-book-open"></i> 15 bài học · 15课</span>
-          <span><i class="fa-solid fa-seedling"></i> Cơ bản · 基础</span>
-          <span><i class="fa-solid fa-language"></i> 中文 + Pinyin</span>
-        </div>
-      </div>
-
       <div class="catalog-tools">
-        <div>
-          <h3 class="catalog-heading">Danh sách bài học <span class="cn">课程目录</span></h3>
-          <p id="searchResultCount" class="catalog-summary">Hiển thị toàn bộ bài học</p>
+        <div class="catalog-title-wrap">
+          <button id="btnBackLevels" class="back-link" title="Chọn cấp độ khác" aria-label="Chọn cấp độ khác">
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+
+          <div class="catalog-copy">
+            <div class="catalog-kicker">
+              <p id="catalogTitle" class="catalog-title">HSK 1 Standard Course</p>
+              <span id="lessonCount" class="lesson-count-chip"><i class="fa-solid fa-book-open"></i> 15 bài học · 15课</span>
+            </div>
+            <h2 class="catalog-heading">Danh sách bài học <span class="cn">课程目录</span></h2>
+            <p id="catalogDescription" class="catalog-description">Chọn một bài học để bắt đầu (选择课程开始学习)</p>
+            <p id="searchResultCount" class="catalog-summary">Hiển thị toàn bộ bài học</p>
+          </div>
         </div>
+
         <label class="search-box">
           <i class="fa-solid fa-magnifying-glass"></i>
           <input id="lessonSearch" type="search" placeholder="Tìm bài, chữ Hán hoặc Pinyin…" autocomplete="off" />
@@ -761,13 +1247,89 @@
     };
 
     const LEVEL_PALETTES = [
-      { accent: "#6D5DFC", gradient: "linear-gradient(145deg,#6D5DFC,#8B5CF6)", soft: "rgba(109,93,252,.105)" },
-      { accent: "#0EA5E9", gradient: "linear-gradient(145deg,#0EA5E9,#22C3B6)", soft: "rgba(14,165,233,.10)" },
-      { accent: "#F97316", gradient: "linear-gradient(145deg,#F97316,#F59E0B)", soft: "rgba(249,115,22,.10)" },
-      { accent: "#EC4899", gradient: "linear-gradient(145deg,#EC4899,#F43F5E)", soft: "rgba(236,72,153,.10)" }
+      { accent: "#45B89C", gradient: "linear-gradient(145deg,#45B89C,#7AD4B9)", soft: "rgba(69,184,156,.14)", cardBg: "#EAF9F3", mascotBg: "linear-gradient(145deg,#E3F9F0,#CFF2E5)" },
+      { accent: "#EF927F", gradient: "linear-gradient(145deg,#EF927F,#F6B39F)", soft: "rgba(239,146,127,.14)", cardBg: "#FFF0EB", mascotBg: "linear-gradient(145deg,#FFF0EB,#FFDCD1)" },
+      { accent: "#DCAA3F", gradient: "linear-gradient(145deg,#E2B54E,#F2D57C)", soft: "rgba(226,181,78,.16)", cardBg: "#FFF8DB", mascotBg: "linear-gradient(145deg,#FFF7D5,#F9E9A8)" },
+      { accent: "#8D7BCB", gradient: "linear-gradient(145deg,#8D7BCB,#B4A7E5)", soft: "rgba(141,123,203,.14)", cardBg: "#F2EEFF", mascotBg: "linear-gradient(145deg,#F3EFFF,#DDD5FA)" }
     ];
 
-    const LESSON_COLORS = ["#6D5DFC", "#0EA5E9", "#14B8A6", "#F59E0B", "#F97316", "#EC4899"];
+    const LEVEL_MASCOTS = [
+      { emoji: "🐰", name: "Thỏ con · 小兔" },
+      { emoji: "🐱", name: "Mèo nhỏ · 小猫" },
+      { emoji: "🐶", name: "Shiba · 柴犬" },
+      { emoji: "🐼", name: "Gấu trúc · 熊猫" }
+    ];
+
+    const MOTIVATION_QUOTES = [
+      "Mỗi ngày một chút, tiếng Trung không hề khó! 🐾",
+      "Cố lên nha, gấu trúc nhỏ đang đợi bạn! 🐼🌿",
+      "Học một âm mới hôm nay, ngày mai bạn sẽ nói tự tin hơn! 🌸",
+      "Chậm một chút cũng được, miễn là mình vẫn đang tiến lên! 🐰✨",
+      "Mỗi chữ Hán là một hạt mầm nhỏ đang lớn lên cùng bạn! 🌱",
+      "Bạn giỏi hơn hôm qua rồi đó, tiếp tục nhé! 🐱💛"
+    ];
+
+    const LESSON_COLORS = ["#45B89C", "#EF927F", "#73B9A5", "#E2B54E", "#E89468", "#9A89D2"];
+
+    /*
+      Dữ liệu dự phòng giúp giao diện 4 thẻ HSK luôn hiển thị ngay cả khi
+      lessons-index.js chưa được đặt cùng thư mục hoặc chưa tải thành công.
+      Khi lessons-index.js tồn tại, dữ liệu thật trong file đó vẫn được ưu tiên.
+    */
+    const FALLBACK_HSK_COURSES = [
+      {
+        id: "hsk1",
+        level: 1,
+        label: "HSK 1",
+        title: "HSK 1 Standard Course",
+        description: "入门汉语 · Làm quen với tiếng Trung cơ bản",
+        available: true,
+        lessons: [
+          { id: 1, title: "你好", pinyin: "Nǐ hǎo", file: "", locked: false },
+          { id: 2, title: "你是哪国人", pinyin: "Nǐ shì nǎ guó rén", file: "", locked: false },
+          { id: 3, title: "你叫什么名字", pinyin: "Nǐ jiào shénme míngzi", file: "", locked: false },
+          { id: 4, title: "她是我的汉语老师", pinyin: "Tā shì wǒ de Hànyǔ lǎoshī", file: "", locked: false },
+          { id: 5, title: "她女儿今年二十岁", pinyin: "Tā nǚ'ér jīnnián èrshí suì", file: "", locked: false },
+          { id: 6, title: "我会说汉语", pinyin: "Wǒ huì shuō Hànyǔ", file: "", locked: false },
+          { id: 7, title: "今天几号", pinyin: "Jīntiān jǐ hào", file: "", locked: false },
+          { id: 8, title: "我想喝茶", pinyin: "Wǒ xiǎng hē chá", file: "", locked: false },
+          { id: 9, title: "你儿子在哪儿工作", pinyin: "Nǐ érzi zài nǎr gōngzuò", file: "", locked: false },
+          { id: 10, title: "我能坐这儿吗", pinyin: "Wǒ néng zuò zhèr ma", file: "", locked: false },
+          { id: 11, title: "现在几点", pinyin: "Xiànzài jǐ diǎn", file: "", locked: false },
+          { id: 12, title: "明天天气怎么样", pinyin: "Míngtiān tiānqì zěnmeyàng", file: "", locked: false },
+          { id: 13, title: "他在学做中国菜呢", pinyin: "Tā zài xué zuò Zhōngguó cài ne", file: "", locked: false },
+          { id: 14, title: "她买了不少衣服", pinyin: "Tā mǎi le bù shǎo yīfu", file: "", locked: false },
+          { id: 15, title: "我是坐飞机来的", pinyin: "Wǒ shì zuò fēijī lái de", file: "", locked: false }
+        ]
+      },
+      {
+        id: "hsk2",
+        level: 2,
+        label: "HSK 2",
+        title: "HSK 2 Standard Course",
+        description: "基础汉语 · Mở rộng vốn từ và mẫu câu",
+        available: false,
+        lessons: []
+      },
+      {
+        id: "hsk3",
+        level: 3,
+        label: "HSK 3",
+        title: "HSK 3 Standard Course",
+        description: "进阶汉语 · Giao tiếp tự nhiên hơn mỗi ngày",
+        available: false,
+        lessons: []
+      },
+      {
+        id: "hsk4",
+        level: 4,
+        label: "HSK 4",
+        title: "HSK 4 Standard Course",
+        description: "中级汉语 · Nâng cao khả năng đọc và diễn đạt",
+        available: false,
+        lessons: []
+      }
+    ];
 
     const elements = {
       levelPage: document.getElementById("levelPage"),
@@ -784,7 +1346,8 @@
       searchResultCount: document.getElementById("searchResultCount"),
       headerSubtitle: document.getElementById("headerSubtitle"),
       headerTitle: document.getElementById("headerTitle"),
-      homeIcon: document.getElementById("homeIcon")
+      homeIcon: document.getElementById("homeIcon"),
+      motivationText: document.getElementById("motivationText")
     };
 
     function hideAllViews() {
@@ -797,8 +1360,43 @@
       requestAnimationFrame(() => window.scrollTo({ top: 0, left: 0, behavior: "auto" }));
     }
 
+    function getExternalCourses() {
+      try {
+        if (typeof HSK_COURSES !== "undefined" && Array.isArray(HSK_COURSES)) {
+          return HSK_COURSES;
+        }
+      } catch (error) {
+        console.warn("Không thể đọc lessons-index.js, đang dùng dữ liệu dự phòng.", error);
+      }
+      return [];
+    }
+
+    function getCourses() {
+      const externalCourses = getExternalCourses();
+
+      return FALLBACK_HSK_COURSES.map(fallbackCourse => {
+        const externalCourse = externalCourses.find(course =>
+          Number(course.level) === Number(fallbackCourse.level) ||
+          String(course.id).toLowerCase() === String(fallbackCourse.id).toLowerCase()
+        );
+
+        if (!externalCourse) return fallbackCourse;
+
+        return Object.assign({}, fallbackCourse, externalCourse, {
+          level: Number(externalCourse.level ?? fallbackCourse.level),
+          lessons: Array.isArray(externalCourse.lessons)
+            ? externalCourse.lessons
+            : fallbackCourse.lessons
+        });
+      });
+    }
+
+    function isCourseAvailable(course) {
+      return Number(course?.level) === 1 && Array.isArray(course?.lessons) && course.lessons.length > 0;
+    }
+
     function findCourse(courseId) {
-      return HSK_COURSES.find(course => course.id === courseId);
+      return getCourses().find(course => String(course.id) === String(courseId));
     }
 
     function findLesson(courseId, lessonId) {
@@ -811,10 +1409,17 @@
       return `lesson:${courseId}:${lessonId}`;
     }
 
+    function setMotivationQuote() {
+      if (!elements.motivationText) return;
+      const randomIndex = Math.floor(Math.random() * MOTIVATION_QUOTES.length);
+      elements.motivationText.textContent = MOTIVATION_QUOTES[randomIndex];
+    }
+
     function renderLevelCards() {
-      elements.levelGrid.innerHTML = HSK_COURSES.map((course, index) => {
-        const isAvailable = course.available && course.lessons.length > 0;
+      elements.levelGrid.innerHTML = getCourses().map((course, index) => {
+        const isAvailable = isCourseAvailable(course);
         const palette = LEVEL_PALETTES[index % LEVEL_PALETTES.length];
+        const mascot = LEVEL_MASCOTS[index % LEVEL_MASCOTS.length];
         const status = isAvailable ? "Đã mở · 已开放" : "Sắp ra mắt · 即将开放";
         const actionText = isAvailable ? `${course.lessons.length} bài học · 查看课程` : "Nội dung đang chuẩn bị · 准备中";
         const icon = isAvailable ? "fa-arrow-right" : "fa-clock";
@@ -822,18 +1427,23 @@
         return `
           <article
             class="level-card surface-card ${isAvailable ? "available" : "unavailable"}"
-            style="--accent:${palette.accent};--accent-gradient:${palette.gradient};--accent-soft:${palette.soft}"
+            style="--accent:${palette.accent};--accent-gradient:${palette.gradient};--accent-soft:${palette.soft};--card-bg:${palette.cardBg};--mascot-bg:${palette.mascotBg};--card-delay:${Math.min(index * 85, 255)}ms"
             ${isAvailable ? `onclick="showCourse('${course.id}')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showCourse('${course.id}')}"` : ""}
             aria-disabled="${!isAvailable}"
           >
             <div class="level-watermark">${course.level}</div>
+            <div class="card-flower" aria-hidden="true">✿</div>
             <div class="level-top">
-              <div class="level-icon">${course.level}</div>
+              <div class="mascot-wrap" aria-hidden="true">
+                <div class="level-mascot">${mascot.emoji}</div>
+                <div class="level-icon">${course.level}</div>
+              </div>
               <span class="status-badge"><i class="fa-solid ${isAvailable ? "fa-circle-check" : "fa-clock"}"></i>${status}</span>
             </div>
-            <p class="level-label">HSK Level</p>
+            <p class="level-label">HSK Level ${course.level}</p>
             <h3 class="level-name">${course.label}</h3>
             <p class="level-desc cn">${course.description}</p>
+            <span class="mascot-name"><i class="fa-solid fa-paw"></i>${mascot.name}</span>
             <div class="level-footer">
               <span>${actionText}</span>
               <i class="fa-solid ${icon}"></i>
@@ -845,11 +1455,11 @@
     function renderQuickSelect() {
       elements.lessonSelect.innerHTML = '<option value="levels">🎓 Chọn cấp độ (选择等级)</option>';
 
-      HSK_COURSES.forEach(course => {
+      getCourses().forEach(course => {
         const group = document.createElement("optgroup");
-        group.label = `${course.label}${course.available ? "" : " · 即将开放"}`;
+        group.label = `${course.label}${isCourseAvailable(course) ? "" : " · 即将开放"}`;
 
-        if (course.available && course.lessons.length > 0) {
+        if (isCourseAvailable(course)) {
           const catalogOption = document.createElement("option");
           catalogOption.value = `course:${course.id}`;
           catalogOption.textContent = `📚 ${course.label} · Danh sách bài học`;
@@ -935,6 +1545,7 @@
 
       hideAllViews();
       elements.levelPage.classList.remove("hidden");
+      elements.lessonIframe.removeAttribute("srcdoc");
       elements.lessonIframe.src = "about:blank";
       elements.headerSubtitle.textContent = "HSK STANDARD COURSE";
       elements.headerTitle.textContent = "Chọn cấp độ (选择HSK等级)";
@@ -946,7 +1557,7 @@
 
     function showCourse(courseId) {
       const course = findCourse(courseId);
-      if (!course || !course.available || course.lessons.length === 0) return;
+      if (!course || !isCourseAvailable(course)) return;
 
       state.view = "catalog";
       state.courseId = course.id;
@@ -956,12 +1567,52 @@
       renderLessons(course);
       hideAllViews();
       elements.catalogPage.classList.remove("hidden");
+      elements.lessonIframe.removeAttribute("srcdoc");
       elements.lessonIframe.src = "about:blank";
       elements.headerSubtitle.textContent = `${course.label} STANDARD COURSE`;
       elements.headerTitle.textContent = `Danh sách bài học ${course.label} (${course.label}课程目录)`;
       elements.lessonSelect.value = `course:${course.id}`;
       elements.homeIcon.className = "fa-solid fa-arrow-left";
       scrollPageTop();
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function createFallbackLessonPage(course, lesson) {
+      const safeCourse = escapeHtml(course.label);
+      const safeLessonId = escapeHtml(lesson.id);
+      const safeTitle = escapeHtml(lesson.title);
+      const safePinyin = escapeHtml(lesson.pinyin);
+
+      return `<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${safeCourse} · Bài ${safeLessonId}</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#304856;background:linear-gradient(145deg,#f1fcf7,#fff5ef)}
+    .card{width:min(680px,100%);padding:42px 28px;text-align:center;border:1px solid #d9ece4;border-radius:32px;background:rgba(255,255,255,.92);box-shadow:0 22px 60px rgba(64,110,95,.13)}
+    .mascot{font-size:58px}.label{margin:16px 0 5px;color:#45a98f;font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.title{margin:0;font-size:clamp(38px,8vw,70px);line-height:1.1}.pinyin{margin:10px 0 24px;color:#738993;font-size:22px;font-weight:700}.notice{margin:0 auto;max-width:520px;padding:14px 16px;border-radius:18px;color:#7a6659;background:#fff4e9;font-size:15px;line-height:1.55}
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="mascot">🐰🌱</div>
+    <p class="label">${safeCourse} · Bài ${safeLessonId}</p>
+    <h1 class="title">${safeTitle}</h1>
+    <p class="pinyin">${safePinyin}</p>
+    <p class="notice">Giao diện đang sử dụng dữ liệu dự phòng vì chưa tìm thấy <strong>lessons-index.js</strong>. Hãy đặt file dữ liệu bài học gốc cùng thư mục với file HTML này để mở đúng nội dung bài học của bạn.</p>
+  </main>
+</body>
+</html>`;
     }
 
     function switchLesson(courseId, lessonId) {
@@ -990,7 +1641,15 @@
       elements.headerTitle.innerHTML = `${course.label} · Bài ${lesson.id}: <span class="cn">${lesson.title}</span>`;
       elements.lessonSelect.value = lessonValue(course.id, lesson.id);
       elements.homeIcon.className = "fa-solid fa-arrow-left";
-      elements.lessonIframe.src = lesson.file;
+
+      if (lesson.file) {
+        elements.lessonIframe.removeAttribute("srcdoc");
+        elements.lessonIframe.src = lesson.file;
+      } else {
+        elements.lessonIframe.src = "about:blank";
+        elements.lessonIframe.srcdoc = createFallbackLessonPage(course, lesson);
+      }
+
       scrollPageTop();
     }
 
@@ -1014,6 +1673,7 @@
       if ("scrollRestoration" in history) history.scrollRestoration = "manual";
       renderLevelCards();
       renderQuickSelect();
+      setMotivationQuote();
       showLevels();
     }
 
