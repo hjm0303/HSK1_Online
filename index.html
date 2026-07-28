@@ -1293,23 +1293,7 @@
         title: "HSK 1 Standard Course",
         description: "入门汉语 · Làm quen với tiếng Trung cơ bản",
         available: true,
-        lessons: [
-          { id: 1, title: "你好", pinyin: "Nǐ hǎo", file: "", locked: false },
-          { id: 2, title: "你是哪国人", pinyin: "Nǐ shì nǎ guó rén", file: "", locked: false },
-          { id: 3, title: "你叫什么名字", pinyin: "Nǐ jiào shénme míngzi", file: "", locked: false },
-          { id: 4, title: "她是我的汉语老师", pinyin: "Tā shì wǒ de Hànyǔ lǎoshī", file: "", locked: false },
-          { id: 5, title: "她女儿今年二十岁", pinyin: "Tā nǚ'ér jīnnián èrshí suì", file: "", locked: false },
-          { id: 6, title: "我会说汉语", pinyin: "Wǒ huì shuō Hànyǔ", file: "", locked: false },
-          { id: 7, title: "今天几号", pinyin: "Jīntiān jǐ hào", file: "", locked: false },
-          { id: 8, title: "我想喝茶", pinyin: "Wǒ xiǎng hē chá", file: "", locked: false },
-          { id: 9, title: "你儿子在哪儿工作", pinyin: "Nǐ érzi zài nǎr gōngzuò", file: "", locked: false },
-          { id: 10, title: "我能坐这儿吗", pinyin: "Wǒ néng zuò zhèr ma", file: "", locked: false },
-          { id: 11, title: "现在几点", pinyin: "Xiànzài jǐ diǎn", file: "", locked: false },
-          { id: 12, title: "明天天气怎么样", pinyin: "Míngtiān tiānqì zěnmeyàng", file: "", locked: false },
-          { id: 13, title: "他在学做中国菜呢", pinyin: "Tā zài xué zuò Zhōngguó cài ne", file: "", locked: false },
-          { id: 14, title: "她买了不少衣服", pinyin: "Tā mǎi le bù shǎo yīfu", file: "", locked: false },
-          { id: 15, title: "我是坐飞机来的", pinyin: "Wǒ shì zuò fēijī lái de", file: "", locked: false }
-        ]
+        lessons: []
       },
       {
         id: "hsk2",
@@ -1317,7 +1301,7 @@
         label: "HSK 2",
         title: "HSK 2 Standard Course",
         description: "基础汉语 · Mở rộng vốn từ và mẫu câu",
-        available: false,
+        available: true,
         lessons: []
       },
       {
@@ -1327,7 +1311,10 @@
         title: "HSK 3 Standard Course",
         description: "进阶汉语 · Giao tiếp tự nhiên hơn mỗi ngày",
         available: false,
-        lessons: []
+        lessons: [
+		
+		
+		]
       },
       {
         id: "hsk4",
@@ -1401,7 +1388,7 @@
     }
 
     function isCourseAvailable(course) {
-      return Number(course?.level) === 1 && Array.isArray(course?.lessons) && course.lessons.length > 0;
+      return course?.available === true && Array.isArray(course?.lessons) && course.lessons.length > 0;
     }
 
     function findCourse(courseId) {
