@@ -7417,7 +7417,7 @@ const LESSONS_DATA = {
         "她是我的汉语老师。",
         "他是哪国人？",
         "她呢？",
-        "她不是我同学，她是我朋友。"
+        "她不是我的同学，她是我的朋友。"
       ],
       phonetics:[
         "Phân biệt 谁: shéi / shuí",
@@ -7468,7 +7468,7 @@ const LESSONS_DATA = {
       {han:"她是我的汉语老师。",py:"Tā shì wǒ de hànyǔ lǎoshī.",vi:"Cô ấy là giáo viên tiếng Trung của tôi."},
       {han:"他是哪国人？",py:"Tā shì nǎ guó rén?",vi:"Anh ấy là người nước nào?"},
       {han:"她呢？",py:"Tā ne?",vi:"Còn cô ấy thì sao?"},
-      {han:"她是我朋友。",py:"Tā shì wǒ péngyou.",vi:"Cô ấy là bạn của tôi."}
+      {han:"她是我的朋友。",py:"Tā shì wǒ péngyou.",vi:"Cô ấy là bạn của tôi."}
     ],
     loanwords:[
       {han:"汉语",py:"hànyǔ",vi:"tiếng Trung"},
@@ -7513,9 +7513,9 @@ const LESSONS_DATA = {
           {speaker:"A",name:"A",text:"她呢？她是美国人吗？",py:"Tā ne? Tā shì Měiguó rén ma?",vi:"Còn cô ấy? Cô ấy là người Mỹ phải không?"},
           {speaker:"B",name:"B",text:"她不是美国人，她是中国人。",py:"Tā bú shì Měiguó rén, tā shì Zhōngguó rén.",vi:"Cô ấy không phải người Mỹ, cô ấy là người Trung Quốc."},
           {speaker:"A",name:"A",text:"他是谁？",py:"Tā shì shéi?",vi:"Anh ấy là ai?"},
-          {speaker:"B",name:"B",text:"他是我同学。",py:"Tā shì wǒ tóngxué.",vi:"Anh ấy là bạn học của tôi."},
-          {speaker:"A",name:"A",text:"她是我同学吗？",py:"Tā shì wǒ tóngxué ma?",vi:"Cô ấy là bạn học của tôi phải không?"},
-          {speaker:"B",name:"B",text:"她不是我同学，她是我朋友。",py:"Tā bú shì wǒ tóngxué, tā shì wǒ péngyou.",vi:"Cô ấy không phải bạn học của tôi, cô ấy là bạn của tôi."}
+          {speaker:"B",name:"B",text:"他是我的同学。",py:"Tā shì wǒ tóngxué.",vi:"Anh ấy là bạn học của tôi."},
+          {speaker:"A",name:"A",text:"她是你的同学吗？",py:"Tā shì nǐ tóngxué ma?",vi:"Cô ấy là bạn học của bạn phải không?"},
+          {speaker:"B",name:"B",text:"她不是我的同学，她是我的朋友。",py:"Tā bú shì wǒ de tóngxué, tā shì wǒ de péngyou.",vi:"Cô ấy không phải bạn học của tôi, cô ấy là bạn của tôi."}
         ]
       }
     ],
@@ -7524,7 +7524,7 @@ const LESSONS_DATA = {
       {q:"A: 他是___国人？ B: 他是美国人。",options:["谁","哪","的"],answer:"哪"},
       {q:"她是我___汉语老师。",options:["的","呢","谁"],answer:"的"},
       {q:"A: 他是美国人。她___？ B: 她是中国人。",options:["的","哪","呢"],answer:"呢"},
-      {q:"她不是我同学，她是我___。",options:["朋友","国","汉语"],answer:"朋友"}
+      {q:"她不是我的同学，她是我的___。",options:["朋友","国","汉语"],answer:"朋友"}
     ],
     arrange:[
       {pieces:["她","是","谁"],answer:"她是谁"},
@@ -8160,7 +8160,7 @@ function warmupHTML(){
     {han:"她呢？",py:"Tā ne?",vi:"Còn cô ấy thì sao?"},
     {han:"她是美国人吗？",py:"Tā shì Měiguó rén ma?",vi:"Cô ấy là người Mỹ phải không?"},
     {han:"她不是美国人，她是中国人。",py:"Tā bú shì Měiguó rén, tā shì Zhōngguó rén.",vi:"Cô ấy không phải người Mỹ, cô ấy là người Trung Quốc."},
-    {han:"她不是我同学，她是我朋友。",py:"Tā bú shì wǒ tóngxué, tā shì wǒ péngyou.",vi:"Cô ấy không phải bạn học của tôi, cô ấy là bạn của tôi."}
+    {han:"她不是我的同学，她是我的朋友。",py:"Tā bú shì wǒ de tóngxué, tā shì wǒ de péngyou.",vi:"Cô ấy không phải bạn học của tôi, cô ấy là bạn của tôi."}
   ];
 
   const dialogues=[
@@ -9578,61 +9578,36 @@ function bindTyping(){
   const petBox=document.getElementById("typingPet"),petIcon=document.getElementById("typingPetIcon"),petText=document.getElementById("typingPetText");
   const progress=document.getElementById("typingProgressBar"),counter=document.getElementById("typingCounter");
 
-  /* Chỉ dùng mẫu câu và từ vựng thuộc Bài 1–4 của Giáo trình Chuẩn HSK 1. */
+  /* Bộ câu đã tinh gọn: mỗi câu chỉ có một yêu cầu và một đáp án, không ghép hội thoại A/B. */
   const sentenceBank=[
     {zh:"你好！",py:"Nǐ hǎo!",vi:"Xin chào!",alts:["Chào bạn!"]},
     {zh:"您好！",py:"Nín hǎo!",vi:"Xin chào! (cách nói lịch sự)",alts:["Kính chào!","Chào thầy/cô!"]},
     {zh:"你们好！",py:"Nǐmen hǎo!",vi:"Chào các bạn!",alts:["Xin chào các bạn!"]},
     {zh:"你好吗？",py:"Nǐ hǎo ma?",vi:"Bạn khỏe không?",alts:["Bạn có khỏe không?"]},
-    {zh:"您好吗？",py:"Nín hǎo ma?",vi:"Thầy/cô khỏe không?",alts:["Ông/bà khỏe không?","Bạn khỏe không? (lịch sự)"]},
     {zh:"你们好吗？",py:"Nǐmen hǎo ma?",vi:"Các bạn khỏe không?",alts:["Các bạn có khỏe không?"]},
     {zh:"老师，您好！",py:"Lǎoshī, nín hǎo!",vi:"Chào thầy/cô!",alts:["Thưa thầy/cô, xin chào!"]},
-    {zh:"李老师，您好！",py:"Lǐ lǎoshī, nín hǎo!",vi:"Chào giáo viên Lý!",alts:["Chào thầy Lý!","Chào cô Lý!"]},
     {zh:"对不起！",py:"Duìbuqǐ!",vi:"Xin lỗi!",alts:["Tôi xin lỗi!"]},
-    {zh:"没关系！",py:"Méi guānxi!",vi:"Không sao!",alts:["Không có gì!","Không vấn đề gì!"]},
+    {zh:"没关系！",py:"Méi guānxi!",vi:"Không sao!",alts:["Không vấn đề gì!"]},
     {zh:"谢谢！",py:"Xièxie!",vi:"Cảm ơn!",alts:["Xin cảm ơn!"]},
     {zh:"谢谢你！",py:"Xièxie nǐ!",vi:"Cảm ơn bạn!",alts:["Xin cảm ơn bạn!"]},
-    {zh:"不谢！",py:"Bú xiè!",vi:"Không cần cảm ơn!",alts:["Không có gì!"]},
-    {zh:"不客气！",py:"Bú kèqi!",vi:"Không có gì!",alts:["Đừng khách sáo!","Không cần khách sáo!"]},
+    {zh:"不谢！",py:"Bú xiè!",vi:"Không cần cảm ơn!",alts:[]},
+    {zh:"不客气！",py:"Bú kèqi!",vi:"Đừng khách sáo!",alts:["Không cần khách sáo!"]},
     {zh:"再见！",py:"Zàijiàn!",vi:"Tạm biệt!",alts:["Hẹn gặp lại!"]},
     {zh:"你叫什么名字？",py:"Nǐ jiào shénme míngzi?",vi:"Bạn tên là gì?",alts:["Bạn gọi là gì?"]},
     {zh:"您叫什么名字？",py:"Nín jiào shénme míngzi?",vi:"Thầy/cô tên là gì?",alts:["Ông/bà tên là gì?","Bạn tên là gì? (lịch sự)"]},
     {zh:"我叫李月。",py:"Wǒ jiào Lǐ Yuè.",vi:"Tôi tên là Lý Nguyệt.",alts:["Tôi gọi là Lý Nguyệt."]},
-    {zh:"我叫王明。",py:"Wǒ jiào Wáng Míng.",vi:"Tôi tên là Vương Minh.",alts:["Tôi gọi là Vương Minh."]},
     {zh:"他叫什么名字？",py:"Tā jiào shénme míngzi?",vi:"Anh ấy tên là gì?",alts:["Cậu ấy tên là gì?"]},
     {zh:"他叫王明。",py:"Tā jiào Wáng Míng.",vi:"Anh ấy tên là Vương Minh.",alts:["Cậu ấy tên là Vương Minh."]},
     {zh:"她叫什么名字？",py:"Tā jiào shénme míngzi?",vi:"Cô ấy tên là gì?",alts:["Chị ấy tên là gì?"]},
     {zh:"她叫李月。",py:"Tā jiào Lǐ Yuè.",vi:"Cô ấy tên là Lý Nguyệt.",alts:["Chị ấy tên là Lý Nguyệt."]},
-    {zh:"你的名字是什么？",py:"Nǐ de míngzi shì shénme?",vi:"Tên của bạn là gì?",alts:["Bạn tên là gì?"]},
-    {zh:"他的名字是什么？",py:"Tā de míngzi shì shénme?",vi:"Tên của anh ấy là gì?",alts:["Anh ấy tên là gì?"]},
-    {zh:"她的名字是什么？",py:"Tā de míngzi shì shénme?",vi:"Tên của cô ấy là gì?",alts:["Cô ấy tên là gì?"]},
     {zh:"你是老师吗？",py:"Nǐ shì lǎoshī ma?",vi:"Bạn là giáo viên phải không?",alts:["Bạn có phải là giáo viên không?"]},
-    {zh:"我不是老师，我是学生。",py:"Wǒ bú shì lǎoshī, wǒ shì xuésheng.",vi:"Tôi không phải là giáo viên, tôi là học sinh.",alts:["Tôi không phải giáo viên, tôi là học sinh."]},
+    {zh:"我不是老师，我是学生。",py:"Wǒ bú shì lǎoshī, wǒ shì xuésheng.",vi:"Tôi không phải giáo viên, tôi là học sinh.",alts:["Tôi không phải là giáo viên, tôi là học sinh."]},
     {zh:"你是学生吗？",py:"Nǐ shì xuésheng ma?",vi:"Bạn là học sinh phải không?",alts:["Bạn có phải là học sinh không?"]},
     {zh:"我是学生。",py:"Wǒ shì xuésheng.",vi:"Tôi là học sinh.",alts:[]},
-    {zh:"我不是学生，我是老师。",py:"Wǒ bú shì xuésheng, wǒ shì lǎoshī.",vi:"Tôi không phải là học sinh, tôi là giáo viên.",alts:["Tôi không phải học sinh, tôi là giáo viên."]},
-    {zh:"他是老师吗？",py:"Tā shì lǎoshī ma?",vi:"Anh ấy là giáo viên phải không?",alts:["Anh ấy có phải là giáo viên không?"]},
-    {zh:"他不是老师，他是学生。",py:"Tā bú shì lǎoshī, tā shì xuésheng.",vi:"Anh ấy không phải là giáo viên, anh ấy là học sinh.",alts:["Cậu ấy không phải giáo viên, cậu ấy là học sinh."]},
-    {zh:"她是学生吗？",py:"Tā shì xuésheng ma?",vi:"Cô ấy là học sinh phải không?",alts:["Cô ấy có phải là học sinh không?"]},
-    {zh:"她不是学生，她是老师。",py:"Tā bú shì xuésheng, tā shì lǎoshī.",vi:"Cô ấy không phải là học sinh, cô ấy là giáo viên.",alts:["Chị ấy không phải học sinh, chị ấy là giáo viên."]},
-    {zh:"你们是学生吗？",py:"Nǐmen shì xuésheng ma?",vi:"Các bạn là học sinh phải không?",alts:["Các bạn có phải là học sinh không?"]},
-    {zh:"你们是老师吗？",py:"Nǐmen shì lǎoshī ma?",vi:"Các bạn là giáo viên phải không?",alts:["Các bạn có phải là giáo viên không?"]},
-    {zh:"你是中国人吗？",py:"Nǐ shì Zhōngguó rén ma?",vi:"Bạn là người Trung Quốc phải không?",alts:["Bạn có phải là người Trung Quốc không?"]},
-    {zh:"我不是中国人，我是美国人。",py:"Wǒ bú shì Zhōngguó rén, wǒ shì Měiguó rén.",vi:"Tôi không phải là người Trung Quốc, tôi là người Mỹ.",alts:["Tôi không phải người Trung Quốc, tôi là người Mỹ."]},
-    {zh:"你是美国人吗？",py:"Nǐ shì Měiguó rén ma?",vi:"Bạn là người Mỹ phải không?",alts:["Bạn có phải là người Mỹ không?"]},
-    {zh:"我不是美国人，我是中国人。",py:"Wǒ bú shì Měiguó rén, wǒ shì Zhōngguó rén.",vi:"Tôi không phải là người Mỹ, tôi là người Trung Quốc.",alts:["Tôi không phải người Mỹ, tôi là người Trung Quốc."]},
-    {zh:"他是中国人吗？",py:"Tā shì Zhōngguó rén ma?",vi:"Anh ấy là người Trung Quốc phải không?",alts:["Anh ấy có phải là người Trung Quốc không?"]},
-    {zh:"他是中国人。",py:"Tā shì Zhōngguó rén.",vi:"Anh ấy là người Trung Quốc.",alts:["Cậu ấy là người Trung Quốc."]},
-    {zh:"他是美国人吗？",py:"Tā shì Měiguó rén ma?",vi:"Anh ấy là người Mỹ phải không?",alts:["Anh ấy có phải là người Mỹ không?"]},
-    {zh:"他不是美国人，他是中国人。",py:"Tā bú shì Měiguó rén, tā shì Zhōngguó rén.",vi:"Anh ấy không phải là người Mỹ, anh ấy là người Trung Quốc.",alts:["Cậu ấy không phải người Mỹ, cậu ấy là người Trung Quốc."]},
-    {zh:"她是美国人吗？",py:"Tā shì Měiguó rén ma?",vi:"Cô ấy là người Mỹ phải không?",alts:["Cô ấy có phải là người Mỹ không?"]},
-    {zh:"她是美国人。",py:"Tā shì Měiguó rén.",vi:"Cô ấy là người Mỹ.",alts:["Chị ấy là người Mỹ."]},
-    {zh:"她不是中国人，她是美国人。",py:"Tā bú shì Zhōngguó rén, tā shì Měiguó rén.",vi:"Cô ấy không phải là người Trung Quốc, cô ấy là người Mỹ.",alts:["Chị ấy không phải người Trung Quốc, chị ấy là người Mỹ."]},
     {zh:"她是谁？",py:"Tā shì shéi?",vi:"Cô ấy là ai?",alts:["Chị ấy là ai?"]},
     {zh:"她是我的汉语老师。",py:"Tā shì wǒ de Hànyǔ lǎoshī.",vi:"Cô ấy là giáo viên tiếng Trung của tôi.",alts:["Cô ấy là giáo viên Hán ngữ của tôi.","Chị ấy là giáo viên tiếng Trung của tôi."]},
     {zh:"他是谁？",py:"Tā shì shéi?",vi:"Anh ấy là ai?",alts:["Cậu ấy là ai?"]},
-    {zh:"他是我同学。",py:"Tā shì wǒ tóngxué.",vi:"Anh ấy là bạn học của tôi.",alts:["Cậu ấy là bạn cùng lớp của tôi."]},
-    {zh:"他是我朋友。",py:"Tā shì wǒ péngyou.",vi:"Anh ấy là bạn của tôi.",alts:["Cậu ấy là bạn của tôi."]},
+    {zh:"他是我的同学。",py:"Tā shì wǒ de tóngxué.",vi:"Anh ấy là bạn học của tôi.",alts:["Cậu ấy là bạn cùng lớp của tôi."]},
     {zh:"你是哪国人？",py:"Nǐ shì nǎ guó rén?",vi:"Bạn là người nước nào?",alts:["Bạn đến từ nước nào?"]},
     {zh:"我是中国人。",py:"Wǒ shì Zhōngguó rén.",vi:"Tôi là người Trung Quốc.",alts:[]},
     {zh:"我是美国人。",py:"Wǒ shì Měiguó rén.",vi:"Tôi là người Mỹ.",alts:["Tôi là người Hoa Kỳ."]},
@@ -9641,49 +9616,23 @@ function bindTyping(){
     {zh:"她是哪国人？",py:"Tā shì nǎ guó rén?",vi:"Cô ấy là người nước nào?",alts:["Cô ấy đến từ nước nào?"]},
     {zh:"她是中国人。",py:"Tā shì Zhōngguó rén.",vi:"Cô ấy là người Trung Quốc.",alts:["Chị ấy là người Trung Quốc."]},
     {zh:"你呢？",py:"Nǐ ne?",vi:"Còn bạn thì sao?",alts:["Bạn thì sao?"]},
-    {zh:"他呢？",py:"Tā ne?",vi:"Còn anh ấy thì sao?",alts:["Anh ấy thì sao?"]},
     {zh:"她呢？",py:"Tā ne?",vi:"Còn cô ấy thì sao?",alts:["Cô ấy thì sao?"]},
-    {zh:"她是你同学吗？",py:"Tā shì nǐ tóngxué ma?",vi:"Cô ấy là bạn học của bạn phải không?",alts:["Cô ấy có phải là bạn cùng lớp của bạn không?"]},
-    {zh:"她不是我同学，她是我朋友。",py:"Tā bú shì wǒ tóngxué, tā shì wǒ péngyou.",vi:"Cô ấy không phải là bạn học của tôi, cô ấy là bạn của tôi.",alts:["Cô ấy không phải bạn cùng lớp của tôi, cô ấy là bạn tôi."]},
-    {zh:"他是你朋友吗？",py:"Tā shì nǐ péngyou ma?",vi:"Anh ấy là bạn của bạn phải không?",alts:["Anh ấy có phải là bạn của bạn không?"]},
-    {zh:"他不是我朋友，他是我同学。",py:"Tā bú shì wǒ péngyou, tā shì wǒ tóngxué.",vi:"Anh ấy không phải là bạn của tôi, anh ấy là bạn học của tôi.",alts:["Cậu ấy không phải bạn tôi, cậu ấy là bạn cùng lớp của tôi."]},
+    {zh:"她是你的同学吗？",py:"Tā shì nǐ de tóngxué ma?",vi:"Cô ấy là bạn học của bạn phải không?",alts:["Cô ấy có phải là bạn cùng lớp của bạn không?"]},
+    {zh:"她不是我的同学，她是我的朋友。",py:"Tā bú shì wǒ de tóngxué, tā shì wǒ de péngyou.",vi:"Cô ấy không phải bạn học của tôi, cô ấy là bạn của tôi.",alts:["Cô ấy không phải bạn cùng lớp của tôi, cô ấy là bạn tôi."]},
     {zh:"谁是你的汉语老师？",py:"Shéi shì nǐ de Hànyǔ lǎoshī?",vi:"Ai là giáo viên tiếng Trung của bạn?",alts:["Giáo viên tiếng Trung của bạn là ai?"]},
     {zh:"王老师是我的汉语老师。",py:"Wáng lǎoshī shì wǒ de Hànyǔ lǎoshī.",vi:"Giáo viên Vương là giáo viên tiếng Trung của tôi.",alts:["Thầy Vương là giáo viên tiếng Trung của tôi.","Cô Vương là giáo viên tiếng Trung của tôi."]},
     {zh:"你的汉语老师叫什么名字？",py:"Nǐ de Hànyǔ lǎoshī jiào shénme míngzi?",vi:"Giáo viên tiếng Trung của bạn tên là gì?",alts:["Thầy/cô dạy tiếng Trung của bạn tên là gì?"]},
     {zh:"谁是你的同学？",py:"Shéi shì nǐ de tóngxué?",vi:"Ai là bạn học của bạn?",alts:["Bạn học của bạn là ai?"]},
-    {zh:"王明是我同学。",py:"Wáng Míng shì wǒ tóngxué.",vi:"Vương Minh là bạn học của tôi.",alts:["Vương Minh là bạn cùng lớp của tôi."]},
+    {zh:"王明是我的同学。",py:"Wáng Míng shì wǒ de tóngxué.",vi:"Vương Minh là bạn học của tôi.",alts:["Vương Minh là bạn cùng lớp của tôi."]},
     {zh:"谁是你的朋友？",py:"Shéi shì nǐ de péngyou?",vi:"Ai là bạn của bạn?",alts:["Bạn của bạn là ai?"]},
-    {zh:"李月是我朋友。",py:"Lǐ Yuè shì wǒ péngyou.",vi:"Lý Nguyệt là bạn của tôi.",alts:[]},
+    {zh:"李月是我的朋友。",py:"Lǐ Yuè shì wǒ de péngyou.",vi:"Lý Nguyệt là bạn của tôi.",alts:[]},
     {zh:"你的朋友是哪国人？",py:"Nǐ de péngyou shì nǎ guó rén?",vi:"Bạn của bạn là người nước nào?",alts:["Bạn của bạn đến từ nước nào?"]},
-    {zh:"你的同学是哪国人？",py:"Nǐ de tóngxué shì nǎ guó rén?",vi:"Bạn học của bạn là người nước nào?",alts:["Bạn cùng lớp của bạn đến từ nước nào?"]},
-    {zh:"她是你的汉语老师吗？",py:"Tā shì nǐ de Hànyǔ lǎoshī ma?",vi:"Cô ấy là giáo viên tiếng Trung của bạn phải không?",alts:["Cô ấy có phải là giáo viên tiếng Trung của bạn không?"]},
-    {zh:"她不是我的老师，她是我的朋友。",py:"Tā bú shì wǒ de lǎoshī, tā shì wǒ de péngyou.",vi:"Cô ấy không phải là giáo viên của tôi, cô ấy là bạn của tôi.",alts:["Cô ấy không phải cô giáo của tôi, cô ấy là bạn tôi."]},
-    {zh:"他是你的同学吗？",py:"Tā shì nǐ de tóngxué ma?",vi:"Anh ấy là bạn học của bạn phải không?",alts:["Anh ấy có phải là bạn cùng lớp của bạn không?"]},
-    {zh:"他是我的同学。",py:"Tā shì wǒ de tóngxué.",vi:"Anh ấy là bạn học của tôi.",alts:["Cậu ấy là bạn cùng lớp của tôi."]},
-    {zh:"你是我的老师吗？",py:"Nǐ shì wǒ de lǎoshī ma?",vi:"Bạn là giáo viên của tôi phải không?",alts:["Bạn có phải là giáo viên của tôi không?"]},
-    {zh:"我是你的学生。",py:"Wǒ shì nǐ de xuésheng.",vi:"Tôi là học sinh của bạn.",alts:[]},
-    {zh:"她是他的朋友。",py:"Tā shì tā de péngyou.",vi:"Cô ấy là bạn của anh ấy.",alts:["Chị ấy là bạn của anh ấy."]},
-    {zh:"他是她的同学。",py:"Tā shì tā de tóngxué.",vi:"Anh ấy là bạn học của cô ấy.",alts:["Cậu ấy là bạn cùng lớp của cô ấy."]},
-    {zh:"你的朋友叫什么名字？",py:"Nǐ de péngyou jiào shénme míngzi?",vi:"Bạn của bạn tên là gì?",alts:[]},
-    {zh:"你的同学叫什么名字？",py:"Nǐ de tóngxué jiào shénme míngzi?",vi:"Bạn học của bạn tên là gì?",alts:["Bạn cùng lớp của bạn tên là gì?"]},
-    {zh:"A：你好！ B：你好！",py:"A: Nǐ hǎo! B: Nǐ hǎo!",vi:"A: Xin chào! B: Xin chào!",alts:["A chào bạn B chào bạn"]},
-    {zh:"A：您好！ B：你们好！",py:"A: Nín hǎo! B: Nǐmen hǎo!",vi:"A: Xin chào! B: Chào các bạn!",alts:["A chào thầy cô B chào các bạn"]},
-    {zh:"A：对不起！ B：没关系！",py:"A: Duìbuqǐ! B: Méi guānxi!",vi:"A: Xin lỗi! B: Không sao!",alts:[]},
-    {zh:"A：谢谢你！ B：不客气！",py:"A: Xièxie nǐ! B: Bú kèqi!",vi:"A: Cảm ơn bạn! B: Không có gì!",alts:["A cảm ơn bạn B đừng khách sáo"]},
-    {zh:"A：再见！ B：再见！",py:"A: Zàijiàn! B: Zàijiàn!",vi:"A: Tạm biệt! B: Tạm biệt!",alts:[]},
-    {zh:"A：你叫什么名字？ B：我叫李月。",py:"A: Nǐ jiào shénme míngzi? B: Wǒ jiào Lǐ Yuè.",vi:"A: Bạn tên là gì? B: Tôi tên là Lý Nguyệt.",alts:[]},
-    {zh:"A：你是老师吗？ B：我不是老师，我是学生。",py:"A: Nǐ shì lǎoshī ma? B: Wǒ bú shì lǎoshī, wǒ shì xuésheng.",vi:"A: Bạn là giáo viên phải không? B: Tôi không phải giáo viên, tôi là học sinh.",alts:[]},
-    {zh:"A：你是中国人吗？ B：我不是中国人，我是美国人。",py:"A: Nǐ shì Zhōngguó rén ma? B: Wǒ bú shì Zhōngguó rén, wǒ shì Měiguó rén.",vi:"A: Bạn là người Trung Quốc phải không? B: Tôi không phải người Trung Quốc, tôi là người Mỹ.",alts:[]},
-    {zh:"A：她是谁？ B：她是我的汉语老师。",py:"A: Tā shì shéi? B: Tā shì wǒ de Hànyǔ lǎoshī.",vi:"A: Cô ấy là ai? B: Cô ấy là giáo viên tiếng Trung của tôi.",alts:[]},
-    {zh:"A：他是哪国人？ B：他是美国人。",py:"A: Tā shì nǎ guó rén? B: Tā shì Měiguó rén.",vi:"A: Anh ấy là người nước nào? B: Anh ấy là người Mỹ.",alts:[]},
-    {zh:"A：她是你同学吗？ B：她不是我同学，她是我朋友。",py:"A: Tā shì nǐ tóngxué ma? B: Tā bú shì wǒ tóngxué, tā shì wǒ péngyou.",vi:"A: Cô ấy là bạn học của bạn phải không? B: Cô ấy không phải bạn học của tôi, cô ấy là bạn của tôi.",alts:[]},
-    {zh:"A：他是谁？ B：他是我同学。",py:"A: Tā shì shéi? B: Tā shì wǒ tóngxué.",vi:"A: Anh ấy là ai? B: Anh ấy là bạn học của tôi.",alts:[]}
+    {zh:"她是你的汉语老师吗？",py:"Tā shì nǐ de Hànyǔ lǎoshī ma?",vi:"Cô ấy là giáo viên tiếng Trung của bạn phải không?",alts:["Cô ấy có phải là giáo viên tiếng Trung của bạn không?"]}
   ];
 
-  const exercises=[
-    ...sentenceBank.map(item=>({...item,direction:"vi-zh"})),
-    ...sentenceBank.map(item=>({...item,direction:"zh-vi"}))
-  ];
+  /* Chia đều hai chiều dịch, mỗi câu chỉ xuất hiện một lần để tránh lặp và giảm số câu dư thừa. */
+  const exercises=sentenceBank.map((item,i)=>({...item,direction:i%2===0?"vi-zh":"zh-vi"}));
+
 
   let index=0,isSubmitted=false,streak=0;
   const inputRef={current:null},composingRef={current:false};
