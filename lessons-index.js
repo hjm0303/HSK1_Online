@@ -82,35 +82,35 @@ const HSK_COURSES = [
         title: "现在几点",
         pinyin: "Xiànzài jǐ diǎn",
         file: "lesson1-11.html",
-        locked: false
+        locked: true
       },
       {
         id: 12,
         title: "明天天气怎么样",
         pinyin: "Míngtiān tiānqì zěnmeyàng",
         file: "lesson1-12.html",
-        locked: false
+        locked: true
       },
       {
         id: 13,
         title: "他在学做中国菜呢",
         pinyin: "Tā zài xué zuò Zhōngguó cài ne",
         file: "lesson1-13.html",
-        locked: false
+        locked: true
       },
       {
         id: 14,
         title: "她买了不少衣服",
         pinyin: "Tā mǎi le bù shǎo yīfu",
         file: "lesson1-14.html",
-        locked: false
+        locked: true
       },
       {
         id: 15,
         title: "我是坐飞机来的",
         pinyin: "Wǒ shì zuò fēijī lái de",
         file: "lesson1-15.html",
-        locked: false
+        locked: true
       }
     ]
   },
