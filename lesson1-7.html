@@ -7345,6 +7345,172 @@
       #warmup .pronunciation-vocab-card{min-height:96px}
     }
 
+
+
+    /* ===== HSK1 Bài 7: tab Kiểm tra trình độ + bài kiểm tra A 的 B ===== */
+    #levelTestBtn.level-test-trigger{
+      position:relative;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      min-height:42px;
+      padding:9px 15px;
+      border:1px solid rgba(255,255,255,.72);
+      border-radius:14px;
+      background:linear-gradient(135deg,#F43F5E 0%,#E11D48 52%,#BE123C 100%);
+      color:#FFFFFF;
+      font-size:.84rem;
+      line-height:1;
+      font-weight:900;
+      letter-spacing:-.01em;
+      white-space:nowrap;
+      box-shadow:0 12px 26px rgba(225,29,72,.36),0 0 0 3px rgba(251,113,133,.12),inset 0 1px 0 rgba(255,255,255,.30);
+      overflow:hidden;
+      transition:transform .18s ease,box-shadow .18s ease,filter .18s ease;
+    }
+    #levelTestBtn.level-test-trigger::before{
+      content:"";
+      position:absolute;
+      inset:-60% auto -60% -38%;
+      width:34%;
+      transform:rotate(18deg);
+      background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);
+      animation:levelTestShine 3.4s ease-in-out infinite;
+      pointer-events:none;
+    }
+    @keyframes levelTestShine{0%,58%{left:-45%}82%,100%{left:125%}}
+    #levelTestBtn.level-test-trigger:hover{
+      transform:translateY(-2px) scale(1.02);
+      filter:saturate(1.12);
+      box-shadow:0 16px 34px rgba(190,18,60,.42),0 0 0 5px rgba(251,113,133,.18);
+    }
+    #levelTestBtn.level-test-trigger:active{transform:scale(.97)}
+    #levelTestBtn.level-test-trigger.active{
+      background:linear-gradient(135deg,#FB7185 0%,#E11D48 48%,#9F1239 100%);
+      box-shadow:0 15px 32px rgba(190,18,60,.42),0 0 0 5px rgba(251,113,133,.16);
+    }
+    .level-test-trigger-icon{
+      width:27px;height:27px;display:grid;place-items:center;flex:0 0 27px;
+      border-radius:9px;background:rgba(255,255,255,.96);color:#BE123C;
+      box-shadow:0 6px 14px rgba(15,23,42,.13);
+    }
+    #leveltest{padding-bottom:4px}
+    #leveltest .level-test-shell{
+      overflow:hidden;
+      border:1px solid #C7D2FE;
+      border-radius:25px;
+      background:linear-gradient(145deg,#FFFFFF,#F5F3FF 60%,#ECFEFF);
+      box-shadow:0 20px 46px rgba(79,70,229,.11);
+    }
+    #leveltest .level-test-hero{
+      display:grid;
+      grid-template-columns:minmax(0,1fr) auto;
+      gap:18px;
+      align-items:center;
+      padding:20px 22px;
+      border-bottom:1px solid #DDE5FF;
+      background:
+        radial-gradient(circle at 86% 12%,rgba(34,211,238,.2),transparent 24%),
+        linear-gradient(135deg,#EEF2FF 0%,#FFFFFF 50%,#ECFDF5 100%);
+    }
+    #leveltest .level-test-kicker{font-size:.72rem;font-weight:900;letter-spacing:.1em;color:#4F46E5;text-transform:uppercase}
+    #leveltest .level-test-hero h2{margin:5px 0 7px;font-size:clamp(1.45rem,3vw,2.15rem);line-height:1.18;font-weight:900;letter-spacing:-.035em;color:#1E293B}
+    #leveltest .level-test-hero p{margin:0;max-width:900px;color:#475569;font-size:.92rem;line-height:1.62;font-weight:600}
+    #leveltest .level-test-mark{
+      width:88px;height:88px;border-radius:27px;display:grid;place-items:center;
+      background:linear-gradient(145deg,#06B6D4,#6366F1,#8B5CF6);
+      color:#fff;font-size:2.8rem;font-weight:900;
+      box-shadow:0 18px 36px rgba(79,70,229,.25),inset 0 1px rgba(255,255,255,.28);
+    }
+    #leveltest .level-test-body{padding:16px}
+    #leveltest .level-test-notice{
+      display:flex;align-items:flex-start;gap:10px;margin-bottom:14px;padding:12px 14px;
+      border:1px solid #BAE6FD;border-radius:17px;background:linear-gradient(135deg,#F0F9FF,#EEF2FF);
+      color:#334155;font-size:.88rem;line-height:1.55;font-weight:700;
+    }
+    #leveltest .level-test-notice i{color:#0284C7;margin-top:3px}
+    #leveltest .level-section-title{
+      grid-column:1/-1;display:flex;align-items:center;gap:9px;margin:7px 0 0;
+      padding:10px 12px;border-radius:16px;background:linear-gradient(135deg,#EEF2FF,#F5F3FF);
+      color:#4338CA;font-size:.93rem;font-weight:900;border:1px solid #DDD6FE;
+    }
+    #leveltest .level-question-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+    #leveltest .level-question-card{
+      position:relative;border:1px solid #E2E8F0;border-radius:20px;background:#FFFFFF;
+      padding:15px;box-shadow:0 10px 25px rgba(15,23,42,.055);
+      transition:border-color .18s ease,box-shadow .18s ease,transform .18s ease;
+    }
+    #leveltest .level-question-card:hover{transform:translateY(-2px);border-color:#C7D2FE;box-shadow:0 15px 30px rgba(79,70,229,.09)}
+    #leveltest .level-question-card.level-reading-card{grid-column:1/-1;background:linear-gradient(135deg,#FFF,#F0FDFA)}
+    #leveltest .level-question-card.is-missing{border-color:#FB923C;box-shadow:0 0 0 4px rgba(251,146,60,.14)}
+    #leveltest .level-question-card.is-correct{border-color:#6EE7B7;background:#F0FDF4}
+    #leveltest .level-question-card.is-wrong{border-color:#FDA4AF;background:#FFF1F2}
+    #leveltest .level-question-top{display:flex;align-items:center;justify-content:space-between;gap:9px;margin-bottom:9px}
+    #leveltest .level-question-number{width:33px;height:33px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(135deg,#6366F1,#8B5CF6);color:#fff;font-weight:900;box-shadow:0 7px 14px rgba(99,102,241,.2)}
+    #leveltest .level-question-type{border-radius:999px;padding:6px 9px;background:#ECFEFF;color:#0E7490;font-size:.69rem;font-weight:900}
+    #leveltest .level-question-text{font-size:.94rem;line-height:1.5;color:#1E293B;font-weight:850}
+    #leveltest .level-question-text.cn{font-size:clamp(.94rem,1.2vw,1.08rem)!important;line-height:1.48!important;letter-spacing:-.015em}
+    #leveltest .level-question-hint{margin-top:5px;color:#64748B;font-size:.79rem;line-height:1.45;font-weight:650}
+    #leveltest .level-reading-passage{grid-column:1/-1;border-radius:20px;padding:16px 18px;background:linear-gradient(135deg,#ECFDF5,#ECFEFF,#EEF2FF);border:1px solid #A7F3D0;color:#1E293B;box-shadow:0 12px 26px rgba(13,148,136,.08)}
+    #leveltest .level-reading-passage .cn{display:block;margin-top:7px;font-size:1.18rem;line-height:1.75;font-weight:800;color:#0F766E}
+    #leveltest .level-options{display:grid;gap:8px;margin-top:12px}
+    #leveltest .level-option{
+      display:flex;align-items:center;gap:9px;min-height:48px;padding:9px 11px;
+      border:1px solid #D7DEEA;border-radius:14px;background:#FFFFFF;color:#334155;
+      font-size:.88rem;line-height:1.45;font-weight:750;cursor:pointer;transition:.15s ease;
+    }
+    #leveltest .level-option:hover{border-color:#A5B4FC;background:#EEF2FF;transform:translateX(2px)}
+    #leveltest .level-option input{accent-color:#6366F1;width:17px;height:17px;flex:0 0 auto}
+    #leveltest .level-option.option-correct{border-color:#10B981;background:#D1FAE5;color:#047857}
+    #leveltest .level-option.option-wrong{border-color:#F43F5E;background:#FFE4E6;color:#9F1239}
+    #leveltest .level-answer-input{
+      width:100%;margin-top:12px;border:2px solid #C7D2FE;border-radius:15px;background:#FFFFFF;
+      padding:10px 12px;outline:none;color:#1E293B;font-size:clamp(.92rem,1.15vw,1.05rem)!important;font-weight:800;
+      box-shadow:0 7px 15px rgba(99,102,241,.06);transition:.16s ease;
+    }
+    #leveltest .level-answer-input:focus{border-color:#06B6D4;box-shadow:0 0 0 4px rgba(6,182,212,.14)}
+    #leveltest .level-answer-input[disabled]{opacity:.85;cursor:not-allowed}
+    #leveltest .level-option .cn{font-size:clamp(.9rem,1.08vw,1rem)!important;line-height:1.4!important}
+    #leveltest .level-feedback-answer .cn{font-size:1rem!important;line-height:1.45!important}
+    #leveltest .level-slot-sentence{
+      display:flex;align-items:center;justify-content:flex-start;flex-wrap:wrap;gap:8px;
+      margin-top:12px;padding:13px 14px;border:1px solid #C7D2FE;border-radius:16px;
+      background:linear-gradient(135deg,#F8FAFC,#EEF2FF);color:#1E293B;
+      font-size:clamp(1rem,1.4vw,1.18rem)!important;line-height:1.55;font-weight:800;
+    }
+    #leveltest .level-slot-select{
+      min-width:112px;border:2px solid #A5B4FC;border-radius:13px;background:#FFFFFF;
+      color:#1E293B;padding:8px 34px 8px 10px;outline:none;font-size:.95rem!important;
+      font-weight:800;box-shadow:0 7px 15px rgba(99,102,241,.08);cursor:pointer;
+    }
+    #leveltest .level-slot-select:focus{border-color:#E11D48;box-shadow:0 0 0 4px rgba(225,29,72,.12)}
+    #leveltest .level-slot-select.slot-correct{border-color:#10B981;background:#ECFDF5;color:#047857}
+    #leveltest .level-slot-select.slot-wrong{border-color:#F43F5E;background:#FFF1F2;color:#9F1239}
+    #leveltest .level-slot-select:disabled{opacity:.9;cursor:not-allowed}
+    #leveltest .level-submit-zone{margin-top:15px;padding:15px;border-radius:20px;background:linear-gradient(135deg,#F5F3FF,#ECFEFF);border:1px solid #C7D2FE;text-align:center}
+    #leveltest .level-submit-message{min-height:24px;margin-bottom:9px;color:#C2410C;font-size:.87rem;font-weight:900}
+    #leveltest .level-submit-btn,#leveltest .level-reset-btn{
+      border:0;border-radius:999px;padding:12px 21px;color:#fff;font-size:.91rem;font-weight:900;
+      transition:.16s ease;
+    }
+    #leveltest .level-submit-btn{background:linear-gradient(135deg,#06B6D4,#6366F1,#8B5CF6);box-shadow:0 12px 25px rgba(79,70,229,.25)}
+    #leveltest .level-reset-btn{background:#334155;box-shadow:0 10px 20px rgba(51,65,85,.18)}
+    #leveltest .level-submit-btn:hover,#leveltest .level-reset-btn:hover{transform:translateY(-2px)}
+    #leveltest .level-result-summary{margin-bottom:15px;border-radius:23px;padding:20px;text-align:center;color:#fff;background:linear-gradient(135deg,#06B6D4,#6366F1 50%,#8B5CF6);box-shadow:0 18px 38px rgba(79,70,229,.27)}
+    #leveltest .level-result-icon{font-size:3rem;line-height:1}
+    #leveltest .level-result-title{margin:7px 0 3px;font-size:1.55rem;font-weight:900}
+    #leveltest .level-result-score{font-size:clamp(2.8rem,7vw,4.5rem);line-height:1;font-weight:900}
+    #leveltest .level-result-meta{margin-top:8px;font-size:.91rem;font-weight:750;line-height:1.55;color:rgba(255,255,255,.93)}
+    #leveltest .level-feedback-box{display:none;margin-top:11px;border-radius:14px;padding:10px 11px;font-size:.82rem;line-height:1.55;font-weight:700}
+    #leveltest .level-feedback-box.show{display:block}
+    #leveltest .is-correct .level-feedback-box{background:#D1FAE5;color:#047857}
+    #leveltest .is-wrong .level-feedback-box{background:#FFE4E6;color:#9F1239}
+    #leveltest .level-feedback-answer{display:block;margin-bottom:3px;font-weight:900}
+    #leveltest .level-formula-review{margin-top:14px;text-align:left;border-radius:17px;padding:13px 14px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);line-height:1.6}
+    @media(max-width:850px){#leveltest .level-question-grid{grid-template-columns:1fr}#leveltest .level-test-hero{grid-template-columns:1fr}#leveltest .level-test-mark{display:none}}
+    @media(max-width:640px){#levelTestBtn.level-test-trigger{padding:8px 10px;font-size:.75rem}#leveltest .level-test-body{padding:9px}#leveltest .level-question-card{padding:13px}#leveltest .level-test-hero{padding:16px}#leveltest .level-question-text{font-size:.88rem}#leveltest .level-question-text.cn{font-size:.94rem!important}#leveltest .level-slot-sentence{font-size:.95rem!important;padding:11px}#leveltest .level-slot-select{min-width:96px;font-size:.88rem!important}}
+
 </style>
 <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script>
 </head>
@@ -7360,6 +7526,10 @@
       </div>
       <div class="flex flex-wrap items-center gap-2 ml-auto">
         
+        <button id="levelTestBtn" type="button" class="level-test-trigger" aria-label="Mở bài kiểm tra trình độ cấu trúc A 的 B">
+          <span class="level-test-trigger-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+          <span>Kiểm tra trình độ</span>
+        </button>
         <button id="soundToggle" aria-label="Bật tắt âm thanh" class="btn3d rounded-xl px-3 py-2 bg-amber-200 font-bold"><i class="fa-solid fa-volume-high"></i></button>
         <div class="rounded-xl px-3 py-2 bg-white/90 shadow-md font-black text-sm">⭐ <span id="globalScore">0</span></div>
       </div>
@@ -8567,6 +8737,215 @@ const LESSON_ASSETS = {
 };
 
 
+
+/* ===== HSK1 Bài 7: Kiểm tra trình độ A 的 B · BẢN SỬA 29-07-2026 v3 ===== */
+const LEVEL_TEST_QUESTIONS = [
+  {type:"choice",label:"Chọn đáp án",q:"“Giáo viên của tôi” được nói thế nào?",options:["老师的我","我的老师","我老师的"],answer:1,correct:"我的老师",explain:"Tiếng Việt nói B của A, còn tiếng Trung đặt A lên trước: 我 + 的 + 老师。"},
+  {type:"choice",label:"Chọn đáp án",q:"Chọn cụm từ đúng với nghĩa “bạn của cô ấy”．",options:["她的朋友","朋友的她","她朋友的"],answer:0,correct:"她的朋友",explain:"Người sở hữu 她 đứng trước, sau đó là 的, cuối cùng là 朋友。"},
+  {type:"choice",label:"Cụm sở hữu nhiều tầng",q:"“Tên của bạn tôi” là cụm nào?",options:["我的朋友的名字","我的名字的朋友","朋友的我的名字"],answer:0,correct:"我的朋友的名字",explain:"我的朋友 = bạn của tôi; thêm 的名字 = tên của bạn tôi。"},
+  {type:"choice",label:"Hiểu nghĩa",q:"我妈妈的朋友 có nghĩa là gì?",options:["Mẹ của bạn tôi","Bạn của mẹ tôi","Bạn của tôi"],answer:1,correct:"Bạn của mẹ tôi",explain:"Đọc từ phải sang trái: 朋友 là người chính; 我妈妈的 bổ nghĩa cho 朋友。"},
+  {type:"choice",label:"Hiểu nghĩa",q:"王老师的女儿 có nghĩa là gì?",options:["Giáo viên của Vương","Con gái của thầy/cô Vương","Bạn của con gái cô Vương"],answer:1,correct:"Con gái của thầy/cô Vương",explain:"王老师 là A, 女儿 là B: A + 的 + B。"},
+  {type:"choice",label:"Chọn đáp án",q:"“Giáo viên tiếng Trung của bạn” được nói thế nào?",options:["你的汉语老师","汉语老师的你","你汉语的老师"],answer:0,correct:"你的汉语老师",explain:"Cụm đúng là 你 + 的 + 汉语老师。"},
+  {type:"choice",label:"Chọn từ phù hợp",q:"Hoàn thành câu: 她是___汉语老师。",options:["我","我的","的我","我是"],answer:1,correct:"她是我的汉语老师。",explain:"Chỗ trống cần cả cụm 我的, không chỉ riêng chữ 的. 我的汉语老师 = giáo viên tiếng Trung của tôi。"},
+  {type:"multiSelect",label:"Chọn từ cho 2 chỗ trống",q:"Hoàn thành câu bằng cách chọn một đáp án cho mỗi ô:",parts:["王老师","女儿是","同学。"],slots:[{options:["的","是","叫","有"],answer:"的"},{options:["我","我的","你","她的"],answer:"我的"}],correct:"王老师的女儿是我的同学。",explain:"Ô thứ nhất tạo cụm 王老师的女儿. Ô thứ hai phải chọn 我的 để tạo cụm 我的同学。"},
+  {type:"input",label:"Dịch Việt → Trung",q:"Dịch: Cô ấy là bạn của mẹ tôi.",answers:["她是我妈妈的朋友","她是我的妈妈的朋友"],correct:"她是我妈妈的朋友。",explain:"我妈妈 = mẹ tôi; 我妈妈的朋友 = bạn của mẹ tôi。"},
+  {type:"input",label:"Dịch Việt → Trung",q:"Dịch: Giáo viên tiếng Trung của tôi là người Trung Quốc.",answers:["我的汉语老师是中国人"],correct:"我的汉语老师是中国人。",explain:"Chủ ngữ là 我的汉语老师, sau đó dùng 是 + 中国人。"},
+  {type:"input",label:"Sắp xếp câu",q:"Sắp xếp: 汉语 / 她 / 的 / 老师 / 我 / 是",answers:["她是我的汉语老师"],correct:"她是我的汉语老师。",explain:"Các từ đã được đảo lộn. Trật tự đúng: 她 + 是 + 我的汉语老师。"},
+  {type:"input",label:"Sắp xếp câu",q:"Sắp xếp: 名字 / 什么 / 叫 / 朋友 / 你的",answers:["你的朋友叫什么名字","你的朋友的名字叫什么"],correct:"你的朋友叫什么名字？",explain:"Cách hỏi tự nhiên: 你的朋友 + 叫什么名字？"},
+  {type:"input",label:"Sắp xếp câu",q:"Sắp xếp: 同学 / 王老师 / 我的 / 女儿 / 是 / 的",answers:["王老师的女儿是我的同学"],correct:"王老师的女儿是我的同学。",explain:"Ghép hai cụm: 王老师的女儿 + 是 + 我的同学。"},
+  {type:"input",label:"Sắp xếp câu",q:"Sắp xếp: 美国人 / 朋友 / 是 / 的 / 我",answers:["我的朋友是美国人"],correct:"我的朋友是美国人。",explain:"我的朋友 là chủ ngữ; 美国人 đứng sau 是。"},
+  {type:"input",label:"Sửa câu sai",q:"Sửa câu: 朋友的我是中国人。",answers:["我的朋友是中国人"],correct:"我的朋友是中国人。",explain:"“Bạn của tôi” phải là 我的朋友, không phải 朋友的我。"},
+  {type:"input",label:"Sửa câu sai",q:"Sửa câu: 她女儿的是我的同学。",answers:["她的女儿是我的同学","她女儿是我的同学"],correct:"她的女儿是我的同学。",explain:"的 phải đứng giữa 她 và 女儿; không đặt 的 sau 女儿。"},
+  {type:"input",label:"Dịch Việt → Trung",q:"Dịch: Con gái của cô ấy năm nay mười tuổi.",answers:["她的女儿今年十岁","她女儿今年十岁"],correct:"她的女儿今年十岁。",explain:"她的女儿 = con gái của cô ấy; 今年十岁 = năm nay 10 tuổi。"},
+  {type:"choice",label:"Đọc hiểu",q:"王月是谁的女儿？",options:["王老师的女儿","我的女儿","我朋友的女儿"],answer:0,correct:"王老师的女儿",explain:"Đoạn văn nói: 王老师的女儿叫王月。"},
+  {type:"choice",label:"Đọc hiểu",q:"王月今年几岁？",options:["八岁","十岁","十二岁"],answer:1,correct:"十岁",explain:"Trong đoạn văn có câu 王月今年十岁。"},
+  {type:"choice",label:"Đọc hiểu",q:"王月是我的什么？",options:["老师","妈妈","同学"],answer:2,correct:"同学",explain:"Câu cuối nói rõ 王月是我的同学。"}
+];
+
+function levelTestNormalize(value){
+  return String(value??"")
+    .trim()
+    .toLowerCase()
+    .replace(/[\s\u3000，。！？、；：,.!?;:'"“”‘’（）()\-]/g,"");
+}
+
+function levelTestSectionHeading(index){
+  const headings={
+    0:["fa-solid fa-eye","Phần 1 · Nhận biết cấu trúc A 的 B"],
+    6:["fa-solid fa-pen","Phần 2 · Điền từ và dịch câu"],
+    10:["fa-solid fa-puzzle-piece","Phần 3 · Sắp xếp thành câu đúng"],
+    14:["fa-solid fa-screwdriver-wrench","Phần 4 · Sửa lỗi và vận dụng"],
+    17:["fa-solid fa-book-open-reader","Phần 5 · Đọc hiểu"]
+  };
+  const item=headings[index];
+  return item?`<div class="level-section-title"><i class="${item[0]}"></i><span>${item[1]}</span></div>`:"";
+}
+
+function levelTestQuestionHTML(question,index){
+  let answerArea="";
+  if(question.type==="choice"){
+    answerArea=`<div class="level-options">${question.options.map((option,optionIndex)=>`
+      <label class="level-option" data-level-option="${optionIndex}">
+        <input type="radio" name="level-question-${index}" value="${optionIndex}">
+        <span>${String.fromCharCode(65+optionIndex)}. <span class="${/[\u3400-\u9fff]/.test(option)?'cn':''}">${option}</span></span>
+      </label>`).join("")}</div>`;
+  }else if(question.type==="multiSelect"){
+    answerArea=`<div class="level-slot-sentence cn">${question.parts.map((part,partIndex)=>{
+      const slot=question.slots[partIndex];
+      const select=slot?`<select class="level-slot-select cn" data-level-slot="${index}-${partIndex}" aria-label="Chỗ trống ${partIndex+1}">
+        <option value="">— Chọn từ —</option>
+        ${slot.options.map(option=>`<option value="${option}">${option}</option>`).join("")}
+      </select>`:"";
+      return `<span>${part}</span>${select}`;
+    }).join("")}</div><div class="level-question-hint">Mỗi chỗ trống có nhiều phương án. Hãy chọn từ hoặc cụm từ tạo thành câu đúng.</div>`;
+  }else{
+    answerArea=`<input class="level-answer-input cn" type="text" data-level-input="${index}" autocomplete="off" placeholder="Nhập câu trả lời bằng chữ Hán...">`;
+  }
+  const reading=index===17?`<div class="level-reading-passage"><b>📖 Đọc đoạn văn rồi trả lời câu 18–20:</b><span class="cn">王老师是我的汉语老师。她的女儿叫王月。王月今年十岁，是我的同学。</span></div>`:"";
+  return `${levelTestSectionHeading(index)}${reading}<article class="level-question-card ${index>=17?'level-reading-card':''}" data-level-card="${index}">
+    <div class="level-question-top"><span class="level-question-number">${index+1}</span><span class="level-question-type">${question.label}</span></div>
+    <div class="level-question-text ${/[\u3400-\u9fff]/.test(question.q)?'cn':''}">${question.q}</div>
+    ${question.type==="input"?'<div class="level-question-hint">Không cần nhập dấu chấm hoặc dấu hỏi cuối câu.</div>':''}
+    ${answerArea}
+    <div class="level-feedback-box" data-level-feedback="${index}"></div>
+  </article>`;
+}
+
+function levelTestHTML(){
+  return `<section class="level-test-shell">
+    <header class="level-test-hero">
+      <div>
+        <div class="level-test-kicker">HSK 1 • BÀI 1–7 • NGỮ PHÁP 的</div>
+        <h2>🎯 Kiểm tra trình độ: Cấu trúc A 的 B</h2>
+        <p>Hoàn thành đủ 20 câu rồi bấm <b>Nộp bài & Chấm điểm</b>. Trong lúc làm bài, hệ thống không báo đúng sai và không hiển thị đáp án. Điểm số cùng phần giải thích chỉ xuất hiện sau khi bạn hoàn thành toàn bộ bài kiểm tra.</p>
+      </div>
+      <div class="level-test-mark cn">的</div>
+    </header>
+    <div class="level-test-body">
+      <div id="levelTestResult"></div>
+      <div class="level-test-notice"><i class="fa-solid fa-circle-info"></i><span><b>Công thức gợi nhớ:</b> “B của A” trong tiếng Việt → <b>A + 的 + B</b> trong tiếng Trung. Hãy tự làm trước, không có gợi ý đáp án giữa bài.</span></div>
+      <div id="levelQuestionGrid" class="level-question-grid">${LEVEL_TEST_QUESTIONS.map(levelTestQuestionHTML).join("")}</div>
+      <div class="level-submit-zone">
+        <div id="levelSubmitMessage" class="level-submit-message"></div>
+        <button id="levelSubmitBtn" type="button" class="level-submit-btn"><i class="fa-solid fa-paper-plane"></i> Nộp bài & Chấm điểm</button>
+      </div>
+    </div>
+  </section>`;
+}
+
+function levelTestGetAnswer(index,question){
+  if(question.type==="choice"){
+    const checked=document.querySelector(`input[name="level-question-${index}"]:checked`);
+    return checked?Number(checked.value):null;
+  }
+  if(question.type==="multiSelect"){
+    return question.slots.map((_,slotIndex)=>{
+      const select=document.querySelector(`[data-level-slot="${index}-${slotIndex}"]`);
+      return select?select.value:"";
+    });
+  }
+  const input=document.querySelector(`[data-level-input="${index}"]`);
+  return input?input.value:"";
+}
+
+function levelTestIsAnswered(answer,question){
+  if(question.type==="choice")return answer!==null;
+  if(question.type==="multiSelect")return Array.isArray(answer)&&answer.length===question.slots.length&&answer.every(item=>levelTestNormalize(item)!=="");
+  return levelTestNormalize(answer)!=="";
+}
+
+function levelTestIsCorrect(answer,question){
+  if(question.type==="choice")return answer===question.answer;
+  if(question.type==="multiSelect")return Array.isArray(answer)&&question.slots.every((slot,index)=>levelTestNormalize(answer[index])===levelTestNormalize(slot.answer));
+  const normalized=levelTestNormalize(answer);
+  return question.answers.some(item=>levelTestNormalize(item)===normalized);
+}
+
+function levelTestResultSummaryHTML(score,correctCount){
+  let title="Cần ôn thêm",icon="📘",note="Hãy ôn lại cách đảo trật tự từ tiếng Việt sang A + 的 + B rồi làm lại.";
+  if(score>=90){title="Rất tốt";icon="🏆";note="Bạn đã nắm chắc cấu trúc A 的 B, kể cả cụm sở hữu nhiều tầng."}
+  else if(score>=75){title="Khá";icon="🌟";note="Bạn hiểu tốt cấu trúc chính. Hãy xem lại những câu sai bên dưới để hoàn thiện."}
+  else if(score>=60){title="Đạt";icon="👍";note="Bạn đã hiểu nền tảng nhưng cần luyện thêm sắp xếp câu và cụm có hai chữ 的."}
+  return `<div class="level-result-summary" id="levelResultSummary">
+    <div class="level-result-icon">${icon}</div>
+    <div class="level-result-title">${title}</div>
+    <div class="level-result-score">${score}/100</div>
+    <div class="level-result-meta">Đúng ${correctCount}/${LEVEL_TEST_QUESTIONS.length} câu. Đáp án và giải thích chi tiết đã được mở ngay dưới từng câu.</div>
+    <div class="level-formula-review"><b>Công thức:</b> B của A → A + 的 + B.<br><b>Ví dụ:</b> giáo viên của tôi → 我的老师; con gái của thầy Vương → 王老师的女儿。</div>
+    <div style="margin-top:13px"><button id="levelResetBtn" type="button" class="level-reset-btn"><i class="fa-solid fa-rotate-left"></i> Làm lại bài kiểm tra</button></div>
+  </div>`;
+}
+
+function bindLevelTest(){
+  const root=document.getElementById("leveltest");
+  const submit=document.getElementById("levelSubmitBtn");
+  if(!root||!submit)return;
+  submit.onclick=()=>{
+    const answers=LEVEL_TEST_QUESTIONS.map((question,index)=>levelTestGetAnswer(index,question));
+    const missing=[];
+    answers.forEach((answer,index)=>{
+      const card=root.querySelector(`[data-level-card="${index}"]`);
+      card?.classList.remove("is-missing");
+      if(!levelTestIsAnswered(answer,LEVEL_TEST_QUESTIONS[index])){
+        missing.push(index);
+        card?.classList.add("is-missing");
+      }
+    });
+    const message=document.getElementById("levelSubmitMessage");
+    if(missing.length){
+      message.textContent=`Bạn còn ${missing.length} câu chưa làm. Hãy hoàn thành đủ 20 câu rồi mới chấm điểm.`;
+      root.querySelector(`[data-level-card="${missing[0]}"]`)?.scrollIntoView({behavior:"smooth",block:"center"});
+      return;
+    }
+
+    let correctCount=0;
+    LEVEL_TEST_QUESTIONS.forEach((question,index)=>{
+      const answer=answers[index];
+      const ok=levelTestIsCorrect(answer,question);
+      if(ok)correctCount++;
+      const card=root.querySelector(`[data-level-card="${index}"]`);
+      card?.classList.remove("is-missing");
+      card?.classList.add(ok?"is-correct":"is-wrong");
+      const feedback=root.querySelector(`[data-level-feedback="${index}"]`);
+      if(feedback){
+        feedback.classList.add("show");
+        feedback.innerHTML=`<span class="level-feedback-answer">${ok?'✅ Chính xác':'❌ Chưa đúng'} · Đáp án: <span class="cn">${question.correct}</span></span>${question.explain}`;
+      }
+      if(question.type==="choice"){
+        root.querySelectorAll(`input[name="level-question-${index}"]`).forEach(input=>{
+          input.disabled=true;
+          const label=input.closest(".level-option");
+          if(Number(input.value)===question.answer)label?.classList.add("option-correct");
+          else if(input.checked)label?.classList.add("option-wrong");
+        });
+      }else if(question.type==="multiSelect"){
+        question.slots.forEach((slot,slotIndex)=>{
+          const select=root.querySelector(`[data-level-slot="${index}-${slotIndex}"]`);
+          if(select){
+            select.disabled=true;
+            const slotOk=levelTestNormalize(select.value)===levelTestNormalize(slot.answer);
+            select.classList.add(slotOk?"slot-correct":"slot-wrong");
+          }
+        });
+      }else{
+        const input=root.querySelector(`[data-level-input="${index}"]`);
+        if(input)input.disabled=true;
+      }
+    });
+    const score=correctCount*5;
+    const result=document.getElementById("levelTestResult");
+    if(result)result.innerHTML=levelTestResultSummaryHTML(score,correctCount);
+    message.textContent="";
+    submit.closest(".level-submit-zone")?.remove();
+    if(score>=75){audioTone("ok");confetti()}else{audioTone("bad")}
+    document.getElementById("levelResetBtn")?.addEventListener("click",()=>{
+      const panel=document.getElementById("leveltest");
+      if(panel){panel.innerHTML=levelTestHTML();bindLevelTest();panel.scrollIntoView({behavior:"smooth",block:"start"})}
+    });
+    document.getElementById("levelResultSummary")?.scrollIntoView({behavior:"smooth",block:"start"});
+  };
+}
+
 const tabs=[
   ["warmup","fa-solid fa-microphone-lines icon-warmup","Luyện phát âm"],
   ["vocab","fa-solid fa-book-open icon-vocab","Từ mới"],
@@ -8786,7 +9165,8 @@ function render(){
   <div id="arrange" class="tab-panel">${arrangeHTML()}</div>
   <div id="match" class="tab-panel">${matchHTML()}</div>
   <div id="quiz" class="tab-panel">${quizHTML()}</div>
-  <div id="roleplay" class="tab-panel">${roleHTML()}</div>`;
+  <div id="roleplay" class="tab-panel">${roleHTML()}</div>
+  <div id="leveltest" class="tab-panel">${levelTestHTML()}</div>`;
   bind();
 }
 
@@ -9614,6 +9994,7 @@ function bind(){
   bindRole();
   bindWorkbookPractice();
   bindVocabLearning();
+  bindLevelTest();
 }
 
 
@@ -11538,7 +11919,7 @@ document.getElementById("tabs").addEventListener("click",event=>{
   }
 }, true);
 
-document.getElementById("tabs").addEventListener("click",e=>{const b=e.target.closest("[data-tab]");if(!b)return;if(b.dataset.tab==="roleplay")ensureGlobalRoleMicrophonePermission().catch(()=>{});document.querySelectorAll(".tab-btn").forEach(x=>x.classList.remove("active"));b.classList.add("active");document.querySelectorAll(".tab-panel").forEach(x=>x.classList.remove("active"));document.getElementById(b.dataset.tab).classList.add("active");cleanupOrphanedRoleplayElements();window.scrollTo({top:0,behavior:"auto"})});
+document.getElementById("tabs").addEventListener("click",e=>{const b=e.target.closest("[data-tab]");if(!b)return;document.getElementById("levelTestBtn")?.classList.remove("active");if(b.dataset.tab==="roleplay")ensureGlobalRoleMicrophonePermission().catch(()=>{});document.querySelectorAll(".tab-btn").forEach(x=>x.classList.remove("active"));b.classList.add("active");document.querySelectorAll(".tab-panel").forEach(x=>x.classList.remove("active"));document.getElementById(b.dataset.tab).classList.add("active");cleanupOrphanedRoleplayElements();window.scrollTo({top:0,behavior:"auto"})});
 
 function applyLessonAssets(id){
   const assets=LESSON_ASSETS[id];
@@ -11571,6 +11952,17 @@ function switchLesson(id){
   cleanupOrphanedRoleplayElements();
   window.scrollTo({top:0,behavior:"auto"});
 }
+
+
+
+document.getElementById("levelTestBtn").onclick=()=>{
+  if("speechSynthesis" in window)speechSynthesis.cancel();
+  document.querySelectorAll(".tab-btn").forEach(button=>button.classList.remove("active"));
+  document.querySelectorAll(".tab-panel").forEach(panel=>panel.classList.remove("active"));
+  document.getElementById("leveltest")?.classList.add("active");
+  document.getElementById("levelTestBtn")?.classList.add("active");
+  window.scrollTo({top:0,behavior:"auto"});
+};
 
 document.getElementById("soundToggle").onclick=()=>{soundOn=!soundOn;document.getElementById("soundToggle").innerHTML=soundOn?'<i class="fa-solid fa-volume-high"></i>':'<i class="fa-solid fa-volume-xmark"></i>'};
 
