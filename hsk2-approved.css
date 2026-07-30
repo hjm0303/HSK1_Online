@@ -1,0 +1,1883 @@
+/* =========================================================
+   HSK2 — giao diện theo ảnh mẫu đã duyệt.
+   Mọi quy tắc đều nằm trong .course-hsk2 để HSK1 giữ nguyên.
+========================================================= */
+.hsk2-site-header,
+.hsk2-catalog-intro,
+.hsk2-search-popover {
+  display: none;
+}
+
+body.catalog-active.course-hsk2 {
+  --hsk2-ink: #173449;
+  --hsk2-muted: #647986;
+  --hsk2-teal: #159b83;
+  --hsk2-teal-dark: #087862;
+  min-height: 100vh;
+  color: var(--hsk2-ink);
+  background: #f6fbf8 !important;
+}
+
+body.catalog-active.course-hsk2::before {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  opacity: 1;
+  background:
+    radial-gradient(circle at 6% 14%, rgba(87, 191, 165, .14), transparent 23%),
+    radial-gradient(circle at 93% 12%, rgba(255, 190, 117, .13), transparent 20%),
+    radial-gradient(circle at 54% 100%, rgba(128, 197, 155, .13), transparent 30%),
+    linear-gradient(180deg, #fbfdfc 0%, #f2faf7 53%, #fbfdf8 100%);
+  mask-image: none;
+}
+
+body.catalog-active.course-hsk2::after {
+  position: fixed;
+  inset: 76px 0 0;
+  z-index: -1;
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  opacity: .42;
+  transform: none;
+  background:
+    radial-gradient(circle at center, rgba(40, 153, 127, .16) 1px, transparent 1.4px) 0 0 / 28px 28px;
+  mask-image: linear-gradient(90deg, #000 0 7%, transparent 19% 81%, #000 93% 100%);
+}
+
+body.catalog-active.course-hsk2 .app-header {
+  display: none !important;
+}
+
+body.catalog-active.course-hsk2 .hsk2-site-header {
+  position: sticky;
+  top: 0;
+  z-index: 70;
+  min-height: 76px;
+  padding: 8px clamp(18px, 3.5vw, 62px);
+  display: grid;
+  grid-template-columns: minmax(245px, .9fr) minmax(520px, 2fr) minmax(210px, .8fr);
+  align-items: center;
+  gap: 20px;
+  border-bottom: 1px solid rgba(212, 228, 223, .95);
+  background: rgba(255, 255, 255, .94);
+  box-shadow: 0 8px 24px rgba(42, 78, 67, .055);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.hsk2-brand {
+  min-width: 0;
+  border: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  color: inherit;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+.hsk2-brand-cat {
+  width: 58px;
+  height: 58px;
+  flex: 0 0 58px;
+  border: 0;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 74% 45%;
+  background: #fff8e9;
+  box-shadow: inset 0 0 0 2px #fff, 0 3px 12px rgba(113, 79, 39, .12);
+}
+
+.hsk2-brand-title {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  white-space: nowrap;
+}
+
+.hsk2-brand-title strong {
+  color: var(--hsk2-teal-dark);
+  font-size: 27px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -.025em;
+}
+
+.hsk2-brand-title span {
+  padding: 5px 10px 4px;
+  border: 1px solid #83cfc0;
+  border-radius: 999px;
+  color: #0c7e69;
+  background: #f3fcf9;
+  font-size: 10px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: .035em;
+}
+
+.hsk2-primary-nav {
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: clamp(16px, 2.2vw, 34px);
+}
+
+.hsk2-nav-item {
+  position: relative;
+  min-width: 0;
+  border: 0;
+  padding: 0 2px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #263c4e;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+button.hsk2-nav-item {
+  cursor: pointer;
+}
+
+button.hsk2-nav-item:hover {
+  color: var(--hsk2-teal-dark);
+}
+
+.hsk2-nav-item i {
+  width: 18px;
+  text-align: center;
+  color: #1f3b4d;
+  font-size: 16px;
+}
+
+.hsk2-nav-item.active,
+.hsk2-nav-item.active i {
+  color: var(--hsk2-teal-dark);
+}
+
+.hsk2-nav-item.active::after {
+  content: "";
+  position: absolute;
+  left: 3px;
+  right: 3px;
+  bottom: 0;
+  height: 3px;
+  border-radius: 99px 99px 0 0;
+  background: var(--hsk2-teal);
+}
+
+.hsk2-header-actions {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.hsk2-icon-button {
+  width: 39px;
+  height: 39px;
+  border: 0;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  color: #1d374a;
+  background: transparent;
+  cursor: pointer;
+  font-size: 17px;
+  transition: color .18s ease, background .18s ease, transform .18s ease;
+}
+
+.hsk2-icon-button:hover,
+.hsk2-icon-button[aria-expanded="true"] {
+  color: var(--hsk2-teal-dark);
+  background: #eaf7f3;
+  transform: translateY(-1px);
+}
+
+.hsk2-hello {
+  padding-left: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #304655;
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.hsk2-hello img {
+  width: 37px;
+  height: 37px;
+  border: 1.5px solid #5bc2ad;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 74% 45%;
+  background: #fff8e9;
+}
+
+body.catalog-active.course-hsk2 .hsk2-search-popover {
+  position: fixed;
+  top: 68px;
+  right: clamp(18px, 3.5vw, 62px);
+  z-index: 80;
+  width: min(360px, calc(100vw - 28px));
+  padding: 10px;
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-7px) scale(.98);
+  border: 1px solid #cce6df;
+  border-radius: 17px;
+  background: rgba(255, 255, 255, .98);
+  box-shadow: 0 18px 46px rgba(45, 82, 70, .16);
+  transition: opacity .18s ease, transform .18s ease, visibility .18s;
+}
+
+body.catalog-active.course-hsk2 .hsk2-search-popover.is-open {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.hsk2-search-field {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #5f7781;
+}
+
+.hsk2-search-field input {
+  width: 100%;
+  min-height: 42px;
+  border: 1px solid #cbe4dd;
+  border-radius: 12px;
+  padding: 7px 12px;
+  outline: 0;
+  color: #263d4c;
+  background: #f9fdfb;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.hsk2-search-field input:focus {
+  border-color: #6dc9b4;
+  box-shadow: 0 0 0 4px rgba(34, 162, 134, .11);
+}
+
+body.catalog-active.course-hsk2 #catalogPage.page-wrap {
+  position: relative;
+  isolation: isolate;
+  width: 100% !important;
+  max-width: none !important;
+  min-height: calc(100vh - 76px) !important;
+  padding: 18px clamp(24px, 3.8vw, 66px) 54px !important;
+  overflow: hidden !important;
+  background:
+    linear-gradient(180deg, rgba(239, 251, 248, .86), rgba(252, 254, 251, .88)),
+    radial-gradient(circle at center, rgba(41, 151, 125, .12) 1px, transparent 1.4px) 0 0 / 24px 24px !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage.page-wrap::before {
+  content: "" !important;
+  position: absolute !important;
+  left: -70px !important;
+  bottom: -55px !important;
+  z-index: 0 !important;
+  width: 310px !important;
+  height: 245px !important;
+  display: block !important;
+  opacity: .48 !important;
+  background:
+    radial-gradient(ellipse at 20% 72%, rgba(83, 168, 111, .32) 0 12%, transparent 12.5%),
+    radial-gradient(ellipse at 39% 49%, rgba(97, 184, 124, .26) 0 12%, transparent 12.5%),
+    radial-gradient(ellipse at 58% 70%, rgba(75, 158, 105, .24) 0 11%, transparent 11.5%),
+    radial-gradient(ellipse at 72% 43%, rgba(106, 190, 132, .22) 0 10%, transparent 10.5%);
+  transform: rotate(-13deg) !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage.page-wrap::after {
+  content: "亭" !important;
+  position: absolute !important;
+  top: 48px !important;
+  right: -4px !important;
+  bottom: auto !important;
+  left: auto !important;
+  z-index: 0 !important;
+  width: 120px !important;
+  height: 230px !important;
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  color: rgba(55, 157, 134, .12) !important;
+  background: none !important;
+  font-family: "Noto Sans SC", sans-serif !important;
+  font-size: 95px !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+  opacity: 1 !important;
+}
+
+body.catalog-active.course-hsk2 .hsk2-catalog-intro {
+  position: relative;
+  z-index: 2;
+  width: min(1540px, 100%);
+  min-height: 130px;
+  margin: 0 auto 16px;
+  display: grid;
+  grid-template-columns: minmax(430px, .93fr) minmax(640px, 1.55fr);
+  align-items: center;
+  gap: 22px;
+}
+
+.hsk2-intro-title {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 104px 1fr;
+  align-items: center;
+  gap: 12px;
+}
+
+.hsk2-intro-mascot {
+  width: 108px;
+  height: 116px;
+  object-fit: contain;
+  object-position: center;
+  filter: drop-shadow(0 8px 12px rgba(78, 94, 59, .13));
+  mix-blend-mode: multiply;
+}
+
+.hsk2-intro-title h2 {
+  margin: 0;
+  color: var(--hsk2-ink);
+  font-size: clamp(28px, 2.15vw, 39px);
+  font-weight: 900;
+  line-height: 1.12;
+  letter-spacing: -.025em;
+  white-space: nowrap;
+}
+
+.hsk2-intro-title p {
+  margin: 8px 0 0;
+  color: var(--hsk2-teal);
+  font-family: "Noto Sans SC", sans-serif;
+  font-size: clamp(22px, 1.7vw, 31px);
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.hsk2-course-summary {
+  min-height: 92px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: center;
+  border: 1px solid #dce9e5;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, .94);
+  box-shadow: 0 9px 24px rgba(54, 88, 77, .08);
+}
+
+.hsk2-summary-item {
+  min-width: 0;
+  min-height: 58px;
+  padding: 8px 15px;
+  display: grid;
+  grid-template-columns: 39px 1fr;
+  align-items: center;
+  gap: 10px;
+  border-right: 1px solid #e7efec;
+}
+
+.hsk2-summary-item:last-child {
+  border-right: 0;
+}
+
+.hsk2-summary-icon {
+  width: 39px;
+  height: 39px;
+  border-radius: 11px;
+  display: grid;
+  place-items: center;
+  color: #15947e;
+  background: #e3f6f1;
+  font-size: 20px;
+}
+
+.hsk2-summary-item:nth-child(2) .hsk2-summary-icon {
+  color: #7750b7;
+  background: #f1eafc;
+}
+
+.hsk2-summary-item:nth-child(3) .hsk2-summary-icon {
+  color: #e09400;
+  background: #fff3d6;
+}
+
+.hsk2-summary-item:nth-child(4) .hsk2-summary-icon {
+  color: #07967a;
+  background: #def5ee;
+}
+
+.hsk2-summary-item strong,
+.hsk2-summary-item small {
+  display: block;
+  overflow: hidden;
+  line-height: 1.18;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hsk2-summary-item strong {
+  color: #1e3446;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.hsk2-summary-item small {
+  margin-top: 4px;
+  color: #778a94;
+  font-size: 10.5px;
+  font-weight: 700;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .catalog-tools {
+  display: none !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .lesson-grid {
+  position: relative !important;
+  z-index: 2 !important;
+  width: min(1540px, 100%) !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  display: grid !important;
+  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  gap: 17px !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .catalog-card {
+  position: relative !important;
+  min-width: 0 !important;
+  min-height: 216px !important;
+  padding: 13px 13px 56px !important;
+  border: 1.35px solid color-mix(in srgb, var(--lesson-accent), white 42%) !important;
+  border-radius: 14px !important;
+  overflow: hidden !important;
+  background:
+    radial-gradient(circle at 82% 24%, rgba(255,255,255,.88), transparent 27%),
+    linear-gradient(145deg,
+      color-mix(in srgb, var(--lesson-accent), white 95%),
+      #fff 58%,
+      color-mix(in srgb, var(--lesson-accent), white 96%)) !important;
+  box-shadow: 0 7px 16px rgba(49, 76, 68, .075) !important;
+  isolation: isolate !important;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .catalog-card::before {
+  inset: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  opacity: .6 !important;
+  background:
+    linear-gradient(90deg, rgba(255,255,255,.18), transparent 46%),
+    radial-gradient(circle at 8% 14%, color-mix(in srgb, var(--lesson-accent), transparent 90%) 0 2px, transparent 2.5px) !important;
+  background-size: auto, 42px 42px !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .catalog-card::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  top: auto !important;
+  bottom: 49px !important;
+  width: auto !important;
+  height: 1px !important;
+  border-radius: 0 !important;
+  background: color-mix(in srgb, var(--lesson-accent), white 69%) !important;
+  opacity: .65 !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .catalog-card:hover,
+body.catalog-active.course-hsk2 #catalogPage .catalog-card:focus-visible {
+  transform: translateY(-4px) !important;
+  border-color: color-mix(in srgb, var(--lesson-accent), white 10%) !important;
+  box-shadow: 0 13px 24px rgba(49, 76, 68, .13) !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .catalog-card:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--lesson-accent), white 52%) !important;
+  outline-offset: 3px !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .lesson-card-top {
+  position: relative !important;
+  z-index: 7 !important;
+  align-items: flex-start !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .lesson-number {
+  width: 41px !important;
+  height: 36px !important;
+  border: 0 !important;
+  border-radius: 8px !important;
+  color: #fff !important;
+  background: linear-gradient(145deg, color-mix(in srgb, var(--lesson-accent), white 18%), var(--lesson-accent)) !important;
+  box-shadow: 0 4px 9px color-mix(in srgb, var(--lesson-accent), transparent 74%) !important;
+  font-size: 14px !important;
+  font-weight: 900 !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .lesson-level {
+  padding: 5px 9px !important;
+  border: 1px solid color-mix(in srgb, var(--lesson-accent), white 15%) !important;
+  border-radius: 999px !important;
+  color: color-mix(in srgb, var(--lesson-accent), #173d35 16%) !important;
+  background: rgba(255,255,255,.82) !important;
+  box-shadow: none !important;
+  font-size: 9.5px !important;
+  font-weight: 900 !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .lesson-art {
+  position: absolute !important;
+  right: 2px !important;
+  top: 39px !important;
+  z-index: 2 !important;
+  width: 49% !important;
+  height: 125px !important;
+  border-radius: 0 !important;
+  object-fit: contain !important;
+  object-position: right center !important;
+  opacity: 1 !important;
+  filter: none !important;
+  mix-blend-mode: multiply !important;
+  transform: none !important;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.64) 18%, #000 34%) !important;
+  mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.64) 18%, #000 34%) !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .lesson-title {
+  position: relative !important;
+  z-index: 6 !important;
+  width: 63% !important;
+  max-width: 63% !important;
+  min-height: 48px !important;
+  margin: 12px 0 3px !important;
+  display: flex !important;
+  align-items: flex-start !important;
+  color: #183448 !important;
+  font-size: clamp(17px, 1.25vw, 21px) !important;
+  font-weight: 900 !important;
+  line-height: 1.2 !important;
+  letter-spacing: -.018em !important;
+  text-wrap: pretty !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .lesson-title.is-medium {
+  font-size: clamp(16.5px, 1.16vw, 19.5px) !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .lesson-title.is-long {
+  width: 67% !important;
+  max-width: 67% !important;
+  font-size: clamp(15.5px, 1.05vw, 18.5px) !important;
+  line-height: 1.19 !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .lesson-pinyin {
+  position: relative !important;
+  z-index: 6 !important;
+  width: 62% !important;
+  max-width: 62% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: #526d79 !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  line-height: 1.35 !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .lesson-footer {
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  z-index: 8 !important;
+  min-height: 49px !important;
+  margin: 0 !important;
+  padding: 7px 10px 7px 13px !important;
+  border: 0 !important;
+  border-radius: 0 0 13px 13px !important;
+  color: color-mix(in srgb, var(--lesson-accent), #183e37 22%) !important;
+  background: rgba(255,255,255,.94) !important;
+  box-shadow: none !important;
+  font-size: 11.5px !important;
+  font-weight: 900 !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .lesson-footer .arrow {
+  width: 27px !important;
+  height: 27px !important;
+  flex: 0 0 27px !important;
+  border-radius: 50% !important;
+  color: #fff !important;
+  background: var(--lesson-accent) !important;
+  box-shadow: 0 3px 6px color-mix(in srgb, var(--lesson-accent), transparent 66%) !important;
+  font-size: 10px !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .empty-state {
+  grid-column: 1 / -1;
+  min-height: 220px;
+  display: grid;
+  place-items: center;
+}
+
+@media (min-width: 1500px) {
+  body.catalog-active.course-hsk2 #catalogPage .catalog-card {
+    min-height: 220px !important;
+  }
+
+  body.catalog-active.course-hsk2 #catalogPage .lesson-art {
+    height: 130px !important;
+  }
+}
+
+@media (max-width: 1360px) {
+  body.catalog-active.course-hsk2 .hsk2-site-header {
+    grid-template-columns: minmax(230px, .85fr) minmax(480px, 1.8fr) minmax(180px, .7fr);
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+
+  .hsk2-primary-nav {
+    gap: 18px;
+  }
+
+  .hsk2-nav-item {
+    font-size: 13px;
+  }
+
+  .hsk2-hello span,
+  .hsk2-nav-item:nth-child(5),
+  .hsk2-nav-item:nth-child(6) {
+    display: none;
+  }
+
+  body.catalog-active.course-hsk2 .hsk2-catalog-intro {
+    grid-template-columns: minmax(390px, .9fr) minmax(570px, 1.45fr);
+  }
+
+  .hsk2-summary-item {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  body.catalog-active.course-hsk2 #catalogPage .lesson-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 1080px) {
+  body.catalog-active.course-hsk2 .hsk2-site-header {
+    grid-template-columns: minmax(220px, .8fr) 1.5fr auto;
+  }
+
+  .hsk2-primary-nav {
+    gap: 16px;
+  }
+
+  .hsk2-nav-item:nth-child(n+4) {
+    display: none;
+  }
+
+  body.catalog-active.course-hsk2 #catalogPage.page-wrap {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+
+  body.catalog-active.course-hsk2 .hsk2-catalog-intro {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .hsk2-intro-title {
+    justify-self: center;
+  }
+
+  body.catalog-active.course-hsk2 #catalogPage .lesson-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 780px) {
+  body.catalog-active.course-hsk2 .hsk2-site-header {
+    min-height: 66px;
+    padding: 6px 14px;
+    grid-template-columns: 1fr auto;
+    gap: 8px;
+  }
+
+  .hsk2-brand-cat {
+    width: 48px;
+    height: 48px;
+    flex-basis: 48px;
+  }
+
+  .hsk2-brand-title strong {
+    font-size: 23px;
+  }
+
+  .hsk2-brand-title span,
+  .hsk2-primary-nav,
+  .hsk2-hello,
+  .hsk2-icon-button[aria-label="Thông báo"] {
+    display: none;
+  }
+
+  body.catalog-active.course-hsk2 .hsk2-search-popover {
+    top: 60px;
+    right: 14px;
+  }
+
+  body.catalog-active.course-hsk2 #catalogPage.page-wrap {
+    min-height: calc(100vh - 66px) !important;
+    padding: 12px 14px 38px !important;
+  }
+
+  body.catalog-active.course-hsk2 .hsk2-catalog-intro {
+    min-height: auto;
+    margin-bottom: 13px;
+  }
+
+  .hsk2-intro-title {
+    width: 100%;
+    grid-template-columns: 78px 1fr;
+    gap: 8px;
+  }
+
+  .hsk2-intro-mascot {
+    width: 80px;
+    height: 88px;
+  }
+
+  .hsk2-intro-title h2 {
+    font-size: clamp(23px, 6.5vw, 30px);
+    white-space: normal;
+  }
+
+  .hsk2-intro-title p {
+    margin-top: 4px;
+    font-size: 20px;
+  }
+
+  .hsk2-course-summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hsk2-summary-item {
+    border-bottom: 1px solid #e7efec;
+  }
+
+  .hsk2-summary-item:nth-child(2) {
+    border-right: 0;
+  }
+
+  .hsk2-summary-item:nth-child(n+3) {
+    border-bottom: 0;
+  }
+
+  body.catalog-active.course-hsk2 #catalogPage .lesson-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 14px !important;
+  }
+}
+
+/* =========================================================
+   HSK 2 — tinh chỉnh v3:
+   - bỏ khung bao lưới gây cảm giác có một ô chữ nhật thừa;
+   - viền mỗi thẻ dùng hai màu phối riêng;
+   - nền khu bài học đổi sang họa tiết "vườn cam" mềm và thoáng.
+========================================================= */
+body.catalog-active.course-hsk2 #catalogPage.page-wrap {
+  background:
+    radial-gradient(ellipse 7px 13px at 14px 20px, rgba(104, 151, 78, .13) 0 72%, transparent 75%) 0 0 / 96px 96px,
+    radial-gradient(ellipse 7px 13px at 25px 16px, rgba(126, 169, 91, .11) 0 72%, transparent 75%) 0 0 / 96px 96px,
+    radial-gradient(circle at 72px 69px, rgba(228, 102, 37, .13) 0 3px, transparent 3.6px) 0 0 / 96px 96px,
+    radial-gradient(circle at 66px 69px, rgba(240, 153, 69, .10) 0 3.3px, transparent 3.9px) 0 0 / 96px 96px,
+    radial-gradient(circle at 78px 69px, rgba(240, 153, 69, .10) 0 3.3px, transparent 3.9px) 0 0 / 96px 96px,
+    radial-gradient(ellipse at 8% 88%, rgba(244, 170, 83, .23), transparent 25%),
+    radial-gradient(ellipse at 94% 17%, rgba(238, 118, 53, .14), transparent 22%),
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, .18) 0 1px, transparent 1px 22px),
+    linear-gradient(145deg, #fffaf0 0%, #ffe8cc 48%, #fff6e7 100%) !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage.page-wrap::before {
+  content: "" !important;
+  left: -46px !important;
+  bottom: -54px !important;
+  width: 390px !important;
+  height: 238px !important;
+  display: block !important;
+  background:
+    radial-gradient(ellipse at 9% 83%, rgba(92, 145, 69, .31) 0 9%, transparent 9.6%),
+    radial-gradient(ellipse at 25% 63%, rgba(121, 169, 88, .27) 0 10%, transparent 10.6%),
+    radial-gradient(ellipse at 42% 84%, rgba(82, 139, 67, .25) 0 9%, transparent 9.6%),
+    radial-gradient(ellipse at 61% 61%, rgba(131, 176, 91, .23) 0 10%, transparent 10.6%),
+    radial-gradient(ellipse at 79% 84%, rgba(97, 151, 71, .24) 0 9%, transparent 9.6%),
+    radial-gradient(circle at 52% 70%, rgba(232, 110, 42, .25) 0 7%, transparent 7.6%),
+    radial-gradient(circle at 45% 70%, rgba(247, 176, 81, .22) 0 6%, transparent 6.6%),
+    radial-gradient(circle at 59% 70%, rgba(247, 176, 81, .22) 0 6%, transparent 6.6%) !important;
+  font-size: 0 !important;
+  letter-spacing: 0 !important;
+  opacity: .76 !important;
+  transform: rotate(-8deg) !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage.page-wrap::after {
+  content: "" !important;
+  top: 24px !important;
+  right: -62px !important;
+  width: 342px !important;
+  height: 216px !important;
+  display: block !important;
+  background:
+    radial-gradient(ellipse at 18% 26%, rgba(111, 159, 76, .24) 0 10%, transparent 10.7%),
+    radial-gradient(ellipse at 40% 45%, rgba(137, 176, 91, .21) 0 10%, transparent 10.7%),
+    radial-gradient(ellipse at 64% 24%, rgba(94, 148, 70, .22) 0 9%, transparent 9.7%),
+    radial-gradient(ellipse at 82% 48%, rgba(124, 167, 83, .20) 0 10%, transparent 10.7%),
+    radial-gradient(circle at 50% 31%, rgba(226, 93, 35, .20) 0 7%, transparent 7.7%),
+    radial-gradient(circle at 43% 31%, rgba(245, 164, 72, .18) 0 6%, transparent 6.7%),
+    radial-gradient(circle at 57% 31%, rgba(245, 164, 72, .18) 0 6%, transparent 6.7%) !important;
+  font-size: 0 !important;
+  letter-spacing: 0 !important;
+  opacity: .66 !important;
+  transform: rotate(9deg) !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .lesson-grid {
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  align-items: start !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .catalog-card {
+  border: 2.2px solid transparent !important;
+  background:
+    radial-gradient(circle at 89% 13%, color-mix(in srgb, var(--lesson-accent-2), white 86%) 0 2px, transparent 2.7px) 0 0 / 34px 34px padding-box,
+    linear-gradient(
+      143deg,
+      color-mix(in srgb, var(--lesson-accent), white 94%) 0%,
+      #fffdfa 52%,
+      color-mix(in srgb, var(--lesson-accent-2), white 92%) 100%
+    ) padding-box,
+    linear-gradient(
+      135deg,
+      var(--lesson-accent) 0%,
+      color-mix(in srgb, var(--lesson-accent), var(--lesson-accent-2) 44%) 46%,
+      var(--lesson-accent-2) 100%
+    ) border-box !important;
+  box-shadow:
+    0 6px 0 color-mix(in srgb, var(--lesson-accent-2), white 57%),
+    0 13px 24px rgba(108, 59, 28, .11) !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .catalog-card:hover,
+body.catalog-active.course-hsk2 #catalogPage .catalog-card:focus-visible {
+  border-color: transparent !important;
+  box-shadow:
+    0 8px 0 color-mix(in srgb, var(--lesson-accent-2), white 47%),
+    0 19px 32px color-mix(in srgb, var(--lesson-accent), transparent 79%) !important;
+}
+
+/* =========================================================
+   HSK 2 — hoàn thiện v4:
+   - minh họa mèo nền trong suốt và lớn hơn;
+   - dải lời nhắn có đường phân cách rõ;
+   - mỗi lời nhắn có một icon riêng.
+========================================================= */
+body.catalog-active.course-hsk2 #catalogPage .catalog-card {
+  min-height: 252px !important;
+  padding-bottom: 64px !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .catalog-card::after {
+  content: none !important;
+  display: none !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .catalog-card[data-lesson-id] .lesson-art {
+  right: -6px !important;
+  top: 35px !important;
+  width: 60% !important;
+  height: 168px !important;
+  object-fit: contain !important;
+  object-position: right center !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  mix-blend-mode: normal !important;
+  filter: drop-shadow(0 8px 8px rgba(122, 65, 28, .13)) !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .lesson-footer {
+  min-height: 57px !important;
+  padding: 7px 10px 7px 11px !important;
+  gap: 7px !important;
+  border-top: 2.5px solid var(--lesson-accent) !important;
+  border-radius: 0 0 14px 14px !important;
+  background:
+    radial-gradient(circle at 84% 16%, color-mix(in srgb, var(--lesson-accent-2), white 78%) 0 2px, transparent 2.6px) 0 0 / 27px 27px,
+    linear-gradient(
+      112deg,
+      color-mix(in srgb, var(--lesson-accent), white 91%),
+      rgba(255, 255, 255, .98) 50%,
+      color-mix(in srgb, var(--lesson-accent-2), white 90%)
+    ) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .85),
+    0 -4px 12px color-mix(in srgb, var(--lesson-accent), transparent 88%) !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .lesson-message {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  line-height: 1.16;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .lesson-message-icon {
+  width: 28px;
+  height: 28px;
+  flex: 0 0 28px;
+  display: grid;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--lesson-accent), white 42%);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, .9);
+  box-shadow: 0 3px 7px color-mix(in srgb, var(--lesson-accent), transparent 77%);
+  font-size: 15px;
+  transform: rotate(-3deg);
+}
+
+body.catalog-active.course-hsk2 #catalogPage .lesson-footer .arrow {
+  width: 30px !important;
+  height: 30px !important;
+  flex-basis: 30px !important;
+  border: 2px solid rgba(255, 255, 255, .8) !important;
+  background: linear-gradient(145deg, var(--lesson-accent), var(--lesson-accent-2)) !important;
+  box-shadow: 0 4px 8px color-mix(in srgb, var(--lesson-accent), transparent 62%) !important;
+}
+
+@media (max-width: 1360px) {
+  body.catalog-active.course-hsk2 #catalogPage .catalog-card[data-lesson-id] .lesson-art {
+    width: 57% !important;
+    height: 164px !important;
+  }
+}
+
+@media (max-width: 780px) {
+  body.catalog-active.course-hsk2 #catalogPage .catalog-card {
+    min-height: 244px !important;
+  }
+
+  body.catalog-active.course-hsk2 #catalogPage .catalog-card[data-lesson-id] .lesson-art {
+    right: -8px !important;
+    top: 39px !important;
+    width: 57% !important;
+    height: 154px !important;
+  }
+}
+
+@media (max-width: 560px) {
+  body.catalog-active.course-hsk2 #catalogPage .lesson-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  body.catalog-active.course-hsk2 #catalogPage .catalog-card[data-lesson-id] .lesson-art {
+    right: 2px !important;
+    width: 54% !important;
+  }
+}
+
+body.catalog-active.course-hsk2 #catalogPage .lesson-number {
+  background: linear-gradient(145deg, var(--lesson-accent), var(--lesson-accent-2)) !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .lesson-level {
+  border-color: color-mix(in srgb, var(--lesson-accent-2), white 18%) !important;
+  color: color-mix(in srgb, var(--lesson-accent-2), #173d35 18%) !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .lesson-footer .arrow {
+  background: linear-gradient(145deg, var(--lesson-accent), var(--lesson-accent-2)) !important;
+}
+
+@media (max-width: 520px) {
+  body.catalog-active.course-hsk2 #catalogPage.page-wrap {
+    padding-left: 11px !important;
+    padding-right: 11px !important;
+  }
+
+  .hsk2-course-summary {
+    display: none;
+  }
+
+  body.catalog-active.course-hsk2 #catalogPage .lesson-grid {
+    grid-template-columns: 1fr !important;
+    width: min(390px, 100%) !important;
+  }
+
+  body.catalog-active.course-hsk2 #catalogPage .catalog-card {
+    min-height: 216px !important;
+  }
+
+  body.catalog-active.course-hsk2 #catalogPage .lesson-title {
+    font-size: 20px !important;
+  }
+
+  body.catalog-active.course-hsk2 #catalogPage .lesson-title.is-long {
+    font-size: 18px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.catalog-active.course-hsk2 *,
+  body.catalog-active.course-hsk2 *::before,
+  body.catalog-active.course-hsk2 *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+/* 2026-07 refinement: warmer learning garden, cleaner navigation and uncropped mascots. */
+body.catalog-active.course-hsk2 {
+  --hsk2-orange: #ee8c32;
+  --hsk2-orange-deep: #cf681d;
+  --hsk2-orange-soft: #fff0da;
+  background: #fff4e5;
+}
+
+body.catalog-active.course-hsk2::before {
+  opacity: .48;
+  background:
+    radial-gradient(circle at center, rgba(227, 128, 45, .17) 1.2px, transparent 1.7px) 0 0 / 28px 28px;
+}
+
+body.catalog-active.course-hsk2 .hsk2-site-header {
+  border-bottom-color: rgba(239, 205, 165, .9);
+  box-shadow: 0 8px 24px rgba(112, 68, 31, .06);
+}
+
+.hsk2-primary-nav {
+  gap: clamp(24px, 3vw, 48px);
+}
+
+body.catalog-active.course-hsk2 #catalogPage.page-wrap {
+  background:
+    radial-gradient(circle at 8% 14%, rgba(255, 176, 102, .21) 0 2px, transparent 2.6px) 0 0 / 44px 44px,
+    radial-gradient(circle at 88% 28%, rgba(246, 153, 76, .15) 0 1.5px, transparent 2.1px) 0 0 / 36px 36px,
+    linear-gradient(155deg, rgba(255, 247, 232, .97), rgba(255, 231, 196, .84) 52%, rgba(255, 248, 235, .96)) !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage.page-wrap::before {
+  content: "🌿  ✿  🌼" !important;
+  left: -22px !important;
+  bottom: -12px !important;
+  width: 310px !important;
+  height: 170px !important;
+  display: flex !important;
+  align-items: flex-end !important;
+  justify-content: center !important;
+  color: rgba(97, 147, 68, .38) !important;
+  background:
+    radial-gradient(ellipse at 18% 74%, rgba(114, 170, 83, .25) 0 10%, transparent 10.6%),
+    radial-gradient(ellipse at 48% 58%, rgba(239, 148, 75, .2) 0 9%, transparent 9.6%),
+    radial-gradient(ellipse at 76% 78%, rgba(121, 178, 91, .22) 0 10%, transparent 10.6%) !important;
+  font-size: 46px !important;
+  letter-spacing: 16px !important;
+  line-height: 1 !important;
+  opacity: .5 !important;
+  transform: rotate(-7deg) !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage.page-wrap::after {
+  content: "🌼  ❀  🌿" !important;
+  top: 36px !important;
+  right: -28px !important;
+  width: 270px !important;
+  height: 145px !important;
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  color: rgba(224, 126, 46, .28) !important;
+  background:
+    radial-gradient(ellipse at 25% 34%, rgba(249, 175, 104, .22) 0 10%, transparent 10.6%),
+    radial-gradient(ellipse at 70% 52%, rgba(117, 169, 83, .18) 0 11%, transparent 11.6%) !important;
+  font-family: system-ui, sans-serif !important;
+  font-size: 41px !important;
+  font-weight: 400 !important;
+  letter-spacing: 12px !important;
+  line-height: 1 !important;
+  opacity: .42 !important;
+  transform: rotate(8deg) !important;
+}
+
+.hsk2-course-summary {
+  grid-template-columns: minmax(230px, 1.35fr) repeat(3, minmax(0, 1fr));
+  border-color: #efdbc1;
+  box-shadow: 0 9px 24px rgba(113, 69, 33, .08);
+}
+
+.hsk2-summary-item {
+  border-right-color: #f2e4d2;
+}
+
+.hsk2-motivation-item .hsk2-summary-icon {
+  color: var(--hsk2-orange-deep);
+  background: var(--hsk2-orange-soft);
+}
+
+.hsk2-motivation-item strong {
+  display: -webkit-box;
+  overflow: hidden;
+  color: #b95c1d;
+  font-size: 12.5px;
+  line-height: 1.3;
+  text-overflow: clip;
+  white-space: normal;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.hsk2-motivation-item small {
+  color: #9a755a;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .catalog-card {
+  box-shadow: 0 8px 18px rgba(111, 73, 38, .08) !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .catalog-card[data-lesson-id] .lesson-art {
+  right: 12px !important;
+  top: 43px !important;
+  width: 41% !important;
+  height: 116px !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  clip-path: none !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+  transform: none !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .lesson-title {
+  width: 59% !important;
+  max-width: 59% !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .lesson-title.is-long {
+  width: 62% !important;
+  max-width: 62% !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .lesson-pinyin {
+  width: 59% !important;
+  max-width: 59% !important;
+}
+
+@media (max-width: 1080px) {
+  .hsk2-course-summary {
+    grid-template-columns: minmax(230px, 1.3fr) repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 780px) {
+  .hsk2-course-summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hsk2-motivation-item strong {
+    font-size: 12px;
+  }
+
+  body.catalog-active.course-hsk2 #catalogPage .catalog-card[data-lesson-id] .lesson-art {
+    right: 10px !important;
+    width: 40% !important;
+  }
+}
+
+/* =========================================================
+   HSK 2 — bản bổ sung: đầu trang theo HSK 1, mèo mẫu mới,
+   khung động lực toàn chiều rộng và bảng màu cam đậm.
+========================================================= */
+.hsk2-header-mascot {
+  display: none;
+}
+
+body.catalog-active.course-hsk2 {
+  --hsk2-orange: #e66b22;
+  --hsk2-orange-deep: #bd4d16;
+  --hsk2-orange-dark: #8f3413;
+  --hsk2-orange-soft: #ffead0;
+  --hsk2-cream: #fff8eb;
+  --hsk2-leaf: #6f9d58;
+  background: #fff0d8 !important;
+}
+
+body.catalog-active.course-hsk2 .hsk2-site-header,
+body.catalog-active.course-hsk2 .hsk2-search-popover {
+  display: none !important;
+}
+
+body.catalog-active.course-hsk2 .app-header {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 70 !important;
+  min-height: 104px !important;
+  padding: 13px clamp(24px, 3vw, 48px) !important;
+  display: flex !important;
+  overflow: hidden !important;
+  border-bottom: 1px solid #f0c9a4 !important;
+  background:
+    radial-gradient(circle at 58% 18%, rgba(255, 213, 157, .42), transparent 24%),
+    rgba(255, 253, 248, .97) !important;
+  box-shadow: 0 9px 26px rgba(120, 61, 25, .09) !important;
+}
+
+body.catalog-active.course-hsk2 .app-header::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+}
+
+body.catalog-active.course-hsk2 .app-header > .hsk2-header-mascot {
+  position: absolute !important;
+  left: 61.5% !important;
+  top: 2px !important;
+  z-index: 1 !important;
+  width: 176px !important;
+  height: 98px !important;
+  display: block !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  border: 0 !important;
+  border-radius: 22px !important;
+  opacity: .98 !important;
+  pointer-events: none !important;
+  mix-blend-mode: multiply !important;
+  filter: drop-shadow(0 8px 11px rgba(151, 77, 30, .13)) !important;
+}
+
+body.catalog-active.course-hsk2 .brand-button {
+  border-color: #c64e17 !important;
+  background: linear-gradient(145deg, #f18434, #dc5d1e) !important;
+  box-shadow:
+    0 7px 0 #a83e12,
+    0 13px 25px rgba(194, 75, 23, .23) !important;
+}
+
+body.catalog-active.course-hsk2 .header-eyebrow {
+  color: #b84a17 !important;
+}
+
+body.catalog-active.course-hsk2 .header-eyebrow .catalog-pill {
+  border-color: #f1bc8c !important;
+  color: #a94116 !important;
+  background: #fff2df !important;
+}
+
+body.catalog-active.course-hsk2 .header-eyebrow .catalog-dot {
+  color: #db6826 !important;
+}
+
+body.catalog-active.course-hsk2 #lessonSelect {
+  border-color: #efb47e !important;
+  color: #314653 !important;
+  background: rgba(255, 255, 255, .97) !important;
+  box-shadow:
+    0 7px 0 rgba(211, 105, 42, .14),
+    0 12px 26px rgba(112, 65, 34, .09) !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage.page-wrap {
+  min-height: calc(100vh - 104px) !important;
+  padding-top: 20px !important;
+  background:
+    radial-gradient(circle at 7% 12%, rgba(230, 107, 34, .14) 0 2px, transparent 2.6px) 0 0 / 38px 38px,
+    radial-gradient(circle at 94% 30%, rgba(117, 157, 83, .14) 0 2px, transparent 2.6px) 0 0 / 46px 46px,
+    radial-gradient(ellipse at 9% 92%, rgba(255, 196, 126, .35), transparent 27%),
+    linear-gradient(155deg, #fff9ed 0%, #ffe7c8 49%, #fff6e7 100%) !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage.page-wrap::before {
+  content: "🌿  🌼  ❀" !important;
+  left: -28px !important;
+  bottom: -8px !important;
+  width: 330px !important;
+  height: 180px !important;
+  color: rgba(99, 139, 71, .44) !important;
+  background:
+    radial-gradient(ellipse at 20% 77%, rgba(111, 157, 82, .28) 0 11%, transparent 11.7%),
+    radial-gradient(ellipse at 52% 62%, rgba(226, 105, 35, .2) 0 10%, transparent 10.7%),
+    radial-gradient(ellipse at 82% 81%, rgba(125, 164, 91, .24) 0 10%, transparent 10.7%) !important;
+  font-size: 48px !important;
+  opacity: .62 !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage.page-wrap::after {
+  content: "❀  🍃  🌼" !important;
+  top: 32px !important;
+  right: -34px !important;
+  width: 300px !important;
+  height: 160px !important;
+  color: rgba(211, 88, 26, .34) !important;
+  background:
+    radial-gradient(ellipse at 23% 30%, rgba(237, 132, 68, .22) 0 10%, transparent 10.7%),
+    radial-gradient(ellipse at 72% 55%, rgba(104, 148, 75, .2) 0 11%, transparent 11.7%) !important;
+  font-size: 43px !important;
+  opacity: .54 !important;
+}
+
+body.catalog-active.course-hsk2 .hsk2-catalog-intro {
+  grid-template-columns: minmax(390px, .82fr) minmax(610px, 1.5fr) !important;
+  gap: clamp(20px, 2.3vw, 38px) !important;
+}
+
+body.catalog-active.course-hsk2 .hsk2-intro-title p {
+  color: #d05b1d !important;
+}
+
+body.catalog-active.course-hsk2 .hsk2-course-summary {
+  position: relative !important;
+  isolation: isolate !important;
+  min-height: 96px !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  overflow: hidden !important;
+  border: 1.5px solid #edb57f !important;
+  border-radius: 22px !important;
+  background:
+    radial-gradient(circle at 86% 14%, rgba(255, 184, 102, .28), transparent 27%),
+    linear-gradient(115deg, rgba(255, 255, 255, .97), rgba(255, 242, 221, .96)) !important;
+  box-shadow:
+    0 8px 0 rgba(209, 100, 34, .1),
+    0 16px 30px rgba(108, 63, 32, .09) !important;
+}
+
+body.catalog-active.course-hsk2 .hsk2-course-summary::after {
+  content: "✦  ✿  ✦" !important;
+  position: absolute !important;
+  right: 23px !important;
+  top: 14px !important;
+  z-index: -1 !important;
+  color: rgba(214, 94, 29, .16) !important;
+  font-size: 38px !important;
+  letter-spacing: 13px !important;
+  transform: rotate(-7deg) !important;
+}
+
+body.catalog-active.course-hsk2 .hsk2-summary-item.hsk2-motivation-item {
+  min-height: 94px !important;
+  padding: 10px 24px 10px 17px !important;
+  grid-template-columns: 92px minmax(0, 1fr) !important;
+  gap: 17px !important;
+  border: 0 !important;
+}
+
+.hsk2-motivation-icons {
+  position: relative;
+  width: 88px;
+  height: 70px;
+  display: block;
+}
+
+body.catalog-active.course-hsk2 .hsk2-motivation-icons .hsk2-summary-icon {
+  position: absolute !important;
+  left: 8px !important;
+  top: 5px !important;
+  width: 58px !important;
+  height: 58px !important;
+  border: 1px solid #f2c18f !important;
+  border-radius: 19px !important;
+  display: grid !important;
+  place-items: center !important;
+  color: inherit !important;
+  background: linear-gradient(145deg, #fff5e3, #ffe1b8) !important;
+  box-shadow: 0 6px 13px rgba(194, 84, 25, .12) !important;
+  font-size: 29px !important;
+}
+
+.hsk2-floating-icon {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  filter: drop-shadow(0 3px 4px rgba(118, 69, 36, .12));
+}
+
+.hsk2-floating-icon-flower {
+  right: 0;
+  bottom: 1px;
+  font-size: 23px;
+  transform: rotate(11deg);
+}
+
+.hsk2-floating-icon-sparkle {
+  right: 3px;
+  top: -2px;
+  font-size: 18px;
+}
+
+.hsk2-floating-icon-heart {
+  left: 0;
+  bottom: 0;
+  font-size: 15px;
+  transform: rotate(-12deg);
+}
+
+.hsk2-motivation-copy {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+body.catalog-active.course-hsk2 .hsk2-motivation-copy small {
+  margin: 0 0 5px !important;
+  color: #ba591f !important;
+  font-size: 10px !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+  letter-spacing: .12em !important;
+}
+
+body.catalog-active.course-hsk2 .hsk2-motivation-copy strong {
+  display: block !important;
+  overflow: visible !important;
+  color: #8e3515 !important;
+  font-size: clamp(16px, 1.25vw, 21px) !important;
+  font-weight: 900 !important;
+  line-height: 1.25 !important;
+  white-space: normal !important;
+  text-overflow: clip !important;
+  -webkit-line-clamp: unset !important;
+}
+
+.hsk2-motivation-note {
+  margin-top: 5px;
+  color: #8f735e;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .lesson-grid {
+  border: 1.8px solid #e8aa74 !important;
+  background:
+    radial-gradient(circle at 97% 5%, rgba(235, 108, 37, .08), transparent 16%),
+    rgba(255, 253, 248, .95) !important;
+  box-shadow: 0 18px 42px rgba(115, 65, 31, .11) !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .catalog-card {
+  min-height: 226px !important;
+  border-width: 1.8px !important;
+  border-color: color-mix(in srgb, var(--lesson-accent), white 29%) !important;
+  border-radius: 17px !important;
+  background:
+    radial-gradient(circle at 89% 13%, color-mix(in srgb, var(--lesson-accent), white 88%) 0 2px, transparent 2.6px) 0 0 / 34px 34px,
+    linear-gradient(
+      143deg,
+      color-mix(in srgb, var(--lesson-accent), white 94%) 0%,
+      #fffdf9 54%,
+      color-mix(in srgb, var(--lesson-accent), white 91%) 100%
+    ) !important;
+  box-shadow:
+    0 6px 0 color-mix(in srgb, var(--lesson-accent), white 58%),
+    0 12px 22px rgba(108, 59, 28, .11) !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .catalog-card::before {
+  inset: 5px !important;
+  border: 1px solid rgba(255, 255, 255, .86) !important;
+  border-radius: 12px !important;
+  background:
+    radial-gradient(circle at 15% 18%, rgba(255, 255, 255, .76) 0 2px, transparent 2.6px),
+    radial-gradient(circle at 82% 79%, color-mix(in srgb, var(--lesson-accent), transparent 90%) 0 2px, transparent 2.6px) !important;
+  background-size: 44px 44px, 53px 53px !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .catalog-card:hover,
+body.catalog-active.course-hsk2 #catalogPage .catalog-card:focus-visible {
+  border-color: var(--lesson-accent) !important;
+  box-shadow:
+    0 8px 0 color-mix(in srgb, var(--lesson-accent), white 48%),
+    0 18px 30px rgba(104, 55, 26, .17) !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .catalog-card[data-lesson-id] .lesson-art {
+  right: 10px !important;
+  top: 43px !important;
+  width: 44% !important;
+  height: 128px !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  border-radius: 15px !important;
+  opacity: 1 !important;
+  clip-path: none !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+  transform: none !important;
+  mix-blend-mode: multiply !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .lesson-title {
+  width: 59% !important;
+  max-width: 59% !important;
+  color: #2a3942 !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .lesson-title.is-long {
+  width: 63% !important;
+  max-width: 63% !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .lesson-pinyin {
+  width: 59% !important;
+  max-width: 59% !important;
+  color: #5c6f75 !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .lesson-footer {
+  border-color: color-mix(in srgb, var(--lesson-accent), white 31%) !important;
+  color: color-mix(in srgb, var(--lesson-accent), #6f2c13 20%) !important;
+  background: rgba(255, 255, 255, .95) !important;
+}
+
+@media (max-width: 1360px) {
+  body.catalog-active.course-hsk2 .app-header > .hsk2-header-mascot {
+    left: 58.5% !important;
+    width: 150px !important;
+  }
+
+  body.catalog-active.course-hsk2 .hsk2-catalog-intro {
+    grid-template-columns: minmax(360px, .82fr) minmax(560px, 1.45fr) !important;
+  }
+}
+
+@media (max-width: 1080px) {
+  body.catalog-active.course-hsk2 .hsk2-catalog-intro {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 980px) {
+  body.catalog-active.course-hsk2 .app-header {
+    min-height: 88px !important;
+  }
+
+  body.catalog-active.course-hsk2 .app-header > .hsk2-header-mascot {
+    display: none !important;
+  }
+
+  body.catalog-active.course-hsk2 #catalogPage.page-wrap {
+    min-height: calc(100vh - 88px) !important;
+  }
+}
+
+@media (max-width: 780px) {
+  body.catalog-active.course-hsk2 .hsk2-course-summary {
+    grid-template-columns: 1fr !important;
+  }
+
+  body.catalog-active.course-hsk2 .hsk2-summary-item.hsk2-motivation-item {
+    grid-template-columns: 72px minmax(0, 1fr) !important;
+    gap: 10px !important;
+    padding: 10px 13px !important;
+  }
+
+  .hsk2-motivation-icons {
+    width: 68px;
+  }
+
+  body.catalog-active.course-hsk2 .hsk2-motivation-icons .hsk2-summary-icon {
+    width: 50px !important;
+    height: 50px !important;
+    font-size: 25px !important;
+  }
+
+  body.catalog-active.course-hsk2 .hsk2-motivation-copy strong {
+    font-size: 15px !important;
+  }
+
+  .hsk2-motivation-note {
+    display: none;
+  }
+
+  body.catalog-active.course-hsk2 #catalogPage .catalog-card[data-lesson-id] .lesson-art {
+    right: 8px !important;
+    width: 42% !important;
+    height: 124px !important;
+  }
+}
+
+/* Final cascade for the approved v3 artwork and frameless lesson grid. */
+body.catalog-active.course-hsk2 #catalogPage.page-wrap {
+  background:
+    radial-gradient(ellipse 7px 13px at 14px 20px, rgba(104, 151, 78, .13) 0 72%, transparent 75%) 0 0 / 96px 96px,
+    radial-gradient(ellipse 7px 13px at 25px 16px, rgba(126, 169, 91, .11) 0 72%, transparent 75%) 0 0 / 96px 96px,
+    radial-gradient(circle at 72px 69px, rgba(228, 102, 37, .13) 0 3px, transparent 3.6px) 0 0 / 96px 96px,
+    radial-gradient(circle at 66px 69px, rgba(240, 153, 69, .10) 0 3.3px, transparent 3.9px) 0 0 / 96px 96px,
+    radial-gradient(circle at 78px 69px, rgba(240, 153, 69, .10) 0 3.3px, transparent 3.9px) 0 0 / 96px 96px,
+    radial-gradient(ellipse at 8% 88%, rgba(244, 170, 83, .23), transparent 25%),
+    radial-gradient(ellipse at 94% 17%, rgba(238, 118, 53, .14), transparent 22%),
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, .18) 0 1px, transparent 1px 22px),
+    linear-gradient(145deg, #fffaf0 0%, #ffe8cc 48%, #fff6e7 100%) !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage.page-wrap::before {
+  content: "" !important;
+  left: -46px !important;
+  bottom: -54px !important;
+  width: 390px !important;
+  height: 238px !important;
+  display: block !important;
+  background:
+    radial-gradient(ellipse at 9% 83%, rgba(92, 145, 69, .31) 0 9%, transparent 9.6%),
+    radial-gradient(ellipse at 25% 63%, rgba(121, 169, 88, .27) 0 10%, transparent 10.6%),
+    radial-gradient(ellipse at 42% 84%, rgba(82, 139, 67, .25) 0 9%, transparent 9.6%),
+    radial-gradient(ellipse at 61% 61%, rgba(131, 176, 91, .23) 0 10%, transparent 10.6%),
+    radial-gradient(ellipse at 79% 84%, rgba(97, 151, 71, .24) 0 9%, transparent 9.6%),
+    radial-gradient(circle at 52% 70%, rgba(232, 110, 42, .25) 0 7%, transparent 7.6%),
+    radial-gradient(circle at 45% 70%, rgba(247, 176, 81, .22) 0 6%, transparent 6.6%),
+    radial-gradient(circle at 59% 70%, rgba(247, 176, 81, .22) 0 6%, transparent 6.6%) !important;
+  font-size: 0 !important;
+  letter-spacing: 0 !important;
+  opacity: .76 !important;
+  transform: rotate(-8deg) !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage.page-wrap::after {
+  content: "" !important;
+  top: 24px !important;
+  right: -62px !important;
+  width: 342px !important;
+  height: 216px !important;
+  display: block !important;
+  background:
+    radial-gradient(ellipse at 18% 26%, rgba(111, 159, 76, .24) 0 10%, transparent 10.7%),
+    radial-gradient(ellipse at 40% 45%, rgba(137, 176, 91, .21) 0 10%, transparent 10.7%),
+    radial-gradient(ellipse at 64% 24%, rgba(94, 148, 70, .22) 0 9%, transparent 9.7%),
+    radial-gradient(ellipse at 82% 48%, rgba(124, 167, 83, .20) 0 10%, transparent 10.7%),
+    radial-gradient(circle at 50% 31%, rgba(226, 93, 35, .20) 0 7%, transparent 7.7%),
+    radial-gradient(circle at 43% 31%, rgba(245, 164, 72, .18) 0 6%, transparent 6.7%),
+    radial-gradient(circle at 57% 31%, rgba(245, 164, 72, .18) 0 6%, transparent 6.7%) !important;
+  font-size: 0 !important;
+  letter-spacing: 0 !important;
+  opacity: .66 !important;
+  transform: rotate(9deg) !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .lesson-grid {
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  align-items: start !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .catalog-card {
+  border: 2.2px solid transparent !important;
+  background:
+    radial-gradient(circle at 89% 13%, color-mix(in srgb, var(--lesson-accent-2), white 86%) 0 2px, transparent 2.7px) 0 0 / 34px 34px padding-box,
+    linear-gradient(
+      143deg,
+      color-mix(in srgb, var(--lesson-accent), white 94%) 0%,
+      #fffdfa 52%,
+      color-mix(in srgb, var(--lesson-accent-2), white 92%) 100%
+    ) padding-box,
+    linear-gradient(
+      135deg,
+      var(--lesson-accent) 0%,
+      color-mix(in srgb, var(--lesson-accent), var(--lesson-accent-2) 44%) 46%,
+      var(--lesson-accent-2) 100%
+    ) border-box !important;
+  box-shadow:
+    0 6px 0 color-mix(in srgb, var(--lesson-accent-2), white 57%),
+    0 13px 24px rgba(108, 59, 28, .11) !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .catalog-card:hover,
+body.catalog-active.course-hsk2 #catalogPage .catalog-card:focus-visible {
+  border-color: transparent !important;
+  box-shadow:
+    0 8px 0 color-mix(in srgb, var(--lesson-accent-2), white 47%),
+    0 19px 32px color-mix(in srgb, var(--lesson-accent), transparent 79%) !important;
+}
+
+/* Final cascade for v4 transparency, larger artwork and message ribbons. */
+body.catalog-active.course-hsk2 #catalogPage .catalog-card {
+  min-height: 252px !important;
+  padding-bottom: 64px !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .catalog-card::after {
+  content: none !important;
+  display: none !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .catalog-card[data-lesson-id] .lesson-art {
+  right: -6px !important;
+  top: 35px !important;
+  width: 62% !important;
+  height: 172px !important;
+  object-fit: contain !important;
+  object-position: right center !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  mix-blend-mode: normal !important;
+  filter: drop-shadow(0 8px 8px rgba(122, 65, 28, .13)) !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .lesson-footer {
+  min-height: 57px !important;
+  padding: 7px 10px 7px 11px !important;
+  gap: 7px !important;
+  border: 0 !important;
+  border-top: 3px solid var(--lesson-accent) !important;
+  border-radius: 0 0 14px 14px !important;
+  background:
+    radial-gradient(circle at 84% 16%, color-mix(in srgb, var(--lesson-accent-2), white 78%) 0 2px, transparent 2.6px) 0 0 / 27px 27px,
+    linear-gradient(
+      112deg,
+      color-mix(in srgb, var(--lesson-accent), white 91%),
+      rgba(255, 255, 255, .98) 50%,
+      color-mix(in srgb, var(--lesson-accent-2), white 90%)
+    ) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .85),
+    0 -4px 12px color-mix(in srgb, var(--lesson-accent), transparent 88%) !important;
+}
+
+@media (max-width: 1360px) {
+  body.catalog-active.course-hsk2 #catalogPage .catalog-card[data-lesson-id] .lesson-art {
+    width: 60% !important;
+    height: 168px !important;
+  }
+}
+
+@media (max-width: 780px) {
+  body.catalog-active.course-hsk2 #catalogPage .catalog-card {
+    min-height: 244px !important;
+  }
+
+  body.catalog-active.course-hsk2 #catalogPage .catalog-card[data-lesson-id] .lesson-art {
+    right: -8px !important;
+    top: 39px !important;
+    width: 58% !important;
+    height: 156px !important;
+  }
+}
+
+@media (max-width: 560px) {
+  body.catalog-active.course-hsk2 #catalogPage .lesson-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  body.catalog-active.course-hsk2 #catalogPage .catalog-card[data-lesson-id] .lesson-art {
+    right: 2px !important;
+    width: 55% !important;
+  }
+}
+
+/* Final cascade for v6: larger Chinese titles with centered wrapped lines. */
+body.catalog-active.course-hsk2 #catalogPage .lesson-number {
+  width: 45px !important;
+  height: 39px !important;
+  font-family: "Nunito", "Baloo 2", system-ui, sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 900 !important;
+  letter-spacing: .025em !important;
+  text-shadow: 0 1px 1px rgba(90, 42, 20, .16) !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .lesson-title,
+body.catalog-active.course-hsk2 #catalogPage .lesson-title.cn {
+  min-height: 62px !important;
+  margin-top: 11px !important;
+  justify-content: center !important;
+  color: color-mix(in srgb, var(--lesson-accent), #263640 68%) !important;
+  font-family: "Noto Sans SC", "Microsoft YaHei", "PingFang SC", sans-serif !important;
+  font-size: clamp(21px, 1.5vw, 25px) !important;
+  font-weight: 800 !important;
+  line-height: 1.24 !important;
+  letter-spacing: .005em !important;
+  text-align: center !important;
+  text-indent: 0 !important;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, .88) !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .lesson-title.is-medium,
+body.catalog-active.course-hsk2 #catalogPage .lesson-title.cn.is-medium {
+  font-size: clamp(20.5px, 1.4vw, 23.5px) !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .lesson-title.is-long,
+body.catalog-active.course-hsk2 #catalogPage .lesson-title.cn.is-long {
+  min-height: 64px !important;
+  font-size: clamp(19.5px, 1.29vw, 22.5px) !important;
+  line-height: 1.25 !important;
+}
+
+body.catalog-active.course-hsk2 #catalogPage .lesson-pinyin {
+  color: color-mix(in srgb, var(--lesson-accent-2), #5f4036 58%) !important;
+  font-family: "Nunito", "Baloo 2", system-ui, sans-serif !important;
+  font-size: 13.5px !important;
+  font-weight: 800 !important;
+  line-height: 1.38 !important;
+  letter-spacing: .008em !important;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, .82) !important;
+}
+
+@media (max-width: 780px) {
+  body.catalog-active.course-hsk2 #catalogPage .lesson-title,
+  body.catalog-active.course-hsk2 #catalogPage .lesson-title.cn {
+    font-size: 24px !important;
+  }
+
+  body.catalog-active.course-hsk2 #catalogPage .lesson-title.is-medium,
+  body.catalog-active.course-hsk2 #catalogPage .lesson-title.cn.is-medium {
+    font-size: 23px !important;
+  }
+
+  body.catalog-active.course-hsk2 #catalogPage .lesson-title.is-long,
+  body.catalog-active.course-hsk2 #catalogPage .lesson-title.cn.is-long {
+    font-size: 22px !important;
+  }
+
+  body.catalog-active.course-hsk2 #catalogPage .lesson-pinyin {
+    font-size: 14px !important;
+  }
+}
