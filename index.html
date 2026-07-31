@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800;900&family=Nunito:ital,wght@0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
   <style>
@@ -2661,13 +2662,1344 @@ body:not(.catalog-active) #lessonSelect {
 
 
 
+
+
+/* =========================================================
+   HSK3 polish v5 — pastel mesh + typography + premium cards
+   - Dùng nền mesh gradient sạch, dịu mắt
+   - Tăng thứ bậc chữ theo phong cách hiện đại
+   - Card lesson bo mượt, hover tinh tế kiểu ed-tech
+========================================================= */
+body.catalog-active.course-hsk3 {
+  --hsk3-bg-peach: #ffeceb;
+  --hsk3-bg-mint: #e9fbf5;
+  --hsk3-bg-lilac: #f1edff;
+  --hsk3-bg-rose: #ffe2ee;
+  --hsk3-ink-modern: #2f3548;
+  --hsk3-muted-modern: #6d7487;
+  background: linear-gradient(180deg, #fffdfd 0%, #fbfbff 50%, #fbfffe 100%) !important;
+  color: var(--hsk3-ink-modern) !important;
+}
+
+body.catalog-active.course-hsk3 .app-header,
+body.catalog-active.course-hsk3 #lessonSelect,
+body.catalog-active.course-hsk3 .header-eyebrow,
+body.catalog-active.course-hsk3 .header-title,
+body.catalog-active.course-hsk3 .hsk2-brand-title,
+body.catalog-active.course-hsk3 .hsk2-course-summary,
+body.catalog-active.course-hsk3 #catalogPage .lesson-pinyin,
+body.catalog-active.course-hsk3 #catalogPage .lesson-footer,
+body.catalog-active.course-hsk3 #catalogPage .lesson-message {
+  font-family: "Be Vietnam Pro", "Inter", system-ui, sans-serif !important;
+}
+
+body.catalog-active.course-hsk3::before {
+  inset: 0 !important;
+  opacity: 1 !important;
+  background:
+    radial-gradient(circle at 8% 12%, rgba(255, 214, 223, .46), transparent 24%),
+    radial-gradient(circle at 88% 10%, rgba(210, 238, 231, .54), transparent 23%),
+    radial-gradient(circle at 34% 88%, rgba(243, 230, 255, .46), transparent 26%),
+    radial-gradient(circle at 80% 72%, rgba(255, 232, 219, .34), transparent 22%),
+    linear-gradient(180deg, #fffdfd 0%, #fdfbff 48%, #fbfffd 100%) !important;
+  mask-image: none !important;
+}
+
+body.catalog-active.course-hsk3::after {
+  inset: 76px 0 0 !important;
+  width: auto !important;
+  height: auto !important;
+  border-radius: 0 !important;
+  opacity: .24 !important;
+  transform: none !important;
+  background:
+    radial-gradient(ellipse at 12% 18%, rgba(255, 202, 214, .46) 0 10%, transparent 10.8%),
+    radial-gradient(ellipse at 82% 14%, rgba(183, 233, 220, .52) 0 11%, transparent 11.8%),
+    radial-gradient(ellipse at 64% 78%, rgba(215, 204, 252, .48) 0 10%, transparent 10.8%) !important;
+  filter: blur(14px) !important;
+  mask-image: linear-gradient(180deg, #000 0 82%, transparent 100%) !important;
+}
+
+body.catalog-active.course-hsk3 .app-header {
+  border-bottom-color: rgba(233, 224, 241, .88) !important;
+  background:
+    radial-gradient(circle at 16% 22%, rgba(255, 223, 228, .46), transparent 20%),
+    radial-gradient(circle at 84% 18%, rgba(209, 241, 232, .38), transparent 19%),
+    rgba(255,255,255,.86) !important;
+  box-shadow: 0 12px 32px rgba(120, 126, 161, .08) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+}
+
+body.catalog-active.course-hsk3 .brand-button {
+  border-color: #d8ccfa !important;
+  background: linear-gradient(145deg, #8c79ea, #6fbaad) !important;
+  box-shadow: 0 8px 20px rgba(122, 109, 195, .22) !important;
+}
+
+body.catalog-active.course-hsk3 .header-eyebrow,
+body.catalog-active.course-hsk3 .header-title,
+body.catalog-active.course-hsk3 .hsk2-brand-title strong {
+  color: #33415c !important;
+}
+
+body.catalog-active.course-hsk3 .header-eyebrow .catalog-pill,
+body.catalog-active.course-hsk3 .hsk2-brand-title span {
+  border-color: #e6ddfb !important;
+  color: #6f63bf !important;
+  background: rgba(255,255,255,.72) !important;
+}
+
+body.catalog-active.course-hsk3 #lessonSelect {
+  border-color: #e5def5 !important;
+  color: #394458 !important;
+  background: rgba(255,255,255,.94) !important;
+  box-shadow: 0 10px 26px rgba(118, 124, 159, .08) !important;
+}
+
+body.catalog-active.course-hsk3 #catalogPage.page-wrap {
+  background:
+    radial-gradient(circle at 10% 16%, rgba(255, 218, 226, .42), transparent 24%),
+    radial-gradient(circle at 92% 8%, rgba(204, 241, 231, .40), transparent 24%),
+    radial-gradient(circle at 14% 84%, rgba(241, 226, 255, .44), transparent 28%),
+    radial-gradient(circle at 88% 78%, rgba(255, 232, 220, .34), transparent 24%),
+    linear-gradient(180deg, rgba(255,255,255,.90), rgba(255,255,255,.88)),
+    linear-gradient(145deg, #fffdfd 0%, #f8f7ff 48%, #f8fffc 100%) !important;
+}
+
+body.catalog-active.course-hsk3 #catalogPage.page-wrap::before {
+  content: "" !important;
+  left: -64px !important;
+  top: 108px !important;
+  bottom: auto !important;
+  width: 320px !important;
+  height: 230px !important;
+  opacity: .34 !important;
+  background:
+    radial-gradient(ellipse at 24% 70%, rgba(173, 229, 203, .95) 0 11%, transparent 11.7%),
+    radial-gradient(ellipse at 46% 48%, rgba(197, 177, 244, .95) 0 10%, transparent 10.7%),
+    radial-gradient(ellipse at 67% 72%, rgba(255, 210, 222, .95) 0 9%, transparent 9.8%),
+    linear-gradient(135deg, transparent 0 38%, rgba(255,255,255,.55) 38% 44%, transparent 44% 100%) !important;
+  border-radius: 48% 52% 55% 45% / 42% 48% 52% 58% !important;
+  filter: blur(2px) !important;
+  transform: rotate(-16deg) !important;
+}
+
+body.catalog-active.course-hsk3 #catalogPage.page-wrap::after {
+  content: "" !important;
+  top: auto !important;
+  bottom: 56px !important;
+  right: -28px !important;
+  left: auto !important;
+  width: 260px !important;
+  height: 220px !important;
+  opacity: .28 !important;
+  background:
+    radial-gradient(ellipse at 30% 24%, rgba(255, 214, 222, .92) 0 12%, transparent 12.8%),
+    radial-gradient(ellipse at 68% 34%, rgba(181, 236, 220, .92) 0 11%, transparent 11.8%),
+    radial-gradient(ellipse at 48% 72%, rgba(214, 202, 247, .92) 0 10%, transparent 10.8%) !important;
+  border-radius: 58% 42% 46% 54% / 44% 53% 47% 56% !important;
+  filter: blur(3px) !important;
+}
+
+body.catalog-active.course-hsk3 .hsk2-course-summary {
+  border-color: rgba(230, 223, 244, .9) !important;
+  background:
+    radial-gradient(circle at 88% 18%, rgba(244, 231, 255, .60), transparent 22%),
+    radial-gradient(circle at 18% 82%, rgba(224, 247, 239, .50), transparent 24%),
+    rgba(255,255,255,.86) !important;
+  box-shadow: 0 14px 32px rgba(126, 133, 168, .08) !important;
+}
+
+body.catalog-active.course-hsk3 #catalogPage .lesson-grid {
+  gap: 20px !important;
+}
+
+body.catalog-active.course-hsk3 #catalogPage .catalog-card[data-lesson-id] {
+  min-height: 270px !important;
+  border: 1.6px solid color-mix(in srgb, var(--lesson-accent), white 52%) !important;
+  border-radius: 24px !important;
+  background:
+    radial-gradient(circle at 84% 20%, rgba(255,255,255,.78), transparent 26%) padding-box,
+    linear-gradient(155deg,
+      color-mix(in srgb, var(--lesson-accent), white 95%),
+      rgba(255,255,255,.97) 54%,
+      color-mix(in srgb, var(--lesson-accent-2), white 94%)) padding-box !important;
+  box-shadow:
+    0 10px 22px rgba(112, 120, 154, .10),
+    0 2px 0 rgba(255,255,255,.85) inset !important;
+  transition: transform .24s ease, box-shadow .24s ease, border-color .24s ease, filter .24s ease !important;
+}
+
+body.catalog-active.course-hsk3 #catalogPage .catalog-card[data-lesson-id]::before {
+  inset: 7px !important;
+  border: 1px solid rgba(255,255,255,.76) !important;
+  border-radius: 18px !important;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.28), transparent 36%),
+    radial-gradient(circle at 14% 12%, rgba(255,255,255,.24) 0 2px, transparent 2.6px) !important;
+  background-size: auto, 48px 48px !important;
+  opacity: .9 !important;
+}
+
+body.catalog-active.course-hsk3 #catalogPage .catalog-card[data-lesson-id]::after {
+  bottom: 58px !important;
+  background: linear-gradient(90deg,
+    color-mix(in srgb, var(--lesson-accent), white 66%),
+    color-mix(in srgb, var(--lesson-accent-2), white 67%)) !important;
+  opacity: .65 !important;
+}
+
+body.catalog-active.course-hsk3 #catalogPage .catalog-card[data-lesson-id]:hover,
+body.catalog-active.course-hsk3 #catalogPage .catalog-card[data-lesson-id]:focus-visible {
+  transform: translateY(-5px) !important;
+  border-color: color-mix(in srgb, var(--lesson-accent), white 24%) !important;
+  box-shadow:
+    0 18px 34px rgba(109, 118, 154, .14),
+    0 0 0 4px color-mix(in srgb, var(--lesson-accent), white 85%) !important;
+  filter: saturate(1.03) !important;
+}
+
+body.catalog-active.course-hsk3 #catalogPage .catalog-card[data-lesson-id] .lesson-art {
+  right: -34px !important;
+  top: 12px !important;
+  width: 80% !important;
+  height: 214px !important;
+  object-fit: contain !important;
+  object-position: 92% center !important;
+  transform: scale(1.15) !important;
+  transform-origin: right center !important;
+  filter: drop-shadow(0 10px 12px rgba(104, 111, 148, .14)) !important;
+  mix-blend-mode: normal !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+
+body.catalog-active.course-hsk3 #catalogPage .lesson-number {
+  border-radius: 14px !important;
+  box-shadow: 0 7px 14px color-mix(in srgb, var(--lesson-accent), transparent 78%) !important;
+}
+
+body.catalog-active.course-hsk3 #catalogPage .lesson-level {
+  padding: 6px 12px !important;
+  border-color: color-mix(in srgb, var(--lesson-accent), white 22%) !important;
+  background: rgba(255,255,255,.82) !important;
+  box-shadow: 0 5px 12px rgba(122, 129, 158, .06) !important;
+  font-family: "Inter", "Be Vietnam Pro", system-ui, sans-serif !important;
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  letter-spacing: .02em !important;
+}
+
+body.catalog-active.course-hsk3 #catalogPage .lesson-title,
+body.catalog-active.course-hsk3 #catalogPage .lesson-title.cn {
+  position: relative !important;
+  z-index: 4 !important;
+  display: block !important;
+  width: 54% !important;
+  min-height: 76px !important;
+  margin: 20px 0 10px !important;
+  padding-right: 8px !important;
+  color: #314056 !important;
+  font-family: "Noto Sans SC", "Microsoft YaHei", sans-serif !important;
+  font-size: clamp(21px, 1.48vw, 27px) !important;
+  font-weight: 800 !important;
+  line-height: 1.22 !important;
+  letter-spacing: -.03em !important;
+  text-align: left !important;
+  text-wrap: balance !important;
+  text-shadow: none !important;
+}
+
+body.catalog-active.course-hsk3 #catalogPage .lesson-title.is-medium {
+  font-size: clamp(19px, 1.3vw, 24px) !important;
+}
+
+body.catalog-active.course-hsk3 #catalogPage .lesson-title.is-long {
+  width: 57% !important;
+  font-size: clamp(16.5px, 1.12vw, 20px) !important;
+  line-height: 1.24 !important;
+}
+
+body.catalog-active.course-hsk3 #catalogPage .lesson-pinyin {
+  position: relative !important;
+  z-index: 4 !important;
+  width: 53% !important;
+  margin: 0 !important;
+  padding: 0 8px 0 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: #718097 !important;
+  font-family: "Inter", "Be Vietnam Pro", system-ui, sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  line-height: 1.55 !important;
+  letter-spacing: .01em !important;
+  text-align: left !important;
+  text-shadow: none !important;
+}
+
+body.catalog-active.course-hsk3 #catalogPage .lesson-footer {
+  left: 9px !important;
+  right: 9px !important;
+  bottom: 9px !important;
+  min-height: 56px !important;
+  padding: 10px 12px 10px 14px !important;
+  border: 1px solid color-mix(in srgb, var(--lesson-accent), white 48%) !important;
+  border-radius: 17px !important;
+  background: rgba(255,255,255,.80) !important;
+  box-shadow: 0 8px 18px rgba(120, 126, 161, .08), inset 0 1px 0 rgba(255,255,255,.9) !important;
+  font-size: 12.5px !important;
+}
+
+body.catalog-active.course-hsk3 #catalogPage .lesson-message {
+  display: flex !important;
+  align-items: center !important;
+  gap: 9px !important;
+  padding-right: 10px !important;
+  color: #607186 !important;
+  font-size: 12.5px !important;
+  font-weight: 700 !important;
+  line-height: 1.35 !important;
+}
+
+body.catalog-active.course-hsk3 #catalogPage .lesson-message-icon {
+  width: 28px !important;
+  height: 28px !important;
+  flex: 0 0 28px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 1px solid color-mix(in srgb, var(--lesson-accent), white 44%) !important;
+  border-radius: 10px !important;
+  background: linear-gradient(145deg, rgba(255,255,255,.96), color-mix(in srgb, var(--lesson-accent), white 89%)) !important;
+  box-shadow: 0 4px 10px rgba(126, 132, 165, .08) !important;
+  font-size: 15px !important;
+}
+
+body.catalog-active.course-hsk3 #catalogPage .lesson-footer .arrow {
+  width: 34px !important;
+  height: 34px !important;
+  box-shadow: 0 8px 16px color-mix(in srgb, var(--lesson-accent), transparent 78%) !important;
+}
+
+@media (max-width: 1360px) {
+  body.catalog-active.course-hsk3 #catalogPage .catalog-card[data-lesson-id] .lesson-art {
+    right: -28px !important;
+    width: 77% !important;
+    height: 204px !important;
+    transform: scale(1.11) !important;
+  }
+}
+
+@media (max-width: 980px) {
+  body.catalog-active.course-hsk3 #catalogPage .catalog-card[data-lesson-id] {
+    min-height: 262px !important;
+  }
+
+  body.catalog-active.course-hsk3 #catalogPage .catalog-card[data-lesson-id] .lesson-art {
+    right: -20px !important;
+    top: 18px !important;
+    width: 73% !important;
+    height: 190px !important;
+    transform: scale(1.08) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  body.catalog-active.course-hsk3 #catalogPage .catalog-card[data-lesson-id] .lesson-art {
+    right: -10px !important;
+    top: 20px !important;
+    width: 69% !important;
+    height: 176px !important;
+    transform: scale(1.04) !important;
+  }
+
+  body.catalog-active.course-hsk3 #catalogPage .lesson-title,
+  body.catalog-active.course-hsk3 #catalogPage .lesson-title.cn {
+    width: 57% !important;
+  }
+
+  body.catalog-active.course-hsk3 #catalogPage .lesson-pinyin {
+    width: 56% !important;
+  }
+}
+
 </style>
 
 <link rel="stylesheet" href="hsk2-approved.css">
+<style>
+  /* =========================
+     HSK 3 theme overrides
+     Giữ nguyên layout HSK 2 nhưng đổi tông màu và tăng kích thước mascot
+  ========================= */
+  body.catalog-active.course-hsk3 {
+    --hsk2-ink: #42365d;
+    --hsk2-muted: #7e6d96;
+    --hsk2-teal: #8f68e8;
+    --hsk2-teal-dark: #6f4fca;
+    background: #fff8ef !important;
+  }
+
+  body.catalog-active.course-hsk3::before {
+    background:
+      radial-gradient(circle at 8% 12%, rgba(255, 177, 102, .14), transparent 24%),
+      radial-gradient(circle at 92% 10%, rgba(143, 104, 232, .16), transparent 20%),
+      radial-gradient(circle at 62% 100%, rgba(111, 79, 202, .12), transparent 31%),
+      linear-gradient(180deg, #fffcf8 0%, #fff5ea 56%, #fffaf4 100%);
+  }
+
+  body.catalog-active.course-hsk3::after {
+    opacity: .34;
+    background:
+      radial-gradient(circle at center, rgba(151, 104, 225, .18) 1px, transparent 1.45px) 0 0 / 30px 30px;
+    mask-image: linear-gradient(90deg, #000 0 8%, transparent 18% 82%, #000 92% 100%);
+  }
+
+  body.catalog-active.course-hsk3 .hsk2-site-header {
+    border-bottom-color: rgba(232, 211, 197, .96);
+    background: rgba(255, 251, 247, .95);
+    box-shadow: 0 8px 24px rgba(113, 82, 149, .07);
+  }
+
+  body.catalog-active.course-hsk3 .hsk2-brand-cat {
+    width: 70px;
+    height: 70px;
+    flex-basis: 70px;
+    object-position: center;
+    background: #fff1dc;
+    box-shadow: inset 0 0 0 2px #fff, 0 4px 13px rgba(145, 98, 41, .14);
+  }
+
+  body.catalog-active.course-hsk3 .hsk2-brand-title strong {
+    color: #5f43b2;
+  }
+
+  body.catalog-active.course-hsk3 .hsk2-brand-title span {
+    border-color: #d7c7ff;
+    color: #754edf;
+    background: #f7f1ff;
+  }
+
+  body.catalog-active.course-hsk3 .hsk2-hello {
+    color: #5b4f74;
+  }
+
+  body.catalog-active.course-hsk3 .hsk2-hello img {
+    width: 42px;
+    height: 42px;
+    border-color: #a885ff;
+    background: #fff1dc;
+  }
+
+  body.catalog-active.course-hsk3 .hsk2-search-popover {
+    border-color: #e9ddff;
+    box-shadow: 0 18px 44px rgba(104, 79, 159, .14);
+  }
+
+  body.catalog-active.course-hsk3 .hsk2-search-field input:focus {
+    border-color: #a983ff;
+    box-shadow: 0 0 0 4px rgba(143, 104, 232, .12);
+  }
+
+  body.catalog-active.course-hsk3 #catalogPage.page-wrap {
+    background:
+      linear-gradient(180deg, rgba(255, 248, 241, .95), rgba(255, 251, 247, .92)),
+      radial-gradient(circle at center, rgba(255, 187, 124, .14) 1px, transparent 1.5px) 0 0 / 28px 28px !important;
+  }
+
+  body.catalog-active.course-hsk3 #catalogPage.page-wrap::before {
+    opacity: .35 !important;
+    background:
+      radial-gradient(ellipse at 20% 72%, rgba(255, 183, 92, .24) 0 12%, transparent 12.5%),
+      radial-gradient(ellipse at 39% 49%, rgba(255, 166, 84, .19) 0 12%, transparent 12.5%),
+      radial-gradient(ellipse at 58% 70%, rgba(143, 104, 232, .14) 0 11%, transparent 11.5%),
+      radial-gradient(ellipse at 72% 43%, rgba(111, 79, 202, .13) 0 10%, transparent 10.5%);
+  }
+
+  body.catalog-active.course-hsk3 #catalogPage.page-wrap::after {
+    content: "语" !important;
+    color: rgba(121, 87, 214, .10) !important;
+  }
+
+  body.catalog-active.course-hsk3 .hsk2-intro-title p {
+    color: #8a63ea;
+  }
+
+  body.catalog-active.course-hsk3 .hsk2-intro-mascot {
+    width: 142px;
+    height: 150px;
+    filter: drop-shadow(0 10px 16px rgba(123, 88, 176, .14));
+  }
+
+  body.catalog-active.course-hsk3 .hsk2-course-summary {
+    border-color: #ebdff3;
+    box-shadow: 0 10px 25px rgba(95, 67, 178, .08);
+  }
+
+  body.catalog-active.course-hsk3 .hsk2-summary-icon {
+    color: #8058dd;
+    background: #f2ebff;
+  }
+
+  body.catalog-active.course-hsk3 #catalogPage .catalog-card {
+    min-height: 230px !important;
+    box-shadow: 0 8px 17px rgba(96, 77, 135, .08) !important;
+  }
+
+  body.catalog-active.course-hsk3 #catalogPage .catalog-card:hover,
+  body.catalog-active.course-hsk3 #catalogPage .catalog-card:focus-visible {
+    box-shadow: 0 14px 26px rgba(96, 77, 135, .14) !important;
+  }
+
+  body.catalog-active.course-hsk3 #catalogPage .lesson-art {
+    right: -10px !important;
+    top: 22px !important;
+    width: 68% !important;
+    height: 176px !important;
+    object-fit: contain !important;
+    object-position: right center !important;
+    transform: scale(1.16) !important;
+    transform-origin: right center !important;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.10) 8%, #000 22%) !important;
+    mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.10) 8%, #000 22%) !important;
+  }
+
+  body.catalog-active.course-hsk3 #catalogPage .lesson-title {
+    width: 56% !important;
+    min-height: 76px !important;
+    color: #493d61 !important;
+  }
+
+  body.catalog-active.course-hsk3 #catalogPage .lesson-title.is-medium {
+    width: 58% !important;
+    font-size: clamp(21px, 1.42vw, 25px) !important;
+  }
+
+  body.catalog-active.course-hsk3 #catalogPage .lesson-title.is-long {
+    width: 61% !important;
+    font-size: clamp(19px, 1.18vw, 22px) !important;
+  }
+
+  body.catalog-active.course-hsk3 #catalogPage .lesson-pinyin {
+    width: 57% !important;
+    color: #835a67 !important;
+    background: rgba(255,255,255,.78) !important;
+  }
+
+  body.catalog-active.course-hsk3 #catalogPage .lesson-footer {
+    border-color: color-mix(in srgb, var(--lesson-accent), white 50%) !important;
+    background: rgba(255,255,255,.94) !important;
+  }
+
+  @media (max-width: 980px) {
+    body.catalog-active.course-hsk3 .hsk2-intro-mascot {
+      width: 126px;
+      height: 132px;
+    }
+
+    body.catalog-active.course-hsk3 #catalogPage .lesson-art {
+      width: 65% !important;
+      height: 162px !important;
+      transform: scale(1.12) !important;
+    }
+  }
+
+  @media (max-width: 640px) {
+    body.catalog-active.course-hsk3 .hsk2-brand-cat {
+      width: 58px;
+      height: 58px;
+      flex-basis: 58px;
+    }
+
+    body.catalog-active.course-hsk3 .hsk2-intro-mascot {
+      width: 110px;
+      height: 116px;
+    }
+
+    body.catalog-active.course-hsk3 #catalogPage .lesson-art {
+      right: -6px !important;
+      top: 26px !important;
+      width: 62% !important;
+      height: 150px !important;
+    }
+  }
+
+
+  /* =========================================================
+     HSK 3 FINAL THEME — lavender garden
+     - Không tác động tới HSK 2
+     - Nền, header và thẻ bài dùng tông tím/xanh riêng
+     - Mascot gấu mèo được tăng khoảng 4 nấc
+  ========================================================= */
+  body.catalog-active.course-hsk3 {
+    --hsk3-violet: #7257d8;
+    --hsk3-violet-deep: #533bb5;
+    --hsk3-blue: #438bc3;
+    --hsk3-teal: #339b91;
+    --hsk3-ink: #3f3659;
+    --hsk3-soft: #f0ebff;
+    background: #f3efff !important;
+  }
+
+  body.catalog-active.course-hsk3 .app-header {
+    border-bottom-color: #d9cff5 !important;
+    background:
+      radial-gradient(circle at 59% 18%, rgba(197, 181, 255, .42), transparent 25%),
+      radial-gradient(circle at 86% 12%, rgba(146, 211, 222, .18), transparent 20%),
+      rgba(253, 251, 255, .97) !important;
+    box-shadow: 0 9px 28px rgba(91, 66, 151, .11) !important;
+  }
+
+  body.catalog-active.course-hsk3 .app-header > .hsk2-header-mascot {
+    width: 196px !important;
+    height: 108px !important;
+    filter: drop-shadow(0 9px 12px rgba(82, 61, 143, .16)) !important;
+  }
+
+  body.catalog-active.course-hsk3 .brand-button {
+    border-color: #5940b8 !important;
+    background: linear-gradient(145deg, #8971e8, #6750cf) !important;
+    box-shadow:
+      0 7px 0 #4932a2,
+      0 13px 25px rgba(91, 67, 176, .25) !important;
+  }
+
+  body.catalog-active.course-hsk3 .header-eyebrow {
+    color: #6046bd !important;
+  }
+
+  body.catalog-active.course-hsk3 .header-eyebrow .catalog-pill {
+    border-color: #cdbff5 !important;
+    color: #5940b2 !important;
+    background: #f3efff !important;
+  }
+
+  body.catalog-active.course-hsk3 .header-eyebrow .catalog-dot {
+    color: #47a39a !important;
+  }
+
+  body.catalog-active.course-hsk3 #lessonSelect {
+    border-color: #bcaaf0 !important;
+    color: #403755 !important;
+    background: rgba(255, 255, 255, .98) !important;
+    box-shadow:
+      0 7px 0 rgba(112, 82, 200, .12),
+      0 12px 27px rgba(83, 62, 139, .10) !important;
+  }
+
+  body.catalog-active.course-hsk3 #catalogPage.page-wrap {
+    background:
+      radial-gradient(circle at 7% 12%, rgba(114, 87, 216, .13) 0 2px, transparent 2.7px) 0 0 / 40px 40px,
+      radial-gradient(circle at 94% 28%, rgba(51, 155, 145, .13) 0 2px, transparent 2.7px) 0 0 / 48px 48px,
+      radial-gradient(ellipse at 8% 90%, rgba(187, 165, 255, .26), transparent 27%),
+      radial-gradient(ellipse at 94% 10%, rgba(143, 215, 224, .20), transparent 24%),
+      repeating-linear-gradient(135deg, rgba(255,255,255,.18) 0 1px, transparent 1px 23px),
+      linear-gradient(145deg, #faf7ff 0%, #eee9ff 47%, #eef8fb 100%) !important;
+  }
+
+  body.catalog-active.course-hsk3 #catalogPage.page-wrap::before {
+    content: "✦  ☘  ✿" !important;
+    color: rgba(83, 117, 154, .28) !important;
+    background:
+      radial-gradient(ellipse at 12% 78%, rgba(83, 145, 125, .22) 0 10%, transparent 10.7%),
+      radial-gradient(ellipse at 43% 62%, rgba(117, 88, 205, .20) 0 10%, transparent 10.7%),
+      radial-gradient(ellipse at 78% 82%, rgba(73, 145, 171, .20) 0 10%, transparent 10.7%) !important;
+    opacity: .60 !important;
+  }
+
+  body.catalog-active.course-hsk3 #catalogPage.page-wrap::after {
+    content: "✿  ✦  ☘" !important;
+    color: rgba(102, 75, 187, .24) !important;
+    background:
+      radial-gradient(ellipse at 22% 28%, rgba(126, 91, 210, .18) 0 10%, transparent 10.7%),
+      radial-gradient(ellipse at 72% 55%, rgba(52, 151, 151, .18) 0 11%, transparent 11.7%) !important;
+    opacity: .52 !important;
+  }
+
+  body.catalog-active.course-hsk3 .hsk2-course-summary {
+    border-color: #cbbcf1 !important;
+    background:
+      radial-gradient(circle at 86% 14%, rgba(166, 143, 240, .20), transparent 27%),
+      linear-gradient(115deg, rgba(255,255,255,.97), rgba(242,238,255,.96)) !important;
+    box-shadow:
+      0 8px 0 rgba(105, 78, 187, .09),
+      0 16px 30px rgba(82, 63, 137, .10) !important;
+  }
+
+  body.catalog-active.course-hsk3 .hsk2-course-summary::after {
+    color: rgba(95, 70, 181, .14) !important;
+  }
+
+  body.catalog-active.course-hsk3 .hsk2-motivation-icons .hsk2-summary-icon {
+    border-color: #cfc1f2 !important;
+    background: linear-gradient(145deg, #faf8ff, #e8e1ff) !important;
+    box-shadow: 0 6px 13px rgba(86, 61, 159, .12) !important;
+  }
+
+  body.catalog-active.course-hsk3 .hsk2-motivation-copy small {
+    color: #6851b3 !important;
+  }
+
+  body.catalog-active.course-hsk3 .hsk2-motivation-copy strong {
+    color: #49388b !important;
+  }
+
+  body.catalog-active.course-hsk3 #catalogPage .lesson-grid {
+    border-color: transparent !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  body.catalog-active.course-hsk3 #catalogPage .catalog-card[data-lesson-id] {
+    min-height: 264px !important;
+    border: 2.2px solid transparent !important;
+    background:
+      radial-gradient(circle at 90% 13%, color-mix(in srgb, var(--lesson-accent-2), white 83%) 0 2.2px, transparent 2.9px) 0 0 / 35px 35px padding-box,
+      radial-gradient(circle at 12% 77%, color-mix(in srgb, var(--lesson-accent), white 91%), transparent 24%) padding-box,
+      linear-gradient(
+        143deg,
+        color-mix(in srgb, var(--lesson-accent), white 93%) 0%,
+        #fefcff 51%,
+        color-mix(in srgb, var(--lesson-accent-2), white 91%) 100%
+      ) padding-box,
+      linear-gradient(
+        135deg,
+        var(--lesson-accent) 0%,
+        color-mix(in srgb, var(--lesson-accent), var(--lesson-accent-2) 46%) 48%,
+        var(--lesson-accent-2) 100%
+      ) border-box !important;
+    box-shadow:
+      0 6px 0 color-mix(in srgb, var(--lesson-accent-2), white 58%),
+      0 14px 25px rgba(70, 55, 116, .12) !important;
+  }
+
+  body.catalog-active.course-hsk3 #catalogPage .catalog-card[data-lesson-id]:hover,
+  body.catalog-active.course-hsk3 #catalogPage .catalog-card[data-lesson-id]:focus-visible {
+    box-shadow:
+      0 8px 0 color-mix(in srgb, var(--lesson-accent-2), white 48%),
+      0 20px 34px color-mix(in srgb, var(--lesson-accent), transparent 77%) !important;
+  }
+
+  /* Tăng mascot khoảng 4 nấc so với bản trước. Selector có độ ưu tiên cao
+     để không bị kích thước HSK 2 ghi đè. */
+  body.catalog-active.course-hsk3 #catalogPage .catalog-card[data-lesson-id] .lesson-art {
+    right: -25px !important;
+    top: 10px !important;
+    width: 86% !important;
+    height: 222px !important;
+    object-fit: contain !important;
+    object-position: right center !important;
+    transform: scale(1.24) !important;
+    transform-origin: right center !important;
+    mix-blend-mode: normal !important;
+    filter: drop-shadow(0 10px 10px rgba(65, 49, 103, .16)) !important;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.05) 5%, #000 16%) !important;
+    mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.05) 5%, #000 16%) !important;
+  }
+
+  body.catalog-active.course-hsk3 #catalogPage .lesson-title,
+  body.catalog-active.course-hsk3 #catalogPage .lesson-title.cn {
+    position: relative !important;
+    z-index: 4 !important;
+    width: 55% !important;
+    color: color-mix(in srgb, var(--lesson-accent), #343047 70%) !important;
+  }
+
+  body.catalog-active.course-hsk3 #catalogPage .lesson-pinyin {
+    position: relative !important;
+    z-index: 4 !important;
+    width: 55% !important;
+    color: color-mix(in srgb, var(--lesson-accent), #4e445e 58%) !important;
+    background: rgba(255, 255, 255, .70) !important;
+  }
+
+  body.catalog-active.course-hsk3 #catalogPage .lesson-footer {
+    border-top-color: var(--lesson-accent) !important;
+    background:
+      radial-gradient(circle at 84% 16%, color-mix(in srgb, var(--lesson-accent-2), white 78%) 0 2px, transparent 2.6px) 0 0 / 27px 27px,
+      linear-gradient(
+        112deg,
+        color-mix(in srgb, var(--lesson-accent), white 90%),
+        rgba(255,255,255,.98) 50%,
+        color-mix(in srgb, var(--lesson-accent-2), white 89%)
+      ) !important;
+  }
+
+  @media (max-width: 1360px) {
+    body.catalog-active.course-hsk3 #catalogPage .catalog-card[data-lesson-id] .lesson-art {
+      right: -22px !important;
+      width: 82% !important;
+      height: 210px !important;
+      transform: scale(1.20) !important;
+    }
+  }
+
+  @media (max-width: 980px) {
+    body.catalog-active.course-hsk3 #catalogPage .catalog-card[data-lesson-id] {
+      min-height: 258px !important;
+    }
+
+    body.catalog-active.course-hsk3 #catalogPage .catalog-card[data-lesson-id] .lesson-art {
+      right: -18px !important;
+      top: 15px !important;
+      width: 78% !important;
+      height: 198px !important;
+      transform: scale(1.16) !important;
+    }
+  }
+
+  @media (max-width: 640px) {
+    body.catalog-active.course-hsk3 .app-header > .hsk2-header-mascot {
+      width: 150px !important;
+      height: 92px !important;
+    }
+
+    body.catalog-active.course-hsk3 #catalogPage .catalog-card[data-lesson-id] .lesson-art {
+      right: -12px !important;
+      top: 18px !important;
+      width: 72% !important;
+      height: 184px !important;
+      transform: scale(1.12) !important;
+    }
+
+    body.catalog-active.course-hsk3 #catalogPage .lesson-title,
+    body.catalog-active.course-hsk3 #catalogPage .lesson-title.cn,
+    body.catalog-active.course-hsk3 #catalogPage .lesson-pinyin {
+      width: 57% !important;
+    }
+  }
+/* =========================================================
+   HSK3 refinement v4 — chỉnh theo feedback mới nhất
+   1) Xóa nền mờ của pinyin
+   2) Dịch mascot sang phải hơn
+   3) Bỏ phong cách chấm bi, thay bằng nền sọc/gradient mềm
+   4) Làm lại kiểu chữ hiển thị cho đẹp và rõ hơn
+========================================================= */
+body.catalog-active.course-hsk3 {
+  background: linear-gradient(180deg, #f7f3ff 0%, #eff2ff 56%, #f7fbff 100%) !important;
+}
+
+body.catalog-active.course-hsk3::before {
+  opacity: 1 !important;
+  background:
+    radial-gradient(circle at 8% 14%, rgba(140, 112, 228, .15), transparent 22%),
+    radial-gradient(circle at 92% 12%, rgba(95, 180, 196, .14), transparent 18%),
+    radial-gradient(circle at 58% 100%, rgba(127, 203, 190, .11), transparent 28%),
+    linear-gradient(180deg, #fbf9ff 0%, #f3f0ff 54%, #f8fbff 100%) !important;
+  mask-image: none !important;
+}
+
+body.catalog-active.course-hsk3::after {
+  inset: 76px 0 0 !important;
+  width: auto !important;
+  height: auto !important;
+  border-radius: 0 !important;
+  opacity: .42 !important;
+  transform: none !important;
+  background:
+    repeating-linear-gradient(135deg, rgba(123, 102, 210, .06) 0 1px, transparent 1px 26px),
+    repeating-linear-gradient(45deg, rgba(84, 177, 189, .05) 0 1px, transparent 1px 34px) !important;
+  mask-image: linear-gradient(180deg, #000 0 75%, transparent 100%) !important;
+}
+
+body.catalog-active.course-hsk3 #catalogPage.page-wrap {
+  background:
+    radial-gradient(ellipse at 8% 18%, rgba(160, 143, 239, .18), transparent 26%),
+    radial-gradient(ellipse at 94% 10%, rgba(168, 228, 235, .16), transparent 24%),
+    radial-gradient(ellipse at 88% 86%, rgba(131, 219, 205, .14), transparent 24%),
+    repeating-linear-gradient(135deg, rgba(255,255,255,.46) 0 14px, rgba(245,242,255,.46) 14px 28px),
+    linear-gradient(160deg, #faf8ff 0%, #f0eeff 52%, #eef8fb 100%) !important;
+}
+
+body.catalog-active.course-hsk3 #catalogPage.page-wrap::before {
+  content: "" !important;
+  left: -58px !important;
+  bottom: -6px !important;
+  width: 270px !important;
+  height: 198px !important;
+  opacity: .62 !important;
+  background:
+    radial-gradient(circle at 24% 70%, rgba(102, 188, 162, .25) 0 15%, transparent 15.8%),
+    radial-gradient(circle at 48% 44%, rgba(131, 103, 219, .20) 0 14%, transparent 14.8%),
+    radial-gradient(circle at 76% 70%, rgba(82, 163, 199, .18) 0 12%, transparent 12.8%) !important;
+  transform: rotate(-12deg) !important;
+}
+
+body.catalog-active.course-hsk3 #catalogPage.page-wrap::after {
+  content: "" !important;
+  top: 34px !important;
+  right: 14px !important;
+  width: 210px !important;
+  height: 165px !important;
+  display: block !important;
+  color: transparent !important;
+  opacity: .78 !important;
+  background:
+    radial-gradient(circle at 24% 30%, rgba(126, 102, 216, .16) 0 12%, transparent 12.8%),
+    radial-gradient(circle at 68% 38%, rgba(79, 175, 190, .15) 0 10%, transparent 10.8%),
+    radial-gradient(circle at 56% 78%, rgba(255,255,255,.8) 0 18%, transparent 18.8%) !important;
+}
+
+body.catalog-active.course-hsk3 #catalogPage .catalog-card[data-lesson-id] {
+  min-height: 268px !important;
+  background:
+    radial-gradient(circle at 85% 18%, rgba(255,255,255,.78), transparent 26%) padding-box,
+    linear-gradient(
+      150deg,
+      color-mix(in srgb, var(--lesson-accent), white 93%) 0%,
+      rgba(255,255,255,.96) 52%,
+      color-mix(in srgb, var(--lesson-accent-2), white 91%) 100%
+    ) padding-box,
+    linear-gradient(
+      135deg,
+      var(--lesson-accent) 0%,
+      color-mix(in srgb, var(--lesson-accent), var(--lesson-accent-2) 48%) 48%,
+      var(--lesson-accent-2) 100%
+    ) border-box !important;
+  box-shadow:
+    0 7px 0 color-mix(in srgb, var(--lesson-accent-2), white 56%),
+    0 15px 28px rgba(70, 55, 116, .12) !important;
+}
+
+body.catalog-active.course-hsk3 #catalogPage .catalog-card[data-lesson-id]::before {
+  inset: 6px !important;
+  border-color: rgba(255,255,255,.86) !important;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.30), transparent 44%),
+    linear-gradient(90deg, rgba(255,255,255,.18), transparent 42%) !important;
+  background-size: auto !important;
+  opacity: .9 !important;
+}
+
+body.catalog-active.course-hsk3 #catalogPage .catalog-card[data-lesson-id]::after {
+  background: linear-gradient(90deg, color-mix(in srgb, var(--lesson-accent), white 70%), color-mix(in srgb, var(--lesson-accent-2), white 68%)) !important;
+  opacity: .72 !important;
+}
+
+body.catalog-active.course-hsk3 #catalogPage .catalog-card[data-lesson-id]:hover,
+body.catalog-active.course-hsk3 #catalogPage .catalog-card[data-lesson-id]:focus-visible {
+  box-shadow:
+    0 9px 0 color-mix(in srgb, var(--lesson-accent-2), white 48%),
+    0 22px 34px color-mix(in srgb, var(--lesson-accent), transparent 76%) !important;
+}
+
+body.catalog-active.course-hsk3 #catalogPage .catalog-card[data-lesson-id] .lesson-art {
+  right: -38px !important;
+  top: 14px !important;
+  width: 82% !important;
+  height: 220px !important;
+  object-fit: contain !important;
+  object-position: 88% center !important;
+  transform: scale(1.18) !important;
+  transform-origin: right center !important;
+  mix-blend-mode: normal !important;
+  filter: drop-shadow(0 10px 12px rgba(65, 49, 103, .15)) !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+
+body.catalog-active.course-hsk3 #catalogPage .lesson-title,
+body.catalog-active.course-hsk3 #catalogPage .lesson-title.cn {
+  position: relative !important;
+  z-index: 4 !important;
+  display: block !important;
+  width: 53% !important;
+  min-height: 78px !important;
+  margin: 22px 0 8px !important;
+  color: color-mix(in srgb, var(--lesson-accent), #342f47 74%) !important;
+  font-family: "Noto Sans SC", sans-serif !important;
+  font-size: clamp(21px, 1.5vw, 28px) !important;
+  font-weight: 900 !important;
+  line-height: 1.2 !important;
+  letter-spacing: -.03em !important;
+  text-align: left !important;
+  text-wrap: balance !important;
+  text-shadow: 0 1px 0 rgba(255,255,255,.72) !important;
+}
+
+body.catalog-active.course-hsk3 #catalogPage .lesson-title.is-medium {
+  font-size: clamp(19px, 1.32vw, 24px) !important;
+}
+
+body.catalog-active.course-hsk3 #catalogPage .lesson-title.is-long {
+  width: 55% !important;
+  font-size: clamp(17px, 1.14vw, 21px) !important;
+  line-height: 1.18 !important;
+}
+
+body.catalog-active.course-hsk3 #catalogPage .lesson-pinyin {
+  position: relative !important;
+  z-index: 4 !important;
+  width: 52% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: color-mix(in srgb, var(--lesson-accent), #52495e 60%) !important;
+  font-family: "Nunito", "Baloo 2", system-ui, sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 900 !important;
+  line-height: 1.36 !important;
+  letter-spacing: .02em !important;
+  text-align: left !important;
+  text-shadow: none !important;
+}
+
+body.catalog-active.course-hsk3 #catalogPage .lesson-footer {
+  border-top-color: color-mix(in srgb, var(--lesson-accent), white 18%) !important;
+  background:
+    linear-gradient(
+      112deg,
+      color-mix(in srgb, var(--lesson-accent), white 90%),
+      rgba(255,255,255,.98) 52%,
+      color-mix(in srgb, var(--lesson-accent-2), white 89%)
+    ) !important;
+}
+
+body.catalog-active.course-hsk3 #catalogPage .lesson-message {
+  color: color-mix(in srgb, var(--lesson-accent), #415664 45%) !important;
+  font-family: "Nunito", "Baloo 2", system-ui, sans-serif !important;
+  font-weight: 800 !important;
+}
+
+@media (max-width: 1360px) {
+  body.catalog-active.course-hsk3 #catalogPage .catalog-card[data-lesson-id] .lesson-art {
+    right: -32px !important;
+    width: 79% !important;
+    height: 208px !important;
+    transform: scale(1.14) !important;
+  }
+}
+
+@media (max-width: 980px) {
+  body.catalog-active.course-hsk3 #catalogPage .catalog-card[data-lesson-id] {
+    min-height: 260px !important;
+  }
+
+  body.catalog-active.course-hsk3 #catalogPage .catalog-card[data-lesson-id] .lesson-art {
+    right: -24px !important;
+    top: 18px !important;
+    width: 75% !important;
+    height: 194px !important;
+    transform: scale(1.10) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  body.catalog-active.course-hsk3 #catalogPage .catalog-card[data-lesson-id] .lesson-art {
+    right: -14px !important;
+    top: 20px !important;
+    width: 70% !important;
+    height: 182px !important;
+    transform: scale(1.06) !important;
+  }
+
+  body.catalog-active.course-hsk3 #catalogPage .lesson-title,
+  body.catalog-active.course-hsk3 #catalogPage .lesson-title.cn {
+    width: 56% !important;
+  }
+
+  body.catalog-active.course-hsk3 #catalogPage .lesson-pinyin {
+    width: 55% !important;
+  }
+}
+
+
+  /* =========================================================
+     HSK 3 — TINH CHỈNH NHẸ
+     Giữ nguyên bố cục và kích thước; chỉ làm dịu nền, đổi font
+     và thay bảng màu thẻ bài học để giao diện bớt hoa mắt.
+  ========================================================= */
+  body.catalog-active.course-hsk3 {
+    --hsk3-violet: #6678a8;
+    --hsk3-violet-deep: #4f5f8c;
+    --hsk3-ink: #30394c;
+    color: var(--hsk3-ink) !important;
+    background: #f6f7fa !important;
+    font-family: "Be Vietnam Pro", "Inter", system-ui, sans-serif !important;
+  }
+
+  /* Nền phẳng và sáng vừa phải, bỏ các mảng màu/hoa văn gây rối mắt. */
+  body.catalog-active.course-hsk3::before {
+    opacity: 1 !important;
+    background: linear-gradient(180deg, #fbfbfd 0%, #f5f6f9 100%) !important;
+    mask-image: none !important;
+  }
+
+  body.catalog-active.course-hsk3::after {
+    display: none !important;
+  }
+
+  body.catalog-active.course-hsk3 .app-header {
+    border-bottom-color: #e3e5ec !important;
+    background: rgba(255, 255, 255, .96) !important;
+    box-shadow: 0 7px 22px rgba(54, 63, 83, .07) !important;
+  }
+
+  body.catalog-active.course-hsk3 .brand-button {
+    border-color: #596b98 !important;
+    background: linear-gradient(145deg, #7f91be, #6075aa) !important;
+    box-shadow: 0 6px 0 #4f608d, 0 11px 22px rgba(70, 84, 126, .18) !important;
+  }
+
+  body.catalog-active.course-hsk3 .header-eyebrow,
+  body.catalog-active.course-hsk3 .header-title,
+  body.catalog-active.course-hsk3 #lessonSelect,
+  body.catalog-active.course-hsk3 .hsk2-motivation-copy,
+  body.catalog-active.course-hsk3 .lesson-level,
+  body.catalog-active.course-hsk3 .lesson-number {
+    font-family: "Be Vietnam Pro", "Inter", system-ui, sans-serif !important;
+  }
+
+  body.catalog-active.course-hsk3 .header-title {
+    color: #30394c !important;
+    font-weight: 800 !important;
+    letter-spacing: -.025em !important;
+  }
+
+  body.catalog-active.course-hsk3 .header-eyebrow {
+    color: #60719d !important;
+  }
+
+  body.catalog-active.course-hsk3 .header-eyebrow .catalog-pill {
+    border-color: #d8ddea !important;
+    color: #596a94 !important;
+    background: #f7f8fb !important;
+  }
+
+  body.catalog-active.course-hsk3 #lessonSelect {
+    border-color: #d9dde7 !important;
+    color: #394358 !important;
+    background: #fff !important;
+    box-shadow: 0 7px 20px rgba(55, 65, 88, .07) !important;
+  }
+
+  body.catalog-active.course-hsk3 #catalogPage.page-wrap {
+    background: linear-gradient(180deg, #f8f8fb 0%, #f3f4f7 100%) !important;
+  }
+
+  body.catalog-active.course-hsk3 #catalogPage.page-wrap::before,
+  body.catalog-active.course-hsk3 #catalogPage.page-wrap::after {
+    display: none !important;
+  }
+
+  body.catalog-active.course-hsk3 .hsk2-course-summary {
+    border-color: #e1e3ea !important;
+    background: rgba(255, 255, 255, .95) !important;
+    box-shadow: 0 9px 24px rgba(55, 65, 88, .07) !important;
+  }
+
+  body.catalog-active.course-hsk3 .hsk2-motivation-copy small {
+    color: #72809b !important;
+    font-weight: 700 !important;
+  }
+
+  body.catalog-active.course-hsk3 .hsk2-motivation-copy strong {
+    color: #3c465b !important;
+    font-weight: 800 !important;
+  }
+
+  /* Giữ nguyên hình dáng thẻ; dùng nền trắng pha màu rất nhẹ. */
+  body.catalog-active.course-hsk3 #catalogPage .catalog-card[data-lesson-id] {
+    border: 1.6px solid color-mix(in srgb, var(--lesson-accent), white 52%) !important;
+    background:
+      linear-gradient(
+        150deg,
+        #ffffff 0%,
+        #ffffff 56%,
+        color-mix(in srgb, var(--lesson-accent), white 94%) 100%
+      ) !important;
+    box-shadow: 0 8px 22px rgba(55, 65, 88, .09) !important;
+  }
+
+  body.catalog-active.course-hsk3 #catalogPage .catalog-card[data-lesson-id]::before {
+    background: linear-gradient(180deg, rgba(255,255,255,.28), transparent 46%) !important;
+    opacity: .7 !important;
+  }
+
+  body.catalog-active.course-hsk3 #catalogPage .catalog-card[data-lesson-id]::after {
+    background: color-mix(in srgb, var(--lesson-accent), white 64%) !important;
+    opacity: .72 !important;
+  }
+
+  body.catalog-active.course-hsk3 #catalogPage .catalog-card[data-lesson-id]:hover,
+  body.catalog-active.course-hsk3 #catalogPage .catalog-card[data-lesson-id]:focus-visible {
+    border-color: color-mix(in srgb, var(--lesson-accent), white 24%) !important;
+    box-shadow: 0 14px 28px rgba(55, 65, 88, .13) !important;
+  }
+
+  body.catalog-active.course-hsk3 #catalogPage .lesson-number {
+    font-weight: 800 !important;
+  }
+
+  body.catalog-active.course-hsk3 #catalogPage .lesson-title,
+  body.catalog-active.course-hsk3 #catalogPage .lesson-title.cn {
+    color: #30394c !important;
+    font-family: "Noto Sans SC", "Microsoft YaHei", sans-serif !important;
+    font-weight: 800 !important;
+    letter-spacing: -.02em !important;
+    text-shadow: none !important;
+  }
+
+  body.catalog-active.course-hsk3 #catalogPage .lesson-pinyin {
+    color: #6e778b !important;
+    font-family: "Be Vietnam Pro", "Inter", system-ui, sans-serif !important;
+    font-size: 13.5px !important;
+    font-weight: 600 !important;
+    line-height: 1.48 !important;
+    letter-spacing: 0 !important;
+  }
+
+  body.catalog-active.course-hsk3 #catalogPage .lesson-footer {
+    border-top-color: color-mix(in srgb, var(--lesson-accent), white 55%) !important;
+    background: rgba(255, 255, 255, .92) !important;
+  }
+
+  body.catalog-active.course-hsk3 #catalogPage .lesson-message {
+    color: #5f697d !important;
+    font-family: "Be Vietnam Pro", "Inter", system-ui, sans-serif !important;
+    font-weight: 650 !important;
+  }
+
+</style>
+
+<style id="hsk3-background-fix-20260731">
+  /* =========================================================
+     HSK 3 — BACKGROUND FIX 2026-07-31
+     Đặt ở cuối <head> để chắc chắn ghi đè các giao diện cũ.
+  ========================================================= */
+
+  /* Nền kem hồng dịu, tách rõ khỏi các thẻ bài học màu trắng. */
+  body.catalog-active.course-hsk3,
+  body.catalog-active.course-hsk2.course-hsk3 {
+    background: #f3e9df !important;
+  }
+
+  body.catalog-active.course-hsk3::before,
+  body.catalog-active.course-hsk2.course-hsk3::before {
+    display: block !important;
+    opacity: 1 !important;
+    background:
+      radial-gradient(ellipse at 8% 10%, rgba(232, 188, 157, .24), transparent 24%),
+      radial-gradient(ellipse at 92% 9%, rgba(174, 205, 170, .20), transparent 22%),
+      radial-gradient(ellipse at 84% 92%, rgba(202, 185, 221, .16), transparent 26%),
+      linear-gradient(160deg, #fbf5ee 0%, #f3e9df 54%, #f8f0e8 100%) !important;
+    mask-image: none !important;
+  }
+
+  /* Không dùng họa tiết chấm dày; chỉ có lớp vân cực nhẹ. */
+  body.catalog-active.course-hsk3::after,
+  body.catalog-active.course-hsk2.course-hsk3::after {
+    display: block !important;
+    inset: 76px 0 0 !important;
+    width: auto !important;
+    height: auto !important;
+    border-radius: 0 !important;
+    opacity: .20 !important;
+    transform: none !important;
+    background:
+      repeating-linear-gradient(
+        135deg,
+        rgba(134, 112, 96, .035) 0 1px,
+        transparent 1px 34px
+      ) !important;
+    mask-image: linear-gradient(180deg, #000 0 72%, transparent 100%) !important;
+  }
+
+  body.catalog-active.course-hsk3 #catalogPage.page-wrap,
+  body.catalog-active.course-hsk2.course-hsk3 #catalogPage.page-wrap {
+    position: relative !important;
+    isolation: isolate !important;
+    background:
+      radial-gradient(ellipse at 7% 15%, rgba(236, 194, 166, .20), transparent 26%),
+      radial-gradient(ellipse at 95% 14%, rgba(179, 211, 175, .18), transparent 24%),
+      radial-gradient(ellipse at 89% 89%, rgba(208, 190, 226, .14), transparent 27%),
+      linear-gradient(160deg, #faf3eb 0%, #f2e7dc 55%, #f8efe7 100%) !important;
+  }
+
+  /* Cụm lá mềm ở góc trái dưới. */
+  body.catalog-active.course-hsk3 #catalogPage.page-wrap::before,
+  body.catalog-active.course-hsk2.course-hsk3 #catalogPage.page-wrap::before {
+    content: "" !important;
+    position: absolute !important;
+    left: -30px !important;
+    bottom: -20px !important;
+    top: auto !important;
+    right: auto !important;
+    z-index: 0 !important;
+    width: 270px !important;
+    height: 205px !important;
+    display: block !important;
+    opacity: .64 !important;
+    color: transparent !important;
+    background:
+      radial-gradient(ellipse at 18% 75%, rgba(112, 166, 116, .34) 0 11%, transparent 11.8%),
+      radial-gradient(ellipse at 34% 53%, rgba(141, 190, 143, .30) 0 10%, transparent 10.8%),
+      radial-gradient(ellipse at 51% 76%, rgba(234, 168, 153, .28) 0 9%, transparent 9.8%),
+      radial-gradient(ellipse at 67% 52%, rgba(239, 199, 143, .27) 0 10%, transparent 10.8%),
+      radial-gradient(ellipse at 82% 74%, rgba(151, 194, 148, .24) 0 8%, transparent 8.8%) !important;
+    transform: rotate(-12deg) !important;
+    pointer-events: none !important;
+  }
+
+  /* Hoa và lá rất nhạt ở góc phải trên. */
+  body.catalog-active.course-hsk3 #catalogPage.page-wrap::after,
+  body.catalog-active.course-hsk2.course-hsk3 #catalogPage.page-wrap::after {
+    content: "" !important;
+    position: absolute !important;
+    top: 22px !important;
+    right: -18px !important;
+    bottom: auto !important;
+    left: auto !important;
+    z-index: 0 !important;
+    width: 210px !important;
+    height: 168px !important;
+    display: block !important;
+    opacity: .56 !important;
+    color: transparent !important;
+    background:
+      radial-gradient(circle at 27% 48%, rgba(231, 156, 146, .29) 0 11px, transparent 12px),
+      radial-gradient(circle at 38% 36%, rgba(244, 194, 150, .27) 0 9px, transparent 10px),
+      radial-gradient(circle at 49% 50%, rgba(255, 237, 209, .92) 0 4px, transparent 5px),
+      radial-gradient(ellipse at 68% 42%, rgba(141, 187, 137, .25) 0 12%, transparent 12.8%),
+      radial-gradient(ellipse at 84% 66%, rgba(174, 207, 166, .22) 0 10%, transparent 10.8%),
+      radial-gradient(circle at 76% 25%, rgba(187, 164, 213, .20) 0 9px, transparent 10px) !important;
+    pointer-events: none !important;
+  }
+
+  /* Thẻ nổi rõ hơn trên nền mới nhưng không thay bố cục. */
+  body.catalog-active.course-hsk3 #catalogPage .catalog-card[data-lesson-id],
+  body.catalog-active.course-hsk2.course-hsk3 #catalogPage .catalog-card[data-lesson-id] {
+    box-shadow:
+      0 8px 0 color-mix(in srgb, var(--lesson-accent-2), white 68%),
+      0 18px 32px rgba(92, 70, 54, .12) !important;
+  }
+
+  /* Tiêu đề tiếng Trung dùng màu accent đậm của từng bài, không còn gần màu đen. */
+  body.catalog-active.course-hsk3 #catalogPage .lesson-title,
+  body.catalog-active.course-hsk3 #catalogPage .lesson-title.cn,
+  body.catalog-active.course-hsk2.course-hsk3 #catalogPage .lesson-title,
+  body.catalog-active.course-hsk2.course-hsk3 #catalogPage .lesson-title.cn,
+  body.catalog-active.course-hsk3 #catalogPage .lesson-title.is-medium,
+  body.catalog-active.course-hsk3 #catalogPage .lesson-title.is-long {
+    color: color-mix(in srgb, var(--lesson-accent) 78%, #6a345d 22%) !important;
+    font-family: "Noto Sans SC", "Microsoft YaHei", "PingFang SC", sans-serif !important;
+    font-weight: 900 !important;
+    text-shadow:
+      0 1px 0 rgba(255, 255, 255, .92),
+      0 3px 10px color-mix(in srgb, var(--lesson-accent), transparent 88%) !important;
+  }
+</style>
+
 </head>
 
 <body class="flex flex-col min-h-screen">
-  <header class="hsk2-site-header" aria-label="Điều hướng khóa học HSK 2">
+  <header class="hsk2-site-header" aria-label="Điều hướng danh sách bài học">
     <button
       id="hsk2BrandHome"
       class="hsk2-brand"
@@ -2677,7 +4009,7 @@ body:not(.catalog-active) #lessonSelect {
     >
       <img id="hsk2BrandMascot" class="hsk2-brand-cat" alt="" aria-hidden="true">
       <div class="hsk2-brand-title">
-        <strong>HSK 2</strong>
+        <strong id="approvedCatalogBrandTitle">HSK 2</strong>
         <span>STANDARD COURSE</span>
       </div>
     </button>
@@ -2829,11 +4161,11 @@ body:not(.catalog-active) #lessonSelect {
           <img id="hsk2HeroMascot" class="hsk2-intro-mascot" alt="" aria-hidden="true">
           <div>
             <h2 id="hsk2CatalogHeading">Danh sách bài học HSK 2</h2>
-            <p lang="zh-Hans">HSK 2 课程目录</p>
+            <p id="approvedCatalogChineseHeading" lang="zh-Hans">HSK 2 课程目录</p>
           </div>
         </div>
 
-        <div class="hsk2-course-summary" aria-label="Lời nhắn động lực HSK 2" aria-live="polite">
+        <div id="approvedCatalogSummary" class="hsk2-course-summary" aria-label="Lời nhắn động lực khóa học" aria-live="polite">
           <div class="hsk2-summary-item hsk2-motivation-item">
             <span class="hsk2-motivation-icons" aria-hidden="true">
               <span id="hsk2MotivationIcon" class="hsk2-summary-icon">🐾</span>
@@ -2937,11 +4269,26 @@ body:not(.catalog-active) #lessonSelect {
       "#E9AE20", "#9B5D8D", "#E95D3D", "#42A3AF", "#A96B35"
     ];
 
+    /* HSK 3: bảng màu dịu, đa dạng nhưng không chói mắt. */
+    const HSK3_LESSON_COLORS = [
+      "#5F7FB7", "#3E9685", "#C77A62", "#8B70B5", "#D2A33A",
+      "#5D9270", "#B66F8D", "#4F8DA0", "#A67B55", "#6F78B1",
+      "#4E9A91", "#B78552", "#7B72B8", "#648C5A", "#C06D72",
+      "#4B85A8", "#9A6EA8", "#7D8F4E", "#B77A5C", "#5F7C96"
+    ];
+
     const HSK2_COURSE_ICONS = ["🐾", "✨", "🌼", "💛", "🌱", "📚", "🍊", "🌟"];
+    const HSK3_COURSE_ICONS = ["🦝", "✨", "📘", "🌈", "🧡", "🌟", "🍀", "💫"];
     const HSK2_LESSON_MESSAGE_ICONS = [
       "🌟", "🐾", "🌼", "🍊", "💛",
       "🌱", "✨", "🐱", "🎈", "🍀",
       "🌸", "📚", "🧡", "☀️", "🎉"
+    ];
+    const HSK3_LESSON_MESSAGE_ICONS = [
+      "🦝", "✨", "🚀", "🌈", "🍊",
+      "🌱", "📘", "💛", "🌟", "🎯",
+      "❄️", "🧡", "🍀", "🎈", "🌸",
+      "📚", "💫", "🪄", "⭐", "🎉"
     ];
 
     const LESSON_MOTIVATIONS = {
@@ -2978,6 +4325,28 @@ body:not(.catalog-active) #lessonSelect {
         "Kiên trì thêm một chút nhé!",
         "Bạn có thể chinh phục bài này!",
         "Học vui và nhớ thật lâu!"
+      ],
+      hsk3: [
+        "Bắt đầu HSK 3 thật tự tin nhé!",
+        "Mỗi bài học giúp bạn nói tự nhiên hơn!",
+        "Hôm nay thêm một cấu trúc mới nhé!",
+        "Bạn đang tiến gần hơn tới mục tiêu!",
+        "Kiên trì một chút, tiến bộ thật nhiều!",
+        "Thử thách mới sẽ làm bạn mạnh hơn!",
+        "Ôn đều mỗi ngày, nhớ lâu hơn nhé!",
+        "Bạn hoàn toàn có thể làm được!",
+        "Mỗi câu đúng là một bước tiến!",
+        "Tiếp tục giữ nhịp học thật tốt!",
+        "Chinh phục cấu trúc 把 nào!",
+        "Từ mới hôm nay sẽ hữu ích ngày mai!",
+        "Luyện nói thêm một lần nữa nhé!",
+        "Bạn đang dùng tiếng Trung linh hoạt hơn!",
+        "Hoàn thành nửa chặng đường rồi!",
+        "Cố thêm một chút, bạn sắp về đích!",
+        "Đừng ngại câu dài, chia nhỏ để học nhé!",
+        "Tin vào khả năng của chính mình!",
+        "Chỉ còn một bước nữa thôi!",
+        "Chúc mừng bạn đã đến bài 20!"
       ]
     };
 
@@ -2993,7 +4362,13 @@ body:not(.catalog-active) #lessonSelect {
       { length: 15 },
       (_, index) => `assets/hsk2-cats/lesson-${String(index + 1).padStart(2, "0")}.png`
     );
+    const HSK3_SAMPLE_ARTS = Array.from(
+      { length: 20 },
+      (_, index) => `assets/hsk3-cats/lesson-${String(index + 1).padStart(2, "0")}.png`
+    );
     const HSK2_HEADER_ART = "assets/hsk2-cats/header-kitten.png";
+    const HSK3_HEADER_ART = HSK3_SAMPLE_ARTS[0];
+    const APPROVED_CATALOG_IDS = new Set(["hsk2", "hsk3"]);
 
 
 
@@ -3027,12 +4402,9 @@ body:not(.catalog-active) #lessonSelect {
         level: 3,
         label: "HSK 3",
         title: "HSK 3 Standard Course",
-        description: "进阶汉语 · Giao tiếp tự nhiên hơn mỗi ngày",
-        available: false,
-        lessons: [
-		
-		
-		]
+        description: "进阶汉语课程 · 20课",
+        available: true,
+        lessons: []
       },
       {
         id: "hsk4",
@@ -3151,19 +4523,37 @@ body:not(.catalog-active) #lessonSelect {
       if (willOpen) requestAnimationFrame(() => elements.hsk2LessonSearch?.focus());
     }
 
-    function prepareHsk2Catalog(course) {
-      if (String(course?.id) !== "hsk2") return;
-      const brandArt = HSK2_HEADER_ART;
-      const heroArt = HSK2_SAMPLE_ARTS[0] || "";
+    function prepareApprovedCatalog(course) {
+      const courseId = String(course?.id || "").toLowerCase();
+      if (!APPROVED_CATALOG_IDS.has(courseId)) return;
+
+      const isHsk3 = courseId === "hsk3";
+      const lessonArts = isHsk3 ? HSK3_SAMPLE_ARTS : HSK2_SAMPLE_ARTS;
+      const brandArt = isHsk3 ? HSK3_HEADER_ART : HSK2_HEADER_ART;
+      const heroArt = lessonArts[0] || brandArt || "";
+      const storageKey = `${courseId}CourseQuoteIndex`;
 
       if (elements.hsk2BrandMascot) elements.hsk2BrandMascot.src = brandArt;
       if (elements.hsk2HelloMascot) elements.hsk2HelloMascot.src = brandArt;
       if (elements.hsk2HeroMascot) elements.hsk2HeroMascot.src = heroArt;
       if (elements.hsk2HeaderMascot) elements.hsk2HeaderMascot.src = brandArt;
+
+      const brandTitle = document.getElementById("approvedCatalogBrandTitle");
+      const catalogHeading = document.getElementById("hsk2CatalogHeading");
+      const catalogChineseHeading = document.getElementById("approvedCatalogChineseHeading");
+      const catalogSummary = document.getElementById("approvedCatalogSummary");
+      const siteHeader = document.querySelector(".hsk2-site-header");
+
+      if (brandTitle) brandTitle.textContent = course.label;
+      if (catalogHeading) catalogHeading.textContent = `Danh sách bài học ${course.label}`;
+      if (catalogChineseHeading) catalogChineseHeading.textContent = `${course.label} 课程目录`;
+      if (catalogSummary) catalogSummary.setAttribute("aria-label", `Lời nhắn động lực ${course.label}`);
+      if (siteHeader) siteHeader.setAttribute("aria-label", `Điều hướng khóa học ${course.label}`);
+
       if (elements.hsk2MotivationQuote) {
         let previousIndex = -1;
         try {
-          previousIndex = Number(sessionStorage.getItem("hsk2CourseQuoteIndex"));
+          previousIndex = Number(sessionStorage.getItem(storageKey));
         } catch (_error) {
           previousIndex = -1;
         }
@@ -3175,10 +4565,11 @@ body:not(.catalog-active) #lessonSelect {
 
         elements.hsk2MotivationQuote.textContent = HSK2_COURSE_QUOTES[nextIndex];
         if (elements.hsk2MotivationIcon) {
-          elements.hsk2MotivationIcon.textContent = HSK2_COURSE_ICONS[nextIndex % HSK2_COURSE_ICONS.length];
+          const quoteIcons = courseId === "hsk3" ? HSK3_COURSE_ICONS : HSK2_COURSE_ICONS;
+          elements.hsk2MotivationIcon.textContent = quoteIcons[nextIndex % quoteIcons.length];
         }
         try {
-          sessionStorage.setItem("hsk2CourseQuoteIndex", String(nextIndex));
+          sessionStorage.setItem(storageKey, String(nextIndex));
         } catch (_error) {
           // File previews may block session storage; the quote still changes normally.
         }
@@ -3275,22 +4666,28 @@ body:not(.catalog-active) #lessonSelect {
         const lockBadge = lesson.locked
           ? '<i class="fa-solid fa-lock ml-1" title="Cần mật khẩu"></i>'
           : '';
-        const isHsk2 = String(course.id) === "hsk2";
-        const palette = isHsk2 ? HSK2_LESSON_COLORS : LESSON_COLORS;
+        const courseId = String(course.id).toLowerCase();
+        const isApprovedCatalog = APPROVED_CATALOG_IDS.has(courseId);
+        const palette = courseId === "hsk3"
+          ? HSK3_LESSON_COLORS
+          : (isApprovedCatalog ? HSK2_LESSON_COLORS : LESSON_COLORS);
         const accent = palette[(lesson.id - 1) % palette.length];
-        const accent2Style = isHsk2
+        const accent2Style = isApprovedCatalog
           ? `;--lesson-accent-2:${palette[(lesson.id + 4) % palette.length]}`
           : "";
-        const lessonArt = isHsk2
-          ? HSK2_SAMPLE_ARTS[(lesson.id - 1) % HSK2_SAMPLE_ARTS.length]
-          : LESSON_ARTS[(lesson.id - 1) % LESSON_ARTS.length];
+        const configuredArt = typeof lesson.image === "string" ? lesson.image.trim() : "";
+        const courseArts = courseId === "hsk3" ? HSK3_SAMPLE_ARTS : HSK2_SAMPLE_ARTS;
+        const lessonArt = configuredArt || (isApprovedCatalog
+          ? courseArts[(lesson.id - 1) % courseArts.length]
+          : LESSON_ARTS[(lesson.id - 1) % LESSON_ARTS.length]);
         const titleClass = lesson.title.length >= 10
           ? "is-long"
           : (lesson.title.length >= 7 ? "is-medium" : "");
         const lessonNo = String(lesson.id).padStart(2, "0");
         const motivation = getLessonMotivation(course.id, lesson.id);
-        const motivationContent = isHsk2
-          ? `<span class="lesson-message"><span class="lesson-message-icon" aria-hidden="true">${HSK2_LESSON_MESSAGE_ICONS[(lesson.id - 1) % HSK2_LESSON_MESSAGE_ICONS.length]}</span><span>${motivation}</span></span>`
+        const messageIcons = courseId === "hsk3" ? HSK3_LESSON_MESSAGE_ICONS : HSK2_LESSON_MESSAGE_ICONS;
+        const motivationContent = isApprovedCatalog
+          ? `<span class="lesson-message"><span class="lesson-message-icon" aria-hidden="true">${messageIcons[(lesson.id - 1) % messageIcons.length]}</span><span>${motivation}</span></span>`
           : `<span>${motivation}</span>`;
 
         return `
@@ -3323,7 +4720,7 @@ body:not(.catalog-active) #lessonSelect {
     }
 
     function showLevels() {
-      document.body.classList.remove("catalog-active", "course-hsk2");
+      document.body.classList.remove("catalog-active", "course-hsk2", "course-hsk3");
       state.view = "levels";
       state.courseId = null;
       state.lessonId = null;
@@ -3348,7 +4745,8 @@ body:not(.catalog-active) #lessonSelect {
       if (!course || !isCourseAvailable(course)) return;
 
       document.body.classList.add("catalog-active");
-      document.body.classList.toggle("course-hsk2", String(course.id) === "hsk2");
+      document.body.classList.toggle("course-hsk2", APPROVED_CATALOG_IDS.has(String(course.id).toLowerCase()));
+      document.body.classList.toggle("course-hsk3", String(course.id).toLowerCase() === "hsk3");
       state.view = "catalog";
       state.courseId = course.id;
       state.lessonId = null;
@@ -3356,7 +4754,7 @@ body:not(.catalog-active) #lessonSelect {
       elements.lessonSearch.value = "";
       if (elements.hsk2LessonSearch) elements.hsk2LessonSearch.value = "";
       closeHsk2Search();
-      prepareHsk2Catalog(course);
+      prepareApprovedCatalog(course);
       renderLessons(course);
       hideAllViews();
       elements.catalogPage.classList.remove("hidden");
@@ -3424,7 +4822,7 @@ body:not(.catalog-active) #lessonSelect {
         }
       }
 
-      document.body.classList.remove("catalog-active", "course-hsk2");
+      document.body.classList.remove("catalog-active", "course-hsk2", "course-hsk3");
       closeHsk2Search();
       state.view = "lesson";
       state.courseId = course.id;
