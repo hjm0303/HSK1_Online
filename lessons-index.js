@@ -237,8 +237,149 @@ const HSK_COURSES = [
     label: "HSK 3",
     title: "HSK 3 Standard Course",
     description: "课程内容即将更新",
-    available: false,
-    lessons: []
+    available: true,
+    lessons: [
+        {
+        id: 1,
+        title: "周末你有什么打算",
+        pinyin: "Zhōumò nǐ yǒu shé me dǎsuàn",
+        file: "lesson3-1.html",
+        locked: true
+       },
+       {
+        id: 2,
+        title: "他什么时候回来？",
+        pinyin: "Tā shénme shíhòu huílái ？",
+        file: "lesson3-2.html",
+        locked: true
+       },
+       {
+        id: 3,
+        title: "桌子上放着很多饮料",
+        pinyin: "Zhuōzǐ shàng fàngzhe hěnduō yǐnliào",
+        file: "lesson3-3.html",
+        locked: true
+       },
+       {
+        id: 4,
+        title: "她总是笑着跟客人说话",
+        pinyin: "Tā zǒngshì xiàozhe gēn kèrén shuōhuà",
+        file: "lesson3-4.html",
+        locked: true
+       },
+       {
+        id: 5,
+        title: "我最近越来越胖了",
+        pinyin: "Wǒ zuìjìn yuèláiyuè pàng le",
+        file: "lesson3-5.html",
+        locked: true
+       },
+       {
+        id: 6,
+        title: "怎么突然找不到了？",
+        pinyin: "Zěnme tūrán zhǎo bú dào le?",
+        file: "lesson3-6.html",
+        locked: true
+       },
+       {
+        id: 7,
+        title: "我跟她都认识五年了",
+        pinyin: "Wǒ gēn tā dōu rènshi wǔ nián le",
+        file: "lesson3-7.html",
+        locked: true 
+       },
+       {
+        id: 8,
+        title: "你去哪儿我就去哪儿",
+        pinyin: "Nǐ qù nǎr, wǒ jiù qù nǎr",
+        file: "lesson3-8.html",
+        locked: true 
+       },
+       {
+        id: 9,
+        title: "她的汉语说得跟中国人一样好",
+        pinyin: "Tā de Hànyǔ shuō de gēn Zhōngguórén yíyàng hǎo",
+        file: "lesson3-9.html",
+        locked: true 
+       },
+       {
+        id: 10,
+        title: "数学比历史难多了",
+        pinyin: "Shùxué bǐ lìshǐ nán duō le",
+        file: "lesson3-10.html",
+        locked: true 
+       },
+       {
+        id: 11,
+        title: "别忘了把空调关了",
+        pinyin: "Bié wàng le bǎ kōngtiáo guān le",
+        file: "lesson3-11.html",
+        locked: true 
+       },
+       {
+        id: 12,
+        title: "把重要的东西放在我这儿吧",
+        pinyin: "Bǎ zhòngyào de dōngxi fàng zài wǒ zhèr ba",
+        file: "lesson3-12.html",
+        locked: true 
+       },
+       {
+        id: 13,
+        title: "我是走回来的",
+        pinyin: "Wǒ shì zǒu huílai de",
+        file: "lesson3-13.html",
+        locked: true 
+       },
+       {
+        id: 14,
+        title: "你把水果拿过来",
+        pinyin: "Nǐ bǎ shuǐguǒ ná guòlai",
+        file: "lesson3-14.html",
+        locked: true 
+       },
+       {
+        id: 15,
+        title: "其他都没什么问题",
+        pinyin: "Qítā dōu méi shénme wèntí",
+        file: "lesson3-15.html",
+        locked: true  
+       },
+       {
+        id: 16,
+        title: "我现在累得下了班就想睡觉",
+        pinyin: "Wǒ xiànzài lèi de xià le bān jiù xiǎng shuìjiào",
+        file: "lesson3-16.html",
+        locked: true 
+       },
+       {
+        id: 17,
+        title: "谁都有办法看好你的“病”",
+        pinyin: "Shéi dōu yǒu bànfǎ kànhǎo nǐ de “bìng”",
+        file: "lesson3-17.html",
+        locked: true 
+       },
+       {
+        id: 18,
+        title: "我相信他们会同意的",
+        pinyin: "Wǒ xiāngxìn tāmen huì tóngyì de",
+        file: "lesson3-18.html",
+        locked: true 
+       },
+       {
+        id: 19,
+        title: "你没看出来吗？",
+        pinyin: "Nǐ méi kàn chūlai ma?",
+        file: "lesson3-19.html",
+        locked: true 
+       },
+       {
+        id: 20,
+        title: "我被他影响了",
+        pinyin: "Wǒ bèi tā yǐngxiǎng le",
+        file: "lesson3-20.html",
+        locked: true 
+       }
+       ]
   },
   {
     id: "hsk4",
