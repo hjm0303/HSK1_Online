@@ -7,7 +7,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800;900&family=Nunito:ital,wght@0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
   <style>
@@ -2932,17 +2932,12 @@ body:not(.catalog-active) #lessonSelect {
     ];
 
     const HSK2_LESSON_COLORS = [
-      "#E25C22", "#F0A51B", "#DE5266", "#8B5FC7", "#2FA592",
-      "#D67620", "#E87792", "#619B4A", "#438CC7", "#BF5938",
-      "#E9AE20", "#9B5D8D", "#E95D3D", "#42A3AF", "#A96B35"
+      "#D85D24", "#ED6949", "#C95A28", "#E19A1B", "#E3611F",
+      "#B96339", "#CF772B", "#EB5A42", "#BE6724", "#E59A19",
+      "#C64D30", "#A8673F", "#D2682C", "#A95A35", "#DF5E3A"
     ];
 
     const HSK2_COURSE_ICONS = ["🐾", "✨", "🌼", "💛", "🌱", "📚", "🍊", "🌟"];
-    const HSK2_LESSON_MESSAGE_ICONS = [
-      "🌟", "🐾", "🌼", "🍊", "💛",
-      "🌱", "✨", "🐱", "🎈", "🍀",
-      "🌸", "📚", "🧡", "☀️", "🎉"
-    ];
 
     const LESSON_MOTIVATIONS = {
       hsk1: [
@@ -3275,13 +3270,9 @@ body:not(.catalog-active) #lessonSelect {
         const lockBadge = lesson.locked
           ? '<i class="fa-solid fa-lock ml-1" title="Cần mật khẩu"></i>'
           : '';
-        const isHsk2 = String(course.id) === "hsk2";
-        const palette = isHsk2 ? HSK2_LESSON_COLORS : LESSON_COLORS;
+        const palette = String(course.id) === "hsk2" ? HSK2_LESSON_COLORS : LESSON_COLORS;
         const accent = palette[(lesson.id - 1) % palette.length];
-        const accent2Style = isHsk2
-          ? `;--lesson-accent-2:${palette[(lesson.id + 4) % palette.length]}`
-          : "";
-        const lessonArt = isHsk2
+        const lessonArt = String(course.id) === "hsk2"
           ? HSK2_SAMPLE_ARTS[(lesson.id - 1) % HSK2_SAMPLE_ARTS.length]
           : LESSON_ARTS[(lesson.id - 1) % LESSON_ARTS.length];
         const titleClass = lesson.title.length >= 10
@@ -3289,16 +3280,13 @@ body:not(.catalog-active) #lessonSelect {
           : (lesson.title.length >= 7 ? "is-medium" : "");
         const lessonNo = String(lesson.id).padStart(2, "0");
         const motivation = getLessonMotivation(course.id, lesson.id);
-        const motivationContent = isHsk2
-          ? `<span class="lesson-message"><span class="lesson-message-icon" aria-hidden="true">${HSK2_LESSON_MESSAGE_ICONS[(lesson.id - 1) % HSK2_LESSON_MESSAGE_ICONS.length]}</span><span>${motivation}</span></span>`
-          : `<span>${motivation}</span>`;
 
         return `
           <article
             onclick="switchLesson('${course.id}', ${lesson.id})"
             onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();switchLesson('${course.id}',${lesson.id})}"
             class="catalog-card surface-card"
-            style="--lesson-accent:${accent}${accent2Style};animation-delay:${Math.min(index * 35, 280)}ms"
+            style="--lesson-accent:${accent};animation-delay:${Math.min(index * 35, 280)}ms"
             role="button"
             tabindex="0"
             data-title="${lesson.title}"
@@ -3315,7 +3303,7 @@ body:not(.catalog-active) #lessonSelect {
               <p class="lesson-pinyin">${lesson.pinyin}</p>
             </div>
             <div class="lesson-footer">
-              ${motivationContent}
+              <span>${motivation}</span>
               <span class="arrow"><i class="fa-solid ${lesson.locked ? "fa-key" : "fa-arrow-right"}"></i></span>
             </div>
           </article>`;
