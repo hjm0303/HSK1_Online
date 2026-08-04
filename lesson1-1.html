@@ -162,8 +162,14 @@
     /* ===== UI học từ theo chế độ và ghi âm luyện nói ===== */
     button,input,select,textarea{font-family:"Inter","Be Vietnam Pro","Segoe UI Emoji","Segoe UI Emoji","Noto Sans SC","Microsoft YaHei","Segoe UI",Arial,sans-serif}
     .tab-icon,.goal-icon,.speaker,.speak-btn,.tool-btn,.vocab-mode-icon,
-    .section-title h2,.mini-tab,.reading-title>span:first-child{
-      font-family:"Segoe UI Emoji","Segoe UI Emoji","Inter","Be Vietnam Pro","Noto Sans SC",sans-serif;
+    .mini-tab,.reading-title>span:first-child{
+      font-family:"Segoe UI Emoji","Inter","Be Vietnam Pro","Noto Sans SC",sans-serif;
+    }
+    .section-title h2{
+      font-family:"Be Vietnam Pro","Inter","Segoe UI",Arial,sans-serif;
+      font-weight:750;
+      letter-spacing:-.025em;
+      line-height:1.22;
     }
     .main-title{font-weight:800;letter-spacing:-.025em}
     .eyebrow{font-weight:800;letter-spacing:.075em}
@@ -980,8 +986,8 @@
   .transcript-list-vtt::-webkit-scrollbar{width:10px}
   .transcript-list-vtt::-webkit-scrollbar-track{background:#f5efe0;border-radius:999px}
   .transcript-list-vtt::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#efb519,#c67a00);border-radius:999px;border:2px solid #f5efe0}
-  .transcript-item-vtt{width:100%;display:grid;grid-template-columns:58px minmax(0,1fr) 56px;gap:12px;align-items:center;border:1px solid #ead9a5;border-radius:18px;background:#fff;padding:12px 14px;text-align:left;color:inherit;transition:.18s;box-shadow:0 8px 18px rgba(125,80,0,.05)}
-  .transcript-item-vtt:hover{transform:translateY(-1px);background:#fffaf0;border-color:#deb34a;box-shadow:0 12px 22px rgba(125,80,0,.09)}.transcript-item-vtt.active{border-color:#d39000;background:#fff2bd;box-shadow:0 0 0 3px rgba(211,144,0,.12)}
+  .transcript-item-vtt{width:100%;display:grid;grid-template-columns:58px minmax(0,1fr) 56px;gap:12px;align-items:center;border:1px solid #ead9a5;border-radius:18px;background:#fff;padding:12px 14px;text-align:left;color:inherit;transition:none;box-shadow:0 8px 18px rgba(125,80,0,.05)}
+  .transcript-item-vtt:hover{transform:none;background:#fff;border-color:#ead9a5;box-shadow:0 8px 18px rgba(125,80,0,.05)}.transcript-item-vtt.active,.transcript-item-vtt.active:hover{border-color:#d39000;background:#fff2bd;box-shadow:0 0 0 3px rgba(211,144,0,.12)}
   .transcript-time{font-size:11px;font-weight:900;color:#9b6a19;padding-top:0}.transcript-han{font-size:19px;font-weight:850;line-height:1.45;color:#223550}.transcript-py{margin-top:3px;color:#9a6100;font-size:13px;font-weight:700;line-height:1.45}.transcript-vi{margin-top:3px;color:#64748b;font-size:13px;line-height:1.5}.transcript-play{display:grid;place-items:center;width:42px;height:42px;border:0;border-radius:14px;background:linear-gradient(135deg,#66b2ff,#377dff);color:#fff;font-size:15px;font-weight:900;box-shadow:0 10px 20px rgba(55,125,255,.22);justify-self:end;transition:.18s}
   .transcript-play:hover{transform:translateY(-1px) scale(1.03);box-shadow:0 14px 24px rgba(55,125,255,.28)}
   .pinyin-off .transcript-py,.pinyin-off .now-playing-py,.pinyin-off .focus-py{display:none}.meaning-off .transcript-vi,.meaning-off .now-playing-vi,.meaning-off .focus-vi{display:none}
@@ -1000,6 +1006,57 @@
   .empty-listening{padding:28px 16px;text-align:center;border:1px dashed #d9b24b;border-radius:17px;background:#fffaf0;color:#7a5a26;line-height:1.65}
   @media(max-width:820px){.listening-mode-tabs{position:sticky;top:58px;z-index:4}.transcript-list-vtt{max-height:420px}.shadow-tips{grid-template-columns:1fr}.transcript-item-vtt{grid-template-columns:52px minmax(0,1fr) 48px}}
   @media(max-width:560px){.listening-mode-btn{font-size:11px;padding:9px 5px}.transcript-item-vtt{grid-template-columns:minmax(0,1fr) 48px}.transcript-time{grid-column:1/2;padding:0 0 3px}.transcript-han{font-size:18px}.listen-orb{width:78px;height:78px}.dictation-vtt-row{display:grid}.dictation-vtt-check{min-height:42px}.practice-nav-row{grid-template-columns:1fr 1fr}.practice-nav-count{grid-column:1/-1;grid-row:1}.now-playing-han{font-size:22px}}
+
+  .now-playing-card{display:none!important}
+  .compact-practice-list{max-height:620px;overflow-y:auto;overflow-x:hidden;padding-right:6px;scrollbar-width:thin;scrollbar-gutter:stable;overscroll-behavior:contain}
+  .compact-practice-list::-webkit-scrollbar{width:10px}
+  .compact-practice-list::-webkit-scrollbar-track{background:#f5efe0;border-radius:999px}
+  .compact-practice-list::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#efb519,#c67a00);border-radius:999px;border:2px solid #f5efe0}
+  .transcript-item-vtt{grid-template-columns:52px minmax(0,1fr) 44px;padding:10px 12px}
+  .transcript-han{font-size:17px;line-height:1.42}.transcript-py{font-size:12px}.transcript-vi{font-size:12px}
+  .transcript-play{display:none!important}
+  .mini-circle-play{position:relative;display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border:0;border-radius:0;background:transparent;box-shadow:none;padding:0;transition:none}
+  .mini-circle-play::before{content:"";display:block;width:0;height:0;border-top:8px solid transparent;border-bottom:8px solid transparent;border-left:13px solid #d99a00;filter:drop-shadow(0 2px 2px rgba(157,96,0,.18))}
+  .mini-circle-play:hover::before{border-left-color:#b87900}
+  .practice-list-vtt{display:grid;gap:10px}
+  .practice-item-vtt{border:1px solid #ead9a5;border-radius:16px;background:#fff;padding:10px 12px;box-shadow:0 8px 18px rgba(125,80,0,.05);transition:.16s}
+  .practice-item-vtt.active{border-color:#d39000;background:#fffaf0;box-shadow:0 0 0 3px rgba(211,144,0,.10)}
+  .practice-head-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px}
+  .practice-time-badge{display:inline-flex;align-items:center;justify-content:center;min-width:52px;padding:4px 8px;border-radius:999px;background:#fff3c9;color:#8b5600;font-size:11px;font-weight:850}
+  .practice-mini-actions,.shadow-line-tools{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+  .mini-pill-btn{border:1px solid #e8c35f;border-radius:999px;background:#fff;padding:6px 10px;color:#74501b;font-size:11px;font-weight:800;line-height:1.2}
+  .mini-pill-btn:hover{background:#fff5cf}.mini-pill-btn[disabled]{opacity:.45;cursor:not-allowed}
+  .mic-btn.recording{background:linear-gradient(135deg,#efb519,#bd7100);color:#fff;border-color:transparent}
+  .practice-input-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center}
+  .practice-input{width:100%;min-width:0;border:2px solid #e4b63f;border-radius:13px;background:#fff;padding:10px 12px;outline:0;font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;font-size:16px;font-weight:700;color:#243247}
+  .practice-input:focus{border-color:#d99a00;box-shadow:0 0 0 3px rgba(217,154,0,.12)}
+  .practice-check-btn{border:0;border-radius:12px;background:linear-gradient(135deg,#e9ae13,#b96f00);color:#fff;padding:10px 14px;font-size:12px;font-weight:850;white-space:nowrap}
+  .practice-inline-result{min-height:18px;margin-top:7px;border-radius:10px;padding:7px 10px;background:#f8fafc;color:#64748b;font-size:12px;line-height:1.45}
+  .practice-inline-result.ok{background:#ecfdf5;color:#047857}.practice-inline-result.bad{background:#fff1f2;color:#be123c}
+  .practice-hint-inline{display:none;margin-top:7px;border-radius:12px;background:#fff8dc;padding:9px 10px}.practice-hint-inline.show{display:block}
+  .practice-hint-inline .focus-py{font-size:12px;color:#9a6100;font-weight:750}.practice-hint-inline .focus-vi{margin-top:3px;font-size:12px;color:#64748b}
+  .shadow-line-text .transcript-han{font-size:16px}.shadow-line-text .transcript-py,.shadow-line-text .transcript-vi{font-size:12px}
+  .speech-result.compact{min-height:18px;margin-top:6px;font-size:11px;line-height:1.45}.shadow-score.compact{min-width:72px;font-size:11px}
+  .practice-focus-card{padding:12px}.practice-focus-head{margin-bottom:8px}.practice-focus-head b{font-size:14px}
+  .dictation-instruction,.shadow-tip,.shadow-tips,.listen-orb{display:none!important}
+  .practice-action-row{margin-top:8px}.practice-action-row button{padding:6px 10px;font-size:11px}
+  @media(max-width:820px){.compact-practice-list{max-height:460px}}
+  @media(max-width:560px){.practice-input-row{grid-template-columns:1fr}.practice-check-btn{width:100%}.practice-head-row{align-items:flex-start;flex-direction:column}.practice-mini-actions,.shadow-line-tools{width:100%}.transcript-item-vtt{grid-template-columns:minmax(0,1fr) 40px}.transcript-time{grid-column:1/2}.transcript-han{font-size:16px}}
+  .listening-title-main{display:flex;align-items:center;gap:10px;min-width:0}
+  .listening-title-mascot{display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+  .listening-title-mascot .mascot-img{width:48px;height:48px;margin:0;filter:drop-shadow(0 7px 9px rgba(151,93,0,.18))}
+  .speaking-section .section-title h2{font-family:"Be Vietnam Pro","Inter","Segoe UI",Arial,sans-serif!important;font-weight:750!important;letter-spacing:-.025em!important}
+  .transcript-item-vtt{grid-template-columns:58px minmax(0,1fr);cursor:pointer}
+  .transcript-item-vtt:focus-visible{outline:3px solid rgba(217,154,0,.28);outline-offset:2px}
+  .transcript-play{display:none!important}
+  .shadow-line-text .transcript-han{font-size:22px!important;line-height:1.45}
+  .listening-vocab-word{position:relative;display:inline;border-bottom:2px dotted rgba(202,128,0,.55);color:inherit;cursor:help}
+  .listening-vocab-word::after{content:attr(data-vocab-tip);position:absolute;left:50%;bottom:calc(100% + 9px);transform:translate(-50%,5px);z-index:40;min-width:max-content;max-width:260px;padding:8px 10px;border-radius:11px;background:#243247;color:#fff;font-family:"Be Vietnam Pro","Inter",sans-serif;font-size:11px;font-weight:650;line-height:1.45;white-space:pre-line;box-shadow:0 12px 28px rgba(15,23,42,.24);opacity:0;visibility:hidden;pointer-events:none;transition:.14s}
+  .listening-vocab-word::before{content:"";position:absolute;left:50%;bottom:calc(100% + 3px);transform:translateX(-50%);border:6px solid transparent;border-top-color:#243247;opacity:0;visibility:hidden;transition:.14s}
+  .listening-vocab-word:hover::after,.listening-vocab-word:hover::before{opacity:1;visibility:visible;transform:translate(-50%,0)}
+  .listening-vocab-word:hover::before{transform:translateX(-50%)}
+  @media(max-width:560px){.listening-title-mascot .mascot-img{width:40px;height:40px}.shadow-line-text .transcript-han{font-size:20px!important}.transcript-item-vtt{grid-template-columns:50px minmax(0,1fr)}}
+
 </style>
 
 </head>
@@ -1532,7 +1589,7 @@ function speakingHTML() {
   const videoParams=new URLSearchParams({enablejsapi:'1',playsinline:'1',rel:'0'});
   if(pageHasWebOrigin)videoParams.set('origin',location.origin);
   const videoUrl=hasVideo?`https://www.youtube.com/embed/${YOUTUBE_LESSON.videoId}?${videoParams.toString()}`:'';
-  const localFileWarning=location.protocol==='file:'?`<div style="margin:0 0 14px;padding:12px 14px;border:1px solid #f0b429;border-radius:14px;background:#fff7d6;color:#7a4a00;font-weight:750;line-height:1.5"><b>⚠️ Hãy mở bằng Live Server, GitHub Pages hoặc tên miền website.</b><br>Khi mở bằng <code>file://</code>, trình duyệt có thể chặn video YouTube và việc đọc file VTT.</div>`:'';
+  const localFileWarning='';
   const videoBody=hasVideo?`
     <div class="video-card-head"><div><span class="video-live-dot"></span><b>${YOUTUBE_LESSON.title}</b></div><a class="video-source" href="https://youtu.be/${YOUTUBE_LESSON.videoId}" target="_blank" rel="noopener">Mở YouTube ↗</a></div>
     <div class="video-ratio"><iframe id="youtubePlayer" src="${videoUrl}" title="${YOUTUBE_LESSON.title}" loading="eager" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
@@ -1541,7 +1598,7 @@ function speakingHTML() {
     <div class="video-card-head"><div><span class="video-live-dot is-waiting"></span><b>${YOUTUBE_LESSON.title}</b></div><span class="video-waiting-chip">Chờ video</span></div>
     <div class="video-ratio video-placeholder">${mascot("video-placeholder-mascot","speaking")}<strong>Chưa thiết lập video</strong></div>`;
   return `<div class="panel section speaking-section">
-    <div class="section-title"><div><h2>Luyện nghe qua video</h2></div><span class="badge">Phụ đề · Chính tả · Shadowing</span></div>
+    <div class="section-title listening-title"><div class="listening-title-main"><h2>Luyện nghe qua video</h2><span class="listening-title-mascot">${mascot("tiny-mascot","speaking")}</span></div><span class="badge">Phụ đề · Chính tả · Shadowing</span></div>
     ${localFileWarning}
     <div class="video-speaking-grid">
       <section class="video-column">
@@ -1675,91 +1732,136 @@ function renderListeningMode(){
   else if(listeningMode==='dictation')renderDictationMode(stage);
   else renderShadowingMode(stage);
   bindListeningModeActions();
-  if(listeningMode==='dictation')setTimeout(()=>document.getElementById('vttDictationInput')?.focus(),0);
+  if(listeningMode==='dictation')setTimeout(()=>document.querySelector('[data-dictation-input="0"]')?.focus(),0);
 }
 function visibilityButtons(){return `<div class="listening-toolbar-right"><button class="listening-small-btn ${listeningPinyin?'primary':''}" data-listening-toggle="pinyin">${listeningPinyin?'Ẩn':'Hiện'} Pinyin</button><button class="listening-small-btn ${listeningMeaning?'primary':''}" data-listening-toggle="meaning">${listeningMeaning?'Ẩn':'Hiện'} nghĩa</button></div>`}
+const LISTENING_VOCAB=[...(LESSON.extraVocabulary||[])]
+  .filter(item=>item?.han&&item?.vi)
+  .sort((a,b)=>b.han.length-a.han.length);
+function listeningHanHTML(value){
+  const text=String(value||'');
+  let html='',index=0;
+  while(index<text.length){
+    const match=LISTENING_VOCAB.find(item=>text.startsWith(item.han,index));
+    if(match){
+      const tip=[match.py,match.vi].filter(Boolean).join(' · ');
+      html+=`<span class="listening-vocab-word" data-extra-vocab="true" data-vocab-tip="${escapeHTML(tip)}" title="${escapeHTML(tip)}">${escapeHTML(match.han)}</span>`;
+      index+=match.han.length;
+    }else{
+      html+=escapeHTML(text[index]);
+      index+=1;
+    }
+  }
+  return html;
+}
 function cueTextHTML(cue,prefix='transcript'){
-  return `<div class="${prefix}-han cn">${escapeHTML(cue.han)}</div><div class="${prefix}-py">${escapeHTML(cue.py)}</div><div class="${prefix}-vi">${escapeHTML(cue.vi)}</div>`;
+  return `<div class="${prefix}-han cn">${listeningHanHTML(cue.han)}</div><div class="${prefix}-py">${escapeHTML(cue.py)}</div><div class="${prefix}-vi">${escapeHTML(cue.vi)}</div>`;
 }
 function renderSubtitleMode(stage){
-  const cue=currentListeningCue();
   stage.innerHTML=`<div class="listening-toolbar"><div class="listening-toolbar-left"><button class="listening-small-btn primary" data-listening-full>▶ Phát toàn bộ</button><span class="badge">${listeningCues.length} câu</span></div>${visibilityButtons()}</div>
-    <div id="listeningNow" class="now-playing-card">${cueTextHTML(cue,'now-playing')}</div>
-    <div id="vttTranscriptList" class="transcript-list-vtt">${listeningCues.map((item,index)=>`<button type="button" class="transcript-item-vtt ${index===listeningIndex?'active':''}" data-listening-index="${index}"><span class="transcript-time">${formatListeningTime(item.start)}</span><span>${cueTextHTML(item,'transcript')}</span><span class="transcript-play">▶</span></button>`).join('')}</div>`;
+    <div id="vttTranscriptList" class="transcript-list-vtt compact-practice-list">${listeningCues.map((item,index)=>`<button type="button" class="transcript-item-vtt ${index===listeningIndex?'active':''}" data-listening-index="${index}" aria-label="Nghe câu lúc ${formatListeningTime(item.start)}"><span class="transcript-time">${formatListeningTime(item.start)}</span><span>${cueTextHTML(item,'transcript')}</span></button>`).join('')}</div>`;
 }
 function renderDictationMode(stage){
-  const cue=currentListeningCue(),saved=listeningDictationAnswers.get(listeningIndex)||'',stateText=listeningDictationStatus.get(listeningIndex)||'';
-  stage.innerHTML=`<div class="listening-toolbar"><div class="listening-toolbar-left"><span class="badge">Chỉ nghe, không nhìn đáp án</span></div></div>
-    <div class="practice-focus-card">
-      <div class="practice-focus-head"><b>Chép chính tả</b></div>
-      <button class="listen-orb" data-listening-play="1" aria-label="Nghe câu">▶</button>
-      <div class="dictation-instruction">Nghe câu, sau đó nhập lại bằng chữ Hán. Hệ thống bỏ qua dấu câu khi kiểm tra.</div>
-      <div class="dictation-vtt-row"><input id="vttDictationInput" class="dictation-vtt-input cn" value="${escapeHTML(saved)}" autocomplete="off" placeholder="Nhập câu bạn nghe được…"><button class="dictation-vtt-check" data-vtt-check>Kiểm tra</button></div>
-      <div id="vttDictationResult" class="dictation-vtt-result ${stateText.startsWith('✓')?'ok':stateText?'bad':''}">${stateText||'Bấm “Nghe câu” để bắt đầu.'}</div>
-      <div id="vttDictationHint" class="dictation-hint-box"><div class="focus-py">${escapeHTML(cue.py)}</div><div class="focus-vi">${escapeHTML(cue.vi)}</div></div>
-      <div class="practice-action-row"><button data-listening-play="1">🔊 Nghe lại</button><button data-listening-slow>🐢 Nghe chậm</button><button data-vtt-hint>💡 Gợi ý</button><button data-vtt-reveal>👁 Hiện đáp án</button></div>
-      ${practiceNavigation()}
-    </div>`;
+  stage.innerHTML=`<div class="listening-toolbar"><div class="listening-toolbar-left"><span class="badge">Nghe từng câu và nhập đáp án</span><span class="badge">${listeningCues.length} câu</span></div></div>
+    <div id="vttDictationList" class="practice-list-vtt compact-practice-list">${listeningCues.map((cue,index)=>{
+      const saved=listeningDictationAnswers.get(index)||'';
+      const stateText=listeningDictationStatus.get(index)||'';
+      const stateClass=stateText.startsWith('✓')?'ok':stateText?'bad':'';
+      return `<div class="practice-item-vtt ${index===listeningIndex?'active':''}" data-practice-line="${index}">
+        <div class="practice-head-row"><span class="practice-time-badge">${formatListeningTime(cue.start)}</span><div class="practice-mini-actions"><button class="mini-circle-play" data-dictation-play="${index}" title="Nghe câu" aria-label="Nghe câu"></button><button class="mini-pill-btn" data-dictation-slow="${index}">0.75×</button><button class="mini-pill-btn" data-dictation-hint="${index}">Gợi ý</button><button class="mini-pill-btn" data-dictation-reveal="${index}">Đáp án</button></div></div>
+        <div class="practice-input-row"><input data-dictation-input="${index}" class="practice-input cn" value="${escapeHTML(saved)}" autocomplete="off" placeholder="Nhập câu bạn nghe được..."><button class="practice-check-btn" data-dictation-check="${index}">Kiểm tra</button></div>
+        <div id="vttDictationResult-${index}" class="practice-inline-result ${stateClass}">${stateText||'Enter để kiểm tra · Enter lần nữa để sang câu tiếp.'}</div>
+        <div id="vttDictationHint-${index}" class="practice-hint-inline"><div class="focus-py">${escapeHTML(cue.py)}</div><div class="focus-vi">${escapeHTML(cue.vi)}</div></div>
+      </div>`;
+    }).join('')}</div>`;
 }
 function renderShadowingMode(stage){
-  const cue=currentListeningCue(),record=roleRecordings.get(`0-${listeningIndex}`),saved=state.roleScores[`0-${listeningIndex}`]||0;
-  stage.innerHTML=`<div class="listening-toolbar"><div class="listening-toolbar-left"><span class="badge">Nghe → nhắc lại → ghi âm</span></div>${visibilityButtons()}</div>
-    <div class="practice-focus-card shadow-focus">
-      <div class="practice-focus-head"><b>Shadowing câu ${listeningIndex+1}</b></div>
-      ${cueTextHTML(cue,'focus')}
-      <div class="shadow-tips"><div class="shadow-tip"><b>Bước 1</b>Nghe mẫu ở tốc độ thường.</div><div class="shadow-tip"><b>Bước 2</b>Nói đuổi theo, chậm hơn khoảng một nhịp.</div><div class="shadow-tip"><b>Bước 3</b>Ghi âm và nghe lại giọng của mình.</div></div>
-      <div class="practice-action-row"><button class="primary" data-listening-play="1">▶ Nghe mẫu</button><button data-listening-slow>🐢 0,75×</button><button data-shadow-repeat="3">🔁 Lặp 3 lần</button></div>
-      <div class="shadow-record-row"><button class="speech-tool mic" data-role-mic="${listeningIndex}" data-expected="${escapeHTML(cue.han)}">🎙 Ghi âm</button><button class="speech-tool" data-role-play="${listeningIndex}" ${record?'':'disabled'}>▸ Nghe lại bản ghi</button><span id="speechScore-${listeningIndex}" class="speech-score shadow-score ${saved>=80?'good':saved>=60?'mid':saved?'low':''}">${saved?`${saved} điểm`:'Chưa chấm'}</span></div>
-      <div id="speechResult-${listeningIndex}" class="speech-result">Đọc xong hãy tự bấm dừng để hệ thống lưu bản ghi.</div>
-      ${practiceNavigation()}
-    </div>`;
+  stage.innerHTML=`<div class="listening-toolbar"><div class="listening-toolbar-left"><span class="badge">Nghe và ghi âm trực tiếp trên từng câu</span><span class="badge">${listeningCues.length} câu</span></div>${visibilityButtons()}</div>
+    <div id="vttShadowingList" class="practice-list-vtt compact-practice-list">${listeningCues.map((cue,index)=>{
+      const record=roleRecordings.get(`0-${index}`),saved=state.roleScores[`0-${index}`]||0;
+      return `<div class="practice-item-vtt shadow-item-vtt ${index===listeningIndex?'active':''}" data-shadow-line="${index}">
+        <div class="practice-head-row"><span class="practice-time-badge">${formatListeningTime(cue.start)}</span><div class="practice-mini-actions"><button class="mini-circle-play" data-shadow-play="${index}" title="Nghe câu" aria-label="Nghe câu"></button><button class="mini-pill-btn" data-shadow-slow="${index}">0.75×</button><button class="mini-pill-btn" data-shadow-repeat="${index}">Lặp 3</button></div></div>
+        <div class="shadow-line-text">${cueTextHTML(cue,'transcript')}</div>
+        <div class="shadow-line-tools"><button class="mini-pill-btn mic-btn ${activeRoleSession?.lineIndex===index?'recording':''}" data-role-mic="${index}" data-expected="${escapeHTML(cue.han)}">🎙 Ghi âm</button><button class="mini-pill-btn" data-role-play="${index}" ${record?'':'disabled'}>▸ Nghe lại</button><span id="speechScore-${index}" class="speech-score shadow-score compact ${saved>=80?'good':saved>=60?'mid':saved?'low':''}">${saved?`${saved} điểm`:'Chưa chấm'}</span></div>
+        <div id="speechResult-${index}" class="speech-result compact"></div>
+      </div>`;
+    }).join('')}</div>`;
 }
-function practiceNavigation(){return `<div class="practice-nav-row"><button data-listening-nav="-1" ${listeningIndex<=0?'disabled':''}>← Câu trước</button><div class="practice-nav-count">${listeningIndex+1}/${listeningCues.length}</div><button data-listening-nav="1" ${listeningIndex>=listeningCues.length-1?'disabled':''}>Câu tiếp →</button></div>`}
+function practiceNavigation(){return ''}
 function bindListeningModeActions(){
   document.querySelectorAll('[data-listening-mode]').forEach(button=>button.onclick=()=>{stopRoleSession?.(true);listeningMode=button.dataset.listeningMode;listeningRepeatToken++;renderListeningMode();});
   document.querySelectorAll('[data-listening-toggle]').forEach(button=>button.onclick=()=>{if(button.dataset.listeningToggle==='pinyin')listeningPinyin=!listeningPinyin;else listeningMeaning=!listeningMeaning;renderListeningMode();});
-  document.querySelectorAll('[data-listening-index]').forEach(button=>button.onclick=()=>{setListeningIndex(Number(button.dataset.listeningIndex));playListeningCue(listeningIndex,1);});
+  const transcriptList=document.getElementById('vttTranscriptList');
+  if(transcriptList){
+    const selectTranscriptRow=(row)=>{
+      if(!row)return;
+      const index=Number(row.dataset.listeningIndex);
+      if(!Number.isInteger(index)||index<0||index>=listeningCues.length)return;
+      setListeningIndex(index,false);
+      transcriptList.querySelectorAll('[data-listening-index]').forEach(item=>item.classList.toggle('active',item===row));
+      playListeningCue(index,1);
+    };
+    transcriptList.addEventListener('click',event=>{
+      const row=event.target.closest('[data-listening-index]');
+      if(!row||!transcriptList.contains(row))return;
+      selectTranscriptRow(row);
+    });
+    transcriptList.addEventListener('keydown',event=>{
+      if(event.key!=='Enter'&&event.key!==' ')return;
+      const row=event.target.closest('[data-listening-index]');
+      if(!row||!transcriptList.contains(row))return;
+      event.preventDefault();
+      selectTranscriptRow(row);
+    });
+  }
   document.querySelector('[data-listening-full]')?.addEventListener('click',()=>{listeningRepeatToken++;ytPlayer?.setPlaybackRate?.(1);ytPlayer?.playVideo?.();});
-  document.querySelectorAll('[data-listening-play]').forEach(button=>button.onclick=()=>playListeningCue(listeningIndex,1));
-  document.querySelectorAll('[data-listening-slow]').forEach(button=>button.onclick=()=>playListeningCue(listeningIndex,.75));
-  document.querySelectorAll('[data-listening-nav]').forEach(button=>button.onclick=()=>setListeningIndex(listeningIndex+Number(button.dataset.listeningNav)));
-  document.querySelectorAll('[data-shadow-repeat]').forEach(button=>button.onclick=()=>repeatListeningCue(listeningIndex,Number(button.dataset.shadowRepeat)||3,.85));
-  document.querySelectorAll('[data-role-mic]').forEach(button=>button.onclick=()=>{const idx=Number(button.dataset.roleMic);if(activeRoleSession?.lineIndex===idx){stopRoleSession();return;}startRoleRecording(idx,button.dataset.expected);});
-  document.querySelectorAll('[data-role-play]').forEach(button=>button.onclick=()=>{const url=roleRecordings.get(`0-${button.dataset.rolePlay}`);if(url)new Audio(url).play().catch(()=>{});});
-  const input=document.getElementById('vttDictationInput');
-  input?.addEventListener('input',()=>{
-    listeningDictationAnswers.set(listeningIndex,input.value);
-    if(listeningDictationCheckedValue.get(listeningIndex)!==input.value){
-      listeningDictationStatus.delete(listeningIndex);
-    }
-  });
-  const check=()=>{
-    const cue=currentListeningCue(),value=String(input?.value||'').trim(),result=document.getElementById('vttDictationResult');
-    if(!value){result.className='dictation-vtt-result bad';result.textContent='Hãy nghe và nhập câu trước khi kiểm tra.';input?.focus();return false;}
+
+  const markActivePracticeRow=(index,selector)=>{document.querySelectorAll(selector).forEach((row,i)=>row.classList.toggle('active',i===index));};
+  const focusNextDictation=(index)=>{const next=document.querySelector(`[data-dictation-input="${index+1}"]`); if(next){setListeningIndex(index+1,false); next.focus(); next.scrollIntoView({behavior:'smooth',block:'center'});} };
+  const checkDictationLine=(index)=>{
+    const cue=listeningCues[index]; if(!cue) return false;
+    const input=document.querySelector(`[data-dictation-input="${index}"]`);
+    const result=document.getElementById(`vttDictationResult-${index}`);
+    if(!input||!result) return false;
+    const value=String(input.value||'').trim();
+    if(!value){result.className='practice-inline-result bad';result.textContent='Hãy nghe và nhập câu trước khi kiểm tra.';input.focus();return false;}
     const ok=cleanZh(value)===cleanZh(cue.han);
     const message=ok?'✓ Chính xác! Bạn đã chép đúng câu.':`Chưa khớp. Đáp án đúng: ${cue.han}`;
-    listeningDictationStatus.set(listeningIndex,message);
-    listeningDictationCheckedValue.set(listeningIndex,input.value);
-    result.className=`dictation-vtt-result ${ok?'ok':'bad'}`;result.innerHTML=ok?'✓ Chính xác! Bạn đã chép đúng câu.':`Chưa khớp. Đáp án đúng: <b class="cn">${escapeHTML(cue.han)}</b>`;
-    if(ok&&!listeningDictationAwarded.has(listeningIndex)){listeningDictationAwarded.add(listeningIndex);addScore(5);}answerFeedback(ok);
+    listeningDictationAnswers.set(index,input.value);
+    listeningDictationStatus.set(index,message);
+    listeningDictationCheckedValue.set(index,input.value);
+    result.className=`practice-inline-result ${ok?'ok':'bad'}`;
+    result.innerHTML=ok?'✓ Chính xác! Bạn đã chép đúng câu.':`Chưa khớp. Đáp án đúng: <b class="cn">${escapeHTML(cue.han)}</b>`;
+    if(ok&&!listeningDictationAwarded.has(index)){listeningDictationAwarded.add(index);addScore(5);}answerFeedback(ok);
     return true;
   };
-  document.querySelector('[data-vtt-check]')?.addEventListener('click',check);
-  input?.addEventListener('keydown',event=>{
-    if(event.key==='Enter'&&!event.isComposing&&event.keyCode!==229){
-      event.preventDefault();
-      const currentValue=String(input.value||'');
-      const checkedValue=listeningDictationCheckedValue.get(listeningIndex);
-      const hasChecked=listeningDictationStatus.has(listeningIndex) && checkedValue===currentValue;
-      if(hasChecked && listeningIndex<listeningCues.length-1){
-        setListeningIndex(listeningIndex+1);
-        return;
+
+  document.querySelectorAll('[data-dictation-play]').forEach(button=>button.onclick=()=>{const idx=Number(button.dataset.dictationPlay);setListeningIndex(idx,false);markActivePracticeRow(idx,'[data-practice-line]');playListeningCue(idx,1);});
+  document.querySelectorAll('[data-dictation-slow]').forEach(button=>button.onclick=()=>{const idx=Number(button.dataset.dictationSlow);setListeningIndex(idx,false);markActivePracticeRow(idx,'[data-practice-line]');playListeningCue(idx,.75);});
+  document.querySelectorAll('[data-dictation-check]').forEach(button=>button.onclick=()=>checkDictationLine(Number(button.dataset.dictationCheck)));
+  document.querySelectorAll('[data-dictation-hint]').forEach(button=>button.onclick=()=>document.getElementById(`vttDictationHint-${button.dataset.dictationHint}`)?.classList.toggle('show'));
+  document.querySelectorAll('[data-dictation-reveal]').forEach(button=>button.onclick=()=>{const idx=Number(button.dataset.dictationReveal),cue=listeningCues[idx],result=document.getElementById(`vttDictationResult-${idx}`); if(cue&&result){result.className='practice-inline-result';result.innerHTML=`Đáp án: <b class="cn">${escapeHTML(cue.han)}</b>`;}});
+  document.querySelectorAll('[data-dictation-input]').forEach(input=>{
+    const idx=Number(input.dataset.dictationInput);
+    input.addEventListener('input',()=>{listeningDictationAnswers.set(idx,input.value); if(listeningDictationCheckedValue.get(idx)!==input.value){listeningDictationStatus.delete(idx);} });
+    input.addEventListener('focus',()=>{setListeningIndex(idx,false);markActivePracticeRow(idx,'[data-practice-line]');});
+    input.addEventListener('keydown',event=>{
+      if(event.key==='Enter'&&!event.isComposing&&event.keyCode!==229){
+        event.preventDefault();
+        const currentValue=String(input.value||'');
+        const checkedValue=listeningDictationCheckedValue.get(idx);
+        const hasChecked=listeningDictationStatus.has(idx) && checkedValue===currentValue;
+        if(hasChecked){focusNextDictation(idx);return;}
+        checkDictationLine(idx);
       }
-      check();
-    }
+    });
   });
-  document.querySelector('[data-vtt-hint]')?.addEventListener('click',()=>document.getElementById('vttDictationHint')?.classList.toggle('show'));
-  document.querySelector('[data-vtt-reveal]')?.addEventListener('click',()=>{const cue=currentListeningCue(),result=document.getElementById('vttDictationResult');result.className='dictation-vtt-result';result.innerHTML=`Đáp án: <b class="cn">${escapeHTML(cue.han)}</b>`;});
+
+  document.querySelectorAll('[data-shadow-play]').forEach(button=>button.onclick=()=>{const idx=Number(button.dataset.shadowPlay);setListeningIndex(idx,false);markActivePracticeRow(idx,'[data-shadow-line]');playListeningCue(idx,1);});
+  document.querySelectorAll('[data-shadow-slow]').forEach(button=>button.onclick=()=>{const idx=Number(button.dataset.shadowSlow);setListeningIndex(idx,false);markActivePracticeRow(idx,'[data-shadow-line]');playListeningCue(idx,.75);});
+  document.querySelectorAll('[data-shadow-repeat]').forEach(button=>button.onclick=()=>{const idx=Number(button.dataset.shadowRepeat);setListeningIndex(idx,false);markActivePracticeRow(idx,'[data-shadow-line]');repeatListeningCue(idx,3,.85);});
+  document.querySelectorAll('[data-role-mic]').forEach(button=>button.onclick=()=>{const idx=Number(button.dataset.roleMic);markActivePracticeRow(idx,'[data-shadow-line]');if(activeRoleSession?.lineIndex===idx){stopRoleSession();return;}startRoleRecording(idx,button.dataset.expected);});
+  document.querySelectorAll('[data-role-play]').forEach(button=>button.onclick=()=>{const url=roleRecordings.get(`0-${button.dataset.rolePlay}`);if(url)new Audio(url).play().catch(()=>{});});
 }
 function syncListeningSubtitle(){
   if(currentTab!=='speaking'||listeningMode!=='subtitle'||!listeningCues.length||!ytPlayer?.getCurrentTime)return;
@@ -1768,20 +1870,12 @@ function syncListeningSubtitle(){
   if(index<0||index===listeningIndex)return;
   listeningIndex=index;
   document.querySelectorAll('[data-listening-index]').forEach((row,i)=>row.classList.toggle('active',i===index));
-  const cue=listeningCues[index],now=document.getElementById('listeningNow');
-  if(now)now.innerHTML=`${cueTextHTML(cue,'now-playing')}`;
   const list=document.getElementById('vttTranscriptList');
   const activeRow=document.querySelector(`[data-listening-index="${index}"]`);
   if(list&&activeRow){
-    const rowTop=activeRow.offsetTop;
-    const rowBottom=rowTop+activeRow.offsetHeight;
-    const viewTop=list.scrollTop;
-    const viewBottom=viewTop+list.clientHeight;
-    if(rowTop<viewTop+8){
-      list.scrollTo({top:Math.max(0,rowTop-8),behavior:'smooth'});
-    }else if(rowBottom>viewBottom-8){
-      list.scrollTo({top:rowBottom-list.clientHeight+8,behavior:'smooth'});
-    }
+    const rowTop=activeRow.offsetTop, rowBottom=rowTop+activeRow.offsetHeight, viewTop=list.scrollTop, viewBottom=viewTop+list.clientHeight;
+    if(rowTop<viewTop+8) list.scrollTo({top:Math.max(0,rowTop-8),behavior:'smooth'});
+    else if(rowBottom>viewBottom-8) list.scrollTo({top:rowBottom-list.clientHeight+8,behavior:'smooth'});
   }
 }
 
