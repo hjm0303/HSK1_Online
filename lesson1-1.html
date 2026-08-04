@@ -967,8 +967,7 @@
   .listening-mode-btn{border:1px solid transparent;border-radius:12px;background:transparent;padding:10px 8px;color:#74501b;font-size:13px;font-weight:850;transition:.16s}
   .listening-mode-btn:hover{background:#fff1bd;transform:translateY(-1px)}
   .listening-mode-btn.active{background:linear-gradient(135deg,#efb519,#bd7100);color:#fff;box-shadow:0 8px 17px rgba(159,97,0,.2)}
-  .listening-source-status{display:flex;align-items:center;justify-content:space-between;gap:9px;margin-bottom:10px;padding:8px 10px;border-radius:12px;background:#f8fafc;color:#64748b;font-size:11px;line-height:1.45}
-  .listening-source-status strong{color:#8b5600}.listening-source-status.error{background:#fff1f2;color:#be123c}.listening-source-status.fallback{background:#fff7d6;color:#7a4a00}
+  .listening-source-status{display:none!important}
   .listening-toolbar{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:10px}
   .listening-toolbar-left,.listening-toolbar-right{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
   .listening-small-btn{border:1px solid #e8c35f;border-radius:11px;background:#fff;padding:7px 10px;color:#74501b;font-size:11px;font-weight:800}
@@ -977,10 +976,14 @@
   .now-playing-label{font-size:10px;font-weight:900;letter-spacing:.08em;color:#a16a0b;text-transform:uppercase}
   .now-playing-han{margin-top:5px;font-size:clamp(22px,2.2vw,31px);font-weight:900;line-height:1.4;color:#20344f}
   .now-playing-py{margin-top:4px;color:#9a6100;font-size:13px;font-weight:750;line-height:1.5}.now-playing-vi{margin-top:3px;color:#64748b;font-size:13px;line-height:1.5}
-  .transcript-list-vtt{display:grid;gap:8px;max-height:590px;overflow:auto;padding-right:3px;scrollbar-width:thin}
-  .transcript-item-vtt{width:100%;display:grid;grid-template-columns:54px minmax(0,1fr) auto;gap:10px;align-items:start;border:1px solid #ead9a5;border-radius:15px;background:#fff;padding:10px;text-align:left;color:inherit;transition:.16s}
-  .transcript-item-vtt:hover{transform:translateY(-1px);background:#fffaf0;border-color:#deb34a}.transcript-item-vtt.active{border-color:#d39000;background:#fff2bd;box-shadow:0 0 0 3px rgba(211,144,0,.12)}
-  .transcript-time{font-size:10px;font-weight:850;color:#9b6a19;padding-top:4px}.transcript-han{font-size:19px;font-weight:850;line-height:1.45;color:#223550}.transcript-py{margin-top:2px;color:#9a6100;font-size:12px;font-weight:700}.transcript-vi{margin-top:2px;color:#64748b;font-size:12px;line-height:1.45}.transcript-play{width:31px;height:31px;border:0;border-radius:10px;background:#fff;color:#a15f00;box-shadow:0 5px 12px rgba(70,45,0,.1)}
+  .transcript-list-vtt{display:grid;gap:10px;max-height:590px;overflow-y:auto;overflow-x:hidden;padding-right:6px;scrollbar-width:thin;scroll-behavior:smooth;scrollbar-gutter:stable;overscroll-behavior:contain;border-radius:16px}
+  .transcript-list-vtt::-webkit-scrollbar{width:10px}
+  .transcript-list-vtt::-webkit-scrollbar-track{background:#f5efe0;border-radius:999px}
+  .transcript-list-vtt::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#efb519,#c67a00);border-radius:999px;border:2px solid #f5efe0}
+  .transcript-item-vtt{width:100%;display:grid;grid-template-columns:58px minmax(0,1fr) 56px;gap:12px;align-items:center;border:1px solid #ead9a5;border-radius:18px;background:#fff;padding:12px 14px;text-align:left;color:inherit;transition:.18s;box-shadow:0 8px 18px rgba(125,80,0,.05)}
+  .transcript-item-vtt:hover{transform:translateY(-1px);background:#fffaf0;border-color:#deb34a;box-shadow:0 12px 22px rgba(125,80,0,.09)}.transcript-item-vtt.active{border-color:#d39000;background:#fff2bd;box-shadow:0 0 0 3px rgba(211,144,0,.12)}
+  .transcript-time{font-size:11px;font-weight:900;color:#9b6a19;padding-top:0}.transcript-han{font-size:19px;font-weight:850;line-height:1.45;color:#223550}.transcript-py{margin-top:3px;color:#9a6100;font-size:13px;font-weight:700;line-height:1.45}.transcript-vi{margin-top:3px;color:#64748b;font-size:13px;line-height:1.5}.transcript-play{display:grid;place-items:center;width:42px;height:42px;border:0;border-radius:14px;background:linear-gradient(135deg,#66b2ff,#377dff);color:#fff;font-size:15px;font-weight:900;box-shadow:0 10px 20px rgba(55,125,255,.22);justify-self:end;transition:.18s}
+  .transcript-play:hover{transform:translateY(-1px) scale(1.03);box-shadow:0 14px 24px rgba(55,125,255,.28)}
   .pinyin-off .transcript-py,.pinyin-off .now-playing-py,.pinyin-off .focus-py{display:none}.meaning-off .transcript-vi,.meaning-off .now-playing-vi,.meaning-off .focus-vi{display:none}
   .practice-focus-card{border:1px solid #e8c967;border-radius:20px;background:#fff;padding:15px;box-shadow:0 13px 28px rgba(89,58,10,.08)}
   .practice-focus-head{display:flex;align-items:center;justify-content:space-between;gap:9px;margin-bottom:13px}.practice-focus-head b{color:#704400}.practice-focus-head span{border-radius:999px;background:#fff3c9;color:#8b5600;padding:5px 9px;font-size:10px;font-weight:850}
@@ -995,8 +998,8 @@
   .shadow-tips{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:13px 0}.shadow-tip{border-radius:12px;background:#fff8dc;padding:8px;color:#74501b;font-size:10px;line-height:1.45}.shadow-tip b{display:block;margin-bottom:2px;color:#9a5d00}
   .shadow-record-row{display:flex;align-items:center;justify-content:center;gap:7px;flex-wrap:wrap;margin-top:12px}.shadow-record-row .speech-tool{font-size:11px}.shadow-score{min-width:66px}
   .empty-listening{padding:28px 16px;text-align:center;border:1px dashed #d9b24b;border-radius:17px;background:#fffaf0;color:#7a5a26;line-height:1.65}
-  @media(max-width:820px){.listening-mode-tabs{position:sticky;top:58px;z-index:4}.transcript-list-vtt{max-height:none}.shadow-tips{grid-template-columns:1fr}.transcript-item-vtt{grid-template-columns:48px minmax(0,1fr) auto}}
-  @media(max-width:560px){.listening-mode-btn{font-size:11px;padding:9px 5px}.transcript-item-vtt{grid-template-columns:1fr auto}.transcript-time{grid-column:1/-1;padding:0}.transcript-han{font-size:18px}.listen-orb{width:78px;height:78px}.dictation-vtt-row{display:grid}.dictation-vtt-check{min-height:42px}.practice-nav-row{grid-template-columns:1fr 1fr}.practice-nav-count{grid-column:1/-1;grid-row:1}.now-playing-han{font-size:22px}}
+  @media(max-width:820px){.listening-mode-tabs{position:sticky;top:58px;z-index:4}.transcript-list-vtt{max-height:420px}.shadow-tips{grid-template-columns:1fr}.transcript-item-vtt{grid-template-columns:52px minmax(0,1fr) 48px}}
+  @media(max-width:560px){.listening-mode-btn{font-size:11px;padding:9px 5px}.transcript-item-vtt{grid-template-columns:minmax(0,1fr) 48px}.transcript-time{grid-column:1/2;padding:0 0 3px}.transcript-han{font-size:18px}.listen-orb{width:78px;height:78px}.dictation-vtt-row{display:grid}.dictation-vtt-check{min-height:42px}.practice-nav-row{grid-template-columns:1fr 1fr}.practice-nav-count{grid-column:1/-1;grid-row:1}.now-playing-han{font-size:22px}}
 </style>
 
 </head>
@@ -1538,7 +1541,7 @@ function speakingHTML() {
     <div class="video-card-head"><div><span class="video-live-dot is-waiting"></span><b>${YOUTUBE_LESSON.title}</b></div><span class="video-waiting-chip">Chờ video</span></div>
     <div class="video-ratio video-placeholder">${mascot("video-placeholder-mascot","speaking")}<strong>Chưa thiết lập video</strong></div>`;
   return `<div class="panel section speaking-section">
-    <div class="section-title"><div><h2>Luyện nghe qua video</h2><p>Một file WebVTT dùng chung cho ba chế độ học, luôn đồng bộ cùng video.</p></div><span class="badge">Phụ đề · Chính tả · Shadowing</span></div>
+    <div class="section-title"><div><h2>Luyện nghe qua video</h2></div><span class="badge">Phụ đề · Chính tả · Shadowing</span></div>
     ${localFileWarning}
     <div class="video-speaking-grid">
       <section class="video-column">
@@ -1551,8 +1554,8 @@ function speakingHTML() {
           <button class="listening-mode-btn" data-listening-mode="dictation">✍️ Chép chính tả</button>
           <button class="listening-mode-btn" data-listening-mode="shadowing">🎙 Shadowing</button>
         </div>
-        <div id="listeningSourceStatus" class="listening-source-status"><span>Đang đọc file phụ đề…</span><strong>lesson1-1.vtt</strong></div>
-        <div id="listeningStage"><div class="empty-listening">Đang tải lời thoại từ WebVTT…</div></div>
+        <div id="listeningSourceStatus" class="listening-source-status" aria-hidden="true"></div>
+        <div id="listeningStage"></div>
       </section>
     </div>
     ${motivationHTML(2)}
@@ -1561,7 +1564,7 @@ function speakingHTML() {
 
 let ytPlayer=null, ytStopTimer=null, ytApiRequested=false;
 let listeningCues=[],listeningMode="subtitle",listeningIndex=0,listeningSyncTimer=null,listeningPinyin=true,listeningMeaning=true,listeningRepeatToken=0;
-const listeningDictationAnswers=new Map(),listeningDictationStatus=new Map(),listeningDictationAwarded=new Set();
+const listeningDictationAnswers=new Map(),listeningDictationStatus=new Map(),listeningDictationAwarded=new Set(),listeningDictationCheckedValue=new Map();
 function loadYouTubeAPI(){
   if(!String(YOUTUBE_LESSON.videoId||'').trim())return;
   if(window.YT?.Player){initYouTubePlayer();return;}
@@ -1656,7 +1659,7 @@ function playListeningCue(index=listeningIndex,rate=1,onEnd){
   listeningIndex=index;
   ytPlayer?.setPlaybackRate?.(rate);
   const ok=playVideoSegment(cue.start,Math.max(cue.start+.25,cue.end-.03),onEnd);
-  if(!ok){const status=document.getElementById('listeningSourceStatus');if(status){status.classList.add('error');status.querySelector('span').textContent='Video chưa sẵn sàng. Hãy chờ một chút rồi bấm lại.';}}
+  if(!ok){const status=document.getElementById('listeningSourceStatus');if(status){status.classList.add('error');status.textContent='';}}
 }
 function repeatListeningCue(index,count=3,rate=.85){
   const token=++listeningRepeatToken;let remaining=Math.max(1,count);
@@ -1672,6 +1675,7 @@ function renderListeningMode(){
   else if(listeningMode==='dictation')renderDictationMode(stage);
   else renderShadowingMode(stage);
   bindListeningModeActions();
+  if(listeningMode==='dictation')setTimeout(()=>document.getElementById('vttDictationInput')?.focus(),0);
 }
 function visibilityButtons(){return `<div class="listening-toolbar-right"><button class="listening-small-btn ${listeningPinyin?'primary':''}" data-listening-toggle="pinyin">${listeningPinyin?'Ẩn':'Hiện'} Pinyin</button><button class="listening-small-btn ${listeningMeaning?'primary':''}" data-listening-toggle="meaning">${listeningMeaning?'Ẩn':'Hiện'} nghĩa</button></div>`}
 function cueTextHTML(cue,prefix='transcript'){
@@ -1680,14 +1684,14 @@ function cueTextHTML(cue,prefix='transcript'){
 function renderSubtitleMode(stage){
   const cue=currentListeningCue();
   stage.innerHTML=`<div class="listening-toolbar"><div class="listening-toolbar-left"><button class="listening-small-btn primary" data-listening-full>▶ Phát toàn bộ</button><span class="badge">${listeningCues.length} câu</span></div>${visibilityButtons()}</div>
-    <div id="listeningNow" class="now-playing-card"><div class="now-playing-label">Câu đang phát · ${formatListeningTime(cue.start)}</div>${cueTextHTML(cue,'now-playing')}</div>
+    <div id="listeningNow" class="now-playing-card">${cueTextHTML(cue,'now-playing')}</div>
     <div id="vttTranscriptList" class="transcript-list-vtt">${listeningCues.map((item,index)=>`<button type="button" class="transcript-item-vtt ${index===listeningIndex?'active':''}" data-listening-index="${index}"><span class="transcript-time">${formatListeningTime(item.start)}</span><span>${cueTextHTML(item,'transcript')}</span><span class="transcript-play">▶</span></button>`).join('')}</div>`;
 }
 function renderDictationMode(stage){
   const cue=currentListeningCue(),saved=listeningDictationAnswers.get(listeningIndex)||'',stateText=listeningDictationStatus.get(listeningIndex)||'';
   stage.innerHTML=`<div class="listening-toolbar"><div class="listening-toolbar-left"><span class="badge">Chỉ nghe, không nhìn đáp án</span></div></div>
     <div class="practice-focus-card">
-      <div class="practice-focus-head"><b>Chép chính tả</b><span>${formatListeningTime(cue.start)}–${formatListeningTime(cue.end)}</span></div>
+      <div class="practice-focus-head"><b>Chép chính tả</b></div>
       <button class="listen-orb" data-listening-play="1" aria-label="Nghe câu">▶</button>
       <div class="dictation-instruction">Nghe câu, sau đó nhập lại bằng chữ Hán. Hệ thống bỏ qua dấu câu khi kiểm tra.</div>
       <div class="dictation-vtt-row"><input id="vttDictationInput" class="dictation-vtt-input cn" value="${escapeHTML(saved)}" autocomplete="off" placeholder="Nhập câu bạn nghe được…"><button class="dictation-vtt-check" data-vtt-check>Kiểm tra</button></div>
@@ -1701,7 +1705,7 @@ function renderShadowingMode(stage){
   const cue=currentListeningCue(),record=roleRecordings.get(`0-${listeningIndex}`),saved=state.roleScores[`0-${listeningIndex}`]||0;
   stage.innerHTML=`<div class="listening-toolbar"><div class="listening-toolbar-left"><span class="badge">Nghe → nhắc lại → ghi âm</span></div>${visibilityButtons()}</div>
     <div class="practice-focus-card shadow-focus">
-      <div class="practice-focus-head"><b>Shadowing câu ${listeningIndex+1}</b><span>${formatListeningTime(cue.start)}–${formatListeningTime(cue.end)}</span></div>
+      <div class="practice-focus-head"><b>Shadowing câu ${listeningIndex+1}</b></div>
       ${cueTextHTML(cue,'focus')}
       <div class="shadow-tips"><div class="shadow-tip"><b>Bước 1</b>Nghe mẫu ở tốc độ thường.</div><div class="shadow-tip"><b>Bước 2</b>Nói đuổi theo, chậm hơn khoảng một nhịp.</div><div class="shadow-tip"><b>Bước 3</b>Ghi âm và nghe lại giọng của mình.</div></div>
       <div class="practice-action-row"><button class="primary" data-listening-play="1">▶ Nghe mẫu</button><button data-listening-slow>🐢 0,75×</button><button data-shadow-repeat="3">🔁 Lặp 3 lần</button></div>
@@ -1723,17 +1727,37 @@ function bindListeningModeActions(){
   document.querySelectorAll('[data-role-mic]').forEach(button=>button.onclick=()=>{const idx=Number(button.dataset.roleMic);if(activeRoleSession?.lineIndex===idx){stopRoleSession();return;}startRoleRecording(idx,button.dataset.expected);});
   document.querySelectorAll('[data-role-play]').forEach(button=>button.onclick=()=>{const url=roleRecordings.get(`0-${button.dataset.rolePlay}`);if(url)new Audio(url).play().catch(()=>{});});
   const input=document.getElementById('vttDictationInput');
-  input?.addEventListener('input',()=>listeningDictationAnswers.set(listeningIndex,input.value));
+  input?.addEventListener('input',()=>{
+    listeningDictationAnswers.set(listeningIndex,input.value);
+    if(listeningDictationCheckedValue.get(listeningIndex)!==input.value){
+      listeningDictationStatus.delete(listeningIndex);
+    }
+  });
   const check=()=>{
     const cue=currentListeningCue(),value=String(input?.value||'').trim(),result=document.getElementById('vttDictationResult');
-    if(!value){result.className='dictation-vtt-result bad';result.textContent='Hãy nghe và nhập câu trước khi kiểm tra.';input?.focus();return;}
+    if(!value){result.className='dictation-vtt-result bad';result.textContent='Hãy nghe và nhập câu trước khi kiểm tra.';input?.focus();return false;}
     const ok=cleanZh(value)===cleanZh(cue.han);
     const message=ok?'✓ Chính xác! Bạn đã chép đúng câu.':`Chưa khớp. Đáp án đúng: ${cue.han}`;
-    listeningDictationStatus.set(listeningIndex,message);result.className=`dictation-vtt-result ${ok?'ok':'bad'}`;result.innerHTML=ok?'✓ Chính xác! Bạn đã chép đúng câu.':`Chưa khớp. Đáp án đúng: <b class="cn">${escapeHTML(cue.han)}</b>`;
+    listeningDictationStatus.set(listeningIndex,message);
+    listeningDictationCheckedValue.set(listeningIndex,input.value);
+    result.className=`dictation-vtt-result ${ok?'ok':'bad'}`;result.innerHTML=ok?'✓ Chính xác! Bạn đã chép đúng câu.':`Chưa khớp. Đáp án đúng: <b class="cn">${escapeHTML(cue.han)}</b>`;
     if(ok&&!listeningDictationAwarded.has(listeningIndex)){listeningDictationAwarded.add(listeningIndex);addScore(5);}answerFeedback(ok);
+    return true;
   };
   document.querySelector('[data-vtt-check]')?.addEventListener('click',check);
-  input?.addEventListener('keydown',event=>{if(event.key==='Enter'&&!event.isComposing&&event.keyCode!==229){event.preventDefault();check();}});
+  input?.addEventListener('keydown',event=>{
+    if(event.key==='Enter'&&!event.isComposing&&event.keyCode!==229){
+      event.preventDefault();
+      const currentValue=String(input.value||'');
+      const checkedValue=listeningDictationCheckedValue.get(listeningIndex);
+      const hasChecked=listeningDictationStatus.has(listeningIndex) && checkedValue===currentValue;
+      if(hasChecked && listeningIndex<listeningCues.length-1){
+        setListeningIndex(listeningIndex+1);
+        return;
+      }
+      check();
+    }
+  });
   document.querySelector('[data-vtt-hint]')?.addEventListener('click',()=>document.getElementById('vttDictationHint')?.classList.toggle('show'));
   document.querySelector('[data-vtt-reveal]')?.addEventListener('click',()=>{const cue=currentListeningCue(),result=document.getElementById('vttDictationResult');result.className='dictation-vtt-result';result.innerHTML=`Đáp án: <b class="cn">${escapeHTML(cue.han)}</b>`;});
 }
@@ -1745,8 +1769,20 @@ function syncListeningSubtitle(){
   listeningIndex=index;
   document.querySelectorAll('[data-listening-index]').forEach((row,i)=>row.classList.toggle('active',i===index));
   const cue=listeningCues[index],now=document.getElementById('listeningNow');
-  if(now)now.innerHTML=`<div class="now-playing-label">Câu đang phát · ${formatListeningTime(cue.start)}</div>${cueTextHTML(cue,'now-playing')}`;
-  document.querySelector(`[data-listening-index="${index}"]`)?.scrollIntoView({behavior:'smooth',block:'nearest'});
+  if(now)now.innerHTML=`${cueTextHTML(cue,'now-playing')}`;
+  const list=document.getElementById('vttTranscriptList');
+  const activeRow=document.querySelector(`[data-listening-index="${index}"]`);
+  if(list&&activeRow){
+    const rowTop=activeRow.offsetTop;
+    const rowBottom=rowTop+activeRow.offsetHeight;
+    const viewTop=list.scrollTop;
+    const viewBottom=viewTop+list.clientHeight;
+    if(rowTop<viewTop+8){
+      list.scrollTo({top:Math.max(0,rowTop-8),behavior:'smooth'});
+    }else if(rowBottom>viewBottom-8){
+      list.scrollTo({top:rowBottom-list.clientHeight+8,behavior:'smooth'});
+    }
+  }
 }
 
 async function bindSpeaking() {
@@ -1774,9 +1810,7 @@ async function bindSpeaking() {
   const status=document.getElementById('listeningSourceStatus');
   if(status){
     status.className=`listening-source-status ${loaded.fallback?'fallback':''}`;
-    status.innerHTML=loaded.fallback
-      ? `<span>Không đọc được file ngoài; đang dùng dữ liệu dự phòng trong HTML.</span><strong>${listeningCues.length} câu</strong>`
-      : `<span>Đã đọc WebVTT: <b>${escapeHTML(loaded.path)}</b></span><strong>${listeningCues.length} câu</strong>`;
+    status.innerHTML='';
   }
   renderListeningMode();
   listeningSyncTimer=setInterval(syncListeningSubtitle,140);
