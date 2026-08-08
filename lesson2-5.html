@@ -692,7 +692,7 @@ const LESSON = {
         },
         {
           "who": "B",
-          "han": "这两天有点儿累，不去打球了。",
+          "han": "这两天我有点儿累，不去打球了。",
           "py": "Zhè liǎng tiān yǒudiǎnr lèi, bú qù dǎ qiú le.",
           "vi": "Hai ngày nay mình hơi mệt, không đi chơi bóng nữa."
         },
@@ -942,7 +942,7 @@ const LESSON = {
       "dir": "vi-zh",
       "prompt": "Hai ngày nay tôi hơi mệt, không đi chơi bóng nữa.",
       "answer": "这两天有点儿累不去打球了",
-      "show": "这两天有点儿累，不去打球了。"
+      "show": "这两天我有点儿累，不去打球了。"
     },
     {
       "dir": "vi-zh",
@@ -1779,6 +1779,8 @@ document.addEventListener('keydown',e=>{
 renderTabs();render();
 document.getElementById('soundToggle').onclick=()=>{soundOn=!soundOn;document.getElementById('soundToggle').textContent=soundOn?'🔊':'🔇'};
 </script>
-  <script src="hsk-cloud-bridge.js"></script>
-</body>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../supabase-config.js"></script>
+<script src="../hsk-auth.js"></script>
+<script src="../hsk-cloud-bridge.js"></script></body>
 </html>
